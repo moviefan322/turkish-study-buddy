@@ -6,6 +6,7 @@
 
 .pageCard {
   min-height: 50vh;
+  min-width: 75vw;
   border: 2px black dashed;
   background-color: rgba(243, 203, 94, 0.8);
 }
