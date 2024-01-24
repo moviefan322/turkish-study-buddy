@@ -20,7 +20,7 @@ export function presentContinuous(verb: string) {
     consonants.includes(lastLetter)
   ) {
     return verb + "ing";
-  } else if (lastLetter === "e") {
+  } else if (lastLetter === "e" && verb !== "be") {
     return verb.slice(0, -1) + "ing";
   } else if (lastLetter === "y" || lastLetter === "w") {
     return verb + "ing";
@@ -73,6 +73,46 @@ export function presentContinuousSentence(verb: string, pronoun: string) {
   return `${finalPronoun} ${conjugatedVerb} ${presentContinuous(verb)}`;
 }
 
+export function presentContinuousInterrogativeSentence(verb: string, pronoun: string) {
+  let finalPronoun = pronoun;
+  let conjugatedVerb = "";
+  let heSheItRand = "";
+
+  if (pronoun === "s/he/it") {
+    heSheItRand = Math.random() < 0.5 ? "he" : "she";
+    finalPronoun = heSheItRand;
+  }
+
+  switch (finalPronoun) {
+    case "I":
+      conjugatedVerb = "am";
+      break;
+    case "you":
+      conjugatedVerb = "are";
+      break;
+    case "he":
+      conjugatedVerb = "is";
+      break;
+    case "she":
+      conjugatedVerb = "is";
+      break;
+    case "it":
+      conjugatedVerb = "is";
+      break;
+    case "you (f)":
+      conjugatedVerb = "are";
+      break;
+    case "we":
+      conjugatedVerb = "are";
+      break;
+    case "they":
+      conjugatedVerb = "are";
+      break;
+  }
+  console.log("finalPronoun: " + finalPronoun, "conjugatedVerb: " + conjugatedVerb);
+  return `${conjugatedVerb} ${finalPronoun} ${presentContinuous(verb)}?`;
+}
+
 export function presentContinuousNegativeSentence(verb: string, pronoun: string) {
   let finalPronoun = pronoun;
   let conjugatedVerb = "";
@@ -111,6 +151,46 @@ export function presentContinuousNegativeSentence(verb: string, pronoun: string)
   }
   console.log("finalPronoun: " + finalPronoun, "conjugatedVerb: " + conjugatedVerb);
   return `${finalPronoun} ${conjugatedVerb} ${presentContinuous(verb)}`;
+}
+
+export function presentContinuousNegativeInterrogativeSentence(verb: string, pronoun: string) {
+  let finalPronoun = pronoun;
+  let conjugatedVerb = "";
+  let heSheItRand = "";
+
+  if (pronoun === "s/he/it") {
+    heSheItRand = Math.random() < 0.5 ? "he" : "she";
+    finalPronoun = heSheItRand;
+  }
+
+  switch (finalPronoun) {
+    case "I":
+      conjugatedVerb = "aren't";
+      break;
+    case "you":
+      conjugatedVerb = "aren't";
+      break;
+    case "he":
+      conjugatedVerb = "isn't";
+      break;
+    case "she":
+      conjugatedVerb = "isn't";
+      break;
+    case "it":
+      conjugatedVerb = "isn't";
+      break;
+    case "you (f)":
+      conjugatedVerb = "aren't";
+      break;
+    case "we":
+      conjugatedVerb = "aren't";
+      break;
+    case "they":
+      conjugatedVerb = "aren't";
+      break;
+  }
+  console.log("finalPronoun: " + finalPronoun, "conjugatedVerb: " + conjugatedVerb);
+  return `${conjugatedVerb} ${finalPronoun} ${presentContinuous(verb)}?`;
 }
 
 export function getVerbStem(verb: string) {

@@ -7,6 +7,8 @@ import {
   getVerbStem,
   presentContinuousSentence,
   presentContinuousNegativeSentence,
+  presentContinuousInterrogativeSentence,
+  presentContinuousNegativeInterrogativeSentence,
 } from "./presentContinuous";
 
 describe("presentContinuous", () => {
@@ -44,95 +46,153 @@ describe("presentContinuous", () => {
 
 describe("presentContinuousSentence", () => {
   test("handles first person (I)", () => {
-    const sentence = presentContinuousSentence("run", "I");
-    expect(sentence).toBe("I am running");
+    expect(presentContinuousSentence("run", "I")).toBe("I am running");
   });
 
   test("handles second person (you)", () => {
-    const sentence = presentContinuousSentence("eat", "you");
-    expect(sentence).toBe("you are eating");
+    expect(presentContinuousSentence("eat", "you")).toBe("you are eating");
   });
 
   test("handles third person (he)", () => {
-    const sentence = presentContinuousSentence("write", "he");
-    expect(sentence).toBe("he is writing");
+    expect(presentContinuousSentence("write", "he")).toBe("he is writing");
   });
 
   test("handles third person (she)", () => {
-    const sentence = presentContinuousSentence("sing", "she");
-    expect(sentence).toBe("she is singing");
+    expect(presentContinuousSentence("sing", "she")).toBe("she is singing");
   });
 
   test("handles third person (it)", () => {
-    const sentence = presentContinuousSentence("paint", "it");
-    expect(sentence).toBe("it is painting");
+    expect(presentContinuousSentence("paint", "it")).toBe("it is painting");
   });
 
   test("handles second person (you-f)", () => {
-    const sentence = presentContinuousSentence("read", "you (f)");
-    expect(sentence).toBe("you (f) are reading");
+    expect(presentContinuousSentence("read", "you (f)")).toBe("you (f) are reading");
   });
 
   test("handles first person plural (we)", () => {
-    const sentence = presentContinuousSentence("swim", "we");
-    expect(sentence).toBe("we are swimming");
+    expect(presentContinuousSentence("swim", "we")).toBe("we are swimming");
   });
 
   test("handles third person plural (they)", () => {
-    const sentence = presentContinuousSentence("dance", "they");
-    expect(sentence).toBe("they are dancing");
+    expect(presentContinuousSentence("dance", "they")).toBe("they are dancing");
   });
 
   test("handles random he/she/it", () => {
-    const sentence = presentContinuousSentence("jump", "s/he/it");
-    expect(sentence).not.toBe("");
+    expect(presentContinuousSentence("jump", "s/he/it")).not.toBe("");
   });
 });
 
 describe("presentContinuousNegativeSentence", () => {
   test("handles first person (I)", () => {
-    const sentence = presentContinuousNegativeSentence("run", "I");
-    expect(sentence).toBe("I am not running");
+    expect(presentContinuousNegativeSentence("run", "I")).toBe("I am not running");
   });
 
   test("handles second person (you)", () => {
-    const sentence = presentContinuousNegativeSentence("eat", "you");
-    expect(sentence).toBe("you aren't eating");
+    expect(presentContinuousNegativeSentence("eat", "you")).toBe("you aren't eating");
   });
 
   test("handles third person (he)", () => {
-    const sentence = presentContinuousNegativeSentence("write", "he");
-    expect(sentence).toBe("he isn't writing");
+    expect(presentContinuousNegativeSentence("write", "he")).toBe("he isn't writing");
   });
 
   test("handles third person (she)", () => {
-    const sentence = presentContinuousNegativeSentence("sing", "she");
-    expect(sentence).toBe("she isn't singing");
+    expect(presentContinuousNegativeSentence("sing", "she")).toBe("she isn't singing");
   });
 
   test("handles third person (it)", () => {
-    const sentence = presentContinuousNegativeSentence("paint", "it");
-    expect(sentence).toBe("it isn't painting");
+    expect(presentContinuousNegativeSentence("paint", "it")).toBe("it isn't painting");
   });
 
   test("handles second person (you-f)", () => {
-    const sentence = presentContinuousNegativeSentence("read", "you (f)");
-    expect(sentence).toBe("you (f) aren't reading");
+    expect(presentContinuousNegativeSentence("read", "you (f)")).toBe("you (f) aren't reading");
   });
 
   test("handles first person plural (we)", () => {
-    const sentence = presentContinuousNegativeSentence("swim", "we");
-    expect(sentence).toBe("we aren't swimming");
+    expect(presentContinuousNegativeSentence("swim", "we")).toBe("we aren't swimming");
   });
 
   test("handles third person plural (they)", () => {
-    const sentence = presentContinuousNegativeSentence("dance", "they");
-    expect(sentence).toBe("they aren't dancing");
+    expect(presentContinuousNegativeSentence("dance", "they")).toBe("they aren't dancing");
   });
 
   test("handles random he/she/it", () => {
-    const sentence = presentContinuousNegativeSentence("jump", "s/he/it");
-    expect(sentence).not.toBe("");
+    expect(presentContinuousNegativeSentence("jump", "s/he/it")).not.toBe("");
+  });
+});
+
+describe("presentContinuousInterrogativeSentence", () => {
+  test("handles first person (I)", () => {
+    expect(presentContinuousInterrogativeSentence("run", "I")).toBe("am I running?");
+  });
+
+  test("handles second person (you)", () => {
+    expect(presentContinuousInterrogativeSentence("eat", "you")).toBe("are you eating?");
+  });
+
+  test("handles third person (he)", () => {
+    expect(presentContinuousInterrogativeSentence("write", "he")).toBe("is he writing?");
+  });
+
+  test("handles third person (she)", () => {
+    expect(presentContinuousInterrogativeSentence("sing", "she")).toBe("is she singing?");
+  });
+
+  test("handles third person (it)", () => {
+    expect(presentContinuousInterrogativeSentence("paint", "it")).toBe("is it painting?");
+  });
+
+  test("handles second person (you-f)", () => {
+    expect(presentContinuousInterrogativeSentence("read", "you (f)")).toBe("are you (f) reading?");
+  });
+
+  test("handles first person plural (we)", () => {
+    expect(presentContinuousInterrogativeSentence("swim", "we")).toBe("are we swimming?");
+  });
+
+  test("handles third person plural (they)", () => {
+    expect(presentContinuousInterrogativeSentence("dance", "they")).toBe("are they dancing?");
+  });
+
+  test("handles random he/she/it", () => {
+    expect(presentContinuousInterrogativeSentence("jump", "s/he/it")).not.toBe("");
+  });
+});
+
+describe("presentContinuousNegativeInterrogativeSentence", () => {
+  test("handles first person (I)", () => {
+    expect(presentContinuousNegativeInterrogativeSentence("run", "I")).toBe("aren't I running?");
+  });
+
+  test("handles second person (you)", () => {
+    expect(presentContinuousNegativeInterrogativeSentence("eat", "you")).toBe("aren't you eating?");
+  });
+
+  test("handles third person (he)", () => {
+    expect(presentContinuousNegativeInterrogativeSentence("write", "he")).toBe("isn't he writing?");
+  });
+
+  test("handles third person (she)", () => {
+    expect(presentContinuousNegativeInterrogativeSentence("sing", "she")).toBe("isn't she singing?");
+  });
+
+  test("handles third person (it)", () => {
+    expect(presentContinuousNegativeInterrogativeSentence("paint", "it")).toBe("isn't it painting?");
+  });
+
+  test("handles second person (you-f)", () => {
+    expect(presentContinuousNegativeInterrogativeSentence("read", "you (f)")).toBe("aren't you (f) reading?");
+  });
+
+  test("handles first person plural (we)", () => {
+    expect(presentContinuousNegativeInterrogativeSentence("swim", "we")).toBe("aren't we swimming?");
+  });
+
+  test("handles third person plural (they)", () => {
+    expect(presentContinuousNegativeInterrogativeSentence("dance", "they")).toBe("aren't they dancing?");
+  });
+
+  test("handles random he/she/it", () => {
+    expect(presentContinuousNegativeInterrogativeSentence("jump", "s/he/it")).not.toBe("");
   });
 });
 
