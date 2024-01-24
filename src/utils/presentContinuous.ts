@@ -8,10 +8,15 @@ export function presentContinuous(verb: string) {
   const verbMinusTo = verb.split("to ")[1];
   const lastLetter = verb[verb.length - 1];
   const secondToLastLetter = verb[verb.length - 2];
+  const thirdToLastLetter = verb[verb.length - 3];
   const lastTwoLetters = secondToLastLetter + lastLetter;
 
   if (lastTwoLetters === "ie") {
     return verbMinusTo.slice(0, -2) + "ying";
+  } else if (lastTwoLetters === "ee") {
+    return verbMinusTo.slice(0, -2) + "eeing";
+  } else if (vowels.includes(secondToLastLetter) && vowels.includes(thirdToLastLetter) && consonants.includes(lastLetter)) {
+    return verbMinusTo + "ing";
   } else if (lastLetter === "e") {
     return verbMinusTo.slice(0, -1) + "ing";
   } else if (lastLetter === "y" || lastLetter === "w") {
@@ -31,11 +36,11 @@ export function presentContinuousSentence(verb: string, pronoun: string) {
   let heSheItRand = "";
 
   if (pronoun === "s/he/it") {
-    heSheItRand = Math.random() < 0.5 ? "He" : "She";
+    heSheItRand = Math.random() < 0.5 ? "he" : "she";
     finalPronoun = heSheItRand;
   }
 
-  switch (pronoun) {
+  switch (finalPronoun) {
     case "I":
       conjugatedVerb = "am";
       break;
