@@ -1,4 +1,7 @@
-import { presentContinuous } from "./presentContinuous";
+import {
+  presentContinuous,
+  presentContinuousSentence,
+} from "./presentContinuous";
 
 describe("presentContinuous", () => {
   test('converts verbs ending in "ie" to "ying"', () => {
@@ -13,7 +16,33 @@ describe("presentContinuous", () => {
     expect(presentContinuous("cry")).toBe("crying");
   });
 
+  test('converts verbs ending in vowel+consonant to v+c+c+"ing"', () => {
+    expect(presentContinuous("run")).toBe("running");
+    expect(presentContinuous("sit")).toBe("sitting");
+    expect(presentContinuous("stab")).toBe("stabbing");
+  });
+
+  test('converts verbs ending in "vowel + y"/vowel + w to "ing"', () => {
+    expect(presentContinuous("stay")).toBe("staying");
+    expect(presentContinuous("show")).toBe("showing");
+  });
+
+  test('converts verbs ending in "c" to "cking"', () => {
+    expect(presentContinuous("picnic")).toBe("picnicking");
+  });
+
+  // test('Does not double the letter if the word has two or more syllables and the last part is not stressed"', () => {
+  //   expect(presentContinuous("benefit")).toBe("benefiting");
+  //   expect(presentContinuous("visit")).toBe("visiting");
+  // });
+
   test("handles other verbs correctly", () => {
-    expect(presentContinuous("run")).toBe("runing");
+    expect(presentContinuous("fuck")).toBe("fucking");
   });
 });
+
+// describe("presentContinuousSentence", () => {
+//   test("handles [I, am] and jog", () => {
+//     expect(presentContinuousSentence("")).toBe("");
+//   });
+// });
