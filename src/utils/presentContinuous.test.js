@@ -1,6 +1,7 @@
 import {
   presentContinuous,
   conjugateTurkishVerb,
+  conjugateTurkishVerbInterrogative,
   getVerbStem,
 } from "./presentContinuous";
 
@@ -151,5 +152,109 @@ describe("conjugateTurkishVerb", () => {
     expect(conjugateTurkishVerb("etmek", "Onlar")).toBe("ediyor(lar)");
     expect(conjugateTurkishVerb("tatmek", "Onlar")).toBe("tadıyor(lar)");
     expect(conjugateTurkishVerb("seyretmek", "Onlar")).toBe("seyrediyor(lar)");
+  });
+});
+
+describe("conjugateTurkishVerbInterrogative", () => {
+  test("conjugates properly for ben", () => {
+    expect(conjugateTurkishVerbInterrogative("yapmak", "Ben")).toBe("yapıyor muyum");
+    expect(conjugateTurkishVerbInterrogative("çalışmak", "Ben")).toBe("çalışıyor muyum");
+    expect(conjugateTurkishVerbInterrogative("vermek", "Ben")).toBe("veriyor muyum");
+    expect(conjugateTurkishVerbInterrogative("bilmek", "Ben")).toBe("biliyor muyum");
+    expect(conjugateTurkishVerbInterrogative("düşünmek", "Ben")).toBe("düşünüyor muyum");
+    expect(conjugateTurkishVerbInterrogative("görmek", "Ben")).toBe("görüyor muyum");
+    expect(conjugateTurkishVerbInterrogative("istemek", "Ben")).toBe("istiyor muyum");
+    expect(conjugateTurkishVerbInterrogative("ödemek", "Ben")).toBe("ödüyor muyum");
+    expect(conjugateTurkishVerbInterrogative("yemek", "Ben")).toBe("yiyor muyum");
+    expect(conjugateTurkishVerbInterrogative("demek", "Ben")).toBe("diyor muyum");
+    expect(conjugateTurkishVerbInterrogative("gitmek", "Ben")).toBe("gidiyor muyum");
+    expect(conjugateTurkishVerbInterrogative("etmek", "Ben")).toBe("ediyor muyum");
+    expect(conjugateTurkishVerbInterrogative("tatmek", "Ben")).toBe("tadıyor muyum");
+    expect(conjugateTurkishVerbInterrogative("seyretmek", "Ben")).toBe("seyrediyor muyum");
+  });
+
+  test("conjugates properly for sen", () => {
+    expect(conjugateTurkishVerbInterrogative("yapmak", "Sen")).toBe("yapıyor musun");
+    expect(conjugateTurkishVerbInterrogative("çalışmak", "Sen")).toBe("çalışıyor musun");
+    expect(conjugateTurkishVerbInterrogative("vermek", "Sen")).toBe("veriyor musun");
+    expect(conjugateTurkishVerbInterrogative("bilmek", "Sen")).toBe("biliyor musun");
+    expect(conjugateTurkishVerbInterrogative("düşünmek", "Sen")).toBe("düşünüyor musun");
+    expect(conjugateTurkishVerbInterrogative("görmek", "Sen")).toBe("görüyor musun");
+    expect(conjugateTurkishVerbInterrogative("istemek", "Sen")).toBe("istiyor musun");
+    expect(conjugateTurkishVerbInterrogative("ödemek", "Sen")).toBe("ödüyor musun");
+    expect(conjugateTurkishVerbInterrogative("yemek", "Sen")).toBe("yiyor musun");
+    expect(conjugateTurkishVerbInterrogative("demek", "Sen")).toBe("diyor musun");
+    expect(conjugateTurkishVerbInterrogative("gitmek", "Sen")).toBe("gidiyor musun");
+    expect(conjugateTurkishVerbInterrogative("etmek", "Sen")).toBe("ediyor musun");
+    expect(conjugateTurkishVerbInterrogative("tatmek", "Sen")).toBe("tadıyor musun");
+    expect(conjugateTurkishVerbInterrogative("seyretmek", "Sen")).toBe("seyrediyor musun");
+  });
+
+  test("conjugates properly for O", () => {
+    expect(conjugateTurkishVerbInterrogative("yapmak", "O")).toBe("yapıyor mu");
+    expect(conjugateTurkishVerbInterrogative("çalışmak", "O")).toBe("çalışıyor mu");
+    expect(conjugateTurkishVerbInterrogative("vermek", "O")).toBe("veriyor mu");
+    expect(conjugateTurkishVerbInterrogative("bilmek", "O")).toBe("biliyor mu");
+    expect(conjugateTurkishVerbInterrogative("düşünmek", "O")).toBe("düşünüyor mu");
+    expect(conjugateTurkishVerbInterrogative("görmek", "O")).toBe("görüyor mu");
+    expect(conjugateTurkishVerbInterrogative("istemek", "O")).toBe("istiyor mu");
+    expect(conjugateTurkishVerbInterrogative("ödemek", "O")).toBe("ödüyor mu");
+    expect(conjugateTurkishVerbInterrogative("yemek", "O")).toBe("yiyor mu");
+    expect(conjugateTurkishVerbInterrogative("demek", "O")).toBe("diyor mu");
+    expect(conjugateTurkishVerbInterrogative("gitmek", "O")).toBe("gidiyor mu");
+    expect(conjugateTurkishVerbInterrogative("etmek", "O")).toBe("ediyor mu");
+    expect(conjugateTurkishVerbInterrogative("tatmek", "O")).toBe("tadıyor mu");
+    expect(conjugateTurkishVerbInterrogative("seyretmek", "O")).toBe("seyrediyor mu");
+  });
+
+  test("conjugates properly for Biz", () => {
+    expect(conjugateTurkishVerbInterrogative("yapmak", "Biz")).toBe("yapıyor muyuz");
+    expect(conjugateTurkishVerbInterrogative("çalışmak", "Biz")).toBe("çalışıyor muyuz");
+    expect(conjugateTurkishVerbInterrogative("vermek", "Biz")).toBe("veriyor muyuz");
+    expect(conjugateTurkishVerbInterrogative("bilmek", "Biz")).toBe("biliyor muyuz");
+    expect(conjugateTurkishVerbInterrogative("düşünmek", "Biz")).toBe("düşünüyor muyuz");
+    expect(conjugateTurkishVerbInterrogative("görmek", "Biz")).toBe("görüyor muyuz");
+    expect(conjugateTurkishVerbInterrogative("istemek", "Biz")).toBe("istiyor muyuz");
+    expect(conjugateTurkishVerbInterrogative("ödemek", "Biz")).toBe("ödüyor muyuz");
+    expect(conjugateTurkishVerbInterrogative("yemek", "Biz")).toBe("yiyor muyuz");
+    expect(conjugateTurkishVerbInterrogative("demek", "Biz")).toBe("diyor muyuz");
+    expect(conjugateTurkishVerbInterrogative("gitmek", "Biz")).toBe("gidiyor muyuz");
+    expect(conjugateTurkishVerbInterrogative("etmek", "Biz")).toBe("ediyor muyuz");
+    expect(conjugateTurkishVerbInterrogative("tatmek", "Biz")).toBe("tadıyor muyuz");
+    expect(conjugateTurkishVerbInterrogative("seyretmek", "Biz")).toBe("seyrediyor muyuz");
+  });
+
+  test("conjugates properly for Siz", () => {
+    expect(conjugateTurkishVerbInterrogative("yapmak", "Siz")).toBe("yapıyor musunuz");
+    expect(conjugateTurkishVerbInterrogative("çalışmak", "Siz")).toBe("çalışıyor musunuz");
+    expect(conjugateTurkishVerbInterrogative("vermek", "Siz")).toBe("veriyor musunuz");
+    expect(conjugateTurkishVerbInterrogative("bilmek", "Siz")).toBe("biliyor musunuz");
+    expect(conjugateTurkishVerbInterrogative("düşünmek", "Siz")).toBe("düşünüyor musunuz");
+    expect(conjugateTurkishVerbInterrogative("görmek", "Siz")).toBe("görüyor musunuz");
+    expect(conjugateTurkishVerbInterrogative("istemek", "Siz")).toBe("istiyor musunuz");
+    expect(conjugateTurkishVerbInterrogative("ödemek", "Siz")).toBe("ödüyor musunuz");
+    expect(conjugateTurkishVerbInterrogative("yemek", "Siz")).toBe("yiyor musunuz");
+    expect(conjugateTurkishVerbInterrogative("demek", "Siz")).toBe("diyor musunuz");
+    expect(conjugateTurkishVerbInterrogative("gitmek", "Siz")).toBe("gidiyor musunuz");
+    expect(conjugateTurkishVerbInterrogative("etmek", "Siz")).toBe("ediyor musunuz");
+    expect(conjugateTurkishVerbInterrogative("tatmek", "Siz")).toBe("tadıyor musunuz");
+    expect(conjugateTurkishVerbInterrogative("seyretmek", "Siz")).toBe("seyrediyor musunuz");
+  });
+
+  test("conjugates properly for Onlar", () => {
+    expect(conjugateTurkishVerbInterrogative("yapmak", "Onlar")).toBe("yapıyor mu");
+    expect(conjugateTurkishVerbInterrogative("çalışmak", "Onlar")).toBe("çalışıyor mu");
+    expect(conjugateTurkishVerbInterrogative("vermek", "Onlar")).toBe("veriyor mu");
+    expect(conjugateTurkishVerbInterrogative("bilmek", "Onlar")).toBe("biliyor mu");
+    expect(conjugateTurkishVerbInterrogative("düşünmek", "Onlar")).toBe("düşünüyor mu");
+    expect(conjugateTurkishVerbInterrogative("görmek", "Onlar")).toBe("görüyor mu");
+    expect(conjugateTurkishVerbInterrogative("istemek", "Onlar")).toBe("istiyor mu");
+    expect(conjugateTurkishVerbInterrogative("ödemek", "Onlar")).toBe("ödüyor mu");
+    expect(conjugateTurkishVerbInterrogative("yemek", "Onlar")).toBe("yiyor mu");
+    expect(conjugateTurkishVerbInterrogative("demek", "Onlar")).toBe("diyor mu");
+    expect(conjugateTurkishVerbInterrogative("gitmek", "Onlar")).toBe("gidiyor mu");
+    expect(conjugateTurkishVerbInterrogative("etmek", "Onlar")).toBe("ediyor mu");
+    expect(conjugateTurkishVerbInterrogative("tatmek", "Onlar")).toBe("tadıyor mu");
+    expect(conjugateTurkishVerbInterrogative("seyretmek", "Onlar")).toBe("seyrediyor mu");
   });
 });

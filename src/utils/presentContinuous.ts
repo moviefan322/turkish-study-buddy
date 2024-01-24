@@ -184,9 +184,92 @@ export const conjugateTurkishVerb = (verb: string, pronoun: string) => {
       pronounSuffix = "(lar)";
       break;
   }
+
+  return verbStem + vowelHarmony + "yor" + pronounSuffix;
+};
+
+export const conjugateTurkishVerbInterrogative = (
+  verb: string,
+  pronoun: string
+) => {
+  // separate stem from ending
+  let verbStem = getVerbStem(verb);
+
+  if (verbStem.endsWith("t")) {
+    verbStem = verbStem.slice(0, -1) + "d";
+  }
+
+  if (verbStem.endsWith("a") || verbStem.endsWith("e")) {
+    if (verbStem === "ye" || verbStem === "de") {
+      console.log("matched ye or de");
+      verbStem = verbStem;
+    } else {
+      console.log("Slicing " + verbStem + " to " + verbStem.slice(0, -1));
+      verbStem = verbStem.slice(0, -1);
+    }
+  }
+
+  let vowelHarmony = "";
+  // remove consonants from stem
+  const vowelsInStem = verbStem.split("").filter((letter) => {
+    return turkishVowels.includes(letter);
+  });
+  const finalVowelInStem = vowelsInStem[vowelsInStem.length - 1];
+  let negativeParticle = "mu";
+  let pronounSuffix = "";
+
+  if (verbStem === "de") {
+    verbStem = "d";
+    vowelHarmony = "i";
+  } else if (verbStem === "ye") {
+    verbStem = "y";
+    vowelHarmony = "i";
+  } else if (turkishVowels.some((vowel) => verbStem.endsWith(vowel))) {
+    vowelHarmony = "";
+  } else {
+    switch (finalVowelInStem) {
+      case "a":
+      case "ı":
+        vowelHarmony = "ı";
+        break;
+      case "e":
+      case "i":
+        vowelHarmony = "i";
+        break;
+      case "o":
+      case "u":
+        vowelHarmony = "u";
+        break;
+      case "ö":
+      case "ü":
+        vowelHarmony = "ü";
+        break;
+    }
+  }
+
+  switch (pronoun) {
+    case "Ben":
+      pronounSuffix = "yum";
+      break;
+    case "Sen":
+      pronounSuffix = "sun";
+      break;
+    case "O":
+      pronounSuffix = "";
+      break;
+    case "Biz":
+      pronounSuffix = "yuz";
+      break;
+    case "Siz":
+      pronounSuffix = "sunuz";
+      break;
+    case "Onlar":
+      pronounSuffix = "";
+      break;
+  }
   console.log(
     "stem: " + verbStem,
     "vowel: " + vowelHarmony + "suffix: " + pronounSuffix
   );
-  return verbStem + vowelHarmony + "yor" + pronounSuffix;
+  return verbStem + vowelHarmony + "yor " + negativeParticle + pronounSuffix;
 };
