@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  background-color: #ff0000;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: url("../assets/svg/crescentMoon.svg");
+  background-size: cover; /* or any other sizing you prefer */
+  background-repeat: no-repeat;
+  background-position: center 20%;
+}

@@ -56,5 +56,3 @@ const verbs = [
   { english: "to continue", turkish: "devam etmek" },
   { english: "to change", turkish: "değiştirmek" },
 ];
-
-export default verbs;
