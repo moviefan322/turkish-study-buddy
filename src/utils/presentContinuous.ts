@@ -5,27 +5,61 @@ const vowels = ["a", "e", "i", "o", "u"];
 const turkishVowels = ["a", "e", "ı", "i", "o", "ö", "u", "ü"];
 
 export function presentContinuous(verb: string) {
+  const verbMinusTo = verb.split("to ")[1];
   const lastLetter = verb[verb.length - 1];
   const secondToLastLetter = verb[verb.length - 2];
   const lastTwoLetters = secondToLastLetter + lastLetter;
 
   if (lastTwoLetters === "ie") {
-    return verb.slice(0, -2) + "ying";
+    return verbMinusTo.slice(0, -2) + "ying";
   } else if (lastLetter === "e") {
-    return verb.slice(0, -1) + "ing";
+    return verbMinusTo.slice(0, -1) + "ing";
   } else if (lastLetter === "y" || lastLetter === "w") {
-    return verb + "ing";
+    return verbMinusTo + "ing";
   } else if (lastLetter === "c") {
-    return verb + "king";
+    return verbMinusTo + "king";
   } else if (consonants.includes(lastLetter) && vowels.includes(secondToLastLetter)) {
-    return verb + verb[verb.length - 1] + "ing";
+    return verbMinusTo + verbMinusTo[verbMinusTo.length - 1] + "ing";
   } else {
-    return verb + "ing";
+    return verbMinusTo + "ing";
   }
 }
 
-export function presentContinuousSentence(pronounVerbPair: string[], verb: string) {
-  return `${pronounVerbPair[0]} ${pronounVerbPair[1]} ${presentContinuous(verb)}.`;
+export function presentContinuousSentence(verb: string, pronoun: string) {
+  let finalPronoun = pronoun;
+  let conjugatedVerb = "";
+  let heSheItRand = "";
+
+  if (pronoun === "s/he/it") {
+    heSheItRand = Math.random() < 0.5 ? "He" : "She";
+    finalPronoun = heSheItRand;
+  }
+
+  switch (pronoun) {
+    case "I":
+      conjugatedVerb = "am";
+      break;
+    case "you":
+      conjugatedVerb = "are";
+      break;
+    case "he":
+      conjugatedVerb = "is";
+      break;
+    case "she":
+      conjugatedVerb = "is";
+      break;
+    case "you (f)":
+      conjugatedVerb = "are";
+      break;
+    case "we":
+      conjugatedVerb = "are";
+      break;
+    case "they":
+      conjugatedVerb = "are";
+      break;
+  }
+  console.log("finalPronoun: " + finalPronoun, "conjugatedVerb: " + conjugatedVerb);
+  return `${finalPronoun} ${conjugatedVerb} ${presentContinuous(verb)}`;
 }
 
 export function getVerbStem(verb: string) {

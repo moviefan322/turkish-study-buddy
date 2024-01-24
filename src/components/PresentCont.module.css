@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pageCard {
+  min-height: 50vh;
+  border: 2px black dashed;
+  background-color: rgba(243, 203, 94, 0.8);
+}

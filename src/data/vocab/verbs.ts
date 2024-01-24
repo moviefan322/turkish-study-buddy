@@ -1,4 +1,4 @@
-const verbs = [
+export const verbs = [
   { english: "to be", turkish: "olmak" },
   { english: "to have", turkish: "sahip olmak" },
   { english: "to do", turkish: "yapmak" },
