@@ -6,6 +6,7 @@ import {
   conjugateTurkishVerbNegativeInterrogative,
   getVerbStem,
   presentContinuousSentence,
+  presentContinuousNegativeSentence,
 } from "./presentContinuous";
 
 describe("presentContinuous", () => {
@@ -84,12 +85,55 @@ describe("presentContinuousSentence", () => {
 
   test("handles random he/she/it", () => {
     const sentence = presentContinuousSentence("jump", "s/he/it");
-    // Since 's/he/it' can be 'he' or 'she' randomly, you can't predict the exact output.
-    // You can assert that the sentence is not empty.
     expect(sentence).not.toBe("");
   });
+});
 
-  // Add more test cases with different verbs and pronouns...
+describe("presentContinuousNegativeSentence", () => {
+  test("handles first person (I)", () => {
+    const sentence = presentContinuousNegativeSentence("run", "I");
+    expect(sentence).toBe("I am not running");
+  });
+
+  test("handles second person (you)", () => {
+    const sentence = presentContinuousNegativeSentence("eat", "you");
+    expect(sentence).toBe("you aren't eating");
+  });
+
+  test("handles third person (he)", () => {
+    const sentence = presentContinuousNegativeSentence("write", "he");
+    expect(sentence).toBe("he isn't writing");
+  });
+
+  test("handles third person (she)", () => {
+    const sentence = presentContinuousNegativeSentence("sing", "she");
+    expect(sentence).toBe("she isn't singing");
+  });
+
+  test("handles third person (it)", () => {
+    const sentence = presentContinuousNegativeSentence("paint", "it");
+    expect(sentence).toBe("it isn't painting");
+  });
+
+  test("handles second person (you-f)", () => {
+    const sentence = presentContinuousNegativeSentence("read", "you (f)");
+    expect(sentence).toBe("you (f) aren't reading");
+  });
+
+  test("handles first person plural (we)", () => {
+    const sentence = presentContinuousNegativeSentence("swim", "we");
+    expect(sentence).toBe("we aren't swimming");
+  });
+
+  test("handles third person plural (they)", () => {
+    const sentence = presentContinuousNegativeSentence("dance", "they");
+    expect(sentence).toBe("they aren't dancing");
+  });
+
+  test("handles random he/she/it", () => {
+    const sentence = presentContinuousNegativeSentence("jump", "s/he/it");
+    expect(sentence).not.toBe("");
+  });
 });
 
 describe("conjugateTurkishVerb", () => {

@@ -73,6 +73,46 @@ export function presentContinuousSentence(verb: string, pronoun: string) {
   return `${finalPronoun} ${conjugatedVerb} ${presentContinuous(verb)}`;
 }
 
+export function presentContinuousNegativeSentence(verb: string, pronoun: string) {
+  let finalPronoun = pronoun;
+  let conjugatedVerb = "";
+  let heSheItRand = "";
+
+  if (pronoun === "s/he/it") {
+    heSheItRand = Math.random() < 0.5 ? "he" : "she";
+    finalPronoun = heSheItRand;
+  }
+
+  switch (finalPronoun) {
+    case "I":
+      conjugatedVerb = "am not";
+      break;
+    case "you":
+      conjugatedVerb = "aren't";
+      break;
+    case "he":
+      conjugatedVerb = "isn't";
+      break;
+    case "she":
+      conjugatedVerb = "isn't";
+      break;
+    case "it":
+      conjugatedVerb = "isn't";
+      break;
+    case "you (f)":
+      conjugatedVerb = "aren't";
+      break;
+    case "we":
+      conjugatedVerb = "aren't";
+      break;
+    case "they":
+      conjugatedVerb = "aren't";
+      break;
+  }
+  console.log("finalPronoun: " + finalPronoun, "conjugatedVerb: " + conjugatedVerb);
+  return `${finalPronoun} ${conjugatedVerb} ${presentContinuous(verb)}`;
+}
+
 export function getVerbStem(verb: string) {
   if (verb.endsWith("mak")) {
     return verb.slice(0, -3); // Remove 'mak'
