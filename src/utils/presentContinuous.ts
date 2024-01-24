@@ -1,6 +1,6 @@
 import verbs from "../data/vocab/verbs.json" assert { type: "json" };
 
-export function presentContinuous(verb) {
+export function presentContinuous(verb: string) {
   const lastLetter = verb[verb.length - 1];
   const secondToLastLetter = verb[verb.length - 2];
   const lastTwoLetters = secondToLastLetter + lastLetter;
