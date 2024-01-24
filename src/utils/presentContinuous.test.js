@@ -1,4 +1,8 @@
-import { presentContinuous, conjugateTurkishVerb } from "./presentContinuous";
+import {
+  presentContinuous,
+  conjugateTurkishVerb,
+  getVerbStem,
+} from "./presentContinuous";
 
 describe("presentContinuous", () => {
   test('converts verbs ending in "ie" to "ying"', () => {
@@ -39,7 +43,27 @@ describe("presentContinuous", () => {
 });
 
 describe("conjugateTurkishVerb", () => {
-  test("conjugates yapmak in 1st person", () => {
+  test("conjugates properly in 1st person", () => {
+    expect(getVerbStem("yapmak")).toBe("yap");
+    expect(getVerbStem("çalışmak")).toBe("çalış");
+    expect(getVerbStem("vermek")).toBe("ver");
+    expect(getVerbStem("bilmek")).toBe("bil");
+    expect(getVerbStem("düşünmek")).toBe("düşün");
+    expect(getVerbStem("görmek")).toBe("gör");
+    expect(getVerbStem("istemek")).toBe("iste");
+    expect(getVerbStem("demek")).toBe("de");
+  });
+});
+
+describe("conjugateTurkishVerb", () => {
+  test("conjugates properly in 1st person", () => {
     expect(conjugateTurkishVerb("yapmak", "Ben")).toBe("yapıyorum");
+    expect(conjugateTurkishVerb("çalışmak", "Ben")).toBe("çalışıyorum");
+    expect(conjugateTurkishVerb("vermek", "Ben")).toBe("veriyorum");
+    expect(conjugateTurkishVerb("bilmek", "Ben")).toBe("biliyorum");
+    expect(conjugateTurkishVerb("düşünmek", "Ben")).toBe("düşünüyorum");
+    expect(conjugateTurkishVerb("görmek", "Ben")).toBe("görüyorum");
+    expect(conjugateTurkishVerb("istemek", "Ben")).toBe("istiyorum");
+    expect(conjugateTurkishVerb("ödemek", "Ben")).toBe("ödüyorum");
   });
 });

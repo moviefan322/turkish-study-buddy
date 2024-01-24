@@ -100,9 +100,21 @@ export function presentContinuousSentence(
   )}.`;
 }
 
+export function getVerbStem(verb: string) {
+  if (verb.endsWith("mak")) {
+    return verb.slice(0, -3); // Remove 'mak'
+  } else if (verb.endsWith("mek")) {
+    return verb.slice(0, -3); // Remove 'mek'
+  }
+  return verb; // Return the verb as-is if no known suffix
+}
+
 export const conjugateTurkishVerb = (verb: string, pronoun: string) => {
   // separate stem from ending
-  let verbStem = verb.slice(0, -2); // remove -mak or -mek
+  let verbStem = getVerbStem(verb);
+  if (verbStem.endsWith("a") || verbStem.endsWith("e")) {
+    verbStem = verbStem.slice(0, -1);
+  }
   let vowelHarmony = "";
   // remove consonants from stem
   const vowelsInStem = verbStem.split("").filter((letter) => {
@@ -115,19 +127,20 @@ export const conjugateTurkishVerb = (verb: string, pronoun: string) => {
     vowelHarmony = "";
   } else {
     switch (finalVowelInStem) {
-      case "a" || "e":
-        verbStem = verbStem.slice(0, -1) + "ı";
-        break;
+      case "a":
       case "ı":
         vowelHarmony = "ı";
         break;
+      case "e":
       case "i":
         vowelHarmony = "i";
         break;
-      case "o" || "u":
+      case "o":
+      case "u":
         vowelHarmony = "u";
         break;
-      case "ö" || "ü":
+      case "ö":
+      case "ü":
         vowelHarmony = "ü";
         break;
     }
@@ -153,6 +166,9 @@ export const conjugateTurkishVerb = (verb: string, pronoun: string) => {
       pronounSuffix = "(lar)";
       break;
   }
-
+  console.log(
+    "stem: " + verbStem,
+    "vowel: " + vowelHarmony + "suffix: " + pronounSuffix
+  );
   return verbStem + vowelHarmony + "yor" + pronounSuffix;
 };
