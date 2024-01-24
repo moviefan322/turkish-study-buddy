@@ -1,7 +1,4 @@
-import {
-  presentContinuous,
-  presentContinuousSentence,
-} from "./presentContinuous";
+import { presentContinuous, conjugateTurkishVerb } from "./presentContinuous";
 
 describe("presentContinuous", () => {
   test('converts verbs ending in "ie" to "ying"', () => {
@@ -41,8 +38,8 @@ describe("presentContinuous", () => {
   });
 });
 
-// describe("presentContinuousSentence", () => {
-//   test("handles [I, am] and jog", () => {
-//     expect(presentContinuousSentence("")).toBe("");
-//   });
-// });
+describe("conjugateTurkishVerb", () => {
+  test("conjugates yapmak in 1st person", () => {
+    expect(conjugateTurkishVerb("yapmak", "Ben")).toBe("yapıyorum");
+  });
+});
