@@ -43,7 +43,7 @@ describe("presentContinuous", () => {
 });
 
 describe("conjugateTurkishVerb", () => {
-  test("conjugates properly in 1st person", () => {
+  test("Gets correct verb stem", () => {
     expect(getVerbStem("yapmak")).toBe("yap");
     expect(getVerbStem("çalışmak")).toBe("çalış");
     expect(getVerbStem("vermek")).toBe("ver");
@@ -65,5 +65,11 @@ describe("conjugateTurkishVerb", () => {
     expect(conjugateTurkishVerb("görmek", "Ben")).toBe("görüyorum");
     expect(conjugateTurkishVerb("istemek", "Ben")).toBe("istiyorum");
     expect(conjugateTurkishVerb("ödemek", "Ben")).toBe("ödüyorum");
+    expect(conjugateTurkishVerb("yemek", "Ben")).toBe("yiyorum");
+    expect(conjugateTurkishVerb("demek", "Ben")).toBe("diyorum");
+    expect(conjugateTurkishVerb("gitmek", "Ben")).toBe("gidiyorum");
+    expect(conjugateTurkishVerb("etmek", "Ben")).toBe("ediyorum");
+    expect(conjugateTurkishVerb("tatmek", "Ben")).toBe("tadıyorum");
+    expect(conjugateTurkishVerb("seyretmek", "Ben")).toBe("seyrediyorum");
   });
 });

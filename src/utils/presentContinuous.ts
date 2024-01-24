@@ -112,9 +112,21 @@ export function getVerbStem(verb: string) {
 export const conjugateTurkishVerb = (verb: string, pronoun: string) => {
   // separate stem from ending
   let verbStem = getVerbStem(verb);
-  if (verbStem.endsWith("a") || verbStem.endsWith("e")) {
-    verbStem = verbStem.slice(0, -1);
+
+  if (verbStem.endsWith("t")) {
+    verbStem = verbStem.slice(0, -1) + "d";
   }
+
+  if (verbStem.endsWith("a") || verbStem.endsWith("e")) {
+    if (verbStem === "ye" || verbStem === "de") {
+      console.log("matched ye or de");
+      verbStem = verbStem;
+    } else {
+      console.log("Slicing " + verbStem + " to " + verbStem.slice(0, -1));
+      verbStem = verbStem.slice(0, -1);
+    }
+  }
+
   let vowelHarmony = "";
   // remove consonants from stem
   const vowelsInStem = verbStem.split("").filter((letter) => {
@@ -123,7 +135,13 @@ export const conjugateTurkishVerb = (verb: string, pronoun: string) => {
   const finalVowelInStem = vowelsInStem[vowelsInStem.length - 1];
   let pronounSuffix = "";
 
-  if (turkishVowels.some((vowel) => verbStem.endsWith(vowel))) {
+  if (verbStem === "de") {
+    verbStem = "d";
+    vowelHarmony = "i";
+  } else if (verbStem === "ye") {
+    verbStem = "y";
+    vowelHarmony = "i";
+  } else if (turkishVowels.some((vowel) => verbStem.endsWith(vowel))) {
     vowelHarmony = "";
   } else {
     switch (finalVowelInStem) {
