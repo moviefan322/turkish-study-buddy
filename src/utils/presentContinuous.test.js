@@ -13,186 +13,186 @@ import {
 
 describe("presentContinuous", () => {
   test('converts verbs ending in "ie" to "ying"', () => {
-    expect(presentContinuous("tie")).toBe("tying");
+    expect(presentContinuous("to tie")).toBe("tying");
   });
 
   test('converts verbs ending in "e" to "ing" (dropping the "e")', () => {
-    expect(presentContinuous("make")).toBe("making");
+    expect(presentContinuous("to make")).toBe("making");
   });
 
   test('converts verbs ending in "y" to "ing"', () => {
-    expect(presentContinuous("cry")).toBe("crying");
+    expect(presentContinuous("to cry")).toBe("crying");
   });
 
   test('converts verbs ending in vowel+consonant to v+c+c+"ing"', () => {
-    expect(presentContinuous("run")).toBe("running");
-    expect(presentContinuous("sit")).toBe("sitting");
-    expect(presentContinuous("stab")).toBe("stabbing");
+    expect(presentContinuous("to run")).toBe("running");
+    expect(presentContinuous("to sit")).toBe("sitting");
+    expect(presentContinuous("to stab")).toBe("stabbing");
   });
 
   test('converts verbs ending in "vowel + y"/vowel + w to "ing"', () => {
-    expect(presentContinuous("stay")).toBe("staying");
-    expect(presentContinuous("show")).toBe("showing");
+    expect(presentContinuous("to stay")).toBe("staying");
+    expect(presentContinuous("to show")).toBe("showing");
   });
 
   test('converts verbs ending in "c" to "cking"', () => {
-    expect(presentContinuous("picnic")).toBe("picnicking");
+    expect(presentContinuous("to picnic")).toBe("picnicking");
   });
 
   test("handles other verbs correctly", () => {
-    expect(presentContinuous("fuck")).toBe("fucking");
+    expect(presentContinuous("to fuck")).toBe("fucking");
   });
 });
 
 describe("presentContinuousSentence", () => {
   test("handles first person (I)", () => {
-    expect(presentContinuousSentence("run", "I")).toBe("I am running");
+    expect(presentContinuousSentence("to run", "I")).toBe("I am running");
   });
 
   test("handles second person (you)", () => {
-    expect(presentContinuousSentence("eat", "you")).toBe("you are eating");
+    expect(presentContinuousSentence("to eat", "you")).toBe("you are eating");
   });
 
   test("handles third person (he)", () => {
-    expect(presentContinuousSentence("write", "he")).toBe("he is writing");
+    expect(presentContinuousSentence("to write", "he")).toBe("he is writing");
   });
 
   test("handles third person (she)", () => {
-    expect(presentContinuousSentence("sing", "she")).toBe("she is singing");
+    expect(presentContinuousSentence("to sing", "she")).toBe("she is singing");
   });
 
   test("handles third person (it)", () => {
-    expect(presentContinuousSentence("paint", "it")).toBe("it is painting");
+    expect(presentContinuousSentence("to paint", "it")).toBe("it is painting");
   });
 
   test("handles second person (you-f)", () => {
-    expect(presentContinuousSentence("read", "you (f)")).toBe("you (f) are reading");
+    expect(presentContinuousSentence("to read", "you (f)")).toBe("you (f) are reading");
   });
 
   test("handles first person plural (we)", () => {
-    expect(presentContinuousSentence("swim", "we")).toBe("we are swimming");
+    expect(presentContinuousSentence("to swim", "we")).toBe("we are swimming");
   });
 
   test("handles third person plural (they)", () => {
-    expect(presentContinuousSentence("dance", "they")).toBe("they are dancing");
+    expect(presentContinuousSentence("to dance", "they")).toBe("they are dancing");
   });
 
   test("handles random he/she/it", () => {
-    expect(presentContinuousSentence("jump", "s/he/it")).not.toBe("");
+    expect(presentContinuousSentence("to jump", "s/he/it")).not.toBe("");
   });
 });
 
 describe("presentContinuousNegativeSentence", () => {
   test("handles first person (I)", () => {
-    expect(presentContinuousNegativeSentence("run", "I")).toBe("I am not running");
+    expect(presentContinuousNegativeSentence("to run", "I")).toBe("I am not running");
   });
 
   test("handles second person (you)", () => {
-    expect(presentContinuousNegativeSentence("eat", "you")).toBe("you aren't eating");
+    expect(presentContinuousNegativeSentence("to eat", "you")).toBe("you aren't eating");
   });
 
   test("handles third person (he)", () => {
-    expect(presentContinuousNegativeSentence("write", "he")).toBe("he isn't writing");
+    expect(presentContinuousNegativeSentence("to write", "he")).toBe("he isn't writing");
   });
 
   test("handles third person (she)", () => {
-    expect(presentContinuousNegativeSentence("sing", "she")).toBe("she isn't singing");
+    expect(presentContinuousNegativeSentence("to sing", "she")).toBe("she isn't singing");
   });
 
   test("handles third person (it)", () => {
-    expect(presentContinuousNegativeSentence("paint", "it")).toBe("it isn't painting");
+    expect(presentContinuousNegativeSentence("to paint", "it")).toBe("it isn't painting");
   });
 
   test("handles second person (you-f)", () => {
-    expect(presentContinuousNegativeSentence("read", "you (f)")).toBe("you (f) aren't reading");
+    expect(presentContinuousNegativeSentence("to read", "you (f)")).toBe("you (f) aren't reading");
   });
 
   test("handles first person plural (we)", () => {
-    expect(presentContinuousNegativeSentence("swim", "we")).toBe("we aren't swimming");
+    expect(presentContinuousNegativeSentence("to swim", "we")).toBe("we aren't swimming");
   });
 
   test("handles third person plural (they)", () => {
-    expect(presentContinuousNegativeSentence("dance", "they")).toBe("they aren't dancing");
+    expect(presentContinuousNegativeSentence("to dance", "they")).toBe("they aren't dancing");
   });
 
   test("handles random he/she/it", () => {
-    expect(presentContinuousNegativeSentence("jump", "s/he/it")).not.toBe("");
+    expect(presentContinuousNegativeSentence("to jump", "s/he/it")).not.toBe("");
   });
 });
 
 describe("presentContinuousInterrogativeSentence", () => {
   test("handles first person (I)", () => {
-    expect(presentContinuousInterrogativeSentence("run", "I")).toBe("am I running?");
+    expect(presentContinuousInterrogativeSentence("to run", "I")).toBe("am I running?");
   });
 
   test("handles second person (you)", () => {
-    expect(presentContinuousInterrogativeSentence("eat", "you")).toBe("are you eating?");
+    expect(presentContinuousInterrogativeSentence("to eat", "you")).toBe("are you eating?");
   });
 
   test("handles third person (he)", () => {
-    expect(presentContinuousInterrogativeSentence("write", "he")).toBe("is he writing?");
+    expect(presentContinuousInterrogativeSentence("to write", "he")).toBe("is he writing?");
   });
 
   test("handles third person (she)", () => {
-    expect(presentContinuousInterrogativeSentence("sing", "she")).toBe("is she singing?");
+    expect(presentContinuousInterrogativeSentence("to sing", "she")).toBe("is she singing?");
   });
 
   test("handles third person (it)", () => {
-    expect(presentContinuousInterrogativeSentence("paint", "it")).toBe("is it painting?");
+    expect(presentContinuousInterrogativeSentence("to paint", "it")).toBe("is it painting?");
   });
 
   test("handles second person (you-f)", () => {
-    expect(presentContinuousInterrogativeSentence("read", "you (f)")).toBe("are you (f) reading?");
+    expect(presentContinuousInterrogativeSentence("to read", "you (f)")).toBe("are you (f) reading?");
   });
 
   test("handles first person plural (we)", () => {
-    expect(presentContinuousInterrogativeSentence("swim", "we")).toBe("are we swimming?");
+    expect(presentContinuousInterrogativeSentence("to swim", "we")).toBe("are we swimming?");
   });
 
   test("handles third person plural (they)", () => {
-    expect(presentContinuousInterrogativeSentence("dance", "they")).toBe("are they dancing?");
+    expect(presentContinuousInterrogativeSentence("to dance", "they")).toBe("are they dancing?");
   });
 
   test("handles random he/she/it", () => {
-    expect(presentContinuousInterrogativeSentence("jump", "s/he/it")).not.toBe("");
+    expect(presentContinuousInterrogativeSentence("to jump", "s/he/it")).not.toBe("");
   });
 });
 
 describe("presentContinuousNegativeInterrogativeSentence", () => {
   test("handles first person (I)", () => {
-    expect(presentContinuousNegativeInterrogativeSentence("run", "I")).toBe("aren't I running?");
+    expect(presentContinuousNegativeInterrogativeSentence("to run", "I")).toBe("aren't I running?");
   });
 
   test("handles second person (you)", () => {
-    expect(presentContinuousNegativeInterrogativeSentence("eat", "you")).toBe("aren't you eating?");
+    expect(presentContinuousNegativeInterrogativeSentence("to eat", "you")).toBe("aren't you eating?");
   });
 
   test("handles third person (he)", () => {
-    expect(presentContinuousNegativeInterrogativeSentence("write", "he")).toBe("isn't he writing?");
+    expect(presentContinuousNegativeInterrogativeSentence("to write", "he")).toBe("isn't he writing?");
   });
 
   test("handles third person (she)", () => {
-    expect(presentContinuousNegativeInterrogativeSentence("sing", "she")).toBe("isn't she singing?");
+    expect(presentContinuousNegativeInterrogativeSentence("to sing", "she")).toBe("isn't she singing?");
   });
 
   test("handles third person (it)", () => {
-    expect(presentContinuousNegativeInterrogativeSentence("paint", "it")).toBe("isn't it painting?");
+    expect(presentContinuousNegativeInterrogativeSentence("to paint", "it")).toBe("isn't it painting?");
   });
 
   test("handles second person (you-f)", () => {
-    expect(presentContinuousNegativeInterrogativeSentence("read", "you (f)")).toBe("aren't you (f) reading?");
+    expect(presentContinuousNegativeInterrogativeSentence("to read", "you (f)")).toBe("aren't you (f) reading?");
   });
 
   test("handles first person plural (we)", () => {
-    expect(presentContinuousNegativeInterrogativeSentence("swim", "we")).toBe("aren't we swimming?");
+    expect(presentContinuousNegativeInterrogativeSentence("to swim", "we")).toBe("aren't we swimming?");
   });
 
   test("handles third person plural (they)", () => {
-    expect(presentContinuousNegativeInterrogativeSentence("dance", "they")).toBe("aren't they dancing?");
+    expect(presentContinuousNegativeInterrogativeSentence("to dance", "they")).toBe("aren't they dancing?");
   });
 
   test("handles random he/she/it", () => {
-    expect(presentContinuousNegativeInterrogativeSentence("jump", "s/he/it")).not.toBe("");
+    expect(presentContinuousNegativeInterrogativeSentence("to jump", "s/he/it")).not.toBe("");
   });
 });
 
