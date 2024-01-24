@@ -5,28 +5,31 @@ const vowels = ["a", "e", "i", "o", "u"];
 const turkishVowels = ["a", "e", "ı", "i", "o", "ö", "u", "ü"];
 
 export function presentContinuous(verb: string) {
-  const verbMinusTo = verb.split("to ")[1];
   const lastLetter = verb[verb.length - 1];
   const secondToLastLetter = verb[verb.length - 2];
   const thirdToLastLetter = verb[verb.length - 3];
   const lastTwoLetters = secondToLastLetter + lastLetter;
 
   if (lastTwoLetters === "ie") {
-    return verbMinusTo.slice(0, -2) + "ying";
+    return verb.slice(0, -2) + "ying";
   } else if (lastTwoLetters === "ee") {
-    return verbMinusTo.slice(0, -2) + "eeing";
-  } else if (vowels.includes(secondToLastLetter) && vowels.includes(thirdToLastLetter) && consonants.includes(lastLetter)) {
-    return verbMinusTo + "ing";
+    return verb.slice(0, -2) + "eeing";
+  } else if (
+    vowels.includes(secondToLastLetter) &&
+    vowels.includes(thirdToLastLetter) &&
+    consonants.includes(lastLetter)
+  ) {
+    return verb + "ing";
   } else if (lastLetter === "e") {
-    return verbMinusTo.slice(0, -1) + "ing";
+    return verb.slice(0, -1) + "ing";
   } else if (lastLetter === "y" || lastLetter === "w") {
-    return verbMinusTo + "ing";
+    return verb + "ing";
   } else if (lastLetter === "c") {
-    return verbMinusTo + "king";
+    return verb + "king";
   } else if (consonants.includes(lastLetter) && vowels.includes(secondToLastLetter)) {
-    return verbMinusTo + verbMinusTo[verbMinusTo.length - 1] + "ing";
+    return verb + verb[verb.length - 1] + "ing";
   } else {
-    return verbMinusTo + "ing";
+    return verb + "ing";
   }
 }
 
@@ -51,6 +54,9 @@ export function presentContinuousSentence(verb: string, pronoun: string) {
       conjugatedVerb = "is";
       break;
     case "she":
+      conjugatedVerb = "is";
+      break;
+    case "it":
       conjugatedVerb = "is";
       break;
     case "you (f)":

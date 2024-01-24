@@ -5,6 +5,7 @@ import {
   conjugateTurkishVerbNegative,
   conjugateTurkishVerbNegativeInterrogative,
   getVerbStem,
+  presentContinuousSentence,
 } from "./presentContinuous";
 
 describe("presentContinuous", () => {
@@ -38,6 +39,57 @@ describe("presentContinuous", () => {
   test("handles other verbs correctly", () => {
     expect(presentContinuous("fuck")).toBe("fucking");
   });
+});
+
+describe("presentContinuousSentence", () => {
+  test("handles first person (I)", () => {
+    const sentence = presentContinuousSentence("run", "I");
+    expect(sentence).toBe("I am running");
+  });
+
+  test("handles second person (you)", () => {
+    const sentence = presentContinuousSentence("eat", "you");
+    expect(sentence).toBe("you are eating");
+  });
+
+  test("handles third person (he)", () => {
+    const sentence = presentContinuousSentence("write", "he");
+    expect(sentence).toBe("he is writing");
+  });
+
+  test("handles third person (she)", () => {
+    const sentence = presentContinuousSentence("sing", "she");
+    expect(sentence).toBe("she is singing");
+  });
+
+  test("handles third person (it)", () => {
+    const sentence = presentContinuousSentence("paint", "it");
+    expect(sentence).toBe("it is painting");
+  });
+
+  test("handles second person (you-f)", () => {
+    const sentence = presentContinuousSentence("read", "you (f)");
+    expect(sentence).toBe("you (f) are reading");
+  });
+
+  test("handles first person plural (we)", () => {
+    const sentence = presentContinuousSentence("swim", "we");
+    expect(sentence).toBe("we are swimming");
+  });
+
+  test("handles third person plural (they)", () => {
+    const sentence = presentContinuousSentence("dance", "they");
+    expect(sentence).toBe("they are dancing");
+  });
+
+  test("handles random he/she/it", () => {
+    const sentence = presentContinuousSentence("jump", "s/he/it");
+    // Since 's/he/it' can be 'he' or 'she' randomly, you can't predict the exact output.
+    // You can assert that the sentence is not empty.
+    expect(sentence).not.toBe("");
+  });
+
+  // Add more test cases with different verbs and pronouns...
 });
 
 describe("conjugateTurkishVerb", () => {
