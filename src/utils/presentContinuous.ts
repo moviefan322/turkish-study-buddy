@@ -273,3 +273,62 @@ export const conjugateTurkishVerbInterrogative = (
   );
   return verbStem + vowelHarmony + "yor " + negativeParticle + pronounSuffix;
 };
+
+export const conjugateTurkishVerbNegative = (verb: string, pronoun: string) => {
+  // separate stem from ending
+  let verbStem = getVerbStem(verb);
+
+  if (verbStem.endsWith("t")) {
+    verbStem = verbStem.slice(0, -1) + "d";
+  }
+
+  let vowelHarmony = "";
+  // remove consonants from stem
+  const vowelsInStem = verbStem.split("").filter((letter) => {
+    return turkishVowels.includes(letter);
+  });
+  const finalVowelInStem = vowelsInStem[vowelsInStem.length - 1];
+  let pronounSuffix = "";
+
+  switch (finalVowelInStem) {
+    case "a":
+    case "ı":
+      vowelHarmony = "ı";
+      break;
+    case "e":
+    case "i":
+      vowelHarmony = "i";
+      break;
+    case "o":
+    case "u":
+      vowelHarmony = "u";
+      break;
+    case "ö":
+    case "ü":
+      vowelHarmony = "ü";
+      break;
+  }
+
+  switch (pronoun) {
+    case "Ben":
+      pronounSuffix = "um";
+      break;
+    case "Sen":
+      pronounSuffix = "sun";
+      break;
+    case "O":
+      pronounSuffix = "";
+      break;
+    case "Biz":
+      pronounSuffix = "uz";
+      break;
+    case "Siz":
+      pronounSuffix = "sunuz";
+      break;
+    case "Onlar":
+      pronounSuffix = "(lar)";
+      break;
+  }
+
+  return verbStem + "m" + vowelHarmony + "yor" + pronounSuffix;
+};
