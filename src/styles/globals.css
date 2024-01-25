@@ -19,3 +19,9 @@ body {
 .primaryContainer {
   height: 100vh;
 }
+
+.bottom-right {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}

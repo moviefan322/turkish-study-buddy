@@ -21,6 +21,7 @@ const PresentCont = () => {
   const [correct, setCorrect] = useState<boolean>(false);
   const [incorrect, setIncorrect] = useState<boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [conjugationFunctions, setConjugationFunctions] = useState<Function[]>([]);
 
   const handleGenerateWord = () => {
     if (!showMain) {
@@ -53,11 +54,13 @@ const PresentCont = () => {
     }
   };
 
-  console.log(inputValue);
+  console.log(conjugationFunctions);
 
   return (
     <div className={`${styles.container}`}>
-      <div className={`${styles.pageCard} d-flex flex-column justify-content-center align-items-center p-3`}>
+      <div
+        className={`${styles.pageCard} d-flex flex-column justify-content-center align-items-center px-3 position-relative`}
+      >
         <h1 className="text-center">Present Continuous Practice</h1>
         <hr />
         {showMain && (
@@ -105,11 +108,19 @@ const PresentCont = () => {
         <button className="btn btn-primary btn-large fs-5" onClick={() => handleGenerateWord()}>
           {!showMain ? "Start" : "Next"}
         </button>
-        <button className="btn btn-info text-white btn-large fs-5 align-self-end" onClick={() => setIsModalOpen(true)}>
+        <button
+          className="btn btn-info text-white btn-large fs-5 align-self-end justify-self-end bottom-right"
+          onClick={() => setIsModalOpen(true)}
+        >
           <FaGear />
         </button>
       </div>
-      <Settings isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <Settings
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        setConjugationFunctions={setConjugationFunctions}
+        conjugationFunctions={conjugationFunctions}
+      />
     </div>
   );
 };

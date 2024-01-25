@@ -29,3 +29,7 @@
   font-size: 1.5em;
   cursor: pointer;
 }
+
+.filler {
+  width: 20px;
+}
