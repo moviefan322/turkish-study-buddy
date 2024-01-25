@@ -4,8 +4,13 @@ const vowels = ["a", "e", "i", "o", "u"];
 
 const turkishVowels = ["a", "e", "ı", "i", "o", "ö", "u", "ü"];
 
-export function presentContinuous(infinitive: string) {
+export function presentContinuous(infinitive: string): string {
   const verb = infinitive.slice(3);
+
+  if (verb.split(" ").length > 1) {
+    return presentContinuous("to " + verb.split(" ")[0]) + " " + verb.split(" ")[1];
+  }
+
   const lastLetter = verb[verb.length - 1];
   const secondToLastLetter = verb[verb.length - 2];
   const thirdToLastLetter = verb[verb.length - 3];

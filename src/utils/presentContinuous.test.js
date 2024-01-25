@@ -41,6 +41,10 @@ describe("presentContinuous", () => {
     expect(presentContinuous("to picnic")).toBe("picnicking");
   });
 
+  test('handles two word verbs correctly', () => {
+    expect(presentContinuous("to look at")).toBe("looking at");
+  })
+
   test("handles other verbs correctly", () => {
     expect(presentContinuous("to fuck")).toBe("fucking");
   });
