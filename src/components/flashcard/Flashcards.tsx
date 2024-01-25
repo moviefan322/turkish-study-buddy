@@ -56,6 +56,7 @@ function Flashcards() {
 
   return (
     <Layout>
+      <h1>Şimşek Kartlar</h1>
       {!showFlashcards ? (
         <button className="btn btn-lg btn-dark text-light" onClick={() => handleShowFlashcards()}>
           Begin
