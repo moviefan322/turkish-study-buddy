@@ -1,6 +1,5 @@
 import { useState } from "react";
 // @ts-ignore
-import SingleFlashcard from "./singleFlashcard";
 import Layout from "../Layout";
 import { verbs } from "@/data/vocab/verbs";
 import styles from "./Flashcards.module.css";
@@ -62,7 +61,7 @@ function Flashcards() {
           Begin
         </button>
       ) : (
-        <div className={`d-flex flex-column justify-content-center align-items-center w-100 ${styles.flashBox}`}>
+        <div className={`d-flex flex-column justify-content-center align-items-center w-100`}>
           <div
             className={`justify-self-center align-self-center fs-5 fw-bolder border border-2 border-dark p-5 w-100 text-center mb-4 bg-dark text-light`}
           >
