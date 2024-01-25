@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import { presentContinuousSentence, conjugateTurkishVerb } from "@/utils/presentContinuous";
 import { verbs } from "@/data/vocab/verbs";
 import { pronounPairs } from "@/data/vocab/pronounPairs";
-import { FaCheck } from "react-icons/fa6";
 import { FaXmark } from "react-icons/fa6";
+import { FaGear } from "react-icons/fa6";
+import Settings from "@/components/Settings";
 import styles from "./PresentCont.module.css";
 
 interface EnTurkPark {
@@ -19,6 +20,7 @@ const PresentCont = () => {
   const [inputValue, setInputValue] = useState<string>("");
   const [correct, setCorrect] = useState<boolean>(false);
   const [incorrect, setIncorrect] = useState<boolean>(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleGenerateWord = () => {
     if (!showMain) {
@@ -103,7 +105,11 @@ const PresentCont = () => {
         <button className="btn btn-primary btn-large fs-5" onClick={() => handleGenerateWord()}>
           {!showMain ? "Start" : "Next"}
         </button>
+        <button className="btn btn-info text-white btn-large fs-5 align-self-end" onClick={() => setIsModalOpen(true)}>
+          <FaGear />
+        </button>
       </div>
+      <Settings isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 };
