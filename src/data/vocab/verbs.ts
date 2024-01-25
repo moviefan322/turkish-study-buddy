@@ -5,7 +5,6 @@ export const verbs = [
   { english: "to say", turkish: "demek" },
   { english: "to go", turkish: "gitmek" },
   { english: "to get", turkish: "almak" },
-  { english: "to make", turkish: "yapmak" },
   { english: "to know", turkish: "bilmek" },
   { english: "to think", turkish: "düşünmek" },
   { english: "to take", turkish: "almak" },
