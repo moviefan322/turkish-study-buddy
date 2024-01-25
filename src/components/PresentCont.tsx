@@ -80,17 +80,17 @@ const PresentCont = () => {
           </div>
           <div className="fs-1 d-flex flex-column justify-content-center align-items-center text-center mb-5">
             <div className="fw-bold">Türçke:</div>
-            <div className="d-flex flex-row justify-content-center">
+            <div className="d-flex flex-row justify-content-center align-items-center mb-3">
               {!showTurkish && (
                 <>
                   <input
                     type="text"
-                    className="text-center w-75 fs-3 mb-3"
+                    className="text-center w-75 fs-3"
                     value={inputValue}
                     onChange={handleInputChange}
                   />
                   {incorrect && (
-                    <div className="text-danger align-self-start">
+                    <div className="text-danger align-self-center">
                       <FaXmark />
                     </div>
                   )}
