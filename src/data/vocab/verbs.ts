@@ -99,4 +99,6 @@ export const verbs = [
   { english: "to catch", turkish: "yakalamak" },
   { english: "to prepare", turkish: "hazırlamak" },
   { english: "to mention", turkish: "bahsetmek" },
+  { english: "to go out", turkish: "çıkmak" },
+  { english: "to get up", turkish: "kalkmak" },
 ];

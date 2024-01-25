@@ -11,7 +11,7 @@ import styles from "./Settings.module.css";
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
-  conjugationFunctions: Function[];
+  conjugationFunctions: Function[] | null;
   setConjugationFunctions: Function;
 }
 
@@ -101,9 +101,13 @@ const Settings = ({ isOpen, onClose, setConjugationFunctions, conjugationFunctio
             </div>
             <br />
             <div className="d-flex flex-row justify-content-between align-items-center w-100">
-              <button className="btn btn-sm btn-info text-light" onClick={() => handleSave()}>Save</button>
+              <button className="btn btn-sm btn-info text-light" onClick={() => handleSave()}>
+                Save
+              </button>
               <div className={styles.filler}></div>
-              <button className="btn btn-sm btn-dark text-light" onClick={() => onClose()}>Cancel</button>
+              <button className="btn btn-sm btn-dark text-light" onClick={() => onClose()}>
+                Cancel
+              </button>
             </div>
           </div>
         </div>

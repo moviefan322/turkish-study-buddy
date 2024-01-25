@@ -1,17 +1,20 @@
-import { useState, useEffect } from "react";
-import { presentContinuousSentence, conjugateTurkishVerb } from "@/utils/presentContinuous";
+import { useState } from "react";
+import {
+  presentContinuousSentence,
+  conjugateTurkishVerb,
+  conjugateTurkishVerbInterrogative,
+  conjugateTurkishVerbNegative,
+  conjugateTurkishVerbNegativeInterrogative,
+  presentContinuousInterrogativeSentence,
+  presentContinuousNegativeInterrogativeSentence,
+  presentContinuousNegativeSentence,
+} from "@/utils/presentContinuous";
 import { verbs } from "@/data/vocab/verbs";
 import { pronounPairs } from "@/data/vocab/pronounPairs";
 import { FaXmark } from "react-icons/fa6";
 import { FaGear } from "react-icons/fa6";
 import Layout from "@/components/Layout";
 import Settings from "@/components/Settings";
-import styles from "./PresentCont.module.css";
-
-interface EnTurkPark {
-  english: string;
-  turkish: string;
-}
 
 const PresentCont = () => {
   const [english, setEnglish] = useState<string>("");
@@ -22,17 +25,38 @@ const PresentCont = () => {
   const [correct, setCorrect] = useState<boolean>(false);
   const [incorrect, setIncorrect] = useState<boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [conjugationFunctions, setConjugationFunctions] = useState<Function[]>([]);
+  const [conjugationFunctions, setConjugationFunctions] = useState<Function[] | null>(null);
+
+  const displayPrompt = () => {
+    const randomVerb = verbs[Math.floor(Math.random() * verbs.length)];
+    const randomPronoun = pronounPairs[Math.floor(Math.random() * pronounPairs.length)];
+    if (conjugationFunctions) {
+      const randomConjugationFunction = conjugationFunctions[Math.floor(Math.random() * conjugationFunctions.length)];
+      setTurkish(randomConjugationFunction(randomVerb.turkish, randomPronoun.turkish));
+      if (randomConjugationFunction === conjugateTurkishVerb) {
+        setEnglish(presentContinuousSentence(randomVerb.english, randomPronoun.english));
+      }
+      if (randomConjugationFunction === conjugateTurkishVerbInterrogative) {
+        setEnglish(presentContinuousInterrogativeSentence(randomVerb.english, randomPronoun.english));
+      }
+      if (randomConjugationFunction === conjugateTurkishVerbNegative) {
+        setEnglish(presentContinuousNegativeSentence(randomVerb.english, randomPronoun.english));
+      }
+      if (randomConjugationFunction === conjugateTurkishVerbNegativeInterrogative) {
+        setEnglish(presentContinuousNegativeInterrogativeSentence(randomVerb.english, randomPronoun.english));
+      }
+    } else {
+      setEnglish(presentContinuousSentence(randomVerb.english, randomPronoun.english));
+      setTurkish(conjugateTurkishVerb(randomVerb.turkish, randomPronoun.turkish));
+    }
+  };
 
   const handleGenerateWord = () => {
     if (!showMain) {
       setShowMain(true);
     }
 
-    const randomVerb = verbs[Math.floor(Math.random() * verbs.length)];
-    const randomPronoun = pronounPairs[Math.floor(Math.random() * pronounPairs.length)];
-    setEnglish(presentContinuousSentence(randomVerb.english, randomPronoun.english));
-    setTurkish(conjugateTurkishVerb(randomVerb.turkish, randomPronoun.turkish));
+    displayPrompt();
     setShowTurkish(false);
     setCorrect(false);
     setIncorrect(false);
@@ -65,7 +89,7 @@ const PresentCont = () => {
 
   return (
     <Layout>
-      <h1 className="text-center">Present Continuous Practice</h1>
+      <h1 className="text-center">ŞİMDİKİ ZAMAN</h1>
       <hr />
       {showMain && (
         <div className="d-flex flex-column  justify-content-between">
