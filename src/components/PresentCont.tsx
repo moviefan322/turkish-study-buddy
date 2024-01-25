@@ -6,6 +6,7 @@ import { FaXmark } from "react-icons/fa6";
 import { FaGear } from "react-icons/fa6";
 import Layout from "@/components/Layout";
 import Settings from "@/components/Settings";
+import styles from "./Settings.module.css";
 
 const PresentCont = () => {
   const [english, setEnglish] = useState<string>("");
@@ -100,10 +101,11 @@ const PresentCont = () => {
               {showTurkish && turkish}
             </div>{" "}
             {!showTurkish && (
-              <div className="d-flex flex-row justify-content-between align-items-center w-100">
+              <div className={` d-flex flex-row justify-content-center align-items-center w-100`}>
                 <button className="btn btn-success btn-sm" onClick={() => handleCheckAnswer()}>
                   Check
                 </button>
+                <div className={styles.filler}></div>
                 <button className="btn btn-danger btn-sm" onClick={() => setShowTurkish(true)}>
                   Reveal
                 </button>
