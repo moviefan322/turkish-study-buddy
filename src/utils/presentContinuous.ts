@@ -4,7 +4,27 @@ const vowels = ["a", "e", "i", "o", "u"];
 
 const turkishVowels = ["a", "e", "ı", "i", "o", "ö", "u", "ü"];
 
+const exceptionVerbs = ["to cover", "to be"];
+
+const exceptionsFunc = (verb: string) => {
+  // make rules for these later
+  switch (verb) {
+    case "to cover":
+      return "covering";
+
+    case "to be":
+      return "being";
+
+    default:
+      return "error";
+  }
+};
+
 export function presentContinuous(infinitive: string): string {
+  if (exceptionVerbs.includes(infinitive)) {
+    return exceptionsFunc(infinitive);
+  }
+
   const verb = infinitive.slice(3);
 
   if (verb.split(" ").length > 1) {
@@ -26,7 +46,7 @@ export function presentContinuous(infinitive: string): string {
     consonants.includes(lastLetter)
   ) {
     return verb + "ing";
-  } else if (lastLetter === "e" && verb !== "be") {
+  } else if (lastLetter === "e") {
     return verb.slice(0, -1) + "ing";
   } else if (lastLetter === "y" || lastLetter === "w") {
     return verb + "ing";
