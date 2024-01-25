@@ -402,3 +402,16 @@ export const conjugateTurkishVerbNegativeInterrogative = (verb: string, pronoun:
   console.log("stem: " + verbStem, "vowel: " + vowelHarmony + "suffix: " + pronounSuffix);
   return verbStem + "m" + vowelHarmony + "yor " + negativeParticle + pronounSuffix;
 };
+
+export const conjugateTurkishMaster = (verb: string, pronoun: string, mood: string = "standardMood") => {
+  switch (mood) {
+    case "standardMood":
+      return conjugateTurkishVerb(verb, pronoun);
+    case "Interrogative":
+      return conjugateTurkishVerbInterrogative(verb, pronoun);
+    case "Negative":
+      return conjugateTurkishVerbNegative(verb, pronoun);
+    case "NegativeInterrogative":
+      return conjugateTurkishVerbNegativeInterrogative(verb, pronoun);
+  }
+};
