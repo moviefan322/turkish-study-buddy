@@ -8,6 +8,7 @@ import {
   presentContinuousInterrogativeSentence,
   presentContinuousNegativeInterrogativeSentence,
   presentContinuousNegativeSentence,
+  sentenceMaster
 } from "@/utils/presentContinuous";
 import { verbs } from "@/data/vocab/verbs";
 import { pronounPairs } from "@/data/vocab/pronounPairs";
@@ -25,30 +26,31 @@ const PresentCont = () => {
   const [correct, setCorrect] = useState<boolean>(false);
   const [incorrect, setIncorrect] = useState<boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [conjugationFunctions, setConjugationFunctions] = useState<Function[] | null>(null);
+  const [moodList, setMoodList] = useState<Function[] | null>(null);
 
   const displayPrompt = () => {
     const randomVerb = verbs[Math.floor(Math.random() * verbs.length)];
     const randomPronoun = pronounPairs[Math.floor(Math.random() * pronounPairs.length)];
-    if (conjugationFunctions) {
-      const randomConjugationFunction = conjugationFunctions[Math.floor(Math.random() * conjugationFunctions.length)];
-      setTurkish(randomConjugationFunction(randomVerb.turkish, randomPronoun.turkish));
-      if (randomConjugationFunction === conjugateTurkishVerb) {
-        setEnglish(presentContinuousSentence(randomVerb.english, randomPronoun.english));
-      }
-      if (randomConjugationFunction === conjugateTurkishVerbInterrogative) {
-        setEnglish(presentContinuousInterrogativeSentence(randomVerb.english, randomPronoun.english));
-      }
-      if (randomConjugationFunction === conjugateTurkishVerbNegative) {
-        setEnglish(presentContinuousNegativeSentence(randomVerb.english, randomPronoun.english));
-      }
-      if (randomConjugationFunction === conjugateTurkishVerbNegativeInterrogative) {
-        setEnglish(presentContinuousNegativeInterrogativeSentence(randomVerb.english, randomPronoun.english));
-      }
-    } else {
-      setEnglish(presentContinuousSentence(randomVerb.english, randomPronoun.english));
-      setTurkish(conjugateTurkishVerb(randomVerb.turkish, randomPronoun.turkish));
-    }
+    // if (conjugationFunctions) {
+    //   const randomConjugationFunction = conjugationFunctions[Math.floor(Math.random() * conjugationFunctions.length)];
+    //   setTurkish(randomConjugationFunction(randomVerb.turkish, randomPronoun.turkish));
+    //   if (randomConjugationFunction === conjugateTurkishVerb) {
+    //     setEnglish(presentContinuousSentence(randomVerb.english, randomPronoun.english));
+    //   }
+    //   if (randomConjugationFunction === conjugateTurkishVerbInterrogative) {
+    //     setEnglish(presentContinuousInterrogativeSentence(randomVerb.english, randomPronoun.english));
+    //   }
+    //   if (randomConjugationFunction === conjugateTurkishVerbNegative) {
+    //     setEnglish(presentContinuousNegativeSentence(randomVerb.english, randomPronoun.english));
+    //   }
+    //   if (randomConjugationFunction === conjugateTurkishVerbNegativeInterrogative) {
+    //     setEnglish(presentContinuousNegativeInterrogativeSentence(randomVerb.english, randomPronoun.english));
+    //   }
+    // } else {
+      const {english, turkish} = sentenceMaster(randomVerb, randomPronoun)
+      setEnglish(english!)
+      setTurkish(turkish!)
+    // }
   };
 
   const handleGenerateWord = () => {
@@ -84,8 +86,6 @@ const PresentCont = () => {
       setIncorrect(true);
     }
   };
-
-  console.log(conjugationFunctions);
 
   return (
     <Layout>
@@ -146,8 +146,8 @@ const PresentCont = () => {
       <Settings
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        setConjugationFunctions={setConjugationFunctions}
-        conjugationFunctions={conjugationFunctions}
+        setMoodList={setMoodList}
+        moodList={moodList}
       />
     </Layout>
   );

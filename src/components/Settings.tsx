@@ -1,26 +1,20 @@
 import { useState } from "react";
-import {
-  conjugateTurkishVerb,
-  conjugateTurkishVerbInterrogative,
-  conjugateTurkishVerbNegative,
-  conjugateTurkishVerbNegativeInterrogative,
-} from "@/utils/presentContinuous";
 import { FaXmark } from "react-icons/fa6";
 import styles from "./Settings.module.css";
 
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
-  conjugationFunctions: Function[] | null;
-  setConjugationFunctions: Function;
+  moodList: string[] | null;
+  setMoodList: Function;
 }
 
-const Settings = ({ isOpen, onClose, setConjugationFunctions, conjugationFunctions }: ModalProps) => {
+const Settings = ({ isOpen, onClose, moodList, setMoodList }: ModalProps) => {
   const [checkboxState, setCheckboxState] = useState({
-    presentContinuous: false,
-    presentContinuousNegative: false,
-    presentContinuousQuestion: false,
-    presentContinuousQuestionNegative: false,
+    standardMood: false,
+    Negative: false,
+    Interrogative: false,
+    NegativeInterrogative: false,
   });
 
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,22 +26,24 @@ const Settings = ({ isOpen, onClose, setConjugationFunctions, conjugationFunctio
   };
 
   const handleSave = () => {
-    const functions = [];
-    if (checkboxState.presentContinuous) {
-      functions.push(conjugateTurkishVerb);
+    const moods = [];
+    if (checkboxState.standardMood) {
+      moods.push("standardMood");
     }
-    if (checkboxState.presentContinuousNegative) {
-      functions.push(conjugateTurkishVerbNegative);
+    if (checkboxState.Negative) {
+      moods.push("Negative");
     }
-    if (checkboxState.presentContinuousQuestion) {
-      functions.push(conjugateTurkishVerbInterrogative);
+    if (checkboxState.Interrogative) {
+      moods.push("Interrogative");
     }
-    if (checkboxState.presentContinuousQuestionNegative) {
-      functions.push(conjugateTurkishVerbNegativeInterrogative);
+    if (checkboxState.NegativeInterrogative) {
+      moods.push("NegativeInterrogative");
     }
-    setConjugationFunctions(functions);
+    setMoodList(moods);
     onClose();
   };
+
+  console.log(moodList);
 
   return (
     <>
@@ -64,8 +60,8 @@ const Settings = ({ isOpen, onClose, setConjugationFunctions, conjugationFunctio
                 <label>
                   <input
                     type="checkbox"
-                    name="presentContinuous"
-                    checked={checkboxState.presentContinuous}
+                    name="standardMood"
+                    checked={checkboxState.standardMood}
                     onChange={handleCheckboxChange}
                   />{" "}
                   Standard
@@ -73,8 +69,8 @@ const Settings = ({ isOpen, onClose, setConjugationFunctions, conjugationFunctio
                 <label>
                   <input
                     type="checkbox"
-                    name="presentContinuousNegative"
-                    checked={checkboxState.presentContinuousNegative}
+                    name="Negative"
+                    checked={checkboxState.Negative}
                     onChange={handleCheckboxChange}
                   />{" "}
                   Negative
@@ -82,8 +78,8 @@ const Settings = ({ isOpen, onClose, setConjugationFunctions, conjugationFunctio
                 <label>
                   <input
                     type="checkbox"
-                    name="presentContinuousQuestion"
-                    checked={checkboxState.presentContinuousQuestion}
+                    name="Interrogative"
+                    checked={checkboxState.Interrogative}
                     onChange={handleCheckboxChange}
                   />{" "}
                   Interrogative
@@ -91,8 +87,8 @@ const Settings = ({ isOpen, onClose, setConjugationFunctions, conjugationFunctio
                 <label>
                   <input
                     type="checkbox"
-                    name="presentContinuousQuestionNegative"
-                    checked={checkboxState.presentContinuousQuestionNegative}
+                    name="NegativeInterrogative"
+                    checked={checkboxState.NegativeInterrogative}
                     onChange={handleCheckboxChange}
                   />{" "}
                   Negative Interrogative

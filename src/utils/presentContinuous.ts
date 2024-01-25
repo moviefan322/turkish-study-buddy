@@ -427,14 +427,18 @@ export const englishSentenceMaster = (verb: string, pronoun: string, mood: strin
     case "NegativeInterrogative":
       return presentContinuousNegativeInterrogativeSentence(verb, pronoun);
   }
-}
+};
 
-export const sentenceMaster = (verb: string, pronoun: string, mood: string = "standardMood") => {
-  const turkishSentence = conjugateTurkishMaster(verb, pronoun, mood);
-  const englishSentence = englishSentenceMaster(verb, pronoun, mood);
+export const sentenceMaster = (
+  verb: { english: string; turkish: string },
+  pronoun: { english: string; turkish: string },
+  mood: string = "standardMood"
+) => {
+  const turkishSentence = conjugateTurkishMaster(verb.turkish, pronoun.turkish, mood);
+  const englishSentence = englishSentenceMaster(verb.english, pronoun.english, mood);
 
   return {
     turkish: turkishSentence,
-    english: englishSentence
+    english: englishSentence,
   };
 };
