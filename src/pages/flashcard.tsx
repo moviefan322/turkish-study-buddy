@@ -1,9 +1,9 @@
-import FlashcardMain from "@/components/flashcard/FlashcardMain"
+import Flashcards from "@/components/flashcard/Flashcards"
 
 const flashcard = () => {
   return (
     <div>
-      <FlashcardMain />
+      <Flashcards />
     </div>
   )
 }

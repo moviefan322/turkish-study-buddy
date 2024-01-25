@@ -1,11 +1,11 @@
 import { useState } from "react";
-import styles from "./flashcardMain.module.css";
+import styles from "./flashcards.module.css";
 // @ts-ignore
 import SingleFlashcard from "./singleFlashcard";
 import Layout from "../Layout";
 import { verbs } from "@/data/vocab/verbs";
 
-function FlashcardMain() {
+function Flashcards() {
   const [showFlashcards, setShowFlashcards] = useState(false);
   const [sideUp, setSideUp] = useState("");
 
@@ -23,22 +23,9 @@ function FlashcardMain() {
 
   return (
     <Layout>
-      <div className={styles.cardContainer}>
-        {/* {!showFlashcards ? (
-        <>
-          <div>
-            <button onClick={setTurkishUpHandler}>Turkish Up</button>
-          </div>
-          <div>
-            <button onClick={setEnglishUpHandler}>English Up</button>
-          </div>
-        </>
-      ) : (
-        <SingleFlashcard sideUp={sideUp} flashcards={flashcards} />
-      )} */}
-      </div>
+      <h1>Flashcards</h1>
     </Layout>
   );
 }
 
-export default FlashcardMain;
+export default Flashcards;
