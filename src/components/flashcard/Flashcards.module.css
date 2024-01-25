@@ -1,0 +1,10 @@
+.horizLine {
+  border: 0;
+  height: 5px;
+  width: 100vw;
+  background-color: black;
+}
+
+.flashbox {
+  border: 5px solid black;
+}

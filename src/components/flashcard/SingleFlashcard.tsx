@@ -67,21 +67,7 @@ function SingleFlashcard({ sideUp, flashcards }: singleFlashcardProps) {
 
   return (
     <div className={styles.singleFlashcard}>
-      <>
-        <div>
-          <p>{showSide}</p>
-        </div>
-        <div style={customStyle}>
-          {!isSubmitted ? (
-            <>
-              <input type="text" value={userInput} onChange={onChangeHandler} />
-              <button onClick={checkAnswer}>Submit</button>
-            </>
-          ) : (
-            <p>{correctAnswer}</p>
-          )}
-        </div>
-      </>
+
     </div>
   );
 }
