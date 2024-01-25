@@ -10,6 +10,7 @@ import {
   presentContinuousInterrogativeSentence,
   presentContinuousNegativeInterrogativeSentence,
   conjugateTurkishMaster,
+  englishSentenceMaster
 } from "./presentContinuous";
 
 describe("presentContinuous", () => {
@@ -196,6 +197,29 @@ describe("presentContinuousNegativeInterrogativeSentence", () => {
     expect(presentContinuousNegativeInterrogativeSentence("to jump", "s/he/it")).not.toBe("");
   });
 });
+
+describe('englishSentenceMaster', () => {
+  it('should handle standard mood correctly', () => {
+      const result = englishSentenceMaster('to run', 'I', 'standardMood');
+      expect(result).toBe('I am running');
+  });
+
+  it('should handle interrogative mood correctly', () => {
+      const result = englishSentenceMaster('to run', 'I', 'Interrogative');
+      expect(result).toBe('am I running?');
+  });
+
+  it('should handle negative mood correctly', () => {
+      const result = englishSentenceMaster('to run', 'I', 'Negative');
+      expect(result).toBe("I am not running");
+  });
+
+  it('should handle negative interrogative mood correctly', () => {
+      const result = englishSentenceMaster('to run', 'I', 'NegativeInterrogative');
+      expect(result).toBe("aren't I running?");
+  });
+});
+
 
 describe("conjugateTurkishVerb", () => {
   test("Gets correct verb stem", () => {
