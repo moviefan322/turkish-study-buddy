@@ -70,8 +70,8 @@ const Flashcard = () => {
           >
             {englishOnTop ? randomCard.english : randomCard.turkish}
           </div>
-          <button className={styles.swapButton} onClick={() => setEnglishOnTop((prev) => !prev)}>
-            <MdSwapVert className={styles.swapSvg} />
+          <button className='my-3 bg-success text-dark border-1 border border-dark' onClick={() => setEnglishOnTop((prev) => !prev)}>
+            <MdSwapVert size={50} />
           </button>
           <div
             className={`${styles.flashcard} justify-self-center align-self-center fs-5 fw-bolder border border-2 border-dark p-5 text-center bg-dark text-light`}
