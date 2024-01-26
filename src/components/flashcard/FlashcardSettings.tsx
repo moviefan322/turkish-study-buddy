@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FaXmark } from "react-icons/fa6";
-import styles from "./Settings.module.css";
+import styles from "./FlashcardSettings.module.css";
 
 interface ModalProps {
   isOpen: boolean;
