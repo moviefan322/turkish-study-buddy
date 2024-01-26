@@ -11,7 +11,6 @@ interface Flashcard {
 
 const Flashcard = () => {
   const [showFlashcards, setShowFlashcards] = useState(false);
-  const [sideUp, setSideUp] = useState("");
   const [flashcards, setFlashcards] = useState([...verbs]);
   const [randomCard, setRandomCard] = useState<Flashcard>({ turkish: "", english: "" });
   const [showAnswer, setShowAnswer] = useState(false);
