@@ -3,7 +3,7 @@ import Layout from "@/components/Layout";
 import FlashcardSettings from "@/components/flashcard/FlashcardSettings";
 import { verbs } from "@/data/vocab/verbs";
 import styles from "./flashcard.module.css";
-import { MdOutlineSwapCalls } from "react-icons/md";
+import { MdSwapVert } from "react-icons/md";
 import { FaGear } from "react-icons/fa6";
 
 interface Flashcard {
@@ -71,7 +71,7 @@ const Flashcard = () => {
             {englishOnTop ? randomCard.english : randomCard.turkish}
           </div>
           <button className={styles.swapButton} onClick={() => setEnglishOnTop((prev) => !prev)}>
-            <MdOutlineSwapCalls className={styles.swapSvg} />
+            <MdSwapVert className={styles.swapSvg} />
           </button>
           <div
             className={`${styles.flashcard} justify-self-center align-self-center fs-5 fw-bolder border border-2 border-dark p-5 text-center bg-dark text-light`}
