@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Layout from "@/components/Layout";
 import { verbs } from "@/data/vocab/verbs";
+import styles from "./flashcard.module.css";
+import { MdOutlineSwapCalls } from "react-icons/md";
 
 interface Flashcard {
   turkish: string;
@@ -13,6 +15,7 @@ const Flashcard = () => {
   const [flashcards, setFlashcards] = useState([...verbs]);
   const [randomCard, setRandomCard] = useState<Flashcard>({ turkish: "", english: "" });
   const [showAnswer, setShowAnswer] = useState(false);
+  const [englishOnTop, setEnglishOnTop] = useState(false);
 
   const shuffleDeck = () => {
     let workingArray = [...flashcards];
@@ -61,16 +64,19 @@ const Flashcard = () => {
       ) : (
         <div className={`d-flex flex-column justify-content-center align-items-center w-100`}>
           <div
-            className={`justify-self-center align-self-center fs-5 fw-bolder border border-2 border-dark p-5 w-100 text-center mb-4 bg-dark text-light`}
+            className={`${styles.flashcard} justify-self-center align-self-center fs-5 fw-bolder border border-2 border-dark p-5 text-center bg-dark text-light`}
           >
-            {randomCard.turkish}
+            {englishOnTop ? randomCard.english : randomCard.turkish}
           </div>
+          <button className={styles.swapButton} onClick={() => setEnglishOnTop((prev) => !prev)}>
+            <MdOutlineSwapCalls />
+          </button>
           <div
-            className={`justify-self-center align-self-center fs-5 fw-bolder border border-2 border-dark p-5 w-100 text-center bg-dark text-light`}
+            className={`${styles.flashcard} justify-self-center align-self-center fs-5 fw-bolder border border-2 border-dark p-5 text-center bg-dark text-light`}
           >
-            {showAnswer ? randomCard.english : "?"}
+            {showAnswer ? (englishOnTop ? randomCard.turkish : randomCard.english) : "?"}
           </div>
-          <div className="d-flex flex-row justify-content-around align-items-center w-100 mt-5">
+          <div className="d-flex flex-row justify-content-around align-items-center w-100 mt-4">
             {showAnswer ? (
               <button className="btn btn-lg btn-info" onClick={() => handleNext()}>
                 Next
