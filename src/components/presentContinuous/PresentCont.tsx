@@ -5,7 +5,7 @@ import { pronounPairs } from "@/data/vocab/pronounPairs";
 import { FaXmark } from "react-icons/fa6";
 import { FaGear } from "react-icons/fa6";
 import Layout from "@/components/Layout";
-import Settings from "@/components/Settings";
+import Settings from "@/components/presentContinuous/Settings";
 import styles from "./Settings.module.css";
 
 const PresentCont = () => {

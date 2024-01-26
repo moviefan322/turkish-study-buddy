@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FaXmark } from "react-icons/fa6";
-import styles from "./Settings.module.css";
+import styles from "./FlashcardSettings.module.css";
 
 interface ModalProps {
   isOpen: boolean;
@@ -8,7 +8,6 @@ interface ModalProps {
 }
 
 const FlashcardSettings = ({ isOpen, onClose }: ModalProps) => {
-
   const handleSave = () => {
     onClose();
   };
@@ -24,9 +23,7 @@ const FlashcardSettings = ({ isOpen, onClose }: ModalProps) => {
             <br />
             <div>
               <h6>Flashcard Settings</h6>
-              <div className="d-flex flex-column justify-content-center align-items-start">
-
-              </div>
+              <div className="d-flex flex-column justify-content-center align-items-start"></div>
             </div>
             <br />
             <div className="d-flex flex-row justify-content-between align-items-center w-100">

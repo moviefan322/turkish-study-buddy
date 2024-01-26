@@ -59,6 +59,68 @@ export function presentContinuous(infinitive: string): string {
   }
 }
 
+const conjugateBe = (pronoun: string) => {
+  switch (pronoun) {
+    case "I":
+      return "am";
+
+    case "you":
+      return "are";
+
+    case "he":
+      return "is";
+
+    case "she":
+      return "is";
+
+    case "it":
+      return "is";
+
+    case "you (f)":
+      return "are";
+
+    case "we":
+      return "are";
+
+    case "they":
+      return "are";
+
+    default:
+      return "Invalid Pronoun";
+  }
+};
+
+const conjugateNotBe = (pronoun: string) => {
+  switch (pronoun) {
+    case "I":
+      return "am not";
+
+    case "you":
+      return "aren't";
+
+    case "he":
+      return "isn't";
+
+    case "she":
+      return "isn't";
+
+    case "it":
+      return "isn't";
+
+    case "you (f)":
+      return "aren't";
+
+    case "we":
+      return "aren't";
+
+    case "they":
+      return "aren't";
+
+    default:
+      return "Invalid Pronoun";
+  }
+};
+
 export function presentContinuousSentence(verb: string, pronoun: string) {
   let finalPronoun = pronoun;
   let conjugatedVerb = "";
@@ -69,33 +131,8 @@ export function presentContinuousSentence(verb: string, pronoun: string) {
     finalPronoun = heSheItRand;
   }
 
-  switch (finalPronoun) {
-    case "I":
-      conjugatedVerb = "am";
-      break;
-    case "you":
-      conjugatedVerb = "are";
-      break;
-    case "he":
-      conjugatedVerb = "is";
-      break;
-    case "she":
-      conjugatedVerb = "is";
-      break;
-    case "it":
-      conjugatedVerb = "is";
-      break;
-    case "you (f)":
-      conjugatedVerb = "are";
-      break;
-    case "we":
-      conjugatedVerb = "are";
-      break;
-    case "they":
-      conjugatedVerb = "are";
-      break;
-  }
-  console.log("finalPronoun: " + finalPronoun, "conjugatedVerb: " + conjugatedVerb);
+  conjugatedVerb = conjugateBe(finalPronoun);
+
   return `${finalPronoun} ${conjugatedVerb} ${presentContinuous(verb)}`;
 }
 
@@ -109,33 +146,8 @@ export function presentContinuousInterrogativeSentence(verb: string, pronoun: st
     finalPronoun = heSheItRand;
   }
 
-  switch (finalPronoun) {
-    case "I":
-      conjugatedVerb = "am";
-      break;
-    case "you":
-      conjugatedVerb = "are";
-      break;
-    case "he":
-      conjugatedVerb = "is";
-      break;
-    case "she":
-      conjugatedVerb = "is";
-      break;
-    case "it":
-      conjugatedVerb = "is";
-      break;
-    case "you (f)":
-      conjugatedVerb = "are";
-      break;
-    case "we":
-      conjugatedVerb = "are";
-      break;
-    case "they":
-      conjugatedVerb = "are";
-      break;
-  }
-  console.log("finalPronoun: " + finalPronoun, "conjugatedVerb: " + conjugatedVerb);
+  conjugatedVerb = conjugateBe(finalPronoun);
+
   return `${conjugatedVerb} ${finalPronoun} ${presentContinuous(verb)}?`;
 }
 
@@ -149,33 +161,8 @@ export function presentContinuousNegativeSentence(verb: string, pronoun: string)
     finalPronoun = heSheItRand;
   }
 
-  switch (finalPronoun) {
-    case "I":
-      conjugatedVerb = "am not";
-      break;
-    case "you":
-      conjugatedVerb = "aren't";
-      break;
-    case "he":
-      conjugatedVerb = "isn't";
-      break;
-    case "she":
-      conjugatedVerb = "isn't";
-      break;
-    case "it":
-      conjugatedVerb = "isn't";
-      break;
-    case "you (f)":
-      conjugatedVerb = "aren't";
-      break;
-    case "we":
-      conjugatedVerb = "aren't";
-      break;
-    case "they":
-      conjugatedVerb = "aren't";
-      break;
-  }
-  console.log("finalPronoun: " + finalPronoun, "conjugatedVerb: " + conjugatedVerb);
+  conjugatedVerb = conjugateNotBe(finalPronoun);
+
   return `${finalPronoun} ${conjugatedVerb} ${presentContinuous(verb)}`;
 }
 
@@ -189,33 +176,11 @@ export function presentContinuousNegativeInterrogativeSentence(verb: string, pro
     finalPronoun = heSheItRand;
   }
 
-  switch (finalPronoun) {
-    case "I":
-      conjugatedVerb = "aren't";
-      break;
-    case "you":
-      conjugatedVerb = "aren't";
-      break;
-    case "he":
-      conjugatedVerb = "isn't";
-      break;
-    case "she":
-      conjugatedVerb = "isn't";
-      break;
-    case "it":
-      conjugatedVerb = "isn't";
-      break;
-    case "you (f)":
-      conjugatedVerb = "aren't";
-      break;
-    case "we":
-      conjugatedVerb = "aren't";
-      break;
-    case "they":
-      conjugatedVerb = "aren't";
-      break;
+  conjugatedVerb = conjugateNotBe(finalPronoun);
+  if (conjugatedVerb === "am not") {
+    conjugatedVerb = "aren't";
   }
-  console.log("finalPronoun: " + finalPronoun, "conjugatedVerb: " + conjugatedVerb);
+
   return `${conjugatedVerb} ${finalPronoun} ${presentContinuous(verb)}?`;
 }
 
@@ -301,7 +266,7 @@ export const conjugateTurkishVerb = (verb: string, pronoun: string) => {
       pronounSuffix = "sunuz";
       break;
     case "Onlar":
-      pronounSuffix = "(lar)";
+      pronounSuffix = "lar";
       break;
   }
 
@@ -383,7 +348,7 @@ export const conjugateTurkishVerbNegative = (verb: string, pronoun: string) => {
       pronounSuffix = "sunuz";
       break;
     case "Onlar":
-      pronounSuffix = "(lar)";
+      pronounSuffix = "lar";
       break;
   }
 

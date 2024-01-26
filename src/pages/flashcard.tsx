@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import Layout from "@/components/Layout";
+import FlashcardSettings from "@/components/flashcard/FlashcardSettings";
 import { verbs } from "@/data/vocab/verbs";
 import styles from "./flashcard.module.css";
 import { MdOutlineSwapCalls } from "react-icons/md";
+import { FaGear } from "react-icons/fa6";
 
 interface Flashcard {
   turkish: string;
@@ -15,6 +17,7 @@ const Flashcard = () => {
   const [randomCard, setRandomCard] = useState<Flashcard>({ turkish: "", english: "" });
   const [showAnswer, setShowAnswer] = useState(false);
   const [englishOnTop, setEnglishOnTop] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const shuffleDeck = () => {
     let workingArray = [...flashcards];
@@ -77,7 +80,7 @@ const Flashcard = () => {
           </div>
           <div className="d-flex flex-row justify-content-around align-items-center w-100 mt-4">
             {showAnswer ? (
-              <button className="btn btn-lg btn-info" onClick={() => handleNext()}>
+              <button className="btn btn-lg btn-success" onClick={() => handleNext()}>
                 Next
               </button>
             ) : (
@@ -88,6 +91,13 @@ const Flashcard = () => {
           </div>
         </div>
       )}
+      <button
+        className="btn btn-info text-white btn-large fs-5 align-self-end justify-self-end bottom-right"
+        onClick={() => setIsModalOpen(true)}
+      >
+        <FaGear />
+      </button>
+      <FlashcardSettings isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </Layout>
   );
 };

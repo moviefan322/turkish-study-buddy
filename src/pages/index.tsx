@@ -1,9 +1,5 @@
-import PresentCont from "@/components/PresentCont";
+import PresentCont from "@/components/presentContinuous/PresentCont";
 
 export default function Home() {
-  return (
-    
-      <PresentCont />
-    
-  );
+  return <PresentCont />;
 }
