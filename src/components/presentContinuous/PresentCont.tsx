@@ -88,12 +88,8 @@ const PresentCont = () => {
                     className="text-center w-75 fs-3"
                     value={inputValue}
                     onChange={handleInputChange}
+                    style={incorrect ? { border: "4px dashed red" } : {}}
                   />
-                  {incorrect && (
-                    <div className="text-danger align-self-center">
-                      <FaXmark />
-                    </div>
-                  )}
                 </>
               )}
             </div>
