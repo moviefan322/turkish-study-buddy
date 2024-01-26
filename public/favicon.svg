@@ -1,0 +1,11 @@
+<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="300" height="300" fill="red"/>
+
+    <!-- Crescent -->
+    <circle cx="150" cy="150" r="100" fill="white"/>
+    <circle cx="180" cy="150" r="80" fill="red"/>
+
+    <!-- Star -->
+    <polygon points="100,10 40,198 190,78 10,78 160,198" transform="translate(150, 115) scale(0.3)" fill="white"/>
+</svg>
