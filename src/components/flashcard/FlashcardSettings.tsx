@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaXmark } from "react-icons/fa6";
+import styles from "./Settings.module.css";
 
 interface ModalProps {
   isOpen: boolean;
