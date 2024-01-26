@@ -71,7 +71,7 @@ const Flashcard = () => {
             {englishOnTop ? randomCard.english : randomCard.turkish}
           </div>
           <button className={styles.swapButton} onClick={() => setEnglishOnTop((prev) => !prev)}>
-            <MdOutlineSwapCalls />
+            <MdOutlineSwapCalls className={styles.swapSvg} />
           </button>
           <div
             className={`${styles.flashcard} justify-self-center align-self-center fs-5 fw-bolder border border-2 border-dark p-5 text-center bg-dark text-light`}

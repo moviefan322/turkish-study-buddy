@@ -21,3 +21,8 @@
   border: 1px solid black;
   text-align: center;
 }
+
+.swapSvg {
+  align-self: center;
+  justify-self: center;
+}
