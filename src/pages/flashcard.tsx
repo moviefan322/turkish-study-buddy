@@ -67,8 +67,8 @@ const Flashcard = () => {
       </Link>
       <h1>Şimşek Kartlar</h1>
       {!showFlashcards ? (
-        <button className="btn btn-lg btn-dark text-light" onClick={() => handleShowFlashcards()}>
-          Begin
+        <button className="btn btn-lg btn-success border border-1 border-dark" onClick={() => handleShowFlashcards()}>
+          Start
         </button>
       ) : (
         <div className={`d-flex flex-column justify-content-center align-items-center w-100`}>
