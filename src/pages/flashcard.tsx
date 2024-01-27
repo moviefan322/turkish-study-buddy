@@ -73,7 +73,7 @@ const Flashcard = () => {
       ) : (
         <div className={`d-flex flex-column justify-content-center align-items-center w-100`}>
           <div
-            className={`${styles.flashcard} justify-self-center align-self-center fs-5 fw-bolder border border-2 border-dark p-5 text-center bg-dark text-light`}
+            className={`${styles.flashcard} justify-self-center align-self-center fs-3 fw-bolder border border-2 border-dark p-5 text-center text-light`}
           >
             {englishOnTop ? randomCard.english : randomCard.turkish}
           </div>
@@ -84,17 +84,17 @@ const Flashcard = () => {
             <MdSwapVert size={50} />
           </button>
           <div
-            className={`${styles.flashcard} justify-self-center align-self-center fs-5 fw-bolder border border-2 border-dark p-5 text-center bg-dark text-light`}
+            className={`${styles.flashcard} justify-self-center align-self-center fs-3 fw-bolder border border-2 border-dark p-5 text-center text-light`}
           >
             {showAnswer ? (englishOnTop ? randomCard.turkish : randomCard.english) : "?"}
           </div>
           <div className="d-flex flex-row justify-content-around align-items-center w-100 mt-4">
             {showAnswer ? (
-              <button className="btn btn-lg btn-success" onClick={() => handleNext()}>
+              <button className="btn btn-lg btn-success border border-1 border-dark" onClick={() => handleNext()}>
                 Next
               </button>
             ) : (
-              <button className="btn btn-lg btn-success" onClick={() => handleReveal()}>
+              <button className="btn btn-lg btn-success border border-1 border-dark" onClick={() => handleReveal()}>
                 Reveal
               </button>
             )}
@@ -102,8 +102,9 @@ const Flashcard = () => {
         </div>
       )}
       <button
-        className="btn btn-info text-white btn-large fs-5 align-self-end justify-self-end bottom-right"
+        className="btn btn-info text-white btn-large fs-5 align-self-end justify-self-end bottom-right border border-1 border-dark"
         onClick={() => setIsModalOpen(true)}
+        style={{ display: "none" }}
       >
         <FaGear />
       </button>

@@ -10,7 +10,7 @@ const Layout = ({ children }: LayoutProps) => {
     <div className="container primaryContainer d-flex flex-column justify-content-center">
       <div className={`${styles.container}`}>
         <div
-          className={`${styles.pageCard} d-flex flex-column justify-content-center align-items-center px-3 py-6 position-relative`}
+          className={`${styles.pageCard} d-flex flex-column justify-content-center align-items-center px-3 py-6 py-md-4 position-relative`}
         >
           {children}
         </div>

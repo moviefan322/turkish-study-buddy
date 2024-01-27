@@ -1,6 +1,7 @@
 .flashcard {
   min-width: 300px;
   max-width: 600px;
+  background-color: rgba(81, 87, 112, 0.82);
 }
 
 .swapButton {
@@ -25,4 +26,10 @@
 .swapSvg {
   align-self: center;
   justify-self: center;
+}
+
+@media (max-width: 768px) {
+  .flashcard {
+    font-size: 2.5rem;
+  }
 }
