@@ -1,12 +1,13 @@
 import { useState } from "react";
+import Link from "next/link";
 import { sentenceMaster } from "@/utils/presentContinuous";
 import { verbs } from "@/data/vocab/verbs";
 import { pronounPairs } from "@/data/vocab/pronounPairs";
-import { FaXmark } from "react-icons/fa6";
 import { FaGear } from "react-icons/fa6";
-import Layout from "@/components/Layout";
-import Settings from "@/components/presentContinuous/Settings";
-import styles from "./Settings.module.css";
+import { IoChevronBack } from "react-icons/io5";
+import Layout from "@/components/layout/Layout";
+import Settings from "@/components/settings/Settings";
+import styles from "./PresentCont.module.css";
 
 const PresentCont = () => {
   const [english, setEnglish] = useState<string>("");
@@ -70,6 +71,12 @@ const PresentCont = () => {
 
   return (
     <Layout>
+      <Link href='/'>
+        <button className="top-left btn btn-sm btn-dark text-light">
+          <IoChevronBack />
+        </button>
+      </Link>
+
       <h1 className="text-center">ŞİMDİKİ ZAMAN</h1>
       <hr />
       {showMain && (

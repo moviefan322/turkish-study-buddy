@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import Layout from "@/components/Layout";
+import Link from "next/link";
+import Layout from "@/components/layout/Layout";
 import FlashcardSettings from "@/components/flashcard/FlashcardSettings";
 import { verbs } from "@/data/vocab/verbs";
 import styles from "./flashcard.module.css";
 import { MdSwapVert } from "react-icons/md";
 import { FaGear } from "react-icons/fa6";
+import { IoChevronBack } from "react-icons/io5";
 
 interface Flashcard {
   turkish: string;
@@ -58,6 +60,11 @@ const Flashcard = () => {
 
   return (
     <Layout>
+      <Link href="/">
+        <button className="top-left btn btn-sm btn-dark text-light">
+          <IoChevronBack />
+        </button>
+      </Link>
       <h1>Şimşek Kartlar</h1>
       {!showFlashcards ? (
         <button className="btn btn-lg btn-dark text-light" onClick={() => handleShowFlashcards()}>
@@ -70,7 +77,10 @@ const Flashcard = () => {
           >
             {englishOnTop ? randomCard.english : randomCard.turkish}
           </div>
-          <button className='my-3 bg-success text-dark border-1 border border-dark' onClick={() => setEnglishOnTop((prev) => !prev)}>
+          <button
+            className="my-3 bg-success text-dark border-1 border border-dark"
+            onClick={() => setEnglishOnTop((prev) => !prev)}
+          >
             <MdSwapVert size={50} />
           </button>
           <div

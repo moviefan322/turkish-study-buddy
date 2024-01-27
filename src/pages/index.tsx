@@ -1,5 +1,5 @@
-import PresentCont from "@/components/presentContinuous/PresentCont";
+import Menu from "@/components/menu/Menu";
 
 export default function Home() {
-  return <PresentCont />;
+  return <Menu />;
 }
