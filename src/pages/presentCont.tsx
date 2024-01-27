@@ -7,7 +7,7 @@ import { FaGear } from "react-icons/fa6";
 import { IoChevronBack } from "react-icons/io5";
 import Layout from "@/components/layout/Layout";
 import Settings from "@/components/settings/Settings";
-import styles from "./PresentCont.module.css";
+
 
 const PresentCont = () => {
   const [english, setEnglish] = useState<string>("");
