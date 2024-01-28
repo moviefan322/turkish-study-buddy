@@ -98,4 +98,5 @@ export const verbs = [
   { english: "to mention", turkish: "bahsetmek" },
   { english: "to go out", turkish: "çıkmak" },
   { english: "to get up", turkish: "kalkmak" },
+  {english: "to forget", turkish: "unutmak"},
 ];
