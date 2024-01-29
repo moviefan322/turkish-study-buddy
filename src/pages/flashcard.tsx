@@ -19,6 +19,11 @@ enum Mode {
   Smart = "smart",
 }
 
+interface ModeStrategy {
+  initializeDeck: () => void;
+  handleNext: (correct: boolean) => void;
+}
+
 const Flashcard = () => {
   const [showFlashcards, setShowFlashcards] = useState(false);
   const [flashcards, setFlashcards] = useState([...verbs]);
@@ -38,9 +43,42 @@ const Flashcard = () => {
     }
     setFlashcards(workingArray);
   };
+  const smartModeStrategy: ModeStrategy = {
+    initializeDeck: () => {
+      shuffleDeck();
+      setCurrentDeck([...flashcards]);
+    },
+    handleNext: (correct: boolean) => {
+      if (!correct) {
+        setNextDeck([...nextDeck, currentDeck[currentIndex]]);
+      }
+      setShowAnswer(false);
+      if (currentIndex === currentDeck.length - 1) {
+        if (nextDeck.length === 0) {
+          handleAllCorrect();
+        } else {
+          setCurrentDeck([...nextDeck]);
+          setNextDeck([]);
+        }
+        setCurrentIndex(0);
+        return;
+      }
+      setCurrentIndex((prev) => prev + 1);
+    },
+  };
+
+  const getModeStrategy = (mode: Mode): ModeStrategy => {
+    switch (mode) {
+      case Mode.Smart:
+        return smartModeStrategy;
+    }
+    return smartModeStrategy;
+  };
+
+  const modeStrategy = getModeStrategy(mode);
 
   const handleShowFlashcards = () => {
-    shuffleDeck();
+    modeStrategy.initializeDeck();
     setShowFlashcards(true);
   };
 
@@ -58,25 +96,8 @@ const Flashcard = () => {
   };
 
   const handleNext = (correct: boolean) => {
-    if (!correct) {
-      setNextDeck([...nextDeck, currentDeck[currentIndex]]);
-    }
-    setShowAnswer(false);
-    if (currentIndex === currentDeck.length - 1) {
-      if (nextDeck.length === 0) {
-        handleAllCorrect();
-      } else {
-        // Proceed with the nextDeck
-        setCurrentDeck([...nextDeck]);
-        setNextDeck([]);
-      }
-      setCurrentIndex(0);
-      return;
-    }
-    setCurrentIndex((prev) => prev + 1);
+    modeStrategy.handleNext(correct);
   };
-
-  console.log(flashcards);
 
   return (
     <Layout>
