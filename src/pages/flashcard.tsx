@@ -110,7 +110,7 @@ const Flashcard = () => {
       {showFlashcards && (
         <p>
           <small>
-            {currentIndex + 1}/{currentDeck.length + 1}
+            {currentIndex + 1}/{currentDeck.length}
           </small>
         </p>
       )}
