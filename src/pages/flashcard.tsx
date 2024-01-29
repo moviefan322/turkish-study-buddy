@@ -57,17 +57,19 @@ const Flashcard = () => {
     },
     handleNext: (correct: boolean) => {
       if (!correct) {
-        setNextDeck([...nextDeck, currentDeck[currentIndex]]);
+        setNextDeck((prevNextDeck) => [...prevNextDeck, currentDeck[currentIndex]]);
       }
       setShowAnswer(false);
       if (currentIndex === currentDeck.length - 1) {
         if (nextDeck.length === 0) {
           handleAllCorrect();
-        } else {
+        } else if (correct) {
           setCurrentDeck([...nextDeck]);
-          setNextDeck([]);
+        } else {
+          setCurrentDeck([...nextDeck, currentDeck[currentIndex]]);
         }
         setCurrentIndex(0);
+        setNextDeck([]);
         return;
       }
       setCurrentIndex((prev) => prev + 1);
