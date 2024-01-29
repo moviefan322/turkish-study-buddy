@@ -4,6 +4,9 @@ import { daysOfTheWeek } from "../../data/vocab/daysOfWeek";
 import { food } from "../../data/vocab/food";
 import { months } from "../../data/vocab/months";
 import { verbs } from "../../data/vocab/verbs";
+import { nouns } from "../../data/vocab/nouns";
+import { adjectives } from "@/data/vocab/adjectives";
+import { numbers } from "@/data/vocab/numbers";
 import styles from "./FlashcardSettings.module.css";
 
 enum Mode {
@@ -33,6 +36,8 @@ const FlashcardSettings = ({ isOpen, onClose, setMode, resetState, setFlashcards
     daysOfTheWeek,
     months,
     food,
+    nouns,
+    adjectives,
   };
 
   const handleModeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -68,9 +73,12 @@ const FlashcardSettings = ({ isOpen, onClose, setMode, resetState, setFlashcards
                   </label>
                   <select name="mode" id="mode" value={selectedVocab} onChange={handleVocabChange}>
                     <option value={"verbs"}>Verbs</option>
+                    <option value={"nouns"}>Nouns</option>
+                    <option value={"adjectives"}>Adjectives</option>
+                    <option value={"food"}>Food</option>
                     <option value={"daysOfTheWeek"}>Days</option>
                     <option value={"months"}>Months</option>
-                    <option value={"food"}>Food</option>
+                    <option value={"numbers"}>Numbers</option>
                   </select>
                 </form>
                 <form action="">
