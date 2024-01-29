@@ -14,6 +14,11 @@ interface Flashcard {
   english: string;
 }
 
+enum Mode {
+  Random = "random",
+  Smart = "smart",
+}
+
 const Flashcard = () => {
   const [showFlashcards, setShowFlashcards] = useState(false);
   const [flashcards, setFlashcards] = useState([...verbs]);
@@ -22,7 +27,8 @@ const Flashcard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentDeck, setCurrentDeck] = useState<Flashcard[]>([]);
   const [nextDeck, setNextDeck] = useState<Flashcard[]>([]);
-  const [currentIndex, setCurrentIndex] = useState(99);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [mode, setMode] = useState<Mode>(Mode.Smart);
 
   const shuffleDeck = () => {
     let workingArray = [...flashcards];
