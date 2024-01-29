@@ -52,6 +52,19 @@ const PresentCont = () => {
     setInputValue(e.target.value);
   };
 
+  function isEquivalent(inputValue: string, turkish: string) {
+    let cleanedInput = inputValue
+      .toLowerCase()
+      .replace(/[^a-z]+/g, "")
+      .trim();
+    let cleanedTurkish = turkish
+      .toLowerCase()
+      .replace(/[^a-z]+/g, "")
+      .trim();
+
+    return cleanedInput === cleanedTurkish;
+  }
+
   const handleCheckAnswer = () => {
     if (!inputValue) {
       return;
@@ -59,7 +72,7 @@ const PresentCont = () => {
     if (inputValue.startsWith("İ")) {
       setInputValue((prev) => prev.replace("İ", "i"));
     }
-    if (inputValue.toLowerCase().trim() === turkish.toLowerCase().trim()) {
+    if (isEquivalent(inputValue, turkish)) {
       setCorrect(true);
       setIncorrect(false);
       setShowTurkish(true);
@@ -69,9 +82,11 @@ const PresentCont = () => {
     }
   };
 
+  console.log(inputValue, turkish);
+
   return (
     <Layout>
-      <Link href='/'>
+      <Link href="/">
         <button className="top-left btn btn-sm btn-dark text-light">
           <IoChevronBack />
         </button>
