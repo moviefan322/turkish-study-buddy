@@ -101,7 +101,7 @@ const PresentCont = () => {
             <div>{english && english}</div>{" "}
           </div>
           <div className="fs-1 d-flex flex-column justify-content-center align-items-center text-center mb-5">
-            <div className="fw-bold">Türçke:</div>
+            <div className="fw-bold">Türkçe:</div>
             <div className="d-flex flex-row justify-content-center align-items-center mb-3">
               {!showTurkish && (
                 <>
