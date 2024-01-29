@@ -52,7 +52,7 @@ const PresentCont = () => {
     setInputValue(e.target.value);
   };
 
-  function isEquivalent(inputValue: string, turkish: string) {
+  const isEquivalent = (inputValue: string, turkish: string) => {
     let cleanedInput = inputValue
       .toLowerCase()
       .replace(/[^a-z]+/g, "")
@@ -63,7 +63,7 @@ const PresentCont = () => {
       .trim();
 
     return cleanedInput === cleanedTurkish;
-  }
+  };
 
   const handleCheckAnswer = () => {
     if (!inputValue) {
