@@ -1,5 +1,9 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import { FaXmark } from "react-icons/fa6";
+import { daysOfTheWeek } from "../../data/vocab/daysOfWeek";
+import { food } from "../../data/vocab/food";
+import { months } from "../../data/vocab/months";
+import { verbs } from "../../data/vocab/verbs";
 import styles from "./FlashcardSettings.module.css";
 
 enum Mode {
@@ -7,22 +11,41 @@ enum Mode {
   Smart = "smart",
 }
 
+interface Flashcard {
+  turkish: string;
+  english: string;
+}
+
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   setMode: Dispatch<SetStateAction<Mode>>;
   resetState: () => void;
+  setFlashcards: Dispatch<SetStateAction<Flashcard[]>>;
 }
 
-const FlashcardSettings = ({ isOpen, onClose, setMode, resetState }: ModalProps) => {
+const FlashcardSettings = ({ isOpen, onClose, setMode, resetState, setFlashcards }: ModalProps) => {
   const [selectedMode, setSelectedMode] = useState(Mode.Random);
+  const [selectedVocab, setSelectedVocab] = useState("verbs");
+
+  const vocabSets = {
+    verbs,
+    daysOfTheWeek,
+    months,
+    food,
+  };
 
   const handleModeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedMode(event.target.value as Mode);
   };
 
+  const handleVocabChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedVocab(event.target.value);
+  };
   const handleSave = () => {
     setMode(selectedMode);
+    const newFlashcards = vocabSets[selectedVocab as keyof typeof vocabSets];
+    setFlashcards(newFlashcards);
     resetState();
     onClose();
   };
@@ -39,6 +62,17 @@ const FlashcardSettings = ({ isOpen, onClose, setMode, resetState }: ModalProps)
             <div>
               <h6>Flashcard Settings</h6>
               <div className="d-flex flex-column justify-content-center align-items-start">
+                <form action="">
+                  <label htmlFor="mode" className="me-2">
+                    Select Vocab:
+                  </label>
+                  <select name="mode" id="mode" value={selectedVocab} onChange={handleVocabChange}>
+                    <option value={"verbs"}>Verbs</option>
+                    <option value={"daysOfTheWeek"}>Days</option>
+                    <option value={"months"}>Months</option>
+                    <option value={"food"}>Food</option>
+                  </select>
+                </form>
                 <form action="">
                   <label htmlFor="mode" className="me-2">
                     Select Mode:

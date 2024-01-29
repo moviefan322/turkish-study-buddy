@@ -1,4 +1,4 @@
-const months = [
+export const months = [
   { "english": "January", "turkish": "Ocak" },
   { "english": "February", "turkish": "Şubat" },
   { "english": "March", "turkish": "Mart" },

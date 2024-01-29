@@ -202,6 +202,7 @@ const Flashcard = () => {
         onClose={() => setIsModalOpen(false)}
         setMode={setMode}
         resetState={resetState}
+        setFlashcards={setFlashcards}
       />
     </Layout>
   );

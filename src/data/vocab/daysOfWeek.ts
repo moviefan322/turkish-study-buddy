@@ -1,4 +1,4 @@
-const daysOfTheWeek = [
+export const daysOfTheWeek = [
   { english: "Monday", turkish: "Pazartesi" },
   { english: "Tuesday", turkish: "Salı" },
   { english: "Wednesday", turkish: "Çarşamba" },
