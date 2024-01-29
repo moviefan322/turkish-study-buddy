@@ -33,7 +33,14 @@ const Flashcard = () => {
   const [currentDeck, setCurrentDeck] = useState<Flashcard[]>([]);
   const [nextDeck, setNextDeck] = useState<Flashcard[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [mode, setMode] = useState<Mode>(Mode.Smart);
+  const [mode, setMode] = useState<Mode>(Mode.Random);
+
+  const resetState = () => {
+    setShowAnswer(false);
+    setEnglishOnTop(false);
+    setIsModalOpen(false);
+    setCurrentIndex(0);
+  };
 
   const shuffleDeck = () => {
     let workingArray = [...flashcards];
@@ -67,12 +74,27 @@ const Flashcard = () => {
     },
   };
 
+  const randomModeStrategy: ModeStrategy = {
+    initializeDeck: () => {
+      shuffleDeck();
+      setCurrentDeck([...flashcards]);
+    },
+    handleNext: () => {
+      setShowAnswer(false);
+      shuffleDeck();
+      setCurrentDeck([...flashcards]);
+    },
+  };
+
   const getModeStrategy = (mode: Mode): ModeStrategy => {
     switch (mode) {
       case Mode.Smart:
         return smartModeStrategy;
+      case Mode.Random:
+        return randomModeStrategy;
+      default:
+        return randomModeStrategy;
     }
-    return smartModeStrategy;
   };
 
   const modeStrategy = getModeStrategy(mode);
@@ -99,6 +121,8 @@ const Flashcard = () => {
     modeStrategy.handleNext(correct);
   };
 
+  console.log(mode);
+
   return (
     <Layout>
       <Link href="/">
@@ -107,7 +131,7 @@ const Flashcard = () => {
         </button>
       </Link>
       <h1>Şimşek Kartlar</h1>
-      {showFlashcards && (
+      {showFlashcards && mode === Mode.Smart && (
         <p>
           <small>
             {currentIndex + 1}/{currentDeck.length}
@@ -138,7 +162,7 @@ const Flashcard = () => {
             {showAnswer ? (englishOnTop ? currentDeck[currentIndex].turkish : currentDeck[currentIndex].english) : "?"}
           </div>
           <div className="d-flex flex-row justify-content-around align-items-center w-100 mt-4">
-            {showAnswer ? (
+            {showAnswer && mode === Mode.Smart && (
               <div className="d-flex flex-row">
                 <button
                   className="my-3 bg-success text-dark border-1 border border-dark mx-3"
@@ -153,7 +177,13 @@ const Flashcard = () => {
                   <FaXmark size={50} />
                 </button>
               </div>
-            ) : (
+            )}
+            {showAnswer && mode === Mode.Random && (
+              <button className="btn btn-lg btn-success border border-1 border-dark" onClick={() => handleNext(true)}>
+                Next
+              </button>
+            )}
+            {!showAnswer && (
               <button className="btn btn-lg btn-success border border-1 border-dark" onClick={() => handleReveal()}>
                 Reveal
               </button>
@@ -164,11 +194,15 @@ const Flashcard = () => {
       <button
         className="btn btn-info text-white btn-large fs-5 align-self-end justify-self-end bottom-right border border-1 border-dark"
         onClick={() => setIsModalOpen(true)}
-        style={{ display: "none" }}
       >
         <FaGear />
       </button>
-      <FlashcardSettings isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <FlashcardSettings
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        setMode={setMode}
+        resetState={resetState}
+      />
     </Layout>
   );
 };
