@@ -56,23 +56,31 @@ const Flashcard = () => {
       setCurrentDeck([...flashcards]);
     },
     handleNext: (correct: boolean) => {
-      if (!correct) {
-        setNextDeck((prevNextDeck) => [...prevNextDeck, currentDeck[currentIndex]]);
-      }
       setShowAnswer(false);
-      if (currentIndex === currentDeck.length - 1) {
-        if (nextDeck.length === 0) {
-          handleAllCorrect();
-        } else if (correct) {
-          setCurrentDeck([...nextDeck]);
+      const isLastCard = currentIndex === currentDeck.length - 1;
+
+      if (correct) {
+        if (isLastCard) {
+          if (nextDeck.length === 0) {
+            handleAllCorrect();
+          } else {
+            setCurrentDeck(nextDeck);
+          }
+          setCurrentIndex(0);
+          setNextDeck([]);
         } else {
-          setCurrentDeck([...nextDeck, currentDeck[currentIndex]]);
+          setCurrentIndex((prev) => prev + 1);
         }
-        setCurrentIndex(0);
-        setNextDeck([]);
-        return;
+      } else {
+        setNextDeck((prevNextDeck) => [...prevNextDeck, currentDeck[currentIndex]]);
+        if (isLastCard) {
+          setCurrentDeck([...nextDeck, currentDeck[currentIndex]]);
+          setCurrentIndex(0);
+          setNextDeck([]);
+        } else {
+          setCurrentIndex((prev) => prev + 1);
+        }
       }
-      setCurrentIndex((prev) => prev + 1);
     },
   };
 

@@ -25,7 +25,6 @@ export const verbs = [
   { english: "to put", turkish: "koymak" },
   { english: "to mean", turkish: "anlamına gelmek" },
   { english: "to let", turkish: "bırakmak" },
-  { english: "to begin", turkish: "başlamak" },
   { english: "to seem", turkish: "görünmek" },
   { english: "to help", turkish: "yardım etmek" },
   { english: "to talk", turkish: "konuşmak" },
