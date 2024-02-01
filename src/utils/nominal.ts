@@ -1,7 +1,7 @@
 import { fourWayVowelHarmony, twoWayVowelHarmony } from "./vowelHarmony";
 
-const conjugatedSuffix = (vowel: string, pronoun: string, word: string) => {
-  console.log(word, vowel);
+const conjugatedSuffix = (pronoun: string, word: string) => {
+  const vowel = fourWayVowelHarmony(word);
   switch (pronoun.toLocaleLowerCase()) {
     case "ben":
       return vowel + "m";
@@ -19,9 +19,7 @@ const conjugatedSuffix = (vowel: string, pronoun: string, word: string) => {
 };
 
 export const nominalConjugation = (pronoun: string, nounjective: string) => {
-  const vowel = fourWayVowelHarmony(nounjective);
-  const ending = conjugatedSuffix(vowel, pronoun, nounjective);
-  console.log(ending);
+  const ending = conjugatedSuffix(pronoun, nounjective);
 
   return nounjective + ending;
 };
