@@ -1,3 +1,5 @@
+import { fourWayVowelHarmony } from "./vowelHarmony";
+
 const consonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "y", "z"];
 
 const vowels = ["a", "e", "i", "o", "u"];
@@ -205,30 +207,6 @@ function adjustStemForSpecialCases(verbStem: string) {
   return verbStem;
 }
 
-function getVowelHarmony(verbStem: string) {
-  const finalVowel = verbStem
-    .split("")
-    .reverse()
-    .find((letter) => turkishVowels.includes(letter));
-
-  switch (finalVowel) {
-    case "a":
-    case "ı":
-      return "ı";
-    case "e":
-    case "i":
-      return "i";
-    case "o":
-    case "u":
-      return "u";
-    case "ö":
-    case "ü":
-      return "ü";
-    default:
-      throw new Error(`Invalid verb stem: ${verbStem}. The stem does not end with a Turkish vowel.`);
-  }
-}
-
 export const conjugateTurkishVerb = (verb: string, pronoun: string) => {
   // separate stem from ending
   let verbStem = getVerbStem(verb);
@@ -246,7 +224,7 @@ export const conjugateTurkishVerb = (verb: string, pronoun: string) => {
   } else if (turkishVowels.some((vowel) => verbStem.endsWith(vowel))) {
     vowelHarmony = "";
   } else {
-    vowelHarmony = getVowelHarmony(verbStem);
+    vowelHarmony = fourWayVowelHarmony(verbStem);
   }
 
   switch (pronoun) {
@@ -291,7 +269,7 @@ export const conjugateTurkishVerbInterrogative = (verb: string, pronoun: string)
   } else if (turkishVowels.some((vowel) => verbStem.endsWith(vowel))) {
     vowelHarmony = "";
   } else {
-    vowelHarmony = getVowelHarmony(verbStem);
+    vowelHarmony = fourWayVowelHarmony(verbStem);
   }
 
   switch (pronoun) {
@@ -314,7 +292,7 @@ export const conjugateTurkishVerbInterrogative = (verb: string, pronoun: string)
       pronounSuffix = "";
       break;
   }
-  console.log("stem: " + verbStem, "vowel: " + vowelHarmony + "suffix: " + pronounSuffix);
+
   return verbStem + vowelHarmony + "yor " + negativeParticle + pronounSuffix;
 };
 
@@ -329,7 +307,7 @@ export const conjugateTurkishVerbNegative = (verb: string, pronoun: string) => {
   let vowelHarmony = "";
   let pronounSuffix = "";
 
-  vowelHarmony = getVowelHarmony(verbStem);
+  vowelHarmony = fourWayVowelHarmony(verbStem);
 
   switch (pronoun) {
     case "Ben":
@@ -367,7 +345,7 @@ export const conjugateTurkishVerbNegativeInterrogative = (verb: string, pronoun:
   let negativeParticle = "mu";
   let pronounSuffix = "";
 
-  vowelHarmony = getVowelHarmony(verbStem);
+  vowelHarmony = fourWayVowelHarmony(verbStem);
 
   switch (pronoun) {
     case "Ben":
@@ -389,7 +367,7 @@ export const conjugateTurkishVerbNegativeInterrogative = (verb: string, pronoun:
       pronounSuffix = "";
       break;
   }
-  console.log("stem: " + verbStem, "vowel: " + vowelHarmony + "suffix: " + pronounSuffix);
+
   return verbStem + "m" + vowelHarmony + "yor " + negativeParticle + pronounSuffix;
 };
 
