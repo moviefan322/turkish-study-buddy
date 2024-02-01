@@ -1,10 +1,8 @@
-import { fourWayVowelHarmony } from "./vowelHarmony";
+import { fourWayVowelHarmony, turkishVowels } from "./vowelHarmony";
 
 const consonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "y", "z"];
 
 const vowels = ["a", "e", "i", "o", "u"];
-
-const turkishVowels = ["a", "e", "ı", "i", "o", "ö", "u", "ü"];
 
 const exceptionVerbs = ["to cover", "to be"];
 
@@ -18,7 +16,7 @@ const exceptionsFunc = (verb: string) => {
       return "being";
 
     default:
-      return "error";
+      return "error, verb not handled in exceptionsFunc";
   }
 };
 

@@ -1,4 +1,4 @@
-const turkishVowels = ["a", "e", "ı", "i", "o", "ö", "u", "ü"];
+export const turkishVowels = ["a", "e", "ı", "i", "o", "ö", "u", "ü"];
 
 export function fourWayVowelHarmony(verbStem: string) {
   const finalVowel = verbStem
