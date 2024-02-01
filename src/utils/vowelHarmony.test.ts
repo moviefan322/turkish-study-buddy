@@ -1,4 +1,4 @@
-import { fourWayVowelHarmony } from "./vowelHarmony";
+import { fourWayVowelHarmony, twoWayVowelHarmony } from "./vowelHarmony";
 
 describe("fourWayVowelHarmony", () => {
   test('returns "ı" for a verb stem ending in "a"', () => {
@@ -37,5 +37,39 @@ describe("fourWayVowelHarmony", () => {
     expect(() => fourWayVowelHarmony("xyz")).toThrow(
       "Invalid verb stem: xyz. The stem does not end with a Turkish vowel."
     );
+  });
+});
+
+describe("twoWayVowelHarmony", () => {
+  test('returns "a" for a verb stem ending in "a"', () => {
+    expect(twoWayVowelHarmony("yap")).toBe("a");
+  });
+
+  test('returns "a" for a verb stem ending in "ı"', () => {
+    expect(twoWayVowelHarmony("kıp")).toBe("a");
+  });
+
+  test('returns "a" for a verb stem ending in "o"', () => {
+    expect(twoWayVowelHarmony("sor")).toBe("a");
+  });
+
+  test('returns "a" for a verb stem ending in "u"', () => {
+    expect(twoWayVowelHarmony("duy")).toBe("a");
+  });
+
+  test('returns "e" for a verb stem ending in "ü"', () => {
+    expect(twoWayVowelHarmony("gül")).toBe("e");
+  });
+
+  test('returns "e" for a verb stem ending in "ö"', () => {
+    expect(twoWayVowelHarmony("dön")).toBe("e");
+  });
+
+  test('returns "e" for a verb stem ending in "i"', () => {
+    expect(twoWayVowelHarmony("git")).toBe("e");
+  });
+
+  test('returns "e" for a verb stem ending in "e"', () => {
+    expect(twoWayVowelHarmony("dene")).toBe("e");
   });
 });
