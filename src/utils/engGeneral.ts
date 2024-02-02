@@ -53,3 +53,34 @@ export const conjugateBe = (pronoun: string) => {
       return "Invalid Pronoun";
   }
 };
+
+export const conjugateNotBe = (pronoun: string) => {
+  switch (pronoun.toLowerCase()) {
+    case "i":
+      return "am not";
+
+    case "you":
+      return "aren't";
+
+    case "he":
+      return "isn't";
+
+    case "she":
+      return "isn't";
+
+    case "it":
+      return "isn't";
+
+    case "you (f)":
+      return "aren't";
+
+    case "we":
+      return "aren't";
+
+    case "they":
+      return "aren't";
+
+    default:
+      return "Invalid Pronoun";
+  }
+};

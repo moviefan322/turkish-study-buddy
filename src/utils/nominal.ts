@@ -1,5 +1,5 @@
 import { fourWayVowelHarmony, twoWayVowelHarmony, endsWithVowel, turkishVowels } from "./vowelHarmony";
-import { conjugateBe } from "./engGeneral";
+import { conjugateBe, conjugateNotBe } from "./engGeneral";
 import { pronounPairs } from "@/data/vocab/pronounPairs";
 import { adjectives } from "@/data/vocab/adjectives";
 
@@ -122,6 +122,10 @@ export const nominalConjugationNegativeInterrogative = (pronoun: string, nounjec
 
 export const englishNominalPhraseAdjective = (pronoun: string, adjective: string) => {
   return `${pronoun} ${conjugateBe(pronoun)} ${adjective}`;
+};
+
+export const englishNominalPhraseAdjectiveNegative = (pronoun: string, adjective: string) => {
+  return `${pronoun} ${conjugateNotBe(pronoun)} ${adjective}`;
 };
 
 export const englishNominalPhraseNoun = (pronounInput: string, noun: string) => {

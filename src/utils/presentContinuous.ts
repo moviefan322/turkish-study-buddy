@@ -1,5 +1,5 @@
 import { fourWayVowelHarmony, turkishVowels } from "./vowelHarmony";
-import { conjugateBe, consonants, vowels } from "./engGeneral";
+import { conjugateBe, conjugateNotBe, consonants, vowels } from "./engGeneral";
 
 const exceptionVerbs = ["to cover", "to be"];
 
@@ -55,37 +55,6 @@ export function presentContinuous(infinitive: string): string {
     return verb + "ing";
   }
 }
-
-const conjugateNotBe = (pronoun: string) => {
-  switch (pronoun) {
-    case "I":
-      return "am not";
-
-    case "you":
-      return "aren't";
-
-    case "he":
-      return "isn't";
-
-    case "she":
-      return "isn't";
-
-    case "it":
-      return "isn't";
-
-    case "you (f)":
-      return "aren't";
-
-    case "we":
-      return "aren't";
-
-    case "they":
-      return "aren't";
-
-    default:
-      return "Invalid Pronoun";
-  }
-};
 
 export function presentContinuousSentence(verb: string, pronoun: string) {
   let finalPronoun = pronoun;

@@ -5,7 +5,8 @@ import {
   nominalConjugationInterrogative,
   nominalConjugationNegativeInterrogative,
   englishNominalPhraseAdjective,
-  englishNominalPhraseNoun
+  englishNominalPhraseAdjectiveNegative,
+  englishNominalPhraseNoun,
 } from "./nominal";
 
 describe("nominalConjugation", () => {
@@ -210,6 +211,18 @@ describe("englishNominalPhraseAdjective", () => {
   });
 });
 
+describe("englishNominalPhraseAdjectiveNegative", () => {
+  it("returns the correct English nominal phrase with adjective", () => {
+    expect(englishNominalPhraseAdjectiveNegative("I", "tired")).toBe("I am not tired");
+    expect(englishNominalPhraseAdjectiveNegative("You", "happy")).toBe("You aren't happy");
+    expect(englishNominalPhraseAdjectiveNegative("He", "hungry")).toBe("He isn't hungry");
+    expect(englishNominalPhraseAdjectiveNegative("She", "hungry")).toBe("She isn't hungry");
+    expect(englishNominalPhraseAdjectiveNegative("It", "hungry")).toBe("It isn't hungry");
+    expect(englishNominalPhraseAdjectiveNegative("We", "excited")).toBe("We aren't excited");
+    expect(englishNominalPhraseAdjectiveNegative("They", "sad")).toBe("They aren't sad");
+  });
+});
+
 describe("englishNominalPhraseNoun", () => {
   it("returns the correct English nominal phrase with noun", () => {
     expect(englishNominalPhraseNoun("I", "teacher")).toBe("I am a teacher");
@@ -230,4 +243,4 @@ describe("englishNominalPhraseNoun", () => {
   //   expect(englishNominalPhraseNoun("We", "actor")).toBe("We are actors");
   //   expect(englishNominalPhraseNoun("They", "actor")).toBe("They are actors");
   // })
-})
+});
