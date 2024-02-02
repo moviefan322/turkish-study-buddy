@@ -26,6 +26,23 @@ const conjugatedSuffix = (pronoun: string, word: string) => {
 
 const ketchupRuleExceptions = ["Türk"];
 
+export const degilWithSuffix = (pronoun: string) => {
+  switch (pronoun.toLocaleLowerCase()) {
+    case "ben":
+      return "değilim";
+    case "sen":
+      return "değilsin";
+    case "o":
+      return "değil";
+    case "biz":
+      return "değiliz";
+    case "siz":
+      return "değilsiniz";
+    case "onlar":
+      return "değil";
+  }
+};
+
 export const nominalConjugation = (pronoun: string, nounjective: string) => {
   const suffix = conjugatedSuffix(pronoun, nounjective);
   const lastLetter = nounjective[nounjective.length - 1];
@@ -46,4 +63,39 @@ export const nominalConjugation = (pronoun: string, nounjective: string) => {
   }
 
   return nounjective + suffix;
+};
+
+export const nominalConjugationNegative = (pronoun: string, nounjective: string) => {
+  return nounjective + " " + degilWithSuffix(pronoun);
+};
+
+export const nominalConjugationInterrogative = (pronoun: string, nounjective: string) => {
+  let conjugatedMi = "";
+  const vowel = fourWayVowelHarmony(nounjective);
+  switch (pronoun.toLocaleLowerCase()) {
+    case "ben":
+      conjugatedMi = `m${vowel}y${vowel}m`;
+      break;
+    case "sen":
+      conjugatedMi = `m${vowel}s${vowel}n`;
+      break;
+    case "o":
+      conjugatedMi = `m${vowel}`;
+      break;
+    case "biz":
+      conjugatedMi = `m${vowel}y${vowel}z`;
+      break;
+    case "siz":
+      conjugatedMi = `m${vowel}s${vowel}n${vowel}z`;
+      break;
+    case "onlar":
+      conjugatedMi = `m${vowel}`;
+      break;
+  }
+
+  if (pronoun.toLocaleLowerCase() === "onlar") {
+    return `${nounjective}(l${twoWayVowelHarmony(nounjective)}r) ${conjugatedMi}?`;
+  }
+
+  return `${nounjective} ${conjugatedMi}?`;
 };
