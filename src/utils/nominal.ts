@@ -1,5 +1,5 @@
 import { fourWayVowelHarmony, twoWayVowelHarmony, endsWithVowel, turkishVowels } from "./vowelHarmony";
-import { conjugateBe, conjugateNotBe } from "./engGeneral";
+import { conjugateBe, conjugateNotBe, vowels } from "./engGeneral";
 import { pronounPairs } from "@/data/vocab/pronounPairs";
 import { adjectives } from "@/data/vocab/adjectives";
 
@@ -153,12 +153,116 @@ export const englishNominalPhraseAdjectiveMaster = (pronoun: string, adjective: 
     case "negativeInterrogative":
       return englishNominalPhraseAdjectiveNegativeInterrogative(pronoun, adjective);
   }
-}
+};
+
+export const turkishNominalPhraseMaster = (pronoun: string, nounjective: string, mood: string) => {
+  switch (mood) {
+    case "standardMood":
+      return nominalConjugation(pronoun, nounjective);
+    case "negative":
+      return nominalConjugationNegative(pronoun, nounjective);
+    case "interrogative":
+      return nominalConjugationInterrogative(pronoun, nounjective);
+    case "negativeInterrogative":
+      return nominalConjugationNegativeInterrogative(pronoun, nounjective);
+  }
+};
+
+const wordStartsWithVowel = (word: string) => {
+  return vowels.includes(word[0]);
+};
 
 export const englishNominalPhraseNoun = (pronounInput: string, noun: string) => {
   const pronoun = pronounInput.toLocaleLowerCase();
   if (pronoun === "we" || pronoun === "they") {
     return `${pronounInput} ${conjugateBe(pronoun)} ${noun}s`;
   }
+  if (wordStartsWithVowel(noun)) {
+    return `${pronounInput} ${conjugateBe(pronoun)} an ${noun}`;
+  }
   return `${pronounInput} ${conjugateBe(pronoun)} a ${noun}`;
+};
+
+export const englishNominalPhraseNounNegative = (pronounInput: string, noun: string) => {
+  const pronoun = pronounInput.toLocaleLowerCase();
+  if (pronoun === "we" || pronoun === "they") {
+    return `${pronounInput} ${conjugateNotBe(pronoun)} ${noun}s`;
+  }
+  if (wordStartsWithVowel(noun)) {
+    return `${pronounInput} ${conjugateNotBe(pronoun)} an ${noun}`;
+  }
+  return `${pronounInput} ${conjugateNotBe(pronoun)} a ${noun}`;
+};
+
+export const englishNominalPhraseNounInterrogative = (pronounInput: string, noun: string) => {
+  const pronoun = pronounInput === "I" ? pronounInput : pronounInput.toLocaleLowerCase();
+  const capitalizeBe = conjugateBe(pronoun).charAt(0).toUpperCase() + conjugateBe(pronoun).slice(1);
+
+  if (pronoun === "we" || pronoun === "they") {
+    return `${capitalizeBe} ${pronoun} ${noun}s?`;
+  }
+
+  if (wordStartsWithVowel(noun)) {
+    return `${capitalizeBe} ${pronoun} an ${noun}?`;
+  }
+
+  return `${capitalizeBe} ${pronoun} a ${noun}?`;
+};
+
+export const englishNominalPhraseNounNegativeInterrogative = (pronounInput: string, noun: string) => {
+  const pronoun = pronounInput === "I" ? pronounInput : pronounInput.toLocaleLowerCase();
+  const capitalizeBe = conjugateNotBe(pronoun).charAt(0).toUpperCase() + conjugateNotBe(pronoun).slice(1);
+
+  if (pronoun === "we" || pronoun === "they") {
+    return `Aren't ${pronoun} ${noun}s?`;
+  }
+
+  if (pronoun === "I") {
+    if (wordStartsWithVowel(noun)) {
+      return `Aren't ${pronoun} an ${noun}?`;
+    } else {
+      return `Aren't ${pronoun} a ${noun}?`;
+    }
+  }
+
+  if (wordStartsWithVowel(noun)) {
+    return `${capitalizeBe} ${pronoun} an ${noun}?`;
+  }
+
+  return `${capitalizeBe} ${pronoun} a ${noun}?`;
+};
+
+export const englishNominalPhraseNounMaster = (pronoun: string, noun: string, mood: string) => {
+  switch (mood) {
+    case "standardMood":
+      return englishNominalPhraseNoun(pronoun, noun);
+    case "negative":
+      return englishNominalPhraseNounNegative(pronoun, noun);
+    case "interrogative":
+      return englishNominalPhraseNounInterrogative(pronoun, noun);
+    case "negativeInterrogative":
+      return englishNominalPhraseNounNegativeInterrogative(pronoun, noun);
+  }
+};
+
+export const nominalNounMaster = (
+  noun: { english: string; turkish: string },
+  pronoun: { english: string; turkish: string },
+  mood: string = "standardMood"
+) => {
+  return {
+    english: englishNominalPhraseNounMaster(pronoun.english, noun.english, mood),
+    turkish: turkishNominalPhraseMaster(pronoun.turkish, noun.turkish, mood),
+  };
+};
+
+export const nominalAdjectiveMaster = (
+  adjective: { english: string; turkish: string },
+  pronoun: { english: string; turkish: string },
+  mood: string = "standardMood"
+) => {
+  return {
+    english: englishNominalPhraseAdjectiveMaster(pronoun.english, adjective.english, mood),
+    turkish: turkishNominalPhraseMaster(pronoun.turkish, adjective.turkish, mood),
+  };
 };

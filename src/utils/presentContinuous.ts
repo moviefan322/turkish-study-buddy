@@ -330,7 +330,7 @@ export const englishSentenceMaster = (verb: string, pronoun: string, mood: strin
   }
 };
 
-export const sentenceMaster = (
+export const presentContinuousMaster = (
   verb: { english: string; turkish: string },
   pronoun: { english: string; turkish: string },
   mood: string = "standardMood"

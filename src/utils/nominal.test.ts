@@ -8,7 +8,15 @@ import {
   englishNominalPhraseAdjectiveNegative,
   englishNominalPhraseAdjectiveInterrogative,
   englishNominalPhraseAdjectiveNegativeInterrogative,
+  englishNominalPhraseAdjectiveMaster,
   englishNominalPhraseNoun,
+  englishNominalPhraseNounNegative,
+  englishNominalPhraseNounInterrogative,
+  englishNominalPhraseNounNegativeInterrogative,
+  englishNominalPhraseNounMaster,
+  turkishNominalPhraseMaster,
+  nominalNounMaster,
+  nominalAdjectiveMaster,
 } from "./nominal";
 
 describe("nominalConjugation", () => {
@@ -249,6 +257,15 @@ describe("englishNominalPhraseAdjectiveNegativeInterrogative", () => {
   });
 });
 
+describe("englishNominalPhraseAdjectiveMaster", () => {
+  it("returns the correct English nominal phrase with adjective", () => {
+    expect(englishNominalPhraseAdjectiveMaster("I", "tired", "standardMood")).toBe("I am tired");
+    expect(englishNominalPhraseAdjectiveMaster("You", "happy", "negative")).toBe("You aren't happy");
+    expect(englishNominalPhraseAdjectiveMaster("He", "hungry", "interrogative")).toBe("Is he hungry?");
+    expect(englishNominalPhraseAdjectiveMaster("She", "hungry", "negativeInterrogative")).toBe("Isn't she hungry?");
+  });
+});
+
 describe("englishNominalPhraseNoun", () => {
   it("returns the correct English nominal phrase with noun", () => {
     expect(englishNominalPhraseNoun("I", "teacher")).toBe("I am a teacher");
@@ -260,13 +277,140 @@ describe("englishNominalPhraseNoun", () => {
     expect(englishNominalPhraseNoun("They", "teacher")).toBe("They are teachers");
   });
 
-  // it("handles for words starting with vowels", () => {
-  //   expect(englishNominalPhraseNoun("I", "actor")).toBe("I am an actor");
-  //   expect(englishNominalPhraseNoun("You", "actor")).toBe("You are an actor");
-  //   expect(englishNominalPhraseNoun("He", "actor")).toBe("He is an actor");
-  //   expect(englishNominalPhraseNoun("She", "actor")).toBe("She is an actor");
-  //   expect(englishNominalPhraseNoun("It", "actor")).toBe("It is an actor");
-  //   expect(englishNominalPhraseNoun("We", "actor")).toBe("We are actors");
-  //   expect(englishNominalPhraseNoun("They", "actor")).toBe("They are actors");
-  // })
+  describe("turkishNominalPhraseMaster", () => {
+    it("returns the correct Turkish nominal phrase", () => {
+      expect(turkishNominalPhraseMaster("Ben", "Fransız", "standardMood")).toBe("Fransızım");
+      expect(turkishNominalPhraseMaster("Sen", "Fransız", "negative")).toBe("Fransız değilsin");
+      expect(turkishNominalPhraseMaster("O", "Fransız", "interrogative")).toBe("Fransız mı?");
+      expect(turkishNominalPhraseMaster("Biz", "Fransız", "negativeInterrogative")).toBe("Fransız değil miyiz?");
+      expect(turkishNominalPhraseMaster("Siz", "Fransız", "standardMood")).toBe("Fransızsınız");
+    });
+  });
+
+  it("handles for words starting with vowels", () => {
+    expect(englishNominalPhraseNoun("I", "actor")).toBe("I am an actor");
+    expect(englishNominalPhraseNoun("You", "actor")).toBe("You are an actor");
+    expect(englishNominalPhraseNoun("He", "actor")).toBe("He is an actor");
+    expect(englishNominalPhraseNoun("She", "actor")).toBe("She is an actor");
+    expect(englishNominalPhraseNoun("It", "actor")).toBe("It is an actor");
+    expect(englishNominalPhraseNoun("We", "actor")).toBe("We are actors");
+    expect(englishNominalPhraseNoun("They", "actor")).toBe("They are actors");
+  });
+});
+
+describe("englishNominalPhraseNounNegative", () => {
+  it("returns the correct English nominal phrase with noun", () => {
+    expect(englishNominalPhraseNounNegative("I", "teacher")).toBe("I am not a teacher");
+    expect(englishNominalPhraseNounNegative("You", "teacher")).toBe("You aren't a teacher");
+    expect(englishNominalPhraseNounNegative("He", "teacher")).toBe("He isn't a teacher");
+    expect(englishNominalPhraseNounNegative("She", "teacher")).toBe("She isn't a teacher");
+    expect(englishNominalPhraseNounNegative("It", "teacher")).toBe("It isn't a teacher");
+    expect(englishNominalPhraseNounNegative("We", "teacher")).toBe("We aren't teachers");
+    expect(englishNominalPhraseNounNegative("They", "teacher")).toBe("They aren't teachers");
+  });
+
+  it("handles for words starting with vowels", () => {
+    expect(englishNominalPhraseNounNegative("I", "actor")).toBe("I am not an actor");
+    expect(englishNominalPhraseNounNegative("You", "actor")).toBe("You aren't an actor");
+    expect(englishNominalPhraseNounNegative("He", "actor")).toBe("He isn't an actor");
+    expect(englishNominalPhraseNounNegative("She", "actor")).toBe("She isn't an actor");
+    expect(englishNominalPhraseNounNegative("It", "actor")).toBe("It isn't an actor");
+    expect(englishNominalPhraseNounNegative("We", "actor")).toBe("We aren't actors");
+    expect(englishNominalPhraseNounNegative("They", "actor")).toBe("They aren't actors");
+  });
+});
+
+describe("englishNominalPhraseNounInterrogative", () => {
+  it("returns the correct English nominal phrase with noun", () => {
+    expect(englishNominalPhraseNounInterrogative("I", "teacher")).toBe("Am I a teacher?");
+    expect(englishNominalPhraseNounInterrogative("You", "teacher")).toBe("Are you a teacher?");
+    expect(englishNominalPhraseNounInterrogative("He", "teacher")).toBe("Is he a teacher?");
+    expect(englishNominalPhraseNounInterrogative("She", "teacher")).toBe("Is she a teacher?");
+    expect(englishNominalPhraseNounInterrogative("It", "teacher")).toBe("Is it a teacher?");
+    expect(englishNominalPhraseNounInterrogative("We", "teacher")).toBe("Are we teachers?");
+    expect(englishNominalPhraseNounInterrogative("They", "teacher")).toBe("Are they teachers?");
+  });
+
+  it("handles for words starting with vowels", () => {
+    expect(englishNominalPhraseNounInterrogative("I", "actor")).toBe("Am I an actor?");
+    expect(englishNominalPhraseNounInterrogative("You", "actor")).toBe("Are you an actor?");
+    expect(englishNominalPhraseNounInterrogative("He", "actor")).toBe("Is he an actor?");
+    expect(englishNominalPhraseNounInterrogative("She", "actor")).toBe("Is she an actor?");
+    expect(englishNominalPhraseNounInterrogative("It", "actor")).toBe("Is it an actor?");
+    expect(englishNominalPhraseNounInterrogative("We", "actor")).toBe("Are we actors?");
+    expect(englishNominalPhraseNounInterrogative("They", "actor")).toBe("Are they actors?");
+  });
+});
+
+describe("englishNominalPhraseNounNegativeInterrogative", () => {
+  it("returns the correct English nominal phrase with noun", () => {
+    expect(englishNominalPhraseNounNegativeInterrogative("I", "teacher")).toBe("Aren't I a teacher?");
+    expect(englishNominalPhraseNounNegativeInterrogative("You", "teacher")).toBe("Aren't you a teacher?");
+    expect(englishNominalPhraseNounNegativeInterrogative("He", "teacher")).toBe("Isn't he a teacher?");
+    expect(englishNominalPhraseNounNegativeInterrogative("She", "teacher")).toBe("Isn't she a teacher?");
+    expect(englishNominalPhraseNounNegativeInterrogative("It", "teacher")).toBe("Isn't it a teacher?");
+    expect(englishNominalPhraseNounNegativeInterrogative("We", "teacher")).toBe("Aren't we teachers?");
+    expect(englishNominalPhraseNounNegativeInterrogative("They", "teacher")).toBe("Aren't they teachers?");
+  });
+
+  it("handles for words starting with vowels", () => {
+    expect(englishNominalPhraseNounNegativeInterrogative("I", "actor")).toBe("Aren't I an actor?");
+    expect(englishNominalPhraseNounNegativeInterrogative("You", "actor")).toBe("Aren't you an actor?");
+    expect(englishNominalPhraseNounNegativeInterrogative("He", "actor")).toBe("Isn't he an actor?");
+    expect(englishNominalPhraseNounNegativeInterrogative("She", "actor")).toBe("Isn't she an actor?");
+    expect(englishNominalPhraseNounNegativeInterrogative("It", "actor")).toBe("Isn't it an actor?");
+    expect(englishNominalPhraseNounNegativeInterrogative("We", "actor")).toBe("Aren't we actors?");
+    expect(englishNominalPhraseNounNegativeInterrogative("They", "actor")).toBe("Aren't they actors?");
+  });
+});
+
+describe("englishNominalPhraseNounMaster", () => {
+  it("returns the correct English nominal phrase with noun", () => {
+    expect(englishNominalPhraseNounMaster("I", "teacher", "standardMood")).toBe("I am a teacher");
+    expect(englishNominalPhraseNounMaster("You", "teacher", "negative")).toBe("You aren't a teacher");
+    expect(englishNominalPhraseNounMaster("He", "teacher", "interrogative")).toBe("Is he a teacher?");
+    expect(englishNominalPhraseNounMaster("She", "teacher", "negativeInterrogative")).toBe("Isn't she a teacher?");
+  });
+});
+
+describe("nominalNounMaster", () => {
+  it("returns the correct nominal noun", () => {
+    expect(
+      nominalNounMaster({ english: "teacher", turkish: "öğretmen" }, { english: "I", turkish: "Ben" }, "standardMood")
+    ).toEqual({ english: "I am a teacher", turkish: "öğretmenim" });
+    expect(
+      nominalNounMaster({ english: "teacher", turkish: "öğretmen" }, { english: "You", turkish: "Sen" }, "negative")
+    ).toEqual({ english: "You aren't a teacher", turkish: "öğretmen değilsin" });
+    expect(
+      nominalNounMaster({ english: "teacher", turkish: "öğretmen" }, { english: "He", turkish: "O" }, "interrogative")
+    ).toEqual({ english: "Is he a teacher?", turkish: "öğretmen mi?" });
+    expect(
+      nominalNounMaster(
+        { english: "teacher", turkish: "öğretmen" },
+        { english: "He", turkish: "O" },
+        "negativeInterrogative"
+      )
+    ).toEqual({ english: "Isn't he a teacher?", turkish: "öğretmen değil mi?" });
+  });
+});
+
+describe("nominalAdjectiveMaster", () => {
+  it("returns the correct nominal adjective", () => {
+    expect(
+      nominalAdjectiveMaster({ english: "tired", turkish: "yorgun" }, { english: "I", turkish: "Ben" }, "standardMood")
+    ).toEqual({ english: "I am tired", turkish: "yorgunum" });
+    expect(
+      nominalAdjectiveMaster({ english: "happy", turkish: "mutlu" }, { english: "You", turkish: "Sen" }, "negative")
+    ).toEqual({ english: "You aren't happy", turkish: "mutlu değilsin" });
+    expect(
+      nominalAdjectiveMaster({ english: "hungry", turkish: "aç" }, { english: "He", turkish: "O" }, "interrogative")
+    ).toEqual({ english: "Is he hungry?", turkish: "aç mı?" });
+    expect(
+      nominalAdjectiveMaster(
+        { english: "hungry", turkish: "aç" },
+        { english: "She", turkish: "O" },
+        "negativeInterrogative"
+      )
+    ).toEqual({ english: "Isn't she hungry?", turkish: "aç değil mi?" });
+  });
 });

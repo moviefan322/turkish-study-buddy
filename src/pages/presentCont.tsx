@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Link from "next/link";
-import { sentenceMaster } from "@/utils/presentContinuous";
+import { presentContinuousMaster } from "@/utils/presentContinuous";
 import { verbs } from "@/data/vocab/verbs";
 import { pronounPairs } from "@/data/vocab/pronounPairs";
 import { FaGear } from "react-icons/fa6";
@@ -25,11 +25,11 @@ const PresentCont = () => {
     const randomPronoun = pronounPairs[Math.floor(Math.random() * pronounPairs.length)];
     if (moodList) {
       const randomMood = moodList[Math.floor(Math.random() * moodList.length)];
-      const { english, turkish } = sentenceMaster(randomVerb, randomPronoun, randomMood);
+      const { english, turkish } = presentContinuousMaster(randomVerb, randomPronoun, randomMood);
       setEnglish(english!);
       setTurkish(turkish!);
     } else {
-      const { english, turkish } = sentenceMaster(randomVerb, randomPronoun);
+      const { english, turkish } = presentContinuousMaster(randomVerb, randomPronoun);
       setEnglish(english!);
       setTurkish(turkish!);
     }
