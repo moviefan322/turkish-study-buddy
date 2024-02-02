@@ -1,4 +1,7 @@
 import { fourWayVowelHarmony, twoWayVowelHarmony, endsWithVowel, turkishVowels } from "./vowelHarmony";
+import { conjugateBe } from "./engGeneral";
+import { pronounPairs } from "@/data/vocab/pronounPairs";
+import { adjectives } from "@/data/vocab/adjectives";
 
 const conjugatedSuffix = (pronoun: string, word: string) => {
   const vowel = fourWayVowelHarmony(word);
@@ -115,4 +118,16 @@ export const nominalConjugationNegativeInterrogative = (pronoun: string, nounjec
     case "onlar":
       return `${nounjective} değil(ler) mi?`;
   }
+};
+
+export const englishNominalPhraseAdjective = (pronoun: string, adjective: string) => {
+  return `${pronoun} ${conjugateBe(pronoun)} ${adjective}`;
+};
+
+export const englishNominalPhraseNoun = (pronounInput: string, noun: string) => {
+  const pronoun = pronounInput.toLocaleLowerCase();
+  if (pronoun === "we" || pronoun === "they") {
+    return `${pronounInput} ${conjugateBe(pronoun)} ${noun}s`;
+  }
+  return `${pronounInput} ${conjugateBe(pronoun)} a ${noun}`;
 };

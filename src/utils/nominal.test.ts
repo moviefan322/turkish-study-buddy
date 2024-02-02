@@ -4,6 +4,8 @@ import {
   nominalConjugationNegative,
   nominalConjugationInterrogative,
   nominalConjugationNegativeInterrogative,
+  englishNominalPhraseAdjective,
+  englishNominalPhraseNoun
 } from "./nominal";
 
 describe("nominalConjugation", () => {
@@ -195,3 +197,37 @@ describe("nominalConjugationNegativeInterrogative", () => {
     expect(nominalConjugationNegativeInterrogative("Onlar", "aç")).toBe("aç değil(ler) mi?");
   });
 });
+
+describe("englishNominalPhraseAdjective", () => {
+  it("returns the correct English nominal phrase with adjective", () => {
+    expect(englishNominalPhraseAdjective("I", "tired")).toBe("I am tired");
+    expect(englishNominalPhraseAdjective("You", "happy")).toBe("You are happy");
+    expect(englishNominalPhraseAdjective("He", "hungry")).toBe("He is hungry");
+    expect(englishNominalPhraseAdjective("She", "hungry")).toBe("She is hungry");
+    expect(englishNominalPhraseAdjective("It", "hungry")).toBe("It is hungry");
+    expect(englishNominalPhraseAdjective("We", "excited")).toBe("We are excited");
+    expect(englishNominalPhraseAdjective("They", "sad")).toBe("They are sad");
+  });
+});
+
+describe("englishNominalPhraseNoun", () => {
+  it("returns the correct English nominal phrase with noun", () => {
+    expect(englishNominalPhraseNoun("I", "teacher")).toBe("I am a teacher");
+    expect(englishNominalPhraseNoun("You", "teacher")).toBe("You are a teacher");
+    expect(englishNominalPhraseNoun("He", "teacher")).toBe("He is a teacher");
+    expect(englishNominalPhraseNoun("She", "teacher")).toBe("She is a teacher");
+    expect(englishNominalPhraseNoun("It", "teacher")).toBe("It is a teacher");
+    expect(englishNominalPhraseNoun("We", "teacher")).toBe("We are teachers");
+    expect(englishNominalPhraseNoun("They", "teacher")).toBe("They are teachers");
+  });
+
+  // it("handles for words starting with vowels", () => {
+  //   expect(englishNominalPhraseNoun("I", "actor")).toBe("I am an actor");
+  //   expect(englishNominalPhraseNoun("You", "actor")).toBe("You are an actor");
+  //   expect(englishNominalPhraseNoun("He", "actor")).toBe("He is an actor");
+  //   expect(englishNominalPhraseNoun("She", "actor")).toBe("She is an actor");
+  //   expect(englishNominalPhraseNoun("It", "actor")).toBe("It is an actor");
+  //   expect(englishNominalPhraseNoun("We", "actor")).toBe("We are actors");
+  //   expect(englishNominalPhraseNoun("They", "actor")).toBe("They are actors");
+  // })
+})
