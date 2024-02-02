@@ -3,6 +3,7 @@ import {
   degilWithSuffix,
   nominalConjugationNegative,
   nominalConjugationInterrogative,
+  nominalConjugationNegativeInterrogative,
 } from "./nominal";
 
 describe("nominalConjugation", () => {
@@ -166,5 +167,31 @@ describe("nominalConjugationInterrogative", () => {
     expect(nominalConjugationInterrogative("Biz", "Türk")).toBe("Türk müyüz?");
     expect(nominalConjugationInterrogative("Siz", "Türk")).toBe("Türk müsünüz?");
     expect(nominalConjugationInterrogative("Onlar", "Türk")).toBe("Türk(ler) mü?");
+  });
+});
+
+describe("nominalConjugationNegativeInterrogative", () => {
+  it("returns the correct negative interrogative conjugation for ben", () => {
+    expect(nominalConjugationNegativeInterrogative("Ben", "aç")).toBe("aç değil miyim?");
+  });
+
+  it("returns the correct negative interrogative conjugation for sen", () => {
+    expect(nominalConjugationNegativeInterrogative("Sen", "aç")).toBe("aç değil misin?");
+  });
+
+  it("returns the correct negative interrogative conjugation for o", () => {
+    expect(nominalConjugationNegativeInterrogative("O", "aç")).toBe("aç değil mi?");
+  });
+
+  it("returns the correct negative interrogative conjugation for biz", () => {
+    expect(nominalConjugationNegativeInterrogative("Biz", "aç")).toBe("aç değil miyiz?");
+  });
+
+  it("returns the correct negative interrogative conjugation for siz", () => {
+    expect(nominalConjugationNegativeInterrogative("Siz", "aç")).toBe("aç değil misiniz?");
+  });
+
+  it("returns the correct negative interrogative conjugation for onlar", () => {
+    expect(nominalConjugationNegativeInterrogative("Onlar", "aç")).toBe("aç değil(ler) mi?");
   });
 });

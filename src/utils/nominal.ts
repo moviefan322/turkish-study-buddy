@@ -99,3 +99,20 @@ export const nominalConjugationInterrogative = (pronoun: string, nounjective: st
 
   return `${nounjective} ${conjugatedMi}?`;
 };
+
+export const nominalConjugationNegativeInterrogative = (pronoun: string, nounjective: string) => {
+  switch (pronoun.toLocaleLowerCase()) {
+    case "ben":
+      return `${nounjective} değil miyim?`;
+    case "sen":
+      return `${nounjective} değil misin?`;
+    case "o":
+      return `${nounjective} değil mi?`;
+    case "biz":
+      return `${nounjective} değil miyiz?`;
+    case "siz":
+      return `${nounjective} değil misiniz?`;
+    case "onlar":
+      return `${nounjective} değil(ler) mi?`;
+  }
+};
