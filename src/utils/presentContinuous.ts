@@ -308,11 +308,11 @@ export const conjugateTurkishMaster = (verb: string, pronoun: string, mood: stri
   switch (mood) {
     case "standardMood":
       return conjugateTurkishVerb(verb, pronoun);
-    case "Interrogative":
+    case "interrogative":
       return conjugateTurkishVerbInterrogative(verb, pronoun);
-    case "Negative":
+    case "negative":
       return conjugateTurkishVerbNegative(verb, pronoun);
-    case "NegativeInterrogative":
+    case "negativeInterrogative":
       return conjugateTurkishVerbNegativeInterrogative(verb, pronoun);
   }
 };
@@ -321,11 +321,11 @@ export const englishSentenceMaster = (verb: string, pronoun: string, mood: strin
   switch (mood) {
     case "standardMood":
       return presentContinuousSentence(verb, pronoun);
-    case "Interrogative":
+    case "interrogative":
       return presentContinuousInterrogativeSentence(verb, pronoun);
-    case "Negative":
+    case "negative":
       return presentContinuousNegativeSentence(verb, pronoun);
-    case "NegativeInterrogative":
+    case "negativeInterrogative":
       return presentContinuousNegativeInterrogativeSentence(verb, pronoun);
   }
 };

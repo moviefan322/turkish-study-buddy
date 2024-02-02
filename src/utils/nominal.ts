@@ -142,6 +142,19 @@ export const englishNominalPhraseAdjectiveNegativeInterrogative = (pronoun: stri
   return `${capitalizeBe} ${pronoun.toLocaleLowerCase()} ${adjective}?`;
 };
 
+export const englishNominalPhraseAdjectiveMaster = (pronoun: string, adjective: string, mood: string) => {
+  switch (mood) {
+    case "standardMood":
+      return englishNominalPhraseAdjective(pronoun, adjective);
+    case "negative":
+      return englishNominalPhraseAdjectiveNegative(pronoun, adjective);
+    case "interrogative":
+      return englishNominalPhraseAdjectiveInterrogative(pronoun, adjective);
+    case "negativeInterrogative":
+      return englishNominalPhraseAdjectiveNegativeInterrogative(pronoun, adjective);
+  }
+}
+
 export const englishNominalPhraseNoun = (pronounInput: string, noun: string) => {
   const pronoun = pronounInput.toLocaleLowerCase();
   if (pronoun === "we" || pronoun === "they") {

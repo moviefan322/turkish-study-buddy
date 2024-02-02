@@ -12,9 +12,9 @@ interface ModalProps {
 const Settings = ({ isOpen, onClose, moodList, setMoodList }: ModalProps) => {
   const [checkboxState, setCheckboxState] = useState({
     standardMood: false,
-    Negative: false,
-    Interrogative: false,
-    NegativeInterrogative: false,
+    negative: false,
+    interrogative: false,
+    negativeInterrogative: false,
   });
 
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,14 +30,14 @@ const Settings = ({ isOpen, onClose, moodList, setMoodList }: ModalProps) => {
     if (checkboxState.standardMood) {
       moods.push("standardMood");
     }
-    if (checkboxState.Negative) {
-      moods.push("Negative");
+    if (checkboxState.negative) {
+      moods.push("negative");
     }
-    if (checkboxState.Interrogative) {
-      moods.push("Interrogative");
+    if (checkboxState.interrogative) {
+      moods.push("interrogative");
     }
-    if (checkboxState.NegativeInterrogative) {
-      moods.push("NegativeInterrogative");
+    if (checkboxState.negativeInterrogative) {
+      moods.push("negativeInterrogative");
     }
     setMoodList(moods);
     onClose();
@@ -69,8 +69,8 @@ const Settings = ({ isOpen, onClose, moodList, setMoodList }: ModalProps) => {
                 <label>
                   <input
                     type="checkbox"
-                    name="Negative"
-                    checked={checkboxState.Negative}
+                    name="negative"
+                    checked={checkboxState.negative}
                     onChange={handleCheckboxChange}
                   />{" "}
                   Negative
@@ -78,8 +78,8 @@ const Settings = ({ isOpen, onClose, moodList, setMoodList }: ModalProps) => {
                 <label>
                   <input
                     type="checkbox"
-                    name="Interrogative"
-                    checked={checkboxState.Interrogative}
+                    name="interrogative"
+                    checked={checkboxState.interrogative}
                     onChange={handleCheckboxChange}
                   />{" "}
                   Interrogative
@@ -87,8 +87,8 @@ const Settings = ({ isOpen, onClose, moodList, setMoodList }: ModalProps) => {
                 <label>
                   <input
                     type="checkbox"
-                    name="NegativeInterrogative"
-                    checked={checkboxState.NegativeInterrogative}
+                    name="negativeInterrogative"
+                    checked={checkboxState.negativeInterrogative}
                     onChange={handleCheckboxChange}
                   />{" "}
                   Negative Interrogative
