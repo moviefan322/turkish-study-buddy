@@ -226,7 +226,7 @@ export const conjugateTurkishVerbInterrogative = (verb: string, pronoun: string)
       break;
   }
 
-  return verbStem + vowelHarmony + "yor " + negativeParticle + pronounSuffix;
+  return verbStem + vowelHarmony + "yor " + negativeParticle + pronounSuffix + "?";
 };
 
 export const conjugateTurkishVerbNegative = (verb: string, pronoun: string) => {
@@ -301,7 +301,7 @@ export const conjugateTurkishVerbNegativeInterrogative = (verb: string, pronoun:
       break;
   }
 
-  return verbStem + "m" + vowelHarmony + "yor " + negativeParticle + pronounSuffix;
+  return verbStem + "m" + vowelHarmony + "yor " + negativeParticle + pronounSuffix + "?";
 };
 
 export const conjugateTurkishMaster = (verb: string, pronoun: string, mood: string = "standardMood") => {
