@@ -133,6 +133,15 @@ export const englishNominalPhraseAdjectiveInterrogative = (pronoun: string, adje
   return `${capitalizeBe} ${pronoun === "I" ? pronoun : pronoun.toLocaleLowerCase()} ${adjective}?`;
 };
 
+export const englishNominalPhraseAdjectiveNegativeInterrogative = (pronoun: string, adjective: string) => {
+  const capitalizeBe = conjugateNotBe(pronoun).charAt(0).toUpperCase() + conjugateNotBe(pronoun).slice(1);
+
+  if (pronoun === "I") {
+    return `Aren't ${pronoun} ${adjective}?`;
+  }
+  return `${capitalizeBe} ${pronoun.toLocaleLowerCase()} ${adjective}?`;
+};
+
 export const englishNominalPhraseNoun = (pronounInput: string, noun: string) => {
   const pronoun = pronounInput.toLocaleLowerCase();
   if (pronoun === "we" || pronoun === "they") {

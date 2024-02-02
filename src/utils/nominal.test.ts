@@ -7,6 +7,7 @@ import {
   englishNominalPhraseAdjective,
   englishNominalPhraseAdjectiveNegative,
   englishNominalPhraseAdjectiveInterrogative,
+  englishNominalPhraseAdjectiveNegativeInterrogative,
   englishNominalPhraseNoun,
 } from "./nominal";
 
@@ -234,7 +235,19 @@ describe("englishNominalPhraseAdjectiveInterrogative", () => {
     expect(englishNominalPhraseAdjectiveInterrogative("We", "excited")).toBe("Are we excited?");
     expect(englishNominalPhraseAdjectiveInterrogative("They", "sad")).toBe("Are they sad?");
   });
-})
+});
+
+describe("englishNominalPhraseAdjectiveNegativeInterrogative", () => {
+  it("returns the correct English nominal phrase with adjective", () => {
+    expect(englishNominalPhraseAdjectiveNegativeInterrogative("I", "tired")).toBe("Aren't I tired?");
+    expect(englishNominalPhraseAdjectiveNegativeInterrogative("You", "happy")).toBe("Aren't you happy?");
+    expect(englishNominalPhraseAdjectiveNegativeInterrogative("He", "hungry")).toBe("Isn't he hungry?");
+    expect(englishNominalPhraseAdjectiveNegativeInterrogative("She", "hungry")).toBe("Isn't she hungry?");
+    expect(englishNominalPhraseAdjectiveNegativeInterrogative("It", "hungry")).toBe("Isn't it hungry?");
+    expect(englishNominalPhraseAdjectiveNegativeInterrogative("We", "excited")).toBe("Aren't we excited?");
+    expect(englishNominalPhraseAdjectiveNegativeInterrogative("They", "sad")).toBe("Aren't they sad?");
+  });
+});
 
 describe("englishNominalPhraseNoun", () => {
   it("returns the correct English nominal phrase with noun", () => {
