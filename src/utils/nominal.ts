@@ -1,15 +1,21 @@
-import { fourWayVowelHarmony, twoWayVowelHarmony } from "./vowelHarmony";
+import { fourWayVowelHarmony, twoWayVowelHarmony, endsWithVowel } from "./vowelHarmony";
 
 const conjugatedSuffix = (pronoun: string, word: string) => {
   const vowel = fourWayVowelHarmony(word);
   switch (pronoun.toLocaleLowerCase()) {
     case "ben":
+      if (endsWithVowel(word)) {
+        return "y" + vowel + "m";
+      }
       return vowel + "m";
     case "sen":
       return "s" + vowel + "n";
     case "o":
       return "";
     case "biz":
+      if (endsWithVowel(word)) {
+        return "y" + vowel + "z";
+      }
       return vowel + "z";
     case "siz":
       return "s" + vowel + "n" + vowel + "z";

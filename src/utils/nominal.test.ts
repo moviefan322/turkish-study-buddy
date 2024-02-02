@@ -42,4 +42,13 @@ describe("nominalConjugation", () => {
     expect(nominalConjugation("Onlar", "Yorgun")).toBe("Yorgunlar");
     expect(nominalConjugation("Onlar", "Türk")).toBe("Türkler");
   });
+
+  it("handles for words ending in vowels", () => {
+    expect(nominalConjugation("Ben", "Kırmızı")).toBe("Kırmızıyım");
+    expect(nominalConjugation("Sen", "Kırmızı")).toBe("Kırmızısın");
+    expect(nominalConjugation("O", "Kırmızı")).toBe("Kırmızı");
+    expect(nominalConjugation("Biz", "Kırmızı")).toBe("Kırmızıyız");
+    expect(nominalConjugation("Siz", "Kırmızı")).toBe("Kırmızısınız");
+    expect(nominalConjugation("Onlar", "Kırmızı")).toBe("Kırmızılar");
+  })
 });

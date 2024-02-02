@@ -1,4 +1,4 @@
-import { fourWayVowelHarmony, twoWayVowelHarmony } from "./vowelHarmony";
+import { fourWayVowelHarmony, twoWayVowelHarmony, endsWithVowel } from "./vowelHarmony";
 
 describe("fourWayVowelHarmony", () => {
   test('returns "ı" for a verb stem ending in "a"', () => {
@@ -71,5 +71,17 @@ describe("twoWayVowelHarmony", () => {
 
   test('returns "e" for a verb stem ending in "e"', () => {
     expect(twoWayVowelHarmony("dene")).toBe("e");
+  });
+});
+
+describe("stemEndsWithVowel", () => {
+  test("returns true for a word ending in a vowel", () => {
+    expect(endsWithVowel("dene")).toBe(true);
+    expect(endsWithVowel("mutlu")).toBe(true);
+  });
+
+  test("returns false for a word ending in a consonant", () => {
+    expect(endsWithVowel("kapat")).toBe(false);
+    expect(endsWithVowel("sıcak")).toBe(false);
   });
 });

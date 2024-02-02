@@ -1,5 +1,7 @@
 export const turkishVowels = ["a", "e", "ı", "i", "o", "ö", "u", "ü"];
 
+export const endsWithVowel = (verbStem: string) => turkishVowels.includes(verbStem[verbStem.length - 1]);
+
 export function fourWayVowelHarmony(verbStem: string) {
   const finalVowel = verbStem
     .split("")
