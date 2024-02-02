@@ -51,4 +51,42 @@ describe("nominalConjugation", () => {
     expect(nominalConjugation("Siz", "Kırmızı")).toBe("Kırmızısınız");
     expect(nominalConjugation("Onlar", "Kırmızı")).toBe("Kırmızılar");
   })
+
+  it("handles for words ending k", () => {
+    expect(nominalConjugation("Ben", "yumuşak")).toBe("yumuşağım");
+    expect(nominalConjugation("Sen", "yumuşak")).toBe("yumuşaksın");
+    expect(nominalConjugation("O", "yumuşak")).toBe("yumuşak");
+    expect(nominalConjugation("Biz", "yumuşak")).toBe("yumuşağız");
+    expect(nominalConjugation("Siz", "yumuşak")).toBe("yumuşaksınız");
+    expect(nominalConjugation("Onlar", "yumuşak")).toBe("yumuşaklar");
+  })
+
+  it("handles for words ending t", () => {
+    expect(nominalConjugation("Ben", "basit")).toBe("basidim");
+    expect(nominalConjugation("Sen", "basit")).toBe("basitsin");
+    expect(nominalConjugation("O", "basit")).toBe("basit");
+    expect(nominalConjugation("Biz", "basit")).toBe("basidiz");
+    expect(nominalConjugation("Siz", "basit")).toBe("basitsiniz");
+    expect(nominalConjugation("Onlar", "basit")).toBe("basitler");
+  })
+
+  it("handles for words ending ç", () => {
+    expect(nominalConjugation("Ben", "genç")).toBe("gencim");
+    expect(nominalConjugation("Sen", "genç")).toBe("gençsin");
+    expect(nominalConjugation("O", "genç")).toBe("genç");
+    expect(nominalConjugation("Biz", "genç")).toBe("genciz");
+    expect(nominalConjugation("Siz", "genç")).toBe("gençsiniz");
+    expect(nominalConjugation("Onlar", "genç")).toBe("gençler");
+  })
+
+  it("handles for words ending p", () => {
+    expect(nominalConjugation("Ben", "kasap")).toBe("kasabım");
+    expect(nominalConjugation("Sen", "kasap")).toBe("kasapsın");
+    expect(nominalConjugation("O", "kasap")).toBe("kasap");
+    expect(nominalConjugation("Biz", "kasap")).toBe("kasabız");
+    expect(nominalConjugation("Siz", "kasap")).toBe("kasapsınız");
+    expect(nominalConjugation("Onlar", "kasap")).toBe("kasaplar");
+  })
+
+
 });
