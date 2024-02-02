@@ -6,6 +6,7 @@ import {
   nominalConjugationNegativeInterrogative,
   englishNominalPhraseAdjective,
   englishNominalPhraseAdjectiveNegative,
+  englishNominalPhraseAdjectiveInterrogative,
   englishNominalPhraseNoun,
 } from "./nominal";
 
@@ -222,6 +223,18 @@ describe("englishNominalPhraseAdjectiveNegative", () => {
     expect(englishNominalPhraseAdjectiveNegative("They", "sad")).toBe("They aren't sad");
   });
 });
+
+describe("englishNominalPhraseAdjectiveInterrogative", () => {
+  it("returns the correct English nominal phrase with adjective", () => {
+    expect(englishNominalPhraseAdjectiveInterrogative("I", "tired")).toBe("Am I tired?");
+    expect(englishNominalPhraseAdjectiveInterrogative("You", "happy")).toBe("Are you happy?");
+    expect(englishNominalPhraseAdjectiveInterrogative("He", "hungry")).toBe("Is he hungry?");
+    expect(englishNominalPhraseAdjectiveInterrogative("She", "hungry")).toBe("Is she hungry?");
+    expect(englishNominalPhraseAdjectiveInterrogative("It", "hungry")).toBe("Is it hungry?");
+    expect(englishNominalPhraseAdjectiveInterrogative("We", "excited")).toBe("Are we excited?");
+    expect(englishNominalPhraseAdjectiveInterrogative("They", "sad")).toBe("Are they sad?");
+  });
+})
 
 describe("englishNominalPhraseNoun", () => {
   it("returns the correct English nominal phrase with noun", () => {
