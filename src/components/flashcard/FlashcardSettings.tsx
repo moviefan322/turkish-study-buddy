@@ -6,6 +6,7 @@ import { months } from "../../data/vocab/months";
 import { verbs } from "../../data/vocab/verbs";
 import { nouns } from "../../data/vocab/nouns";
 import { adjectives } from "@/data/vocab/adjectives";
+import { animals } from "@/data/vocab/animals";
 import { numbers } from "@/data/vocab/numbers";
 import styles from "./FlashcardSettings.module.css";
 
@@ -38,6 +39,7 @@ const FlashcardSettings = ({ isOpen, onClose, setMode, resetState, setFlashcards
     food,
     nouns,
     adjectives,
+    animals,
   };
 
   const handleModeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -75,6 +77,7 @@ const FlashcardSettings = ({ isOpen, onClose, setMode, resetState, setFlashcards
                     <option value={"verbs"}>Verbs</option>
                     <option value={"nouns"}>Nouns</option>
                     <option value={"adjectives"}>Adjectives</option>
+                    <option value={"animals"}>Animals</option>
                     <option value={"food"}>Food</option>
                     <option value={"daysOfTheWeek"}>Days</option>
                     <option value={"months"}>Months</option>
