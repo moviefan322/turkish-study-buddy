@@ -177,7 +177,7 @@ export const englishNominalPhraseNoun = (pronounInput: string, noun: string) => 
   if (pronoun === "we" || pronoun === "they") {
     return `${pronounInput} ${conjugateBe(pronoun)} ${noun}s`;
   }
-  if (wordStartsWithVowel(noun)) {
+  if (wordStartsWithVowel(noun.toLocaleLowerCase())) {
     return `${pronounInput} ${conjugateBe(pronoun)} an ${noun}`;
   }
   return `${pronounInput} ${conjugateBe(pronoun)} a ${noun}`;
@@ -188,7 +188,7 @@ export const englishNominalPhraseNounNegative = (pronounInput: string, noun: str
   if (pronoun === "we" || pronoun === "they") {
     return `${pronounInput} ${conjugateNotBe(pronoun)} ${noun}s`;
   }
-  if (wordStartsWithVowel(noun)) {
+  if (wordStartsWithVowel(noun.toLocaleLowerCase())) {
     return `${pronounInput} ${conjugateNotBe(pronoun)} an ${noun}`;
   }
   return `${pronounInput} ${conjugateNotBe(pronoun)} a ${noun}`;
@@ -202,7 +202,7 @@ export const englishNominalPhraseNounInterrogative = (pronounInput: string, noun
     return `${capitalizeBe} ${pronoun} ${noun}s?`;
   }
 
-  if (wordStartsWithVowel(noun)) {
+  if (wordStartsWithVowel(noun.toLocaleLowerCase())) {
     return `${capitalizeBe} ${pronoun} an ${noun}?`;
   }
 
@@ -218,14 +218,14 @@ export const englishNominalPhraseNounNegativeInterrogative = (pronounInput: stri
   }
 
   if (pronoun === "I") {
-    if (wordStartsWithVowel(noun)) {
+    if (wordStartsWithVowel(noun.toLocaleLowerCase())) {
       return `Aren't ${pronoun} an ${noun}?`;
     } else {
       return `Aren't ${pronoun} a ${noun}?`;
     }
   }
 
-  if (wordStartsWithVowel(noun)) {
+  if (wordStartsWithVowel(noun.toLocaleLowerCase())) {
     return `${capitalizeBe} ${pronoun} an ${noun}?`;
   }
 

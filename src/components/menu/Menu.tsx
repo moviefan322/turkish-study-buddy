@@ -14,6 +14,11 @@ const Menu = () => {
           </Link>
         </div>
         <div>
+          <Link href="/nominal">
+            <button className='btn btn-lg btn-dark text-light w-100 px-5 fs-1'>İsim Cümleri</button>
+          </Link>
+        </div>
+        <div>
           {" "}
           <Link href="/flashcard">
             <button className='btn btn-lg btn-dark text-light w-100 px-5 fs-1'>Şimşek Kartlar</button>
