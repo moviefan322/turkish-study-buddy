@@ -25,33 +25,21 @@ const PresentCont = () => {
   const [correct, setCorrect] = useState<boolean>(false);
   const [incorrect, setIncorrect] = useState<boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [moodList, setMoodList] = useState<string[] | null>(null);
+  const [moodList, setMoodList] = useState<string[]>(["standardMood"]);
   const [animalMode, setAnimalMode] = useState<boolean>(false);
 
   const generateAdjectivalNominal = (randomPronoun: EngTurkTuple, randomAdjective: EngTurkTuple) => {
-    if (moodList) {
-      const randomMood = moodList[Math.floor(Math.random() * moodList.length)];
-      const { english, turkish } = nominalAdjectiveMaster(randomAdjective, randomPronoun, randomMood);
-      setEnglish(english!);
-      setTurkish(`${randomPronoun.turkish} ${turkish}`);
-    } else {
-      const { english, turkish } = nominalAdjectiveMaster(randomAdjective, randomPronoun);
-      setEnglish(english!);
-      setTurkish(`${randomPronoun.turkish} ${turkish}`);
-    }
+    const randomMood = moodList[Math.floor(Math.random() * moodList.length)];
+    const { english, turkish } = nominalAdjectiveMaster(randomAdjective, randomPronoun, randomMood);
+    setEnglish(english!.charAt(0).toUpperCase() + english!.slice(1));
+    setTurkish(`${randomPronoun.turkish} ${turkish}`);
   };
 
   const generateNounNominal = (randomPronoun: EngTurkTuple, randomNoun: EngTurkTuple) => {
-    if (moodList) {
-      const randomMood = moodList[Math.floor(Math.random() * moodList.length)];
-      const { english, turkish } = nominalNounMaster(randomNoun, randomPronoun, randomMood);
-      setEnglish(english!);
-      setTurkish(`${randomPronoun.turkish} ${turkish}`);
-    } else {
-      const { english, turkish } = nominalNounMaster(randomNoun, randomPronoun);
-      setEnglish(english!);
-      setTurkish(`${randomPronoun.turkish} ${turkish}`);
-    }
+    const randomMood = moodList[Math.floor(Math.random() * moodList.length)];
+    const { english, turkish } = nominalNounMaster(randomNoun, randomPronoun, randomMood);
+    setEnglish(english!.charAt(0).toUpperCase() + english!.slice(1));
+    setTurkish(`${randomPronoun.turkish} ${turkish}`);
   };
 
   const displayPrompt = () => {
@@ -71,7 +59,7 @@ const PresentCont = () => {
       }
     }
     const random = Math.random();
-    if (random > 0.25) {
+    if (random > 0.5) {
       const randomAdjective = adjectives[Math.floor(Math.random() * adjectives.length)];
       generateAdjectivalNominal(randomPronoun, randomAdjective);
     } else {
