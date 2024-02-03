@@ -43,8 +43,6 @@ const Settings = ({ isOpen, onClose, moodList, setMoodList }: ModalProps) => {
     onClose();
   };
 
-  console.log(moodList);
-
   return (
     <>
       {isOpen && (

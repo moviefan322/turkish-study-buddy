@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { nominalAdjectiveMaster, nominalNounMaster } from "@/utils/nominal";
 import { adjectives } from "@/data/vocab/adjectives";
+import { animals } from "@/data/vocab/animals";
 import { nominalNouns } from "@/data/vocab/nominalNoun";
 import { pronounPairs } from "@/data/vocab/pronounPairs";
 import { FaGear } from "react-icons/fa6";
@@ -25,6 +26,7 @@ const PresentCont = () => {
   const [incorrect, setIncorrect] = useState<boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [moodList, setMoodList] = useState<string[] | null>(null);
+  const [animalMode, setAnimalMode] = useState<boolean>(false);
 
   const generateAdjectivalNominal = (randomPronoun: EngTurkTuple, randomAdjective: EngTurkTuple) => {
     if (moodList) {

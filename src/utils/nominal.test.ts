@@ -143,6 +143,7 @@ describe("nominalConjugationNegative", () => {
     expect(nominalConjugationNegative("Siz", "mutlu")).toBe("mutlu değilsiniz");
     expect(nominalConjugationNegative("Onlar", "çalışkan")).toBe("çalışkan değil");
   });
+  
 });
 
 describe("nominalConjugationInterrogative", () => {

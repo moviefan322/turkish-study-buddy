@@ -1,7 +1,5 @@
 import { fourWayVowelHarmony, twoWayVowelHarmony, endsWithVowel, turkishVowels } from "./vowelHarmony";
 import { conjugateBe, conjugateNotBe, vowels } from "./engGeneral";
-import { pronounPairs } from "@/data/vocab/pronounPairs";
-import { adjectives } from "@/data/vocab/adjectives";
 
 const conjugatedSuffix = (pronoun: string, word: string) => {
   const vowel = fourWayVowelHarmony(word);
@@ -48,6 +46,9 @@ export const degilWithSuffix = (pronoun: string) => {
 
 export const nominalConjugation = (pronoun: string, nounjective: string) => {
   const suffix = conjugatedSuffix(pronoun, nounjective);
+  if (!suffix) {
+    return nounjective;
+  }
   const lastLetter = nounjective[nounjective.length - 1];
   const suffixStartsWithVowel = turkishVowels.includes(suffix![0]);
   const ketchup = lastLetter === "k" || lastLetter === "t" || lastLetter === "ç" || lastLetter === "p";
