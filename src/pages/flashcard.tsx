@@ -48,12 +48,12 @@ const Flashcard = () => {
       let j = Math.floor(Math.random() * (i + 1));
       [workingArray[i], workingArray[j]] = [workingArray[j], workingArray[i]];
     }
-    setFlashcards(workingArray);
+    return workingArray;
   };
   const smartModeStrategy: ModeStrategy = {
     initializeDeck: () => {
-      shuffleDeck();
-      setCurrentDeck([...flashcards]);
+      const shuffledDeck = shuffleDeck();
+      setCurrentDeck(shuffledDeck);
     },
     handleNext: (correct: boolean) => {
       setShowAnswer(false);
@@ -86,13 +86,13 @@ const Flashcard = () => {
 
   const randomModeStrategy: ModeStrategy = {
     initializeDeck: () => {
-      shuffleDeck();
-      setCurrentDeck([...flashcards]);
+      const shuffledDeck = shuffleDeck();
+      setCurrentDeck(shuffledDeck);
     },
     handleNext: () => {
       setShowAnswer(false);
-      shuffleDeck();
-      setCurrentDeck([...flashcards]);
+      const shuffledDeck = shuffleDeck();
+      setCurrentDeck(shuffledDeck);
     },
   };
 
@@ -130,8 +130,6 @@ const Flashcard = () => {
   const handleNext = (correct: boolean) => {
     modeStrategy.handleNext(correct);
   };
-
-  console.log(mode);
 
   return (
     <Layout>

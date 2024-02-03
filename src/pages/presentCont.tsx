@@ -95,7 +95,7 @@ const PresentCont = () => {
       <h1 className="text-center">ŞİMDİKİ ZAMAN</h1>
       <hr />
       {showMain && (
-        <div className="d-flex flex-column  justify-content-between">
+        <div className="d-flex flex-column justify-content-between">
           <div className="fs-1 d-flex flex-column justify-content-center align-items-center text-center mb-3">
             <div className="fw-bold">İngilizce:</div>
             <div>{english && english}</div>{" "}
