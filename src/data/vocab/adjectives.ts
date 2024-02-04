@@ -37,7 +37,6 @@ export const adjectives = [
   { english: "wrong", turkish: "yanlış" },
   { english: "bright", turkish: "parlak" },
   { english: "dark", turkish: "karanlık" },
-  { english: "loud", turkish: "yüksek" },
   { english: "quiet", turkish: "sessiz" },
   { english: "clean", turkish: "temiz" },
   { english: "dirty", turkish: "kirli" },
@@ -77,4 +76,5 @@ export const adjectives = [
   { english: "natural", turkish: "doğal" },
   { english: "artificial", turkish: "yapay" },
   { english: "noisy", turkish: "gürültülü" },
+  { english: "successful", turkish: "başarılı" },
 ];
