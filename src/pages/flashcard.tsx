@@ -44,9 +44,9 @@ const Flashcard = () => {
     setCurrentIndex(0);
   };
 
-  const shuffleDeck = () => {
-    if (!shuffle && mode === Mode.Smart) return flashcards;
-    let workingArray = [...flashcards];
+  const shuffleDeck = (deck: Flashcard[]) => {
+    if (!shuffle && mode === Mode.Smart) return deck;
+    let workingArray = [...deck];
     for (let i = workingArray.length - 1; i > 0; i--) {
       let j = Math.floor(Math.random() * (i + 1));
       [workingArray[i], workingArray[j]] = [workingArray[j], workingArray[i]];
@@ -55,8 +55,7 @@ const Flashcard = () => {
   };
   const smartModeStrategy: ModeStrategy = {
     initializeDeck: () => {
-      const shuffledDeck = shuffleDeck();
-      setCurrentDeck(shuffledDeck);
+      setCurrentDeck(shuffleDeck(flashcards));
     },
     handleNext: (correct: boolean) => {
       setShowAnswer(false);
@@ -67,7 +66,7 @@ const Flashcard = () => {
           if (nextDeck.length === 0) {
             handleAllCorrect();
           } else {
-            setCurrentDeck(nextDeck);
+            setCurrentDeck(shuffleDeck(nextDeck));
           }
           setCurrentIndex(0);
           setNextDeck([]);
@@ -77,7 +76,7 @@ const Flashcard = () => {
       } else {
         setNextDeck((prevNextDeck) => [...prevNextDeck, currentDeck[currentIndex]]);
         if (isLastCard) {
-          setCurrentDeck([...nextDeck, currentDeck[currentIndex]]);
+          setCurrentDeck([...shuffleDeck(nextDeck), currentDeck[currentIndex]]);
           setCurrentIndex(0);
           setNextDeck([]);
         } else {
@@ -89,13 +88,11 @@ const Flashcard = () => {
 
   const randomModeStrategy: ModeStrategy = {
     initializeDeck: () => {
-      const shuffledDeck = shuffleDeck();
-      setCurrentDeck(shuffledDeck);
+      setCurrentDeck(shuffleDeck(flashcards));
     },
     handleNext: () => {
       setShowAnswer(false);
-      const shuffledDeck = shuffleDeck();
-      setCurrentDeck(shuffledDeck);
+      setCurrentDeck(shuffleDeck(flashcards));
     },
   };
 
@@ -138,6 +135,10 @@ const Flashcard = () => {
         } else {
           handleNext(true);
         }
+      }
+      if (event.key === "x" && !event.repeat && showAnswer) {
+        event.preventDefault(); // Prevent the default space action (scrolling) for all Spacebar presses
+        handleNext(false);
       }
     };
 
