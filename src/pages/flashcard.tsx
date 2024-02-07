@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Layout from "@/components/layout/Layout";
@@ -124,14 +125,37 @@ const Flashcard = () => {
     setShowAnswer(true);
   };
 
+  const handleNext = (correct: boolean) => {
+    modeStrategy.handleNext(correct);
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (event: any) => {
+      if (event.key === " " && !event.repeat) {
+        event.preventDefault(); // Prevent the default space action (scrolling) for all Spacebar presses
+        if (!showAnswer) {
+          handleReveal();
+        } else {
+          handleNext(true);
+        }
+      }
+    };
+
+    // Attach the event listener
+    document.addEventListener("keydown", handleKeyDown);
+
+    // Clean up the event listener
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [showAnswer]);
+
   const handleAllCorrect = () => {
     alert("All correct!");
     setShowFlashcards(false);
   };
 
-  const handleNext = (correct: boolean) => {
-    modeStrategy.handleNext(correct);
-  };
+  console.log(showAnswer);
 
   return (
     <Layout>
