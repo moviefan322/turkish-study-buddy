@@ -34,6 +34,7 @@ const Flashcard = () => {
   const [nextDeck, setNextDeck] = useState<Flashcard[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [mode, setMode] = useState<Mode>(Mode.Random);
+  const [shuffle, setShuffle] = useState(true);
 
   const resetState = () => {
     setShowAnswer(false);
@@ -43,6 +44,7 @@ const Flashcard = () => {
   };
 
   const shuffleDeck = () => {
+    if (!shuffle && mode === Mode.Smart) return flashcards;
     let workingArray = [...flashcards];
     for (let i = workingArray.length - 1; i > 0; i--) {
       let j = Math.floor(Math.random() * (i + 1));
@@ -209,8 +211,11 @@ const Flashcard = () => {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         setMode={setMode}
+        mode={mode}
         resetState={resetState}
         setFlashcards={setFlashcards}
+        shuffle={shuffle}
+        setShuffle={setShuffle}
       />
     </Layout>
   );

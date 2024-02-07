@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction, useState, useEffect } from "react";
 import { FaXmark } from "react-icons/fa6";
 import { daysOfTheWeek } from "../../data/vocab/daysOfWeek";
 import { food } from "../../data/vocab/food";
@@ -7,6 +7,7 @@ import { verbs } from "../../data/vocab/verbs";
 import { nouns } from "../../data/vocab/nouns";
 import { adjectives } from "@/data/vocab/adjectives";
 import { animals } from "@/data/vocab/animals";
+import { classVocab } from "@/data/vocab/classVocab";
 import { numbers } from "@/data/vocab/numbers";
 import styles from "./FlashcardSettings.module.css";
 
@@ -22,13 +23,25 @@ interface Flashcard {
 
 interface ModalProps {
   isOpen: boolean;
+  shuffle: boolean;
+  mode: Mode;
   onClose: () => void;
   setMode: Dispatch<SetStateAction<Mode>>;
   resetState: () => void;
   setFlashcards: Dispatch<SetStateAction<Flashcard[]>>;
+  setShuffle: Dispatch<SetStateAction<boolean>>;
 }
 
-const FlashcardSettings = ({ isOpen, onClose, setMode, resetState, setFlashcards }: ModalProps) => {
+const FlashcardSettings = ({
+  isOpen,
+  onClose,
+  setMode,
+  resetState,
+  setFlashcards,
+  shuffle,
+  setShuffle,
+  mode,
+}: ModalProps) => {
   const [selectedMode, setSelectedMode] = useState(Mode.Random);
   const [selectedVocab, setSelectedVocab] = useState("verbs");
 
@@ -40,6 +53,7 @@ const FlashcardSettings = ({ isOpen, onClose, setMode, resetState, setFlashcards
     nouns,
     adjectives,
     animals,
+    classVocab,
   };
 
   const handleModeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -57,6 +71,10 @@ const FlashcardSettings = ({ isOpen, onClose, setMode, resetState, setFlashcards
     onClose();
   };
 
+  useEffect(() => {
+    console.log(mode); // Check the current value of mode when it changes
+  }, [mode]);
+
   return (
     <>
       {isOpen && (
@@ -73,7 +91,8 @@ const FlashcardSettings = ({ isOpen, onClose, setMode, resetState, setFlashcards
                   <label htmlFor="mode" className="me-2">
                     Select Vocab:
                   </label>
-                  <select name="mode" id="mode" value={selectedVocab} onChange={handleVocabChange}>
+                  <select name="vocabSet" id="vocabSet" value={selectedVocab} onChange={handleVocabChange}>
+                    <option value={"classVocab"}>Class Vocab</option>
                     <option value={"verbs"}>Verbs</option>
                     <option value={"nouns"}>Nouns</option>
                     <option value={"adjectives"}>Adjectives</option>
@@ -93,6 +112,15 @@ const FlashcardSettings = ({ isOpen, onClose, setMode, resetState, setFlashcards
                     <option value={Mode.Smart}>Smart</option>
                   </select>
                 </form>
+                <div>
+                  <input
+                    type="checkbox"
+                    checked={shuffle}
+                    onChange={(e) => setShuffle(e.target.checked)}
+                    disabled={selectedMode === Mode.Random}
+                  />{" "}
+                  Shuffle Cards
+                </div>
               </div>
             </div>
             <br />
