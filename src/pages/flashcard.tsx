@@ -36,7 +36,7 @@ const Flashcard = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [mode, setMode] = useState<Mode>(Mode.Random);
   const [shuffle, setShuffle] = useState(true);
-  const [inputMode, setInputMode] = useState(true);
+  const [inputMode, setInputMode] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [correct, setCorrect] = useState(false);
   const [incorrect, setIncorrect] = useState(false);
@@ -181,7 +181,7 @@ const Flashcard = () => {
       return (
         <div>
           <input
-            className="w-75 text-center"
+            className="w-100 text-center"
             type="text"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
@@ -245,7 +245,7 @@ const Flashcard = () => {
       ) : (
         <div className={`d-flex flex-column justify-content-center align-items-center w-100`}>
           <div
-            className={`${styles.flashcard} justify-self-center align-self-center fs-3 fw-bolder border border-2 border-dark p-5 text-center text-light`}
+            className={`${styles.flashcard} justify-self-center align-self-center fs-3 fw-bolder border border-2 border-dark p-5 text-center text-light w-25`}
           >
             {englishOnTop ? currentDeck[currentIndex].english : currentDeck[currentIndex].turkish}
           </div>
@@ -256,7 +256,7 @@ const Flashcard = () => {
             <MdSwapVert size={50} />
           </button>
           <div
-            className={`${styles.flashcard} justify-self-center align-self-center fs-3 fw-bolder border border-2 border-dark p-5 text-center text-light ${flashStyle}`}
+            className={`${styles.flashcard} justify-self-center align-self-center fs-3 fw-bolder border border-2 border-dark p-5 text-center text-light w-25 ${flashStyle}`}
           >
             {showAnswer
               ? englishOnTop
@@ -314,6 +314,8 @@ const Flashcard = () => {
         setFlashcards={setFlashcards}
         shuffle={shuffle}
         setShuffle={setShuffle}
+        setInputMode={setInputMode}
+        inputMode={inputMode}
       />
     </Layout>
   );

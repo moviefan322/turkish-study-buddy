@@ -30,6 +30,8 @@ interface ModalProps {
   resetState: () => void;
   setFlashcards: Dispatch<SetStateAction<Flashcard[]>>;
   setShuffle: Dispatch<SetStateAction<boolean>>;
+  setInputMode: Dispatch<SetStateAction<boolean>>;
+  inputMode: boolean;
 }
 
 const FlashcardSettings = ({
@@ -41,6 +43,8 @@ const FlashcardSettings = ({
   shuffle,
   setShuffle,
   mode,
+  setInputMode,
+  inputMode,
 }: ModalProps) => {
   const [selectedMode, setSelectedMode] = useState(Mode.Random);
   const [selectedVocab, setSelectedVocab] = useState("verbs");
@@ -120,6 +124,10 @@ const FlashcardSettings = ({
                     disabled={selectedMode === Mode.Random}
                   />{" "}
                   Shuffle Cards
+                </div>
+                <div>
+                  <input type="checkbox" checked={inputMode} onChange={(e) => setInputMode(e.target.checked)} /> Text
+                  Input
                 </div>
               </div>
             </div>
