@@ -36,6 +36,11 @@ const Flashcard = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [mode, setMode] = useState<Mode>(Mode.Random);
   const [shuffle, setShuffle] = useState(true);
+  const [inputMode, setInputMode] = useState(true);
+  const [inputValue, setInputValue] = useState("");
+  const [correct, setCorrect] = useState(false);
+  const [incorrect, setIncorrect] = useState(false);
+  const [flashStyle, setFlashStyle] = useState("");
 
   const resetState = () => {
     setShowAnswer(false);
@@ -119,6 +124,14 @@ const Flashcard = () => {
   }, [flashcards]);
 
   const handleReveal = () => {
+    if (inputMode) {
+      if (inputValue.toLowerCase().trim() === currentDeck[currentIndex].english.toLowerCase()) {
+        setCorrect(true);
+      } else {
+        setIncorrect(true);
+      }
+      setInputValue("");
+    }
     setShowAnswer(true);
   };
 
@@ -128,7 +141,7 @@ const Flashcard = () => {
 
   useEffect(() => {
     const handleKeyDown = (event: any) => {
-      if (event.key === " " && !event.repeat) {
+      if (event.key === "Enter" && !event.repeat && !inputMode) {
         event.preventDefault(); // Prevent the default space action (scrolling) for all Spacebar presses
         if (!showAnswer) {
           handleReveal();
@@ -151,12 +164,63 @@ const Flashcard = () => {
     };
   }, [showAnswer]);
 
+  const handleKeyPress = (event: any) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      handleReveal();
+    }
+  };
+
   const handleAllCorrect = () => {
     alert("All correct!");
     setShowFlashcards(false);
   };
 
-  console.log(showAnswer);
+  const renderHiddenFlashcard = () => {
+    if (inputMode) {
+      return (
+        <div>
+          <input
+            className="w-75 text-center"
+            type="text"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            onKeyDown={handleKeyPress}
+            autoFocus
+          />
+        </div>
+      );
+    } else {
+      return "?";
+    }
+  };
+
+  useEffect(() => {
+    // Determine the style based on correctness
+    let newStyle;
+    if (correct) {
+      newStyle = "bg-success";
+    } else if (incorrect) {
+      newStyle = "bg-danger";
+    } else {
+      newStyle = "";
+    }
+
+    setFlashStyle(newStyle);
+
+    if (correct || incorrect) {
+      const timer = setTimeout(() => {
+        setFlashStyle("");
+        setCorrect(false);
+        setIncorrect(false);
+        handleNext(correct);
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [correct, incorrect]);
+
+  console.log(inputValue);
 
   return (
     <Layout>
@@ -192,12 +256,16 @@ const Flashcard = () => {
             <MdSwapVert size={50} />
           </button>
           <div
-            className={`${styles.flashcard} justify-self-center align-self-center fs-3 fw-bolder border border-2 border-dark p-5 text-center text-light`}
+            className={`${styles.flashcard} justify-self-center align-self-center fs-3 fw-bolder border border-2 border-dark p-5 text-center text-light ${flashStyle}`}
           >
-            {showAnswer ? (englishOnTop ? currentDeck[currentIndex].turkish : currentDeck[currentIndex].english) : "?"}
+            {showAnswer
+              ? englishOnTop
+                ? currentDeck[currentIndex].turkish
+                : currentDeck[currentIndex].english
+              : renderHiddenFlashcard()}
           </div>
           <div className="d-flex flex-row justify-content-around align-items-center w-100 mt-4">
-            {showAnswer && mode === Mode.Smart && (
+            {showAnswer && mode === Mode.Smart && !inputMode && (
               <div className="d-flex flex-row">
                 <button
                   className="my-3 bg-success text-dark border-1 border border-dark mx-3"
@@ -218,9 +286,14 @@ const Flashcard = () => {
                 Next
               </button>
             )}
-            {!showAnswer && (
+            {!showAnswer && !inputMode && (
               <button className="btn btn-lg btn-success border border-1 border-dark" onClick={() => handleReveal()}>
                 Reveal
+              </button>
+            )}
+            {!showAnswer && inputMode && (
+              <button className="btn btn-lg btn-success border border-1 border-dark" onClick={() => handleReveal()}>
+                Submit
               </button>
             )}
           </div>
