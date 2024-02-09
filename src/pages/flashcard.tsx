@@ -220,8 +220,6 @@ const Flashcard = () => {
     }
   }, [correct, incorrect]);
 
-  console.log(inputValue);
-
   return (
     <Layout>
       <Link href="/">
