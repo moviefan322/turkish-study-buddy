@@ -47,3 +47,25 @@ export function twoWayVowelHarmony(verbStem: string) {
       throw new Error(`Invalid verb stem: ${verbStem}. The stem does not end with a Turkish vowel.`);
   }
 }
+
+const ketchupRuleExceptions = ["Türk"];
+
+export const ketchupRule = (word: string, suffix: string) => {
+  const lastLetter = word[word.length - 1];
+  const suffixStartsWithVowel = turkishVowels.includes(suffix![0]);
+  const ketchup = lastLetter === "k" || lastLetter === "t" || lastLetter === "ç" || lastLetter === "p";
+
+  if (suffixStartsWithVowel && ketchup && !ketchupRuleExceptions.includes(word)) {
+    switch (lastLetter) {
+      case "k":
+        return word.slice(0, -1) + "ğ" + suffix;
+      case "t":
+        return word.slice(0, -1) + "d" + suffix;
+      case "ç":
+        return word.slice(0, -1) + "c" + suffix;
+      case "p":
+        return word.slice(0, -1) + "b" + suffix;
+    }
+  }
+  return word + suffix;
+};
