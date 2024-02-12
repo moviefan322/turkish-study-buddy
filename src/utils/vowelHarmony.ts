@@ -52,9 +52,6 @@ const ketchupRuleExceptions = ["Türk"];
 
 export const ketchupRule = (word: string, suffix: string) => {
   const lastLetter = word[word.length - 1];
-  if (word === "kitap") {
-    console.log("lastLetter", lastLetter);
-  }
   const suffixStartsWithVowel = turkishVowels.includes(suffix![0]);
   const ketchup = lastLetter === "k" || lastLetter === "t" || lastLetter === "ç" || lastLetter === "p";
 
