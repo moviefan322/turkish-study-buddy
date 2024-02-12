@@ -37,4 +37,24 @@ describe("conugativePossessive", () => {
     expect(conugativePossessive("onlar", "Yorgun")).toBe("Yorgunlar");
     expect(conugativePossessive("onlar", "Türk")).toBe("Türkler");
   });
+  it("handles vowel ending correctly", () => {
+    expect(conugativePossessive("ben", "mutlu")).toBe("mutluyum");
+    expect(conugativePossessive("biz", "mutlu")).toBe("mutluyuz");
+    expect(conugativePossessive("ben", "gülcü")).toBe("gülcüyüm");
+    expect(conugativePossessive("biz", "gülcü")).toBe("gülcüyüz");
+    expect(conugativePossessive("ben", "hasta")).toBe("hastayım");
+    expect(conugativePossessive("biz", "hasta")).toBe("hastayız");
+  });
+  it("handles ketchup rule correctly", () => {
+    expect(conugativePossessive("ben", "kitap")).toBe("kitabım");
+    expect(conugativePossessive("biz", "kitap")).toBe("kitabız");
+    expect(conugativePossessive("ben", "genç")).toBe("gencim");
+    expect(conugativePossessive("biz", "genç")).toBe("genciz");
+    expect(conugativePossessive("ben", "kasap")).toBe("kasabım");
+    expect(conugativePossessive("biz", "kasap")).toBe("kasabız");
+    expect(conugativePossessive("ben", "korkak")).toBe("korkağım");
+    expect(conugativePossessive("biz", "korkak")).toBe("korkağız");
+    expect(conugativePossessive("ben", "komik")).toBe("komiğim");
+    expect(conugativePossessive("biz", "komik")).toBe("komiğiz");
+  });
 });

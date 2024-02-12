@@ -3,6 +3,7 @@ import { nouns } from "@/data/vocab/nouns";
 import { fourWayVowelHarmony } from "./vowelHarmony";
 import { twoWayVowelHarmony } from "./vowelHarmony";
 import { endsWithVowel } from "./vowelHarmony";
+import { ketchupRule } from "./vowelHarmony";
 
 export const conugativePossessive = (pronoun: string, noun: string) => {
   let vowelHarmony = fourWayVowelHarmony(noun);
@@ -38,5 +39,5 @@ export const conugativePossessive = (pronoun: string, noun: string) => {
       break;
   }
 
-  return noun + nounSuffix;
+  return ketchupRule(noun, nounSuffix);
 };
