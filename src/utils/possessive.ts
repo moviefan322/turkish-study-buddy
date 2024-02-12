@@ -75,3 +75,20 @@ export const interrogativePossessive = (pronoun: string, verbStem: string) => {
       return `m${vowelHarmony}`;
   }
 };
+
+export const interrogativeNegativePossessive = (pronoun: string) => {
+  switch (pronoun.toLocaleLowerCase()) {
+    case "ben":
+      return "değil miyim";
+    case "sen":
+      return "değil misin";
+    case "o":
+      return "değil mi";
+    case "biz":
+      return "değil miyiz";
+    case "siz":
+      return "değil misiniz";
+    case "onlar":
+      return "değiller mi";
+  }
+};

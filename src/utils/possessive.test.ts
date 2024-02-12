@@ -1,4 +1,9 @@
-import { addNominalSuffix, negativePossessive, interrogativePossessive } from "./possessive";
+import {
+  addNominalSuffix,
+  negativePossessive,
+  interrogativePossessive,
+  interrogativeNegativePossessive,
+} from "./possessive";
 
 describe("addNominalSuffix", () => {
   it("should return the correct possessive suffix for 'ben'", () => {
@@ -128,5 +133,26 @@ describe("interrogativePossessive", () => {
     expect(interrogativePossessive("onlar", "Türk")).toBe("mü");
     expect(interrogativePossessive("onlar", "mutlu")).toBe("mu");
     expect(interrogativePossessive("onlar", "çalişkan")).toBe("mı");
+  });
+});
+
+describe("interrogativeNegativePossessive", () => {
+  it("should return the correct negative interrogative for 'ben'", () => {
+    expect(interrogativeNegativePossessive("ben")).toBe("değil miyim");
+  });
+  it("should return the correct negative interrogative for 'sen'", () => {
+    expect(interrogativeNegativePossessive("sen")).toBe("değil misin");
+  });
+  it("should return the correct negative interrogative for 'o'", () => {
+    expect(interrogativeNegativePossessive("o")).toBe("değil mi");
+  });
+  it("should return the correct negative interrogative for 'biz'", () => {
+    expect(interrogativeNegativePossessive("biz")).toBe("değil miyiz");
+  });
+  it("should return the correct negative interrogative for 'siz'", () => {
+    expect(interrogativeNegativePossessive("siz")).toBe("değil misiniz");
+  });
+  it("should return the correct negative interrogative for 'onlar'", () => {
+    expect(interrogativeNegativePossessive("onlar")).toBe("değiller mi");
   });
 });
