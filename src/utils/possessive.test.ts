@@ -103,7 +103,7 @@ describe("possessivePronounEnglish", () => {
     expect(possessivePronounEnglish("she")).toBe("her");
   });
   it("should return the correct English possessive pronoun for 'o'", () => {
-    expect(possessivePronounEnglish("it")).toBe("its");
+    expect(possessivePronounEnglish("it")).toBe("it's");
   });
   it("should return the correct English possessive pronoun for 'biz'", () => {
     expect(possessivePronounEnglish("we")).toBe("our");
@@ -133,7 +133,7 @@ describe("englishPossessiveMaster", () => {
     expect(englishPossessiveMaster("she", "father")).toBe("her father");
   });
   it("should return the correct English possessive master for 'o'", () => {
-    expect(englishPossessiveMaster("it", "father")).toBe("its father");
+    expect(englishPossessiveMaster("it", "father")).toBe("it's father");
   });
   it("should return the correct English possessive master for 'biz'", () => {
     expect(englishPossessiveMaster("we", "father")).toBe("our father");

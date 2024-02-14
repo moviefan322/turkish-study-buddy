@@ -59,7 +59,7 @@ export const possessivePronounEnglish = (pronoun: string) => {
     case "she":
       return "her";
     case "it":
-      return "its";
+      return "it's";
     case "we":
       return "our";
     case "you (f)":
