@@ -47,3 +47,45 @@ export const possessiveNounSuffix = (pronoun: string, noun: string) => {
   }
   return noun + suffix;
 };
+
+export const possessivePronounEnglish = (pronoun: string) => {
+  switch (pronoun.toLowerCase()) {
+    case "i":
+      return "my";
+    case "you":
+      return "your";
+    case "he":
+      return "his";
+    case "she":
+      return "her";
+    case "it":
+      return "its";
+    case "we":
+      return "our";
+    case "you (f)":
+      return "your (f)";
+    case "they":
+      return "their";
+    default:
+      return `Invalid pronoun: ${pronoun}`;
+  }
+};
+
+export const englishPossessiveMaster = (pronoun: string, noun: string) => {
+  if (pronoun === "they") return `${possessivePronounEnglish(pronoun)} ${noun}s`;
+  return `${possessivePronounEnglish(pronoun)} ${noun}`;
+};
+
+export const turkishPossessiveMaster = (pronoun: string, noun: string) => {
+  return `${possessivePronoun(pronoun)} ${possessiveNounSuffix(pronoun, noun)}`;
+};
+
+export const possessiveMaster = (
+  pronoun: { english: string; turkish: string },
+  noun: { english: string; turkish: string }
+) => {
+  return {
+    english: englishPossessiveMaster(pronoun.english, noun.english),
+    turkish: turkishPossessiveMaster(pronoun.turkish, noun.turkish),
+  };
+};

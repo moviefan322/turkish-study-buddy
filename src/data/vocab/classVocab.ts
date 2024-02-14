@@ -172,4 +172,11 @@ export const classVocab = [
   { english: "girlfriend", turkish: "kız arkadaş" },
   { english: "boyfriend", turkish: "erkek arkadaş" },
   { english: "a little", turkish: "biraz" },
+  { english: "son", turkish: "oğul" },
+  { english: "daughter", turkish: "kız" },
+  { english: "husband", turkish: "koc" },
+  { english: "wife", turkish: "karı" },
+  { english: "kindergarten", turkish: "anaokulu" },
+  { english: "elementary school", turkish: "ilkokul" },
+  { english: "grade", turkish: "sınıf" },
 ];

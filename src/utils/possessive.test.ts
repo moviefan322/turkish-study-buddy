@@ -1,4 +1,11 @@
-import { possessivePronoun, possessiveNounSuffix } from "./possessive";
+import {
+  possessivePronoun,
+  possessiveNounSuffix,
+  possessivePronounEnglish,
+  englishPossessiveMaster,
+  turkishPossessiveMaster,
+  possessiveMaster,
+} from "./possessive";
 
 describe("possessivePronoun", () => {
   it("should return the correct possessive pronoun for 'ben'", () => {
@@ -79,5 +86,125 @@ describe("possessiveNounSuffix", () => {
     expect(possessiveNounSuffix("onlar", "ev")).toBe("evleri");
     expect(possessiveNounSuffix("onlar", "kol")).toBe("kolları");
     expect(possessiveNounSuffix("onlar", "köy")).toBe("köyleri");
+  });
+});
+
+describe("possessivePronounEnglish", () => {
+  it("should return the correct English possessive pronoun for 'ben'", () => {
+    expect(possessivePronounEnglish("i")).toBe("my");
+  });
+  it("should return the correct English possessive pronoun for 'sen'", () => {
+    expect(possessivePronounEnglish("you")).toBe("your");
+  });
+  it("should return the correct English possessive pronoun for 'o'", () => {
+    expect(possessivePronounEnglish("he")).toBe("his");
+  });
+  it("should return the correct English possessive pronoun for 'o'", () => {
+    expect(possessivePronounEnglish("she")).toBe("her");
+  });
+  it("should return the correct English possessive pronoun for 'o'", () => {
+    expect(possessivePronounEnglish("it")).toBe("its");
+  });
+  it("should return the correct English possessive pronoun for 'biz'", () => {
+    expect(possessivePronounEnglish("we")).toBe("our");
+  });
+  it("should return the correct English possessive pronoun for 'siz'", () => {
+    expect(possessivePronounEnglish("you (f)")).toBe("your (f)");
+  });
+  it("should return the correct English possessive pronoun for 'onlar'", () => {
+    expect(possessivePronounEnglish("they")).toBe("their");
+  });
+  it("should handle invalid input", () => {
+    expect(possessivePronounEnglish("invalid")).toBe("Invalid pronoun: invalid");
+  });
+});
+
+describe("englishPossessiveMaster", () => {
+  it("should return the correct English possessive master for 'ben'", () => {
+    expect(englishPossessiveMaster("i", "father")).toBe("my father");
+  });
+  it("should return the correct English possessive master for 'sen'", () => {
+    expect(englishPossessiveMaster("you", "father")).toBe("your father");
+  });
+  it("should return the correct English possessive master for 'o'", () => {
+    expect(englishPossessiveMaster("he", "father")).toBe("his father");
+  });
+  it("should return the correct English possessive master for 'o'", () => {
+    expect(englishPossessiveMaster("she", "father")).toBe("her father");
+  });
+  it("should return the correct English possessive master for 'o'", () => {
+    expect(englishPossessiveMaster("it", "father")).toBe("its father");
+  });
+  it("should return the correct English possessive master for 'biz'", () => {
+    expect(englishPossessiveMaster("we", "father")).toBe("our father");
+  });
+  it("should return the correct English possessive master for 'siz'", () => {
+    expect(englishPossessiveMaster("you (f)", "father")).toBe("your (f) father");
+  });
+  it("should return the correct English possessive master for 'onlar'", () => {
+    expect(englishPossessiveMaster("they", "father")).toBe("their fathers");
+  });
+  it("should handle invalid input", () => {
+    expect(englishPossessiveMaster("invalid", "father")).toBe("Invalid pronoun: invalid father");
+  });
+});
+
+describe("turkishPossessiveMaster", () => {
+  it("should return the correct Turkish possessive master for 'ben'", () => {
+    expect(turkishPossessiveMaster("ben", "baba")).toBe("benim babam");
+  });
+  it("should return the correct Turkish possessive master for 'sen'", () => {
+    expect(turkishPossessiveMaster("sen", "baba")).toBe("senin baban");
+  });
+  it("should return the correct Turkish possessive master for 'o'", () => {
+    expect(turkishPossessiveMaster("o", "baba")).toBe("onun babası");
+  });
+  it("should return the correct Turkish possessive master for 'biz'", () => {
+    expect(turkishPossessiveMaster("biz", "baba")).toBe("bizim babamız");
+  });
+  it("should return the correct Turkish possessive master for 'siz'", () => {
+    expect(turkishPossessiveMaster("siz", "baba")).toBe("sizin babanız");
+  });
+  it("should return the correct Turkish possessive master for 'onlar'", () => {
+    expect(turkishPossessiveMaster("onlar", "baba")).toBe("onların babaları");
+  });
+});
+
+describe("possessiveMaster", () => {
+  it("should return the correct possessive master for 'ben'", () => {
+    expect(possessiveMaster({ english: "i", turkish: "ben" }, { english: "father", turkish: "baba" })).toEqual({
+      english: "my father",
+      turkish: "benim babam",
+    });
+  });
+  it("should return the correct possessive master for 'sen'", () => {
+    expect(possessiveMaster({ english: "you", turkish: "sen" }, { english: "father", turkish: "baba" })).toEqual({
+      english: "your father",
+      turkish: "senin baban",
+    });
+  });
+  it("should return the correct possessive master for 'o'", () => {
+    expect(possessiveMaster({ english: "he", turkish: "o" }, { english: "father", turkish: "baba" })).toEqual({
+      english: "his father",
+      turkish: "onun babası",
+    });
+  });
+  it("should return the correct possessive master for 'biz'", () => {
+    expect(possessiveMaster({ english: "we", turkish: "biz" }, { english: "father", turkish: "baba" })).toEqual({
+      english: "our father",
+      turkish: "bizim babamız",
+    });
+  });
+  it("should return the correct possessive master for 'siz'", () => {
+    expect(possessiveMaster({ english: "you", turkish: "siz" }, { english: "father", turkish: "baba" })).toEqual({
+      english: "your father",
+      turkish: "sizin babanız",
+    });
+  });
+  it("should return the correct possessive master for 'onlar'", () => {
+    expect(possessiveMaster({ english: "they", turkish: "onlar" }, { english: "father", turkish: "baba" })).toEqual({
+      english: "their fathers",
+      turkish: "onların babaları",
+    });
   });
 });
