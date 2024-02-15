@@ -11,3 +11,7 @@ export const returnPastParticle = (verbStem: string) => {
   }
   return "d" + vowel;
 };
+
+export const returnParticleWithConjugatedEnding = (verbStem: string, pronoun: string) => {
+  
+}
