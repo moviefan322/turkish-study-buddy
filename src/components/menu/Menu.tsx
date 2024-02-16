@@ -26,6 +26,12 @@ const Menu = () => {
         </div>
         <div className="mb-3">
           {" "}
+          <Link href="/past">
+            <button className="btn btn-lg btn-dark text-light w-100 px-5 fs-1">Geçmiş Zaman</button>
+          </Link>
+        </div>
+        <div className="mb-3">
+          {" "}
           <Link href="/flashcard">
             <button className="btn btn-lg btn-dark text-light w-100 px-5 fs-1">Şimşek Kartlar</button>
           </Link>
@@ -35,6 +41,6 @@ const Menu = () => {
   );
 };
 
-//İyelik Eki
+//GEÇMİŞ ZAMAN
 
 export default Menu;

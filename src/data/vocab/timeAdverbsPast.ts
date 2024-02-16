@@ -1,3 +1,12 @@
+import { numbers } from "./numbers";
+import { daysOfTheWeek } from "./daysOfWeek";
+import { months } from "./months";
+
+const randomItem = (arr: any[]) => arr[Math.floor(Math.random() * arr.length)];
+const randomDay = randomItem(daysOfTheWeek);
+const randomMonth = randomItem(months);
+const randomNumber = randomItem(numbers);
+
 export const timeAdverbsPast = [
   { english: "yesterday", turkish: "dün" },
   { english: "last week", turkish: "geçen hafta" },
@@ -9,6 +18,7 @@ export const timeAdverbsPast = [
   { english: "last spring", turkish: "geçen bahar" },
   { english: "last fall", turkish: "geçen sonbahar" },
   { english: "last time", turkish: "geçen sefer" },
+  { english: `last ${randomDay.english}`, turkish: `geçcen ${randomDay.turkish}` },
   { english: "two days ago", turkish: "iki gün önce" },
   { english: "two weeks ago", turkish: "iki hafta önce" },
   { english: "two months ago", turkish: "iki ay önce" },
