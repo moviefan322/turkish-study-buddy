@@ -3,6 +3,8 @@ import {
   returnParticleWithConjugatedEnding,
   conjugativePastAffirmative,
   conjugativePastNegative,
+  conjugatePastInterrogative,
+  conjugativePastNegativeInterrogative,
 } from "./past";
 
 describe("returnPastParticle", () => {
@@ -223,5 +225,83 @@ describe("conjugativePastNegative", () => {
     expect(conjugativePastNegative("onlar", "al")).toBe("almadılar");
     expect(conjugativePastNegative("onlar", "koş")).toBe("koşmadılar");
     expect(conjugativePastNegative("onlar", "gör")).toBe("görmediler");
+  });
+});
+
+describe("conjugatePastInterrogative", () => {
+  it("should return the correct past interrogative conjugation for 'ben'", () => {
+    expect(conjugatePastInterrogative("ben", "izle")).toBe("izledim mi?");
+    expect(conjugatePastInterrogative("ben", "al")).toBe("aldım mı?");
+    expect(conjugatePastInterrogative("ben", "koş")).toBe("koştum mu?");
+    expect(conjugatePastInterrogative("ben", "gör")).toBe("gördüm mü?");
+  });
+  it("should return the correct past interrogative conjugation for 'sen'", () => {
+    expect(conjugatePastInterrogative("sen", "izle")).toBe("izledin mi?");
+    expect(conjugatePastInterrogative("sen", "al")).toBe("aldın mı?");
+    expect(conjugatePastInterrogative("sen", "koş")).toBe("koştun mu?");
+    expect(conjugatePastInterrogative("sen", "gör")).toBe("gördün mü?");
+  });
+  it("should return the correct past interrogative conjugation for 'o'", () => {
+    expect(conjugatePastInterrogative("o", "izle")).toBe("izledi mi?");
+    expect(conjugatePastInterrogative("o", "al")).toBe("aldı mı?");
+    expect(conjugatePastInterrogative("o", "koş")).toBe("koştu mu?");
+    expect(conjugatePastInterrogative("o", "gör")).toBe("gördü mü?");
+  });
+  it("should return the correct past interrogative conjugation for 'biz'", () => {
+    expect(conjugatePastInterrogative("biz", "izle")).toBe("izledik mi?");
+    expect(conjugatePastInterrogative("biz", "al")).toBe("aldık mı?");
+    expect(conjugatePastInterrogative("biz", "koş")).toBe("koştuk mu?");
+    expect(conjugatePastInterrogative("biz", "gör")).toBe("gördük mü?");
+  });
+  it("should return the correct past interrogative conjugation for 'siz'", () => {
+    expect(conjugatePastInterrogative("siz", "izle")).toBe("izlediniz mi?");
+    expect(conjugatePastInterrogative("siz", "al")).toBe("aldınız mı?");
+    expect(conjugatePastInterrogative("siz", "koş")).toBe("koştunuz mu?");
+    expect(conjugatePastInterrogative("siz", "gör")).toBe("gördünüz mü?");
+  });
+  it("should return the correct past interrogative conjugation for 'onlar'", () => {
+    expect(conjugatePastInterrogative("onlar", "izle")).toBe("izlediler mi?");
+    expect(conjugatePastInterrogative("onlar", "al")).toBe("aldılar mı?");
+    expect(conjugatePastInterrogative("onlar", "koş")).toBe("koştular mı?");
+    expect(conjugatePastInterrogative("onlar", "gör")).toBe("gördüler mi?");
+  });
+});
+
+describe("conjugativePastNegativeInterrogative", () => {
+  it("should return the correct past negative interrogative conjugation for 'ben'", () => {
+    expect(conjugativePastNegativeInterrogative("ben", "izle")).toBe("izlemedim mi?");
+    expect(conjugativePastNegativeInterrogative("ben", "al")).toBe("almadım mı?");
+    expect(conjugativePastNegativeInterrogative("ben", "koş")).toBe("koşmadım mı?");
+    expect(conjugativePastNegativeInterrogative("ben", "gör")).toBe("görmedim mi?");
+  });
+  it("should return the correct past negative interrogative conjugation for 'sen'", () => {
+    expect(conjugativePastNegativeInterrogative("sen", "izle")).toBe("izlemedin mi?");
+    expect(conjugativePastNegativeInterrogative("sen", "al")).toBe("almadın mı?");
+    expect(conjugativePastNegativeInterrogative("sen", "koş")).toBe("koşmadın mı?");
+    expect(conjugativePastNegativeInterrogative("sen", "gör")).toBe("görmedin mi?");
+  });
+  it("should return the correct past negative interrogative conjugation for 'o'", () => {
+    expect(conjugativePastNegativeInterrogative("o", "izle")).toBe("izlemedi mi?");
+    expect(conjugativePastNegativeInterrogative("o", "al")).toBe("almadı mı?");
+    expect(conjugativePastNegativeInterrogative("o", "koş")).toBe("koşmadı mı?");
+    expect(conjugativePastNegativeInterrogative("o", "gör")).toBe("görmedi mi?");
+  });
+  it("should return the correct past negative interrogative conjugation for 'biz'", () => {
+    expect(conjugativePastNegativeInterrogative("biz", "izle")).toBe("izlemedik mi?");
+    expect(conjugativePastNegativeInterrogative("biz", "al")).toBe("almadık mı?");
+    expect(conjugativePastNegativeInterrogative("biz", "koş")).toBe("koşmadık mı?");
+    expect(conjugativePastNegativeInterrogative("biz", "gör")).toBe("görmedik mi?");
+  });
+  it("should return the correct past negative interrogative conjugation for 'siz'", () => {
+    expect(conjugativePastNegativeInterrogative("siz", "izle")).toBe("izlemediniz mi?");
+    expect(conjugativePastNegativeInterrogative("siz", "al")).toBe("almadınız mı?");
+    expect(conjugativePastNegativeInterrogative("siz", "koş")).toBe("koşmadınız mı?");
+    expect(conjugativePastNegativeInterrogative("siz", "gör")).toBe("görmediniz mi?");
+  });
+  it("should return the correct past negative interrogative conjugation for 'onlar'", () => {
+    expect(conjugativePastNegativeInterrogative("onlar", "izle")).toBe("izlemediler mi?");
+    expect(conjugativePastNegativeInterrogative("onlar", "al")).toBe("almadılar mı?");
+    expect(conjugativePastNegativeInterrogative("onlar", "koş")).toBe("koşmadılar mı?");
+    expect(conjugativePastNegativeInterrogative("onlar", "gör")).toBe("görmediler mi?");
   });
 });

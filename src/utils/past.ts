@@ -53,3 +53,15 @@ export const conjugativePastNegative = (pronoun: string, verbStem: string) => {
 
   return `${verbStem}m${twoWayVowel}${suffix}`;
 };
+
+export const conjugatePastInterrogative = (pronoun: string, verbStem: string) => {
+  const conjugated = conjugativePastAffirmative(pronoun, verbStem);
+  const fourWayVowel = fourWayVowelHarmony(conjugated);
+  return `${conjugated} m${fourWayVowel}?`;
+};
+
+export const conjugativePastNegativeInterrogative = (pronoun: string, verbStem: string) => {
+  const conjugated = conjugativePastNegative(pronoun, verbStem);
+  const fourWayVowel = fourWayVowelHarmony(conjugated);
+  return `${conjugated} m${fourWayVowel}?`;
+};
