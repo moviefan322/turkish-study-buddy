@@ -46,3 +46,10 @@ export const conjugativePastAffirmative = (pronoun: string, verbStem: string) =>
   const pastSuffix = returnParticleWithConjugatedEnding(pronoun, verbStem);
   return verbStem + pastSuffix;
 };
+
+export const conjugativePastNegative = (pronoun: string, verbStem: string) => {
+  const twoWayVowel = twoWayVowelHarmony(verbStem);
+  const suffix = returnParticleWithConjugatedEnding(pronoun, verbStem + "m" + twoWayVowel);
+
+  return `${verbStem}m${twoWayVowel}${suffix}`;
+};

@@ -1,4 +1,9 @@
-import { returnPastParticle, returnParticleWithConjugatedEnding, conjugativePastAffirmative } from "./past";
+import {
+  returnPastParticle,
+  returnParticleWithConjugatedEnding,
+  conjugativePastAffirmative,
+  conjugativePastNegative,
+} from "./past";
 
 describe("returnPastParticle", () => {
   it("should return the correct past particle for verbs with 'a' and 'ı'", () => {
@@ -179,5 +184,44 @@ describe("conjugativePastAffirmative", () => {
     expect(conjugativePastAffirmative("onlar", "al")).toBe("aldılar");
     expect(conjugativePastAffirmative("onlar", "koş")).toBe("koştular");
     expect(conjugativePastAffirmative("onlar", "gör")).toBe("gördüler");
+  });
+});
+
+describe("conjugativePastNegative", () => {
+  it("should return the correct past negative conjugation for 'ben'", () => {
+    expect(conjugativePastNegative("ben", "izle")).toBe("izlemedim");
+    expect(conjugativePastNegative("ben", "al")).toBe("almadım");
+    expect(conjugativePastNegative("ben", "koş")).toBe("koşmadım");
+    expect(conjugativePastNegative("ben", "gör")).toBe("görmedim");
+  });
+  it("should return the correct past negative conjugation for 'sen'", () => {
+    expect(conjugativePastNegative("sen", "izle")).toBe("izlemedin");
+    expect(conjugativePastNegative("sen", "al")).toBe("almadın");
+    expect(conjugativePastNegative("sen", "koş")).toBe("koşmadın");
+    expect(conjugativePastNegative("sen", "gör")).toBe("görmedin");
+  });
+  it("should return the correct past negative conjugation for 'o'", () => {
+    expect(conjugativePastNegative("o", "izle")).toBe("izlemedi");
+    expect(conjugativePastNegative("o", "al")).toBe("almadı");
+    expect(conjugativePastNegative("o", "koş")).toBe("koşmadı");
+    expect(conjugativePastNegative("o", "gör")).toBe("görmedi");
+  });
+  it("should return the correct past negative conjugation for 'biz'", () => {
+    expect(conjugativePastNegative("biz", "izle")).toBe("izlemedik");
+    expect(conjugativePastNegative("biz", "al")).toBe("almadık");
+    expect(conjugativePastNegative("biz", "koş")).toBe("koşmadık");
+    expect(conjugativePastNegative("biz", "gör")).toBe("görmedik");
+  });
+  it("should return the correct past negative conjugation for 'siz'", () => {
+    expect(conjugativePastNegative("siz", "izle")).toBe("izlemediniz");
+    expect(conjugativePastNegative("siz", "al")).toBe("almadınız");
+    expect(conjugativePastNegative("siz", "koş")).toBe("koşmadınız");
+    expect(conjugativePastNegative("siz", "gör")).toBe("görmediniz");
+  });
+  it("should return the correct past negative conjugation for 'onlar'", () => {
+    expect(conjugativePastNegative("onlar", "izle")).toBe("izlemediler");
+    expect(conjugativePastNegative("onlar", "al")).toBe("almadılar");
+    expect(conjugativePastNegative("onlar", "koş")).toBe("koşmadılar");
+    expect(conjugativePastNegative("onlar", "gör")).toBe("görmediler");
   });
 });
