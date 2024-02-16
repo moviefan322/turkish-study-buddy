@@ -41,3 +41,8 @@ export const returnParticleWithConjugatedEnding = (pronoun: string, verbStem: st
 
   return pastSuffix;
 };
+
+export const conjugativePastAffirmative = (pronoun: string, verbStem: string) => {
+  const pastSuffix = returnParticleWithConjugatedEnding(pronoun, verbStem);
+  return verbStem + pastSuffix;
+};

@@ -1,4 +1,4 @@
-import { returnPastParticle, returnParticleWithConjugatedEnding } from "./past";
+import { returnPastParticle, returnParticleWithConjugatedEnding, conjugativePastAffirmative } from "./past";
 
 describe("returnPastParticle", () => {
   it("should return the correct past particle for verbs with 'a' and 'ı'", () => {
@@ -140,5 +140,44 @@ describe("returnParticleWithConjugatedEnding", () => {
     expect(returnParticleWithConjugatedEnding("onlar", "ört")).toBe("tüler");
     expect(returnParticleWithConjugatedEnding("onlar", "gorün")).toBe("düler");
     expect(returnParticleWithConjugatedEnding("onlar", "düş")).toBe("tüler");
+  });
+});
+
+describe("conjugativePastAffirmative", () => {
+  it("should return the correct past affirmative conjugation for 'ben'", () => {
+    expect(conjugativePastAffirmative("ben", "izle")).toBe("izledim");
+    expect(conjugativePastAffirmative("ben", "al")).toBe("aldım");
+    expect(conjugativePastAffirmative("ben", "koş")).toBe("koştum");
+    expect(conjugativePastAffirmative("ben", "gör")).toBe("gördüm");
+  });
+  it("should return the correct past affirmative conjugation for 'sen'", () => {
+    expect(conjugativePastAffirmative("sen", "izle")).toBe("izledin");
+    expect(conjugativePastAffirmative("sen", "al")).toBe("aldın");
+    expect(conjugativePastAffirmative("sen", "koş")).toBe("koştun");
+    expect(conjugativePastAffirmative("sen", "gör")).toBe("gördün");
+  });
+  it("should return the correct past affirmative conjugation for 'o'", () => {
+    expect(conjugativePastAffirmative("o", "izle")).toBe("izledi");
+    expect(conjugativePastAffirmative("o", "al")).toBe("aldı");
+    expect(conjugativePastAffirmative("o", "koş")).toBe("koştu");
+    expect(conjugativePastAffirmative("o", "gör")).toBe("gördü");
+  });
+  it("should return the correct past affirmative conjugation for 'biz'", () => {
+    expect(conjugativePastAffirmative("biz", "izle")).toBe("izledik");
+    expect(conjugativePastAffirmative("biz", "al")).toBe("aldık");
+    expect(conjugativePastAffirmative("biz", "koş")).toBe("koştuk");
+    expect(conjugativePastAffirmative("biz", "gör")).toBe("gördük");
+  });
+  it("should return the correct past affirmative conjugation for 'siz'", () => {
+    expect(conjugativePastAffirmative("siz", "izle")).toBe("izlediniz");
+    expect(conjugativePastAffirmative("siz", "al")).toBe("aldınız");
+    expect(conjugativePastAffirmative("siz", "koş")).toBe("koştunuz");
+    expect(conjugativePastAffirmative("siz", "gör")).toBe("gördünüz");
+  });
+  it("should return the correct past affirmative conjugation for 'onlar'", () => {
+    expect(conjugativePastAffirmative("onlar", "izle")).toBe("izlediler");
+    expect(conjugativePastAffirmative("onlar", "al")).toBe("aldılar");
+    expect(conjugativePastAffirmative("onlar", "koş")).toBe("koştular");
+    expect(conjugativePastAffirmative("onlar", "gör")).toBe("gördüler");
   });
 });
