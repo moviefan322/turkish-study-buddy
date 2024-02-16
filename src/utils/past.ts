@@ -65,3 +65,18 @@ export const conjugativePastNegativeInterrogative = (pronoun: string, verbStem: 
   const fourWayVowel = fourWayVowelHarmony(conjugated);
   return `${conjugated} m${fourWayVowel}?`;
 };
+
+export const pastTenseMaster = (pronoun: string, verbStem: string, mood: string) => {
+  switch (mood) {
+    case "affirmative":
+      return conjugativePastAffirmative(pronoun, verbStem);
+    case "negative":
+      return conjugativePastNegative(pronoun, verbStem);
+    case "interrogative":
+      return conjugatePastInterrogative(pronoun, verbStem);
+    case "negativeInterrogative":
+      return conjugativePastNegativeInterrogative(pronoun, verbStem);
+    default:
+      return "Invalid mood.";
+  }
+};
