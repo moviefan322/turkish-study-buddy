@@ -1,10 +1,10 @@
+import { englishPastTenseMaster } from "./pastEnglish";
 import { endsWithVowel, fourWayVowelHarmony, twoWayVowelHarmony } from "./vowelHarmony";
 
 const fstkçşhp = ["f", "s", "t", "k", "ç", "ş", "h", "p"];
 const endsWithFstkçşhp = (verbStem: string) => fstkçşhp.includes(verbStem[verbStem.length - 1]);
 
 export const returnPastParticle = (verbStem: string) => {
-  const vowelEnding = endsWithVowel(verbStem);
   const vowel = fourWayVowelHarmony(verbStem);
   if (endsWithFstkçşhp(verbStem)) {
     return "t" + vowel;
@@ -66,7 +66,7 @@ export const conjugativePastNegativeInterrogative = (pronoun: string, verbStem: 
   return `${conjugated} m${fourWayVowel}?`;
 };
 
-export const pastTenseMaster = (pronoun: string, verb: string, mood: string = "standardMood") => {
+export const turkishPastTenseMaster = (pronoun: string, verb: string, mood: string = "standardMood") => {
   const verbStem = verb.slice(0, -3);
 
   switch (mood) {
@@ -81,4 +81,22 @@ export const pastTenseMaster = (pronoun: string, verb: string, mood: string = "s
     default:
       return "Invalid mood.";
   }
+};
+
+export const pastTenseMaster = (
+  pronoun: { english: string; turkish: string },
+  verb: { english: string; turkish: string },
+  mood: string = "standardMood"
+) => {
+  let english = englishPastTenseMaster(pronoun.english, verb.english, mood);
+  if (english.includes("s/he/it")) {
+    const randomInt = Math.floor(Math.random() * 3);
+    const randomPronoun = ["he", "she", "it"][randomInt];
+    english = english.replace("s/he/it", randomPronoun);
+    english = english.replace("s/he/it", "he/she/it");
+  }
+  return {
+    english: english,
+    turkish: turkishPastTenseMaster(pronoun.turkish, verb.turkish, mood),
+  };
 };

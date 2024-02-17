@@ -128,3 +128,74 @@ export const affirmativePastEnglish = (pronoun: string, verb: string) => {
 
   return `${pronoun} ${pastForm}`;
 };
+
+export const negativePastEnglish = (pronoun: string, verb: string) => {
+  if (verb === "be") {
+    switch (pronoun.toLowerCase()) {
+      case "i":
+      case "he":
+      case "she":
+      case "it":
+        return `${pronoun} was not`;
+      case "we":
+      case "they":
+      case "you":
+        return `${pronoun} were not`;
+    }
+  }
+
+  return `${pronoun} did not ${verb}`;
+};
+
+export const interrogativePastEnglish = (pronoun: string, verb: string) => {
+  if (verb === "be") {
+    switch (pronoun.toLowerCase()) {
+      case "i":
+      case "he":
+      case "she":
+      case "it":
+        return `was ${pronoun}?`;
+      case "we":
+      case "they":
+      case "you":
+        return `were ${pronoun}?`;
+    }
+  }
+
+  return `did ${pronoun} ${verb}?`;
+};
+
+export const interrogativeNegativePastEnglish = (pronoun: string, verb: string) => {
+  if (verb === "be") {
+    switch (pronoun.toLowerCase()) {
+      case "i":
+      case "he":
+      case "she":
+      case "it":
+        return `wasn't ${pronoun}?`;
+      case "we":
+      case "they":
+      case "you":
+        return `weren't ${pronoun}?`;
+    }
+  }
+
+  return `didn't ${pronoun} ${verb}?`;
+};
+
+export const englishPastTenseMaster = (pronoun: string, verbInfinitive: string, mood: string = "standardMood") => {
+  const verb = verbInfinitive.slice(3);
+  switch (mood) {
+    case "standardMood":
+      console.log("standard!");
+      return affirmativePastEnglish(pronoun, verb);
+    case "negative":
+      return negativePastEnglish(pronoun, verb);
+    case "interrogative":
+      return interrogativePastEnglish(pronoun, verb);
+    case "negativeInterrogative":
+      return interrogativeNegativePastEnglish(pronoun, verb);
+    default:
+      return "Invalid mood.";
+  }
+};

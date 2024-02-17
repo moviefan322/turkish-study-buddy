@@ -25,12 +25,12 @@ const PresentCont = () => {
     const randomPronoun = pronounPairs[Math.floor(Math.random() * pronounPairs.length)];
     if (moodList) {
       const randomMood = moodList[Math.floor(Math.random() * moodList.length)];
-      const turkish = pastTenseMaster(randomPronoun.turkish, randomVerb.turkish, randomMood);
-      setEnglish(`${randomPronoun.english} // ${randomVerb.english} // ${randomMood}`);
+      const { english, turkish } = pastTenseMaster(randomPronoun, randomVerb, randomMood);
+      setEnglish(english!);
       setTurkish(randomPronoun.turkish + " " + turkish!);
     } else {
-      const turkish = pastTenseMaster(randomPronoun.turkish, randomVerb.turkish);
-      setEnglish(`${randomPronoun.english} // ${randomVerb.english}`);
+      const { english, turkish } = pastTenseMaster(randomPronoun, randomVerb);
+      setEnglish(english!);
       setTurkish(randomPronoun.turkish + " " + turkish!);
     }
   };
@@ -55,15 +55,32 @@ const PresentCont = () => {
   const isEquivalent = (inputValue: string, turkish: string) => {
     let cleanedInput = inputValue
       .toLowerCase()
-      .replace(/[^a-z]+/g, "")
+      .replace(/[^a-zıöçşİğüA-ZIÖÇŞĞÜ]+/g, "")
       .trim();
     let cleanedTurkish = turkish
       .toLowerCase()
-      .replace(/[^a-z]+/g, "")
+      .replace(/[^a-zıöçşİğüA-ZIÖÇŞĞÜ]+/g, "")
+      .trim();
+    const cleanedInputMinusPronoun = turkish
+      .split(" ")
+      .slice(1)
+      .join(" ")
+      .toLowerCase()
+      .replace(/[^a-zıöçşİğüA-ZIÖÇŞĞÜ]+/g, "")
       .trim();
 
-    return cleanedInput === cleanedTurkish;
+    return cleanedInput === cleanedTurkish || cleanedInput === cleanedInputMinusPronoun;
   };
+
+  console.log(
+    turkish
+      .split(" ")
+      .slice(1)
+      .join(" ")
+      .toLowerCase()
+      .replace(/[^a-zıöçşİğüA-ZIÖÇŞĞÜ]+/g, "")
+      .trim()
+  );
 
   const handleCheckAnswer = () => {
     if (!inputValue) {
@@ -81,8 +98,6 @@ const PresentCont = () => {
       setIncorrect(true);
     }
   };
-
-  console.log(inputValue, turkish);
 
   return (
     <Layout>
