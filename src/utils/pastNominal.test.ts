@@ -4,6 +4,7 @@ import {
   pastNominalAffirmative,
   pastNominalNegative,
   pastNominalInterrogative,
+  pastNominalNegativeInterrogative,
 } from "./pastNomimnal";
 
 describe("returnPastParticleNominal", () => {
@@ -255,5 +256,49 @@ describe("pastNominalInterrogative", () => {
     expect(pastNominalInterrogative("onlar", "öğretmen")).toBe("öğretmenler miydi?");
     expect(pastNominalInterrogative("onlar", "yorgun")).toBe("yorgunlar mıydı?");
     expect(pastNominalInterrogative("onlar", "üzgün")).toBe("üzgünler miydi?");
+  });
+});
+
+describe("pastNominalNegativeInterrogative", () => {
+  it("should return past nominal negative interrogative for ben", () => {
+    expect(pastNominalNegativeInterrogative("ben", "aç")).toBe("aç değil miydim?");
+    expect(pastNominalNegativeInterrogative("ben", "öğretmen")).toBe("öğretmen değil miydim?");
+    expect(pastNominalNegativeInterrogative("ben", "yorgun")).toBe("yorgun değil miydim?");
+    expect(pastNominalNegativeInterrogative("ben", "üzgün")).toBe("üzgün değil miydim?");
+  });
+
+  it("should return past nominal negative interrogative for sen", () => {
+    expect(pastNominalNegativeInterrogative("sen", "aç")).toBe("aç değil miydin?");
+    expect(pastNominalNegativeInterrogative("sen", "öğretmen")).toBe("öğretmen değil miydin?");
+    expect(pastNominalNegativeInterrogative("sen", "yorgun")).toBe("yorgun değil miydin?");
+    expect(pastNominalNegativeInterrogative("sen", "üzgün")).toBe("üzgün değil miydin?");
+  });
+
+  it("should return past nominal negative interrogative for o", () => {
+    expect(pastNominalNegativeInterrogative("o", "aç")).toBe("aç değil miydi?");
+    expect(pastNominalNegativeInterrogative("o", "öğretmen")).toBe("öğretmen değil miydi?");
+    expect(pastNominalNegativeInterrogative("o", "yorgun")).toBe("yorgun değil miydi?");
+    expect(pastNominalNegativeInterrogative("o", "üzgün")).toBe("üzgün değil miydi?");
+  });
+
+  it("should return past nominal negative interrogative for biz", () => {
+    expect(pastNominalNegativeInterrogative("biz", "aç")).toBe("aç değil miydik?");
+    expect(pastNominalNegativeInterrogative("biz", "öğretmen")).toBe("öğretmen değil miydik?");
+    expect(pastNominalNegativeInterrogative("biz", "yorgun")).toBe("yorgun değil miydik?");
+    expect(pastNominalNegativeInterrogative("biz", "üzgün")).toBe("üzgün değil miydik?");
+  });
+
+  it("should return past nominal negative interrogative for siz", () => {
+    expect(pastNominalNegativeInterrogative("siz", "aç")).toBe("aç değil miydiniz?");
+    expect(pastNominalNegativeInterrogative("siz", "öğretmen")).toBe("öğretmen değil miydiniz?");
+    expect(pastNominalNegativeInterrogative("siz", "yorgun")).toBe("yorgun değil miydiniz?");
+    expect(pastNominalNegativeInterrogative("siz", "üzgün")).toBe("üzgün değil miydiniz?");
+  });
+
+  it("should return past nominal negative interrogative for onlar", () => {
+    expect(pastNominalNegativeInterrogative("onlar", "aç")).toBe("aç değiller miydi?");
+    expect(pastNominalNegativeInterrogative("onlar", "öğretmen")).toBe("öğretmen değiller miydi?");
+    expect(pastNominalNegativeInterrogative("onlar", "yorgun")).toBe("yorgun değiller miydi?");
+    expect(pastNominalNegativeInterrogative("onlar", "üzgün")).toBe("üzgün değiller miydi?");
   });
 });

@@ -77,3 +77,20 @@ export const pastNominalInterrogative = (pronoun: string, verbStem: string) => {
       return `${verbStem}l${twoWayVowel}r m${newVowel}yd${newVowel}?`;
   }
 };
+
+export const pastNominalNegativeInterrogative = (pronoun: string, verbStem: string) => {
+  switch (pronoun.toLowerCase()) {
+    case "ben":
+      return verbStem + " değil miydim?";
+    case "sen":
+      return verbStem + " değil miydin?";
+    case "o":
+      return verbStem + " değil miydi?";
+    case "biz":
+      return verbStem + " değil miydik?";
+    case "siz":
+      return verbStem + " değil miydiniz?";
+    case "onlar":
+      return verbStem + " değiller miydi?";
+  }
+};
