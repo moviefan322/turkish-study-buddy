@@ -2,7 +2,7 @@ import { englishPastTenseMaster } from "./pastEnglish";
 import { endsWithVowel, fourWayVowelHarmony, twoWayVowelHarmony } from "./vowelHarmony";
 
 const fstkçşhp = ["f", "s", "t", "k", "ç", "ş", "h", "p"];
-const endsWithFstkçşhp = (verbStem: string) => fstkçşhp.includes(verbStem[verbStem.length - 1]);
+export const endsWithFstkçşhp = (verbStem: string) => fstkçşhp.includes(verbStem[verbStem.length - 1]);
 
 export const returnPastParticle = (verbStem: string) => {
   const vowel = fourWayVowelHarmony(verbStem);

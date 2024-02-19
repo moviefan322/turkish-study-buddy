@@ -98,4 +98,6 @@ export const verbs = [
   { english: "to forget", turkish: "unutmak" },
   { english: "to throw", turkish: "fırlatmak" },
   { english: "to draw", turkish: "çizmek" },
+  { english: "to cut", turkish: "kesmek" },
+  {english: "to worship", turkish: "tapmak"},
 ];
