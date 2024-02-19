@@ -1,4 +1,4 @@
-import { returnPastParticleNominal, returnPastNominalSuffix } from "./pastNomimnal";
+import { returnPastParticleNominal, returnPastNominalSuffix, pastNominalAffirmative } from "./pastNomimnal";
 
 describe("returnPastParticleNominal", () => {
   it("should return 'd' + vowel if verbStem ends with consonant (NOT fstkçşhp)", () => {
@@ -117,5 +117,49 @@ describe("returnPastNominalSuffix", () => {
     expect(returnPastNominalSuffix("onlar", "bak")).toBe("tılar");
     expect(returnPastNominalSuffix("onlar", "seç")).toBe("tiler");
     expect(returnPastNominalSuffix("onlar", "tap")).toBe("tılar");
+  });
+});
+
+describe("pastNominalAffirmative", () => {
+  it("should return past nominal affirmative for ben", () => {
+    expect(pastNominalAffirmative("ben", "aç")).toBe("açtım");
+    expect(pastNominalAffirmative("ben", "öğretmen")).toBe("öğretmendim");
+    expect(pastNominalAffirmative("ben", "yorgun")).toBe("yorgundum");
+    expect(pastNominalAffirmative("ben", "üzgün")).toBe("üzgündüm");
+  });
+
+  it("should return past nominal affirmative for sen", () => {
+    expect(pastNominalAffirmative("sen", "aç")).toBe("açtın");
+    expect(pastNominalAffirmative("sen", "öğretmen")).toBe("öğretmendin");
+    expect(pastNominalAffirmative("sen", "yorgun")).toBe("yorgundun");
+    expect(pastNominalAffirmative("sen", "üzgün")).toBe("üzgündün");
+  });
+
+  it("should return past nominal affirmative for o", () => {
+    expect(pastNominalAffirmative("o", "aç")).toBe("açtı");
+    expect(pastNominalAffirmative("o", "öğretmen")).toBe("öğretmendi");
+    expect(pastNominalAffirmative("o", "yorgun")).toBe("yorgundu");
+    expect(pastNominalAffirmative("o", "üzgün")).toBe("üzgündü");
+  });
+
+  it("should return past nominal affirmative for biz", () => {
+    expect(pastNominalAffirmative("biz", "aç")).toBe("açtık");
+    expect(pastNominalAffirmative("biz", "öğretmen")).toBe("öğretmendik");
+    expect(pastNominalAffirmative("biz", "yorgun")).toBe("yorgunduk");
+    expect(pastNominalAffirmative("biz", "üzgün")).toBe("üzgündük");
+  });
+
+  it("should return past nominal affirmative for siz", () => {
+    expect(pastNominalAffirmative("siz", "aç")).toBe("açtınız");
+    expect(pastNominalAffirmative("siz", "öğretmen")).toBe("öğretmendiniz");
+    expect(pastNominalAffirmative("siz", "yorgun")).toBe("yorgundunuz");
+    expect(pastNominalAffirmative("siz", "üzgün")).toBe("üzgündünüz");
+  });
+
+  it("should return past nominal affirmative for onlar", () => {
+    expect(pastNominalAffirmative("onlar", "aç")).toBe("açtılar");
+    expect(pastNominalAffirmative("onlar", "öğretmen")).toBe("öğretmendiler");
+    expect(pastNominalAffirmative("onlar", "yorgun")).toBe("yorgundular");
+    expect(pastNominalAffirmative("onlar", "üzgün")).toBe("üzgündüler");
   });
 });

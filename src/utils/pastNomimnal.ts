@@ -34,3 +34,7 @@ export const returnPastNominalSuffix = (pronoun: string, verbStem: string) => {
       return "invalid pronoun/verbStem combination";
   }
 };
+
+export const pastNominalAffirmative = (pronoun: string, verbStem: string) => {
+  return verbStem + returnPastNominalSuffix(pronoun, verbStem);
+};
