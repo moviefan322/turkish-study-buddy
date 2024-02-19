@@ -94,3 +94,19 @@ export const pastNominalNegativeInterrogative = (pronoun: string, verbStem: stri
       return verbStem + " değiller miydi?";
   }
 };
+
+export const turkishPastNominalMaster = (pronoun: string, verb: string, mood: string = "standardMood") => {
+  const verbStem = verb.slice(0, -3);
+  switch (mood) {
+    case "standardMood":
+      return pastNominalAffirmative(pronoun, verbStem);
+    case "negative":
+      return pastNominalNegative(pronoun, verbStem);
+    case "interrogative":
+      return pastNominalInterrogative(pronoun, verbStem);
+    case "negativeInterrogative":
+      return pastNominalNegativeInterrogative(pronoun, verbStem);
+    default:
+      return "Invalid mood.";
+  }
+};

@@ -5,6 +5,7 @@ import {
   pastNominalNegative,
   pastNominalInterrogative,
   pastNominalNegativeInterrogative,
+  turkishPastNominalMaster,
 } from "./pastNomimnal";
 
 describe("returnPastParticleNominal", () => {
@@ -302,3 +303,41 @@ describe("pastNominalNegativeInterrogative", () => {
     expect(pastNominalNegativeInterrogative("onlar", "üzgün")).toBe("üzgün değiller miydi?");
   });
 });
+
+describe("turkishPastNominalMaster", () => {
+  it("should return past nominal affirmative in standardMood", () => {
+    expect(turkishPastNominalMaster("ben", "açmak", "standardMood")).toBe("açtım");
+    expect(turkishPastNominalMaster("sen", "açmak", "standardMood")).toBe("açtın");
+    expect(turkishPastNominalMaster("o", "açmak", "standardMood")).toBe("açtı");
+    expect(turkishPastNominalMaster("biz", "açmak", "standardMood")).toBe("açtık");
+    expect(turkishPastNominalMaster("siz", "açmak", "standardMood")).toBe("açtınız");
+    expect(turkishPastNominalMaster("onlar", "açmak", "standardMood")).toBe("açtılar");
+  })
+
+  it("should return past nominal negative in negative mood", () => {
+    expect(turkishPastNominalMaster("ben", "açmak", "negative")).toBe("aç değildim");
+    expect(turkishPastNominalMaster("sen", "açmak", "negative")).toBe("aç değildin");
+    expect(turkishPastNominalMaster("o", "açmak", "negative")).toBe("aç değildi");
+    expect(turkishPastNominalMaster("biz", "açmak", "negative")).toBe("aç değildik");
+    expect(turkishPastNominalMaster("siz", "açmak", "negative")).toBe("aç değildiniz");
+    expect(turkishPastNominalMaster("onlar", "açmak", "negative")).toBe("aç değillerdi");
+  })
+
+  it("should return past nominal interrogative in interrogative mood", () => {
+    expect(turkishPastNominalMaster("ben", "açmak", "interrogative")).toBe("aç mıydım?");
+    expect(turkishPastNominalMaster("sen", "açmak", "interrogative")).toBe("aç mıydın?");
+    expect(turkishPastNominalMaster("o", "açmak", "interrogative")).toBe("aç mıydı?");
+    expect(turkishPastNominalMaster("biz", "açmak", "interrogative")).toBe("aç mıydık?");
+    expect(turkishPastNominalMaster("siz", "açmak", "interrogative")).toBe("aç mıydınız?");
+    expect(turkishPastNominalMaster("onlar", "açmak", "interrogative")).toBe("açlar mıydı?");
+  })
+
+  it("should return past nominal negative interrogative in negative interrogative mood", () => {
+    expect(turkishPastNominalMaster("ben", "açmak", "negativeInterrogative")).toBe("aç değil miydim?");
+    expect(turkishPastNominalMaster("sen", "açmak", "negativeInterrogative")).toBe("aç değil miydin?");
+    expect(turkishPastNominalMaster("o", "açmak", "negativeInterrogative")).toBe("aç değil miydi?");
+    expect(turkishPastNominalMaster("biz", "açmak", "negativeInterrogative")).toBe("aç değil miydik?");
+    expect(turkishPastNominalMaster("siz", "açmak", "negativeInterrogative")).toBe("aç değil miydiniz?");
+    expect(turkishPastNominalMaster("onlar", "açmak", "negativeInterrogative")).toBe("aç değiller miydi?");
+  })
+})
