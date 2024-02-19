@@ -83,6 +83,10 @@ export const turkishPastTenseMaster = (pronoun: string, verb: string, mood: stri
   }
 };
 
+const capitalizeFirstLetter = (string: string) => {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
 export const pastTenseMaster = (
   pronoun: { english: string; turkish: string },
   verb: { english: string; turkish: string },
@@ -96,7 +100,7 @@ export const pastTenseMaster = (
     english = english.replace("s/he/it", "he/she/it");
   }
   return {
-    english: english,
+    english: capitalizeFirstLetter(english),
     turkish: turkishPastTenseMaster(pronoun.turkish, verb.turkish, mood),
   };
 };
