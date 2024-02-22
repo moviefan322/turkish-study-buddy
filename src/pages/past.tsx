@@ -1,7 +1,9 @@
 import { useState } from "react";
 import Link from "next/link";
 import { pastTenseMaster } from "@/utils/past";
+import { pastNominalMaster } from "@/utils/pastNomimnal";
 import { verbs } from "@/data/vocab/verbs";
+import { adjectives } from "@/data/vocab/adjectives";
 import { pronounPairs } from "@/data/vocab/pronounPairs";
 import { FaGear } from "react-icons/fa6";
 import { IoChevronBack } from "react-icons/io5";
@@ -23,15 +25,34 @@ const PresentCont = () => {
   const displayPrompt = () => {
     const randomVerb = verbs[Math.floor(Math.random() * verbs.length)];
     const randomPronoun = pronounPairs[Math.floor(Math.random() * pronounPairs.length)];
+    if (randomPronoun.english === "s/he/it") {
+      const oneTwoThree = Math.floor(Math.random() * 3);
+      randomPronoun.english = "he/she/it".split("/")[oneTwoThree];
+    }
+    const randomAdjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+    const oneOrTwo = Math.floor(Math.random() * 2);
     if (moodList) {
       const randomMood = moodList[Math.floor(Math.random() * moodList.length)];
-      const { english, turkish } = pastTenseMaster(randomPronoun, randomVerb, randomMood);
-      setEnglish(english!);
-      setTurkish(randomPronoun.turkish + " " + turkish!);
+      if (oneOrTwo === 1) {
+        const { english, turkish } = pastTenseMaster(randomPronoun, randomVerb, randomMood);
+        setEnglish(english!);
+        setTurkish(randomPronoun.turkish + " " + turkish!);
+      } else {
+        const randomMood = moodList[Math.floor(Math.random() * moodList.length)];
+        const { english, turkish } = pastNominalMaster(randomPronoun, randomAdjective, randomMood);
+        setEnglish(english!);
+        setTurkish(randomPronoun.turkish + " " + turkish!);
+      }
     } else {
-      const { english, turkish } = pastTenseMaster(randomPronoun, randomVerb);
-      setEnglish(english!);
-      setTurkish(randomPronoun.turkish + " " + turkish!);
+      if (oneOrTwo === 1) {
+        const { english, turkish } = pastTenseMaster(randomPronoun, randomVerb);
+        setEnglish(english!);
+        setTurkish(randomPronoun.turkish + " " + turkish!);
+      } else {
+        const { english, turkish } = pastNominalMaster(randomPronoun, randomAdjective);
+        setEnglish(english!);
+        setTurkish(randomPronoun.turkish + " " + turkish!);
+      }
     }
   };
 
