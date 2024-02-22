@@ -6,6 +6,7 @@ import {
   pastNominalInterrogative,
   pastNominalNegativeInterrogative,
   turkishPastNominalMaster,
+  pastNominalMaster,
 } from "./pastNomimnal";
 
 describe("returnPastParticleNominal", () => {
@@ -363,5 +364,34 @@ describe("turkishPastNominalMaster", () => {
     expect(turkishPastNominalMaster("biz", "güzel", "negativeInterrogative")).toBe("güzel değil miydik?");
     expect(turkishPastNominalMaster("siz", "güzel", "negativeInterrogative")).toBe("güzel değil miydiniz?");
     expect(turkishPastNominalMaster("onlar", "güzel", "negativeInterrogative")).toBe("güzel değiller miydi?");
+  });
+});
+
+describe("pastNominalMaster", () => {
+  it("should return past nominal affirmative in standardMood", () => {
+    expect(
+      pastNominalMaster({ turkish: "ben", english: "I" }, { turkish: "aç", english: "hungry" }, "standardMood")
+    ).toEqual({ turkish: "açtım", english: "I was hungry" });
+    expect(
+      pastNominalMaster({ turkish: "sen", english: "you" }, { turkish: "aç", english: "hungry" }, "standardMood")
+    ).toEqual({ turkish: "açtın", english: "you were hungry" });
+    expect(
+      pastNominalMaster({ turkish: "o", english: "he" }, { turkish: "aç", english: "hungry" }, "standardMood")
+    ).toEqual({ turkish: "açtı", english: "he was hungry" });
+    expect(
+      pastNominalMaster({ turkish: "o", english: "she" }, { turkish: "aç", english: "hungry" }, "standardMood")
+    ).toEqual({ turkish: "açtı", english: "she was hungry" });
+    expect(
+      pastNominalMaster({ turkish: "o", english: "it" }, { turkish: "aç", english: "hungry" }, "standardMood")
+    ).toEqual({ turkish: "açtı", english: "it was hungry" });
+    expect(
+      pastNominalMaster({ turkish: "biz", english: "we" }, { turkish: "aç", english: "hungry" }, "standardMood")
+    ).toEqual({ turkish: "açtık", english: "we were hungry" });
+    expect(
+      pastNominalMaster({ turkish: "siz", english: "you" }, { turkish: "aç", english: "hungry" }, "standardMood")
+    ).toEqual({ turkish: "açtınız", english: "you were hungry" });
+    expect(
+      pastNominalMaster({ turkish: "onlar", english: "they" }, { turkish: "aç", english: "hungry" }, "standardMood")
+    ).toEqual({ turkish: "açtılar", english: "they were hungry" });
   });
 });

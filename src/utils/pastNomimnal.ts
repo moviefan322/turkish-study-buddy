@@ -117,6 +117,11 @@ export const turkishPastNominalMaster = (pronoun: string, verb: string, mood: st
 
 export const pastNominalMaster = (
   pronoun: { english: string; turkish: string },
-  verb: string,
+  verb: { english: string; turkish: string },
   mood: string = "standardMood"
-) => {};
+) => {
+  return {
+    english: pastNominalEnglishMaster(pronoun.english, verb.english, mood),
+    turkish: turkishPastNominalMaster(pronoun.turkish, verb.turkish, mood),
+  };
+};
