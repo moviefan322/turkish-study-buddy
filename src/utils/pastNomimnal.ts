@@ -1,6 +1,7 @@
 import { fourWayVowelHarmony, twoWayVowelHarmony } from "./vowelHarmony";
 import { endsWithFstkçşhp } from "./past";
 import { endsWithVowel } from "./vowelHarmony";
+import { pastNominalEnglishMaster } from "./pastNominalEng";
 
 export const returnPastParticleNominal = (verbStem: string) => {
   const vowel = fourWayVowelHarmony(verbStem);
@@ -96,7 +97,10 @@ export const pastNominalNegativeInterrogative = (pronoun: string, verbStem: stri
 };
 
 export const turkishPastNominalMaster = (pronoun: string, verb: string, mood: string = "standardMood") => {
-  const verbStem = verb.slice(0, -3);
+  let verbStem = verb;
+  if (verb.endsWith("mak") || verb.endsWith("mek")) {
+    verbStem = verb.slice(0, -3);
+  }
   switch (mood) {
     case "standardMood":
       return pastNominalAffirmative(pronoun, verbStem);
@@ -110,3 +114,9 @@ export const turkishPastNominalMaster = (pronoun: string, verb: string, mood: st
       return "Invalid mood.";
   }
 };
+
+export const pastNominalMaster = (
+  pronoun: { english: string; turkish: string },
+  verb: string,
+  mood: string = "standardMood"
+) => {};

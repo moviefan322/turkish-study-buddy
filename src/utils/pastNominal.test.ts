@@ -312,7 +312,13 @@ describe("turkishPastNominalMaster", () => {
     expect(turkishPastNominalMaster("biz", "açmak", "standardMood")).toBe("açtık");
     expect(turkishPastNominalMaster("siz", "açmak", "standardMood")).toBe("açtınız");
     expect(turkishPastNominalMaster("onlar", "açmak", "standardMood")).toBe("açtılar");
-  })
+    expect(turkishPastNominalMaster("ben", "güzel", "standardMood")).toBe("güzeldim");
+    expect(turkishPastNominalMaster("sen", "güzel", "standardMood")).toBe("güzeldin");
+    expect(turkishPastNominalMaster("o", "güzel", "standardMood")).toBe("güzeldi");
+    expect(turkishPastNominalMaster("biz", "güzel", "standardMood")).toBe("güzeldik");
+    expect(turkishPastNominalMaster("siz", "güzel", "standardMood")).toBe("güzeldiniz");
+    expect(turkishPastNominalMaster("onlar", "güzel", "standardMood")).toBe("güzeldiler");
+  });
 
   it("should return past nominal negative in negative mood", () => {
     expect(turkishPastNominalMaster("ben", "açmak", "negative")).toBe("aç değildim");
@@ -321,7 +327,13 @@ describe("turkishPastNominalMaster", () => {
     expect(turkishPastNominalMaster("biz", "açmak", "negative")).toBe("aç değildik");
     expect(turkishPastNominalMaster("siz", "açmak", "negative")).toBe("aç değildiniz");
     expect(turkishPastNominalMaster("onlar", "açmak", "negative")).toBe("aç değillerdi");
-  })
+    expect(turkishPastNominalMaster("ben", "güzel", "negative")).toBe("güzel değildim");
+    expect(turkishPastNominalMaster("sen", "güzel", "negative")).toBe("güzel değildin");
+    expect(turkishPastNominalMaster("o", "güzel", "negative")).toBe("güzel değildi");
+    expect(turkishPastNominalMaster("biz", "güzel", "negative")).toBe("güzel değildik");
+    expect(turkishPastNominalMaster("siz", "güzel", "negative")).toBe("güzel değildiniz");
+    expect(turkishPastNominalMaster("onlar", "güzel", "negative")).toBe("güzel değillerdi");
+  });
 
   it("should return past nominal interrogative in interrogative mood", () => {
     expect(turkishPastNominalMaster("ben", "açmak", "interrogative")).toBe("aç mıydım?");
@@ -330,7 +342,13 @@ describe("turkishPastNominalMaster", () => {
     expect(turkishPastNominalMaster("biz", "açmak", "interrogative")).toBe("aç mıydık?");
     expect(turkishPastNominalMaster("siz", "açmak", "interrogative")).toBe("aç mıydınız?");
     expect(turkishPastNominalMaster("onlar", "açmak", "interrogative")).toBe("açlar mıydı?");
-  })
+    expect(turkishPastNominalMaster("ben", "güzel", "interrogative")).toBe("güzel miydim?");
+    expect(turkishPastNominalMaster("sen", "güzel", "interrogative")).toBe("güzel miydin?");
+    expect(turkishPastNominalMaster("o", "güzel", "interrogative")).toBe("güzel miydi?");
+    expect(turkishPastNominalMaster("biz", "güzel", "interrogative")).toBe("güzel miydik?");
+    expect(turkishPastNominalMaster("siz", "güzel", "interrogative")).toBe("güzel miydiniz?");
+    expect(turkishPastNominalMaster("onlar", "güzel", "interrogative")).toBe("güzeller miydi?");
+  });
 
   it("should return past nominal negative interrogative in negative interrogative mood", () => {
     expect(turkishPastNominalMaster("ben", "açmak", "negativeInterrogative")).toBe("aç değil miydim?");
@@ -339,5 +357,11 @@ describe("turkishPastNominalMaster", () => {
     expect(turkishPastNominalMaster("biz", "açmak", "negativeInterrogative")).toBe("aç değil miydik?");
     expect(turkishPastNominalMaster("siz", "açmak", "negativeInterrogative")).toBe("aç değil miydiniz?");
     expect(turkishPastNominalMaster("onlar", "açmak", "negativeInterrogative")).toBe("aç değiller miydi?");
-  })
-})
+    expect(turkishPastNominalMaster("ben", "güzel", "negativeInterrogative")).toBe("güzel değil miydim?");
+    expect(turkishPastNominalMaster("sen", "güzel", "negativeInterrogative")).toBe("güzel değil miydin?");
+    expect(turkishPastNominalMaster("o", "güzel", "negativeInterrogative")).toBe("güzel değil miydi?");
+    expect(turkishPastNominalMaster("biz", "güzel", "negativeInterrogative")).toBe("güzel değil miydik?");
+    expect(turkishPastNominalMaster("siz", "güzel", "negativeInterrogative")).toBe("güzel değil miydiniz?");
+    expect(turkishPastNominalMaster("onlar", "güzel", "negativeInterrogative")).toBe("güzel değiller miydi?");
+  });
+});
