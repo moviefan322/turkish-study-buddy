@@ -1,0 +1,15 @@
+export const okuyorum1 = [
+  { english: "fresh", turkish: "taze", pos: "adj" },
+  { english: "shopping", turkish: "alışveriş", pos: "n" },
+  { english: "florist", turkish: "çiçekçi", pos: "n" },
+  { english: "obviously", turkish: "meydanda", pos: "adv" },
+  { english: "curtain", turkish: "perde", pos: "n" },
+  { english: "table cloth", turkish: "masa örtüsü", pos: "n" },
+  { english: "type", turkish: "tip", pos: "n" },
+  { english: "trade center", turkish: "ticaret merkezi", pos: "n" },
+  { english: "domestic appliances", turkish: "beyaz eşya", pos: "n" },
+  { english: "shop", turkish: "dükkan", pos: "n" },
+  { english: "printing shop", turkish: "matbaa", pos: "n" },
+  { english: "stationary", turkish: "kırtasiye", pos: "n" },
+  { english: "similar", turkish: "benzer", pos: "adj" },
+];
