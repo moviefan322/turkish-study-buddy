@@ -12,4 +12,12 @@ export const okuyorum1 = [
   { english: "printing shop", turkish: "matbaa", pos: "n" },
   { english: "stationary", turkish: "kırtasiye", pos: "n" },
   { english: "similar", turkish: "benzer", pos: "adj" },
+  { english: "for rent", turkish: "kiralik", pos: "adj" },
+  { english: "bulletin board", turkish: "pano", pos: "n" },
+  { english: "announcement", turkish: "ilan", pos: "n" },
+  { english: "fridge", turkish: "buzdolabı", pos: "n" },
+  { english: "oven", turkish: "fırın", pos: "n" },
+  { english: "music center", turkish: "müzik seti", pos: "n" },
+  { english: "rent", turkish: "kira", pos: "n" },
+  { english: "landscape", turkish: "manzara", pos: "n" },
 ];
