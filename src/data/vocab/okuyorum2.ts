@@ -35,4 +35,12 @@ export const okuyorum1 = [
   { english: "blow dry", turkish: "fön çekmek", pos: "v" },
   { english: "to hurry up", turkish: "acele etmek", pos: "v" },
   { english: "anyway", turkish: "neyse", pos: "adv" },
+  { english: "job", turkish: "meslek", pos: "n" },
+  { english: "wet", turkish: "ıslak", pos: "adj" },
+  { english: "talented", turkish: "yetenekli", pos: "adj" },
+  { english: "to be angry", turkish: "kızmak", pos: "v" },
+  { english: "to polluted", turkish: "kirlenmek", pos: "v" },
+  { english: "model", turkish: "manken", pos: "n" },
+  { english: "according to", turkish: "göre", pos: "adv" },
+  { english: "to practice", turkish: "antrenman yapmak", pos: "v" },
 ];
