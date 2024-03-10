@@ -63,4 +63,7 @@ export const okuyorum1 = [
   { english: "strapping", turkish: "taş gibi", pos: "adj" },
   { english: "medicine", turkish: "ilaç", pos: "n" },
   { english: "possible", turkish: "mümkün", pos: "adj" },
+  { english: "to be patient", turkish: "sabretmek", pos: "v" },
+  { english: "to nurse", turkish: "hemşirelik yapmak", pos: "v" },
+  { english: "mouth", turkish: "ağız", pos: "n" },
 ];
