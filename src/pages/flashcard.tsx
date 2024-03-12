@@ -125,7 +125,11 @@ const Flashcard = () => {
 
   const handleReveal = () => {
     if (inputMode) {
-      if (inputValue.toLowerCase().trim() === currentDeck[currentIndex].english.toLowerCase()) {
+      if (
+        !englishOnTop
+          ? inputValue.toLowerCase().trim() === currentDeck[currentIndex].english.toLowerCase()
+          : inputValue.toLowerCase().trim() === currentDeck[currentIndex].turkish.toLowerCase()
+      ) {
         setCorrect(true);
       } else {
         setIncorrect(true);
@@ -214,11 +218,13 @@ const Flashcard = () => {
         setCorrect(false);
         setIncorrect(false);
         handleNext(correct);
-      }, 2000);
+      }, 1000);
 
       return () => clearTimeout(timer);
     }
   }, [correct, incorrect]);
+
+  console.log(englishOnTop);
 
   return (
     <Layout>
