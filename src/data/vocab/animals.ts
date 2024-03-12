@@ -7,6 +7,7 @@ export const animals = [
   { english: "cow", turkish: "inek" },
   { english: "sheep", turkish: "koyun" },
   { english: "chicken", turkish: "tavuk" },
+  { english: "rooster", turkish: "horoz" },
   { english: "pig", turkish: "domuz" },
   { english: "rat", turkish: "sıçan" },
   { english: "mouse", turkish: "fare" },
