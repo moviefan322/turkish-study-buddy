@@ -65,4 +65,16 @@ export const okuyorum1 = [
   { english: "invoice", turkish: "fatura", pos: "n" },
   { english: "appreciate", turkish: "beğenmek", pos: "v" },
   { english: "coffee table", turkish: "sehpa", pos: "n" },
+  { english: "winter", turkish: "kış", pos: "n" },
+  { english: "summer", turkish: "yaz", pos: "n" },
+  { english: "spring", turkish: "bahar", pos: "n" },
+  { english: "autumn", turkish: "sonbahar", pos: "n" },
+  { english: "snowy", turkish: "karlı", pos: "adj" },
+  { english: "to be jammed", turkish: "sıkışmak", pos: "v" },
+  { english: "holiday", turkish: "tatil", pos: "n" },
+  { english: "person", turkish: "kişi", pos: "n" },
+  { english: "summer house", turkish: "yazlık", pos: "n" },
+  { english: "to have fun", turkish: "eğlenmek", pos: "v" },
+  { english: "colorful", turkish: "renkli", pos: "adj" },
+  
 ];

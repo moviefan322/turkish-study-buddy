@@ -58,6 +58,7 @@ const FlashcardSettings = ({
     adjectives,
     animals,
     classVocab,
+    numbers,
   };
 
   const handleModeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
