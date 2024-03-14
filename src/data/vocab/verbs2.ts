@@ -1,0 +1,16 @@
+const verbs2 = [
+  { turkish: "açmak", english: "to open" },
+  { turkish: "ağlamak", english: "to cry" },
+  { turkish: "almak", english: "to take" },
+  { turkish: "anlamak", english: "to understand" },
+  { turkish: "aşık olmak", english: "to fall in love" },
+  { turkish: "aramak", english: "to search" },
+  { turkish: "asmak", english: "to hang" },
+  { turkish: "atlamak", english: "to jump" },
+  { turkish: "avlamak", english: "to hunt" },
+  { turkish: "atmak", english: "to throw" },
+  { turkish: "bahsetmek", english: "to mention" },
+  { turkish: "bakmak", english: "to look" },
+  { turkish: "başlamak", english: "to start" },
+  { turkish: "bayılmak", english: "to faint" },
+];

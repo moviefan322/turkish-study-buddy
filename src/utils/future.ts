@@ -1,0 +1,21 @@
+import { fourWayVowelHarmony, twoWayVowelHarmony } from "./vowelHarmony";
+import { endsWithFstkçşhp } from "./past";
+
+export const returnFutureSuffix = (pronoun: String, verbStem: string) => {
+  const vowel = twoWayVowelHarmony(verbStem);
+  const fourWay = fourWayVowelHarmony(vowel);
+  switch (pronoun.toLowerCase()) {
+    case "ben":
+      return `${verbStem}${vowel}c${vowel}ğ${fourWay}m`;
+    case "sen":
+      return `${verbStem}${vowel}c${vowel}ks${fourWay}n`;
+    case "o":
+      return `${verbStem}${vowel}c${vowel}k`;
+    case "biz":
+      return `${verbStem}${vowel}c${vowel}ğ${fourWay}z`;
+    case "siz":
+      return `${verbStem}${vowel}c${vowel}ks${fourWay}n${fourWay}z`;
+    case "onlar":
+      return `${verbStem}${vowel}c${vowel}kl${vowel}r`;
+  }
+};
