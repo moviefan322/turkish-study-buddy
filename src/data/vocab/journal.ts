@@ -1,0 +1,17 @@
+export const journal = [
+  { english: "journal", turkish: "günlük", pos: "n" },
+  { english: "somewhat", turkish: "birazcık", pos: "adv" },
+  { english: "around", turkish: "sularında", pos: "adv" },
+  { english: "victory", turkish: "galibiyet", pos: "n" },
+  { english: "roof", turkish: "çatı", pos: "n" },
+  { english: "to jump rope", turkish: "ip atlamak", pos: "v" },
+  { english: "to do pull ups", turkish: "barfiks çekmek", pos: "v" },
+  { english: "to do squats", turkish: "squat yapmak", pos: "v" },
+  { english: "to send a text", turkish: "mesaj atmak", pos: "v" },
+  { english: "to do laundry", turkish: "çamaşır yıkamak", pos: "v" },
+  { english: "to write an invoice", turkish: "fatura kesmek", pos: "v" },
+  { english: "couple", turkish: "çift", pos: "n" },
+  { english: "to hang out", turkish: "takılmak", pos: "v" },
+  { english: "to invite", turkish: "davet etmek", pos: "v" },
+  { english: "alread", turkish: "zaten", pos: "adv" },
+];

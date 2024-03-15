@@ -1,23 +1,25 @@
 import { fourWayVowelHarmony, twoWayVowelHarmony } from "./vowelHarmony";
-import { endsWithFstkçşhp } from "./past";
-import { ketchupRule } from "./vowelHarmony";
 
 export const returnFutureSuffix = (pronoun: String, verbStem: string) => {
+  let verb = verbStem;
+  if (verbStem === "git") {
+    verb = "gid";
+  }
   const vowel = twoWayVowelHarmony(verbStem);
   const fourWay = fourWayVowelHarmony(vowel);
   switch (pronoun.toLowerCase()) {
     case "ben":
-      return ketchupRule(verbStem, `${vowel}c${vowel}ğ${fourWay}m`);
+      return `${verb}${vowel}c${vowel}ğ${fourWay}m`;
     case "sen":
-      return ketchupRule(verbStem, `${vowel}c${vowel}ks${fourWay}n`);
+      return `${verb}${vowel}c${vowel}ks${fourWay}n`;
     case "o":
-      return ketchupRule(verbStem, `${vowel}c${vowel}k`);
+      return `${verb}${vowel}c${vowel}k`;
     case "biz":
-      return ketchupRule(verbStem, `${vowel}c${vowel}ğ${fourWay}z`);
+      return `${verb}${vowel}c${vowel}ğ${fourWay}z`;
     case "siz":
-      return ketchupRule(verbStem, `${vowel}c${vowel}ks${fourWay}n${fourWay}z`);
+      return `${verb}${vowel}c${vowel}ks${fourWay}n${fourWay}z`;
     case "onlar":
-      return ketchupRule(verbStem, `${vowel}c${vowel}kl${vowel}r`);
+      return `${verb}${vowel}c${vowel}kl${vowel}r`;
   }
 };
 
