@@ -5,6 +5,15 @@ export const returnFutureSuffix = (pronoun: String, verbStem: string) => {
   if (verbStem === "git") {
     verb = "gid";
   }
+  if (verbStem === "bahset") {
+    verb = "bahsed";
+  }
+  if (verbStem === "yem") {
+    verb = "y";
+  }
+  if (verbStem === "de") {
+    verb = "diy";
+  }
   const vowel = twoWayVowelHarmony(verbStem);
   const fourWay = fourWayVowelHarmony(vowel);
   switch (pronoun.toLowerCase()) {
