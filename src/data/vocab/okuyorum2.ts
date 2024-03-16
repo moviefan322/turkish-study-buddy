@@ -1,4 +1,4 @@
-export const okuyorum1 = [
+export const okuyorum2 = [
   { english: "hookah", turkish: "nargile", pos: "n" },
   { english: "live music", turkish: "canlı müzik", pos: "n" },
   { english: "the next day", turkish: "ertesi gün", pos: "n" },
@@ -43,7 +43,7 @@ export const okuyorum1 = [
   { english: "model", turkish: "manken", pos: "n" },
   { english: "according to", turkish: "göre", pos: "adv" },
   { english: "to practice", turkish: "antrenman yapmak", pos: "v" },
-  { englısh: "maybe", turkish: "belki", pos: "adv" },
+  { english: "maybe", turkish: "belki", pos: "adv" },
   { english: "fever", turkish: "ateş", pos: "n" },
   { english: "to burn", turkish: "yanmak", pos: "v" },
   { english: "to catch a cold", turkish: "üşütmek", pos: "v" },
@@ -89,5 +89,4 @@ export const okuyorum1 = [
   { english: "to fold", turkish: "katlamak", pos: "v" },
   { english: "team", turkish: "takım", pos: "n" },
   { english: "probably", turkish: "galiba", pos: "adv" },
-
 ];

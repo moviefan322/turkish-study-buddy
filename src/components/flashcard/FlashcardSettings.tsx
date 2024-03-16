@@ -9,6 +9,8 @@ import { adjectives } from "@/data/vocab/adjectives";
 import { animals } from "@/data/vocab/animals";
 import { classVocab } from "@/data/vocab/classVocab";
 import { numbers } from "@/data/vocab/numbers";
+import { okuyorum1 } from "@/data/vocab/okuyorum1";
+import { okuyorum2 } from "@/data/vocab/okuyorum2";
 import styles from "./FlashcardSettings.module.css";
 
 enum Mode {
@@ -19,6 +21,7 @@ enum Mode {
 interface Flashcard {
   turkish: string;
   english: string;
+  pos?: string;
 }
 
 interface ModalProps {
@@ -59,6 +62,8 @@ const FlashcardSettings = ({
     animals,
     classVocab,
     numbers,
+    okuyorum1,
+    okuyorum2,
   };
 
   const handleModeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -106,6 +111,8 @@ const FlashcardSettings = ({
                     <option value={"daysOfTheWeek"}>Days</option>
                     <option value={"months"}>Months</option>
                     <option value={"numbers"}>Numbers</option>
+                    <option value={"okuyorum1"}>Okuyorum 1</option>
+                    <option value={"okuyorum2"}>Okuyorum 2</option>
                   </select>
                 </form>
                 <form action="">
