@@ -1,7 +1,10 @@
-import { fourWayVowelHarmony, twoWayVowelHarmony } from "./vowelHarmony";
+import { fourWayVowelHarmony, twoWayVowelHarmony, endsWithVowel } from "./vowelHarmony";
 
 export const returnFutureSuffix = (pronoun: String, verbStem: string) => {
   let verb = verbStem;
+  if (endsWithVowel(verbStem)) {
+    verb = verbStem + "y";
+  }
   if (verbStem === "git") {
     verb = "gid";
   }

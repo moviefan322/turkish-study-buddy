@@ -9,7 +9,7 @@ describe("returnFutureSuffix", () => {
     expect(returnFutureSuffix("siz", "gel")).toBe("geleceksiniz");
     expect(returnFutureSuffix("onlar", "gel")).toBe("gelecekler");
   });
-})
+});
 
 describe("returnFutureSuffix", () => {
   it("should return the correct future suffix", () => {
@@ -20,7 +20,7 @@ describe("returnFutureSuffix", () => {
     expect(returnFutureSuffix("siz", "yap")).toBe("yapacaksınız");
     expect(returnFutureSuffix("onlar", "yap")).toBe("yapacaklar");
   });
-})
+});
 
 describe("returnFutureSuffix", () => {
   it("should return the correct future suffix for -t stem verbs", () => {
@@ -31,7 +31,18 @@ describe("returnFutureSuffix", () => {
     expect(returnFutureSuffix("siz", "git")).toBe("gideceksiniz");
     expect(returnFutureSuffix("onlar", "git")).toBe("gidecekler");
   });
-})
+});
+
+describe("returnFutureSuffix", () => {
+  it("should return the correct future suffix for verbs ending in vowel", () => {
+    expect(returnFutureSuffix("ben", "izle")).toBe("izleyeceğim");
+    expect(returnFutureSuffix("sen", "izle")).toBe("izleyeceksin");
+    expect(returnFutureSuffix("o", "izle")).toBe("izleyecek");
+    expect(returnFutureSuffix("biz", "izle")).toBe("izleyeceğiz");
+    expect(returnFutureSuffix("siz", "izle")).toBe("izleyeceksiniz");
+    expect(returnFutureSuffix("onlar", "izle")).toBe("izleyecekler");
+  });
+});
 
 describe("returnFutureSuffixNegative", () => {
   it("should return the correct negative future suffix", () => {
