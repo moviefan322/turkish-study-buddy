@@ -14,4 +14,7 @@ export const journal = [
   { english: "to hang out", turkish: "takılmak", pos: "v" },
   { english: "to invite", turkish: "davet etmek", pos: "v" },
   { english: "alread", turkish: "zaten", pos: "adv" },
+  { english: "devastating", turkish: "yıkıcı", pos: "adj" },
+  { english: "to approach", turkish: "yanaşmak", pos: "v" },
+
 ];
