@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Layout from "@/components/layout/Layout";
 import FlashcardSettings from "@/components/flashcard/FlashcardSettings";
-import { verbs } from "@/data/vocab/verbsGPT";
+import { verbs } from "@/data/vocab/verbs";
 import styles from "./flashcard.module.css";
 import { MdSwapVert } from "react-icons/md";
 import { FaGear, FaXmark } from "react-icons/fa6";
