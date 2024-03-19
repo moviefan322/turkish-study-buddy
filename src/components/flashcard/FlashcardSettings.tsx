@@ -3,7 +3,7 @@ import { FaXmark } from "react-icons/fa6";
 import { daysOfTheWeek } from "../../data/vocab/daysOfWeek";
 import { food } from "../../data/vocab/food";
 import { months } from "../../data/vocab/months";
-import { verbs } from "../../data/vocab/verbs";
+import { verbs } from "../../data/vocab/verbsGPT";
 import { nouns } from "../../data/vocab/nouns";
 import { adjectives } from "@/data/vocab/adjectives";
 import { animals } from "@/data/vocab/animals";

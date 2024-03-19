@@ -2,7 +2,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { pastTenseMaster } from "@/utils/past";
 import { pastNominalMaster } from "@/utils/pastNomimnal";
-import { verbs } from "@/data/vocab/verbs";
+import { verbs } from "@/data/vocab/verbsGPT";
 import { adjectives } from "@/data/vocab/adjectives";
 import { pronounPairs } from "@/data/vocab/pronounPairs";
 import { FaGear } from "react-icons/fa6";

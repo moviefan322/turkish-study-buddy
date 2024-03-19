@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { presentContinuousMaster } from "@/utils/presentContinuous";
-import { verbs } from "@/data/vocab/verbs";
+import { verbs } from "@/data/vocab/verbsGPT";
 import { pronounPairs } from "@/data/vocab/pronounPairs";
 import { FaGear } from "react-icons/fa6";
 import { IoChevronBack } from "react-icons/io5";
