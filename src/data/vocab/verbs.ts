@@ -1,4 +1,4 @@
-const verbs = [
+export const verbs = [
   { turkish: "açmak", english: "to open" },
   { turkish: "ağlamak", english: "to cry" },
   { turkish: "almak", english: "to take" },
@@ -53,7 +53,7 @@ const verbs = [
   { turkish: "eğlenmek", english: "to have fun" },
   { turkish: "eğitmek", english: "to educate" },
   { turkish: "gecikmek", english: "to be late" },
-  { turksih: "geç kalmak", english: "to be late" },
+  { turkish: "geç kalmak", english: "to be late" },
   { turkish: "geçmek", english: "to pass" },
   { turkish: "gelmek", english: "to come" },
   { turkish: "gezmek", english: "to visit" },
