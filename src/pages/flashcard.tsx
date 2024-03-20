@@ -29,7 +29,8 @@ const Flashcard = () => {
   const [showFlashcards, setShowFlashcards] = useState(false);
   const [flashcards, setFlashcards] = useState([...verbs]);
   const [showAnswer, setShowAnswer] = useState(false);
-  const [englishOnTop, setEnglishOnTop] = useState(false);
+  const [topLanguage, setTopLanguage] = useState("turkish");
+  const [bottomLanguage, setBottomLanguage] = useState("english");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentDeck, setCurrentDeck] = useState<Flashcard[]>([]);
   const [nextDeck, setNextDeck] = useState<Flashcard[]>([]);
@@ -44,7 +45,7 @@ const Flashcard = () => {
 
   const resetState = () => {
     setShowAnswer(false);
-    setEnglishOnTop(false);
+    setTopLanguage("turkish");
     setIsModalOpen(false);
     setCurrentIndex(0);
   };
@@ -125,11 +126,7 @@ const Flashcard = () => {
 
   const handleReveal = () => {
     if (inputMode) {
-      if (
-        !englishOnTop
-          ? inputValue.toLowerCase().trim() === currentDeck[currentIndex].english.toLowerCase()
-          : inputValue.toLowerCase().trim() === currentDeck[currentIndex].turkish.toLowerCase()
-      ) {
+      if (inputValue.toLowerCase().trim() === currentDeck[currentIndex][topLanguage as keyof Flashcard].toLowerCase()) {
         setCorrect(true);
       } else {
         setIncorrect(true);
@@ -224,7 +221,10 @@ const Flashcard = () => {
     }
   }, [correct, incorrect]);
 
-  console.log(englishOnTop);
+  const switchLanguageOrientation = () => {
+    setTopLanguage(bottomLanguage);
+    setBottomLanguage(topLanguage);
+  };
 
   return (
     <Layout>
@@ -251,22 +251,18 @@ const Flashcard = () => {
           <div
             className={`${styles.flashcard} justify-self-center align-self-center fs-3 fw-bolder border border-2 border-dark p-5 text-center text-light w-25`}
           >
-            {englishOnTop ? currentDeck[currentIndex].english : currentDeck[currentIndex].turkish}
+            {currentDeck[currentIndex][topLanguage as keyof Flashcard]}
           </div>
           <button
             className="my-3 bg-success text-dark border-1 border border-dark"
-            onClick={() => setEnglishOnTop((prev) => !prev)}
+            onClick={() => switchLanguageOrientation()}
           >
             <MdSwapVert size={50} />
           </button>
           <div
             className={`${styles.flashcard} justify-self-center align-self-center fs-3 fw-bolder border border-2 border-dark p-5 text-center text-light w-25 ${flashStyle}`}
           >
-            {showAnswer
-              ? englishOnTop
-                ? currentDeck[currentIndex].turkish
-                : currentDeck[currentIndex].english
-              : renderHiddenFlashcard()}
+            {showAnswer ? currentDeck[currentIndex][bottomLanguage as keyof Flashcard] : renderHiddenFlashcard()}
           </div>
           <div className="d-flex flex-row justify-content-around align-items-center w-100 mt-4">
             {showAnswer && mode === Mode.Smart && !inputMode && (
