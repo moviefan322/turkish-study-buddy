@@ -45,7 +45,6 @@ const Flashcard = () => {
 
   const resetState = () => {
     setShowAnswer(false);
-    setTopLanguage("turkish");
     setIsModalOpen(false);
     setCurrentIndex(0);
   };
@@ -226,6 +225,8 @@ const Flashcard = () => {
     setBottomLanguage(topLanguage);
   };
 
+  console.log(topLanguage, bottomLanguage);
+
   return (
     <Layout>
       <Link href="/">
@@ -314,8 +315,12 @@ const Flashcard = () => {
         setFlashcards={setFlashcards}
         shuffle={shuffle}
         setShuffle={setShuffle}
+        shuffleDeck={shuffleDeck}
         setInputMode={setInputMode}
         inputMode={inputMode}
+        setTopLanguage={setTopLanguage}
+        setBottomLanguage={setBottomLanguage}
+        topLanguage={topLanguage}
       />
     </Layout>
   );

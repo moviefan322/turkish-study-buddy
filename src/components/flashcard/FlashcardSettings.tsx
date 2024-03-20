@@ -27,6 +27,7 @@ interface Flashcard {
 interface ModalProps {
   isOpen: boolean;
   shuffle: boolean;
+  shuffleDeck: any;
   mode: Mode;
   onClose: () => void;
   setMode: Dispatch<SetStateAction<Mode>>;
@@ -35,6 +36,9 @@ interface ModalProps {
   setShuffle: Dispatch<SetStateAction<boolean>>;
   setInputMode: Dispatch<SetStateAction<boolean>>;
   inputMode: boolean;
+  setTopLanguage: Dispatch<SetStateAction<string>>;
+  topLanguage: string;
+  setBottomLanguage: Dispatch<SetStateAction<string>>;
 }
 
 const FlashcardSettings = ({
@@ -45,9 +49,13 @@ const FlashcardSettings = ({
   setFlashcards,
   shuffle,
   setShuffle,
+  shuffleDeck,
   mode,
   setInputMode,
   inputMode,
+  setTopLanguage,
+  topLanguage,
+  setBottomLanguage,
 }: ModalProps) => {
   const [selectedMode, setSelectedMode] = useState(Mode.Random);
   const [selectedVocab, setSelectedVocab] = useState("verbs");
@@ -73,9 +81,23 @@ const FlashcardSettings = ({
   const handleVocabChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedVocab(event.target.value);
   };
+
+  const handleDisplayLanguageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    if (event.target.value === "turkish") {
+      setTopLanguage("turkish");
+      setBottomLanguage("english");
+    } else {
+      setTopLanguage("english");
+      setBottomLanguage("turkish");
+    }
+  };
+
   const handleSave = () => {
     setMode(selectedMode);
-    const newFlashcards = vocabSets[selectedVocab as keyof typeof vocabSets];
+    let newFlashcards = vocabSets[selectedVocab as keyof typeof vocabSets];
+    if (shuffle) {
+      newFlashcards = shuffleDeck(newFlashcards);
+    }
     setFlashcards(newFlashcards);
     resetState();
     onClose();
@@ -122,6 +144,20 @@ const FlashcardSettings = ({
                   <select name="mode" id="mode" value={selectedMode} onChange={handleModeChange}>
                     <option value={Mode.Random}>Random</option>
                     <option value={Mode.Smart}>Smart</option>
+                  </select>
+                </form>
+                <form action="">
+                  <label htmlFor="displayLanguage" className="me-2">
+                    Display Language:
+                  </label>
+                  <select
+                    name="displayLanguage"
+                    id="displayLanguage"
+                    value={topLanguage}
+                    onChange={handleDisplayLanguageChange}
+                  >
+                    <option value="turkish">Turkish</option>
+                    <option value="english">English</option>
                   </select>
                 </form>
                 <div>
