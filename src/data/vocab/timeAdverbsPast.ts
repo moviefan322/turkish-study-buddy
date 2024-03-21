@@ -31,4 +31,6 @@ export const timeAdverbsPast = [
   { english: "yesterday evening", turkish: "dün akşam" },
   { english: "yesterday morning", turkish: "dün sabah" },
   { english: "yesterday afternoon", turkish: "dün öğleden sonra" },
+  { english: "yesterday night", turkish: "dün gece" },
+  { english: "yesterday at this time", turkish: "dün bu saat"}
 ];
