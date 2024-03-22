@@ -1,44 +1,56 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Turkish-Study-Buddy [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-First, run the development server:
+## Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [Turkish-Study-Buddy ](#turkish-study-buddy-)
+  - [Table of Contents](#table-of-contents)
+  - [Description](#description)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Testing](#testing)
+  - [Contributors](#contributors)
+  - [License](#license)
+  - [Questions](#questions)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<a id="Description"></a>
+## Description
+    
+This is an application to help aid your study of the turkish language
+    
+<a id="Installation"></a>
+## Installation
+    
+No installation necessary, it is deployed at https://turkish-study-buddy.vercel.app/
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+<a id="Usage"></a>
+## Usage
+    
+Just log on and use the exercise tools for now, profiles and curriculum to come    
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+![Screenshot of webpage](./src/assets/svg/screenshot.png)
+ 
+<a id="Testing"></a>
+## Testing
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+The grammar functions have extensive testing suites, the repo can be cloned and npm run test, or for functional testing just click around
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<a id="Contributors"></a>
+## Contributors
+    
+If you want something done right, you gotta do it yourself
 
-## Learn More
+<a id="License"></a>
+## License
+    
+This is an application to help aid your study of the turkish language
 
-To learn more about Next.js, take a look at the following resources:
+<a id="Questions"></a>
+## Questions
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Philip Scott Neumann
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+https://github.com/moviefan322
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# yogapage
-# nextboot
-# nextboot
-# nextboot
+philman202@yahoo.com
+    
