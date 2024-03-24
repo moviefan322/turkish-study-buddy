@@ -103,3 +103,79 @@ export const returnFutureSuffixNegativeQuestion = (pronoun: String, verbStem: st
       return `${futureVerb}l${vowel}r m${fourWayVowelHarmony(futureVerb)}`;
   }
 };
+
+export const futureNominalAffirmative = (pronoun: String, adjective: string) => {
+  switch (pronoun.toLowerCase()) {
+    case "ben":
+      return `${adjective} olacağım`;
+    case "sen":
+      return `${adjective} olacaksın`;
+    case "o":
+      return `${adjective} olacak`;
+    case "biz":
+      return `${adjective} olacağız`;
+    case "siz":
+      return `${adjective} olacaksınız`;
+    case "onlar":
+      return `${adjective} olacaklar`;
+    default:
+      return "Error! Invalid pronoun (probably)!";
+  }
+};
+
+export const futureNominalNegative = (pronoun: String, adjective: string) => {
+  switch (pronoun.toLowerCase()) {
+    case "ben":
+      return `${adjective} olmayacağım`;
+    case "sen":
+      return `${adjective} olmayacaksın`;
+    case "o":
+      return `${adjective} olmayacak`;
+    case "biz":
+      return `${adjective} olmayacağız`;
+    case "siz":
+      return `${adjective} olmayacaksınız`;
+    case "onlar":
+      return `${adjective} olmayacaklar`;
+    default:
+      return "Error! Invalid pronoun (probably)!";
+  }
+};
+
+export const futureNominalQuestion = (pronoun: String, adjective: string) => {
+  switch (pronoun.toLowerCase()) {
+    case "ben":
+      return `${adjective} olacak mıyım`;
+    case "sen":
+      return `${adjective} olacak mısın`;
+    case "o":
+      return `${adjective} olacak mı`;
+    case "biz":
+      return `${adjective} olacak mıyız`;
+    case "siz":
+      return `${adjective} olacak mısınız`;
+    case "onlar":
+      return `${adjective} olacaklar mı`;
+    default:
+      return "Error! Invalid pronoun (probably)!";
+  }
+};
+
+export const futureNominaQuestionNegative = (pronoun: String, adjective: string) => {
+  switch (pronoun.toLowerCase()) {
+    case "ben":
+      return `${adjective} olmayacak mıyım`;
+    case "sen":
+      return `${adjective} olmayacak mısın`;
+    case "o":
+      return `${adjective} olmayacak mı`;
+    case "biz":
+      return `${adjective} olmayacak mıyız`;
+    case "siz":
+      return `${adjective} olmayacak mısınız`;
+    case "onlar":
+      return `${adjective} olmayacaklar mı`;
+    default:
+      return "Error! Invalid pronoun (probably)!";
+  }
+};

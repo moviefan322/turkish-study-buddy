@@ -3,6 +3,10 @@ import {
   returnFutureSuffixNegative,
   returnFutureSuffixQuestion,
   returnFutureSuffixNegativeQuestion,
+  futureNominalAffirmative,
+  futureNominalNegative,
+  futureNominalQuestion,
+  futureNominaQuestionNegative
 } from "./future";
 
 describe("returnFutureSuffix", () => {
@@ -210,3 +214,47 @@ describe("returnFutureSuffixNegativeQuestion", () => {
     expect(returnFutureSuffixNegativeQuestion("onlar", "gör")).toBe("görmeyecekler mi");
   });
 });
+
+describe("futureNominalAffirmative", () => {
+  it("should return the correct future nominal affirmative", () => {
+    expect(futureNominalAffirmative("ben", "iyi")).toBe("iyi olacağım");
+    expect(futureNominalAffirmative("sen", "iyi")).toBe("iyi olacaksın");
+    expect(futureNominalAffirmative("o", "iyi")).toBe("iyi olacak");
+    expect(futureNominalAffirmative("biz", "iyi")).toBe("iyi olacağız");
+    expect(futureNominalAffirmative("siz", "iyi")).toBe("iyi olacaksınız");
+    expect(futureNominalAffirmative("onlar", "iyi")).toBe("iyi olacaklar");
+  });
+});
+
+describe("futureNominalNegative", () => {
+  it("should return the correct future nominal negative", () => {
+    expect(futureNominalNegative("ben", "güçlü")).toBe("güçlü olmayacağım");
+    expect(futureNominalNegative("sen", "güçlü")).toBe("güçlü olmayacaksın");
+    expect(futureNominalNegative("o", "güçlü")).toBe("güçlü olmayacak");
+    expect(futureNominalNegative("biz", "güçlü")).toBe("güçlü olmayacağız");
+    expect(futureNominalNegative("siz", "güçlü")).toBe("güçlü olmayacaksınız");
+    expect(futureNominalNegative("onlar", "güçlü")).toBe("güçlü olmayacaklar");
+  });
+});
+
+describe("futureNominalQuestion", () => {
+  it("should return the correct future nominal question", () => {
+    expect(futureNominalQuestion("ben", "hasta")).toBe("hasta olacak mıyım");
+    expect(futureNominalQuestion("sen", "hasta")).toBe("hasta olacak mısın");
+    expect(futureNominalQuestion("o", "hasta")).toBe("hasta olacak mı");
+    expect(futureNominalQuestion("biz", "hasta")).toBe("hasta olacak mıyız");
+    expect(futureNominalQuestion("siz", "hasta")).toBe("hasta olacak mısınız");
+    expect(futureNominalQuestion("onlar", "hasta")).toBe("hasta olacaklar mı");
+  });
+})
+
+describe("futureNominalQuestionNegative", () => {
+  it("should return the correct future nominal question negative", () => {
+    expect(futureNominaQuestionNegative("ben", "mutlu")).toBe("mutlu olmayacak mıyım");
+    expect(futureNominaQuestionNegative("sen", "mutlu")).toBe("mutlu olmayacak mısın");
+    expect(futureNominaQuestionNegative("o", "mutlu")).toBe("mutlu olmayacak mı");
+    expect(futureNominaQuestionNegative("biz", "mutlu")).toBe("mutlu olmayacak mıyız");
+    expect(futureNominaQuestionNegative("siz", "mutlu")).toBe("mutlu olmayacak mısınız");
+    expect(futureNominaQuestionNegative("onlar", "mutlu")).toBe("mutlu olmayacaklar mı");
+  });
+})
