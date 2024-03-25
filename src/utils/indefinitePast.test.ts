@@ -3,6 +3,7 @@ import {
   indefinitePastAffirmative,
   indefinitePastNegative,
   indefinitePastInterrogative,
+  indefinitePastInterrogativeNegative,
 } from "./indefinitePast";
 
 describe("returnIndefinitePastSuffix", () => {
@@ -178,5 +179,49 @@ describe("indefinitePastInterrogative", () => {
     expect(indefinitePastInterrogative("onlar", "git")).toBe("gitmişler mi");
     expect(indefinitePastInterrogative("onlar", "duy")).toBe("duymuşlar mı");
     expect(indefinitePastInterrogative("onlar", "öksür")).toBe("öksürmüşler mi");
+  });
+});
+
+describe("indefinitePastInterrogativeNegative", () => {
+  it("should return the correct indefinite past interrogative negative for 'ben' pronoun", () => {
+    expect(indefinitePastInterrogativeNegative("ben", "ayrıl")).toBe("ayrılmamış mıyım");
+    expect(indefinitePastInterrogativeNegative("ben", "git")).toBe("gitmemiş miyim");
+    expect(indefinitePastInterrogativeNegative("ben", "duy")).toBe("duymamış mıyım");
+    expect(indefinitePastInterrogativeNegative("ben", "öksür")).toBe("öksürmemiş miyim");
+  });
+
+  it("should return the correct indefinite past interrogative negative for 'sen' pronoun", () => {
+    expect(indefinitePastInterrogativeNegative("sen", "ayrıl")).toBe("ayrılmamış mısın");
+    expect(indefinitePastInterrogativeNegative("sen", "git")).toBe("gitmemiş misin");
+    expect(indefinitePastInterrogativeNegative("sen", "duy")).toBe("duymamış mısın");
+    expect(indefinitePastInterrogativeNegative("sen", "öksür")).toBe("öksürmemiş misin");
+  });
+
+  it("should return the correct indefinite past interrogative negative for 'o' pronoun", () => {
+    expect(indefinitePastInterrogativeNegative("o", "ayrıl")).toBe("ayrılmamış mı");
+    expect(indefinitePastInterrogativeNegative("o", "git")).toBe("gitmemiş mi");
+    expect(indefinitePastInterrogativeNegative("o", "duy")).toBe("duymamış mı");
+    expect(indefinitePastInterrogativeNegative("o", "öksür")).toBe("öksürmemiş mi");
+  });
+
+  it("should return the correct indefinite past interrogative negative for 'biz' pronoun", () => {
+    expect(indefinitePastInterrogativeNegative("biz", "ayrıl")).toBe("ayrılmamış mıyız");
+    expect(indefinitePastInterrogativeNegative("biz", "git")).toBe("gitmemiş miyiz");
+    expect(indefinitePastInterrogativeNegative("biz", "duy")).toBe("duymamış mıyız");
+    expect(indefinitePastInterrogativeNegative("biz", "öksür")).toBe("öksürmemiş miyiz");
+  });
+
+  it("should return the correct indefinite past interrogative negative for 'siz' pronoun", () => {
+    expect(indefinitePastInterrogativeNegative("siz", "ayrıl")).toBe("ayrılmamış mısınız");
+    expect(indefinitePastInterrogativeNegative("siz", "git")).toBe("gitmemiş misiniz");
+    expect(indefinitePastInterrogativeNegative("siz", "duy")).toBe("duymamış mısınız");
+    expect(indefinitePastInterrogativeNegative("siz", "öksür")).toBe("öksürmemiş misiniz");
+  });
+
+  it("should return the correct indefinite past interrogative negative for 'onlar' pronoun", () => {
+    expect(indefinitePastInterrogativeNegative("onlar", "ayrıl")).toBe("ayrılmamışlar mı");
+    expect(indefinitePastInterrogativeNegative("onlar", "git")).toBe("gitmemişler mi");
+    expect(indefinitePastInterrogativeNegative("onlar", "duy")).toBe("duymamışlar mı");
+    expect(indefinitePastInterrogativeNegative("onlar", "öksür")).toBe("öksürmemişler mi");
   });
 });

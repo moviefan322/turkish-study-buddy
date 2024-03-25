@@ -55,3 +55,26 @@ export const indefinitePastInterrogative = (pronoun: string, verb: string) => {
       )}`;
   }
 };
+
+export const indefinitePastInterrogativeNegative = (pronoun: string, verb: string) => {
+  const negatedVerbRoot = `${verb}m${twoWayVowelHarmony(verb)}`;
+  const vowel = fourWayVowelHarmony(negatedVerbRoot);
+  const lerVowel = twoWayVowelHarmony(returnMişForm(negatedVerbRoot));
+
+  switch (pronoun.toLowerCase()) {
+    case "ben":
+      return `${negatedVerbRoot}${returnMişForm(negatedVerbRoot)} m${vowel}y${vowel}m`;
+    case "sen":
+      return `${negatedVerbRoot}${returnMişForm(negatedVerbRoot)} m${vowel}s${vowel}n`;
+    case "o":
+      return `${negatedVerbRoot}${returnMişForm(negatedVerbRoot)} m${vowel}`;
+    case "biz":
+      return `${negatedVerbRoot}${returnMişForm(negatedVerbRoot)} m${vowel}y${vowel}z`;
+    case "siz":
+      return `${negatedVerbRoot}${returnMişForm(negatedVerbRoot)} m${vowel}s${vowel}n${vowel}z`;
+    case "onlar":
+      return `${negatedVerbRoot}${returnMişForm(negatedVerbRoot)}l${lerVowel}r m${fourWayVowelHarmony(
+        twoWayVowelHarmony(negatedVerbRoot)
+      )}`;
+  }
+};
