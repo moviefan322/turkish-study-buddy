@@ -8,6 +8,7 @@ import {
   indefinitePastNominalAffirmative,
   indefinitePastNominalNegative,
   indefinitePastNominalInterrogative,
+  indefinitePastNominalInterrogativeNegative,
 } from "./indefinitePast";
 
 describe("returnIndefinitePastSuffix", () => {
@@ -438,5 +439,73 @@ describe("indefinitePastNominalInterrogative", () => {
     expect(indefinitePastNominalInterrogative("onlar", "mutlu")).toBe("mutlular mıymış");
     expect(indefinitePastNominalInterrogative("onlar", "göz")).toBe("gözler miymiş");
     expect(indefinitePastNominalInterrogative("onlar", "kötü")).toBe("kötüler miymiş");
+  });
+});
+
+describe("indefinitePastNominalInterrogativeNegative", () => {
+  it("should return the correct forms for 'ben' pronoun", () => {
+    expect(indefinitePastNominalInterrogativeNegative("ben", "hayat")).toBe("hayat değil miymişim");
+    expect(indefinitePastNominalInterrogativeNegative("ben", "sayı")).toBe("sayı değil miymişim");
+    expect(indefinitePastNominalInterrogativeNegative("ben", "köpek")).toBe("köpek değil miymişim");
+    expect(indefinitePastNominalInterrogativeNegative("ben", "hikaye")).toBe("hikaye değil miymişim");
+    expect(indefinitePastNominalInterrogativeNegative("ben", "yol")).toBe("yol değil miymişim");
+    expect(indefinitePastNominalInterrogativeNegative("ben", "mutlu")).toBe("mutlu değil miymişim");
+    expect(indefinitePastNominalInterrogativeNegative("ben", "göz")).toBe("göz değil miymişim");
+    expect(indefinitePastNominalInterrogativeNegative("ben", "kötü")).toBe("kötü değil miymişim");
+  });
+
+  it("should return the correct forms for 'sen' pronoun", () => {
+    expect(indefinitePastNominalInterrogativeNegative("sen", "hayat")).toBe("hayat değil miymişsin");
+    expect(indefinitePastNominalInterrogativeNegative("sen", "sayı")).toBe("sayı değil miymişsin");
+    expect(indefinitePastNominalInterrogativeNegative("sen", "köpek")).toBe("köpek değil miymişsin");
+    expect(indefinitePastNominalInterrogativeNegative("sen", "hikaye")).toBe("hikaye değil miymişsin");
+    expect(indefinitePastNominalInterrogativeNegative("sen", "yol")).toBe("yol değil miymişsin");
+    expect(indefinitePastNominalInterrogativeNegative("sen", "mutlu")).toBe("mutlu değil miymişsin");
+    expect(indefinitePastNominalInterrogativeNegative("sen", "göz")).toBe("göz değil miymişsin");
+    expect(indefinitePastNominalInterrogativeNegative("sen", "kötü")).toBe("kötü değil miymişsin");
+  });
+
+  it("should return the correct forms for 'o' pronoun", () => {
+    expect(indefinitePastNominalInterrogativeNegative("o", "hayat")).toBe("hayat değil miymiş");
+    expect(indefinitePastNominalInterrogativeNegative("o", "sayı")).toBe("sayı değil miymiş");
+    expect(indefinitePastNominalInterrogativeNegative("o", "köpek")).toBe("köpek değil miymiş");
+    expect(indefinitePastNominalInterrogativeNegative("o", "hikaye")).toBe("hikaye değil miymiş");
+    expect(indefinitePastNominalInterrogativeNegative("o", "yol")).toBe("yol değil miymiş");
+    expect(indefinitePastNominalInterrogativeNegative("o", "mutlu")).toBe("mutlu değil miymiş");
+    expect(indefinitePastNominalInterrogativeNegative("o", "göz")).toBe("göz değil miymiş");
+    expect(indefinitePastNominalInterrogativeNegative("o", "kötü")).toBe("kötü değil miymiş");
+  });
+
+  it("should return the correct forms for 'biz' pronoun", () => {
+    expect(indefinitePastNominalInterrogativeNegative("biz", "hayat")).toBe("hayat değil miymişiz");
+    expect(indefinitePastNominalInterrogativeNegative("biz", "sayı")).toBe("sayı değil miymişiz");
+    expect(indefinitePastNominalInterrogativeNegative("biz", "köpek")).toBe("köpek değil miymişiz");
+    expect(indefinitePastNominalInterrogativeNegative("biz", "hikaye")).toBe("hikaye değil miymişiz");
+    expect(indefinitePastNominalInterrogativeNegative("biz", "yol")).toBe("yol değil miymişiz");
+    expect(indefinitePastNominalInterrogativeNegative("biz", "mutlu")).toBe("mutlu değil miymişiz");
+    expect(indefinitePastNominalInterrogativeNegative("biz", "göz")).toBe("göz değil miymişiz");
+    expect(indefinitePastNominalInterrogativeNegative("biz", "kötü")).toBe("kötü değil miymişiz");
+  });
+
+  it("should return the correct forms for 'siz' pronoun", () => {
+    expect(indefinitePastNominalInterrogativeNegative("siz", "hayat")).toBe("hayat değil miymişsiniz");
+    expect(indefinitePastNominalInterrogativeNegative("siz", "sayı")).toBe("sayı değil miymişsiniz");
+    expect(indefinitePastNominalInterrogativeNegative("siz", "köpek")).toBe("köpek değil miymişsiniz");
+    expect(indefinitePastNominalInterrogativeNegative("siz", "hikaye")).toBe("hikaye değil miymişsiniz");
+    expect(indefinitePastNominalInterrogativeNegative("siz", "yol")).toBe("yol değil miymişsiniz");
+    expect(indefinitePastNominalInterrogativeNegative("siz", "mutlu")).toBe("mutlu değil miymişsiniz");
+    expect(indefinitePastNominalInterrogativeNegative("siz", "göz")).toBe("göz değil miymişsiniz");
+    expect(indefinitePastNominalInterrogativeNegative("siz", "kötü")).toBe("kötü değil miymişsiniz");
+  });
+
+  it("should return the correct forms for 'onlar' pronoun", () => {
+    expect(indefinitePastNominalInterrogativeNegative("onlar", "hayat")).toBe("hayat değiller miymiş");
+    expect(indefinitePastNominalInterrogativeNegative("onlar", "sayı")).toBe("sayı değiller miymiş");
+    expect(indefinitePastNominalInterrogativeNegative("onlar", "köpek")).toBe("köpek değiller miymiş");
+    expect(indefinitePastNominalInterrogativeNegative("onlar", "hikaye")).toBe("hikaye değiller miymiş");
+    expect(indefinitePastNominalInterrogativeNegative("onlar", "yol")).toBe("yol değiller miymiş");
+    expect(indefinitePastNominalInterrogativeNegative("onlar", "mutlu")).toBe("mutlu değiller miymiş");
+    expect(indefinitePastNominalInterrogativeNegative("onlar", "göz")).toBe("göz değiller miymiş");
+    expect(indefinitePastNominalInterrogativeNegative("onlar", "kötü")).toBe("kötü değiller miymiş");
   });
 });

@@ -144,3 +144,20 @@ export const indefinitePastNominalInterrogative = (pronoun: string, nounjective:
       )}ym${fourWayVowelHarmony(twoWayVowelHarmony(nounjective))}ş`;
   }
 };
+
+export const indefinitePastNominalInterrogativeNegative = (pronoun: string, nounjective: string) => {
+  switch (pronoun.toLowerCase()) {
+    case "ben":
+      return `${nounjective} değil miymişim`;
+    case "sen":
+      return `${nounjective} değil miymişsin`;
+    case "o":
+      return `${nounjective} değil miymiş`;
+    case "biz":
+      return `${nounjective} değil miymişiz`;
+    case "siz":
+      return `${nounjective} değil miymişsiniz`;
+    case "onlar":
+      return `${nounjective} değiller miymiş`;
+  }
+};
