@@ -79,16 +79,16 @@ export const indefinitePastInterrogativeNegative = (pronoun: string, verb: strin
   }
 };
 
-export const returnMişFormNominal = (verb: string) => {
-  const vowel = fourWayVowelHarmony(verb);
-  if (endsWithVowel(verb)) {
+export const returnMişFormNominal = (nounjective: string) => {
+  const vowel = fourWayVowelHarmony(nounjective);
+  if (endsWithVowel(nounjective)) {
     return `ym${vowel}ş`;
   }
   return `m${vowel}ş`;
 };
 
-export const indefinitePastNominalAffirmative = (pronoun: string, verb: string) => {
-  const verbPlusMiş = `${verb}${returnMişFormNominal(verb)}`;
+export const indefinitePastNominalAffirmative = (pronoun: string, nounjective: string) => {
+  const verbPlusMiş = `${nounjective}${returnMişFormNominal(nounjective)}`;
   const vowel = fourWayVowelHarmony(verbPlusMiş);
   switch (pronoun.toLowerCase()) {
     case "ben":
@@ -102,6 +102,25 @@ export const indefinitePastNominalAffirmative = (pronoun: string, verb: string) 
     case "siz":
       return `${verbPlusMiş}s${vowel}n${vowel}z`;
     case "onlar":
-      return `${verb}l${twoWayVowelHarmony(verb)}r${returnMişFormNominal(twoWayVowelHarmony(verb) + "r")}`;
+      return `${nounjective}l${twoWayVowelHarmony(nounjective)}r${returnMişFormNominal(
+        twoWayVowelHarmony(nounjective) + "r"
+      )}`;
+  }
+};
+
+export const indefinitePastNominalNegative = (pronoun: string, nounjective: string) => {
+  switch (pronoun.toLowerCase()) {
+    case "ben":
+      return `${nounjective} değilmişim`;
+    case "sen":
+      return `${nounjective} değilmişsin`;
+    case "o":
+      return `${nounjective} değilmiş`;
+    case "biz":
+      return `${nounjective} değilmişiz`;
+    case "siz":
+      return `${nounjective} değilmişsiniz`;
+    case "onlar":
+      return `${nounjective} değillermiş`;
   }
 };

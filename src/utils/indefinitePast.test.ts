@@ -6,6 +6,7 @@ import {
   indefinitePastInterrogativeNegative,
   returnMişFormNominal,
   indefinitePastNominalAffirmative,
+  indefinitePastNominalNegative,
 } from "./indefinitePast";
 
 describe("returnIndefinitePastSuffix", () => {
@@ -306,5 +307,67 @@ describe("indefinitePastNominalAffirmative", () => {
     expect(indefinitePastNominalAffirmative("onlar", "mutlu")).toBe("mutlularmış");
     expect(indefinitePastNominalAffirmative("onlar", "göz")).toBe("gözlermiş");
     expect(indefinitePastNominalAffirmative("onlar", "kötü")).toBe("kötülermiş");
+  });
+});
+
+describe("indefinitePastNominalNegative", () => {
+  it("should return the correct forms for 'ben' pronoun", () => {
+    expect(indefinitePastNominalNegative("ben", "hayat")).toBe("hayat değilmişim");
+    expect(indefinitePastNominalNegative("ben", "sayı")).toBe("sayı değilmişim");
+    expect(indefinitePastNominalNegative("ben", "köpek")).toBe("köpek değilmişim");
+    expect(indefinitePastNominalNegative("ben", "hikaye")).toBe("hikaye değilmişim");
+    expect(indefinitePastNominalNegative("ben", "yol")).toBe("yol değilmişim");
+    expect(indefinitePastNominalNegative("ben", "mutlu")).toBe("mutlu değilmişim");
+    expect(indefinitePastNominalNegative("ben", "göz")).toBe("göz değilmişim");
+  });
+
+  it("should return the correct forms for 'sen' pronoun", () => {
+    expect(indefinitePastNominalNegative("sen", "hayat")).toBe("hayat değilmişsin");
+    expect(indefinitePastNominalNegative("sen", "sayı")).toBe("sayı değilmişsin");
+    expect(indefinitePastNominalNegative("sen", "köpek")).toBe("köpek değilmişsin");
+    expect(indefinitePastNominalNegative("sen", "hikaye")).toBe("hikaye değilmişsin");
+    expect(indefinitePastNominalNegative("sen", "yol")).toBe("yol değilmişsin");
+    expect(indefinitePastNominalNegative("sen", "mutlu")).toBe("mutlu değilmişsin");
+    expect(indefinitePastNominalNegative("sen", "göz")).toBe("göz değilmişsin");
+  });
+
+  it("should return the correct forms for 'o' pronoun", () => {
+    expect(indefinitePastNominalNegative("o", "hayat")).toBe("hayat değilmiş");
+    expect(indefinitePastNominalNegative("o", "sayı")).toBe("sayı değilmiş");
+    expect(indefinitePastNominalNegative("o", "köpek")).toBe("köpek değilmiş");
+    expect(indefinitePastNominalNegative("o", "hikaye")).toBe("hikaye değilmiş");
+    expect(indefinitePastNominalNegative("o", "yol")).toBe("yol değilmiş");
+    expect(indefinitePastNominalNegative("o", "mutlu")).toBe("mutlu değilmiş");
+    expect(indefinitePastNominalNegative("o", "göz")).toBe("göz değilmiş");
+  });
+
+  it("should return the correct forms for 'biz' pronoun", () => {
+    expect(indefinitePastNominalNegative("biz", "hayat")).toBe("hayat değilmişiz");
+    expect(indefinitePastNominalNegative("biz", "sayı")).toBe("sayı değilmişiz");
+    expect(indefinitePastNominalNegative("biz", "köpek")).toBe("köpek değilmişiz");
+    expect(indefinitePastNominalNegative("biz", "hikaye")).toBe("hikaye değilmişiz");
+    expect(indefinitePastNominalNegative("biz", "yol")).toBe("yol değilmişiz");
+    expect(indefinitePastNominalNegative("biz", "mutlu")).toBe("mutlu değilmişiz");
+    expect(indefinitePastNominalNegative("biz", "göz")).toBe("göz değilmişiz");
+  });
+
+  it("should return the correct forms for 'siz' pronoun", () => {
+    expect(indefinitePastNominalNegative("siz", "hayat")).toBe("hayat değilmişsiniz");
+    expect(indefinitePastNominalNegative("siz", "sayı")).toBe("sayı değilmişsiniz");
+    expect(indefinitePastNominalNegative("siz", "köpek")).toBe("köpek değilmişsiniz");
+    expect(indefinitePastNominalNegative("siz", "hikaye")).toBe("hikaye değilmişsiniz");
+    expect(indefinitePastNominalNegative("siz", "yol")).toBe("yol değilmişsiniz");
+    expect(indefinitePastNominalNegative("siz", "mutlu")).toBe("mutlu değilmişsiniz");
+    expect(indefinitePastNominalNegative("siz", "göz")).toBe("göz değilmişsiniz");
+  });
+
+  it("should return the correct forms for 'onlar' pronoun", () => {
+    expect(indefinitePastNominalNegative("onlar", "hayat")).toBe("hayat değillermiş");
+    expect(indefinitePastNominalNegative("onlar", "sayı")).toBe("sayı değillermiş");
+    expect(indefinitePastNominalNegative("onlar", "köpek")).toBe("köpek değillermiş");
+    expect(indefinitePastNominalNegative("onlar", "hikaye")).toBe("hikaye değillermiş");
+    expect(indefinitePastNominalNegative("onlar", "yol")).toBe("yol değillermiş");
+    expect(indefinitePastNominalNegative("onlar", "mutlu")).toBe("mutlu değillermiş");
+    expect(indefinitePastNominalNegative("onlar", "göz")).toBe("göz değillermiş");
   });
 });
