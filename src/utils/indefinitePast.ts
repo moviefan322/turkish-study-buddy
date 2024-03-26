@@ -124,3 +124,23 @@ export const indefinitePastNominalNegative = (pronoun: string, nounjective: stri
       return `${nounjective} değillermiş`;
   }
 };
+
+export const indefinitePastNominalInterrogative = (pronoun: string, nounjective: string) => {
+  const vowel = fourWayVowelHarmony(nounjective);
+  switch (pronoun.toLowerCase()) {
+    case "ben":
+      return `${nounjective} m${vowel}ym${vowel}ş${vowel}m`;
+    case "sen":
+      return `${nounjective} m${vowel}ym${vowel}şs${vowel}n`;
+    case "o":
+      return `${nounjective} m${vowel}ym${vowel}ş`;
+    case "biz":
+      return `${nounjective} m${vowel}ym${vowel}ş${vowel}z`;
+    case "siz":
+      return `${nounjective} m${vowel}ym${vowel}şs${vowel}n${vowel}z`;
+    case "onlar":
+      return `${nounjective}l${twoWayVowelHarmony(nounjective)}r m${fourWayVowelHarmony(
+        twoWayVowelHarmony(nounjective)
+      )}ym${fourWayVowelHarmony(twoWayVowelHarmony(nounjective))}ş`;
+  }
+};
