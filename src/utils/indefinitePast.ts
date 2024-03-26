@@ -1,4 +1,4 @@
-import { fourWayVowelHarmony, twoWayVowelHarmony } from "./vowelHarmony";
+import { fourWayVowelHarmony, twoWayVowelHarmony, endsWithVowel } from "./vowelHarmony";
 
 export const returnMişForm = (verb: string) => {
   const vowel = fourWayVowelHarmony(verb);
@@ -77,4 +77,12 @@ export const indefinitePastInterrogativeNegative = (pronoun: string, verb: strin
         twoWayVowelHarmony(negatedVerbRoot)
       )}`;
   }
+};
+
+export const returnMişFormNominal = (verb: string) => {
+  const vowel = fourWayVowelHarmony(verb);
+  if (endsWithVowel(verb)) {
+    return `ym${vowel}ş`;
+  }
+  return `m${vowel}ş`;
 };

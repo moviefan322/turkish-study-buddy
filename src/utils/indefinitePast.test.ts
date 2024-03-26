@@ -4,6 +4,7 @@ import {
   indefinitePastNegative,
   indefinitePastInterrogative,
   indefinitePastInterrogativeNegative,
+  returnMişFormNominal,
 } from "./indefinitePast";
 
 describe("returnIndefinitePastSuffix", () => {
@@ -223,5 +224,18 @@ describe("indefinitePastInterrogativeNegative", () => {
     expect(indefinitePastInterrogativeNegative("onlar", "git")).toBe("gitmemişler mi");
     expect(indefinitePastInterrogativeNegative("onlar", "duy")).toBe("duymamışlar mı");
     expect(indefinitePastInterrogativeNegative("onlar", "öksür")).toBe("öksürmemişler mi");
+  });
+});
+
+describe("returnMişFormNominal", () => {
+  it("should return the correct miş form nouns", () => {
+    expect(returnMişFormNominal("hayat")).toBe("mış");
+    expect(returnMişFormNominal("sayı")).toBe("ymış");
+    expect(returnMişFormNominal("köpek")).toBe("miş");
+    expect(returnMişFormNominal("hikaye")).toBe("ymiş");
+    expect(returnMişFormNominal("yol")).toBe("muş");
+    expect(returnMişFormNominal("mutlu")).toBe("ymuş");
+    expect(returnMişFormNominal("göz")).toBe("müş");
+    expect(returnMişFormNominal("kötü")).toBe("ymüş");
   });
 });
