@@ -86,3 +86,22 @@ export const returnMişFormNominal = (verb: string) => {
   }
   return `m${vowel}ş`;
 };
+
+export const indefinitePastNominalAffirmative = (pronoun: string, verb: string) => {
+  const verbPlusMiş = `${verb}${returnMişFormNominal(verb)}`;
+  const vowel = fourWayVowelHarmony(verbPlusMiş);
+  switch (pronoun.toLowerCase()) {
+    case "ben":
+      return `${verbPlusMiş}${vowel}m`;
+    case "sen":
+      return `${verbPlusMiş}s${vowel}n`;
+    case "o":
+      return `${verbPlusMiş}`;
+    case "biz":
+      return `${verbPlusMiş}${vowel}z`;
+    case "siz":
+      return `${verbPlusMiş}s${vowel}n${vowel}z`;
+    case "onlar":
+      return `${verb}l${twoWayVowelHarmony(verb)}r${returnMişFormNominal(twoWayVowelHarmony(verb) + "r")}`;
+  }
+};

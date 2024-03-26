@@ -5,6 +5,7 @@ import {
   indefinitePastInterrogative,
   indefinitePastInterrogativeNegative,
   returnMişFormNominal,
+  indefinitePastNominalAffirmative,
 } from "./indefinitePast";
 
 describe("returnIndefinitePastSuffix", () => {
@@ -237,5 +238,73 @@ describe("returnMişFormNominal", () => {
     expect(returnMişFormNominal("mutlu")).toBe("ymuş");
     expect(returnMişFormNominal("göz")).toBe("müş");
     expect(returnMişFormNominal("kötü")).toBe("ymüş");
+  });
+});
+
+describe("indefinitePastNominalAffirmative", () => {
+  it("should return the correct forms for 'ben' pronoun", () => {
+    expect(indefinitePastNominalAffirmative("ben", "hayat")).toBe("hayatmışım");
+    expect(indefinitePastNominalAffirmative("ben", "sayı")).toBe("sayıymışım");
+    expect(indefinitePastNominalAffirmative("ben", "köpek")).toBe("köpekmişim");
+    expect(indefinitePastNominalAffirmative("ben", "hikaye")).toBe("hikayeymişim");
+    expect(indefinitePastNominalAffirmative("ben", "yol")).toBe("yolmuşum");
+    expect(indefinitePastNominalAffirmative("ben", "mutlu")).toBe("mutluymuşum");
+    expect(indefinitePastNominalAffirmative("ben", "göz")).toBe("gözmüşüm");
+    expect(indefinitePastNominalAffirmative("ben", "kötü")).toBe("kötüymüşüm");
+  });
+
+  it("should return the correct forms for 'sen' pronoun", () => {
+    expect(indefinitePastNominalAffirmative("sen", "hayat")).toBe("hayatmışsın");
+    expect(indefinitePastNominalAffirmative("sen", "sayı")).toBe("sayıymışsın");
+    expect(indefinitePastNominalAffirmative("sen", "köpek")).toBe("köpekmişsin");
+    expect(indefinitePastNominalAffirmative("sen", "hikaye")).toBe("hikayeymişsin");
+    expect(indefinitePastNominalAffirmative("sen", "yol")).toBe("yolmuşsun");
+    expect(indefinitePastNominalAffirmative("sen", "mutlu")).toBe("mutluymuşsun");
+    expect(indefinitePastNominalAffirmative("sen", "göz")).toBe("gözmüşsün");
+    expect(indefinitePastNominalAffirmative("sen", "kötü")).toBe("kötüymüşsün");
+  });
+
+  it("should return the correct forms for 'o' pronoun", () => {
+    expect(indefinitePastNominalAffirmative("o", "hayat")).toBe("hayatmış");
+    expect(indefinitePastNominalAffirmative("o", "sayı")).toBe("sayıymış");
+    expect(indefinitePastNominalAffirmative("o", "köpek")).toBe("köpekmiş");
+    expect(indefinitePastNominalAffirmative("o", "hikaye")).toBe("hikayeymiş");
+    expect(indefinitePastNominalAffirmative("o", "yol")).toBe("yolmuş");
+    expect(indefinitePastNominalAffirmative("o", "mutlu")).toBe("mutluymuş");
+    expect(indefinitePastNominalAffirmative("o", "göz")).toBe("gözmüş");
+    expect(indefinitePastNominalAffirmative("o", "kötü")).toBe("kötüymüş");
+  });
+
+  it("should return the correct forms for 'biz' pronoun", () => {
+    expect(indefinitePastNominalAffirmative("biz", "hayat")).toBe("hayatmışız");
+    expect(indefinitePastNominalAffirmative("biz", "sayı")).toBe("sayıymışız");
+    expect(indefinitePastNominalAffirmative("biz", "köpek")).toBe("köpekmişiz");
+    expect(indefinitePastNominalAffirmative("biz", "hikaye")).toBe("hikayeymişiz");
+    expect(indefinitePastNominalAffirmative("biz", "yol")).toBe("yolmuşuz");
+    expect(indefinitePastNominalAffirmative("biz", "mutlu")).toBe("mutluymuşuz");
+    expect(indefinitePastNominalAffirmative("biz", "göz")).toBe("gözmüşüz");
+    expect(indefinitePastNominalAffirmative("biz", "kötü")).toBe("kötüymüşüz");
+  });
+
+  it("should return the correct forms for 'siz' pronoun", () => {
+    expect(indefinitePastNominalAffirmative("siz", "hayat")).toBe("hayatmışsınız");
+    expect(indefinitePastNominalAffirmative("siz", "sayı")).toBe("sayıymışsınız");
+    expect(indefinitePastNominalAffirmative("siz", "köpek")).toBe("köpekmişsiniz");
+    expect(indefinitePastNominalAffirmative("siz", "hikaye")).toBe("hikayeymişsiniz");
+    expect(indefinitePastNominalAffirmative("siz", "yol")).toBe("yolmuşsunuz");
+    expect(indefinitePastNominalAffirmative("siz", "mutlu")).toBe("mutluymuşsunuz");
+    expect(indefinitePastNominalAffirmative("siz", "göz")).toBe("gözmüşsünüz");
+    expect(indefinitePastNominalAffirmative("siz", "kötü")).toBe("kötüymüşsünüz");
+  });
+
+  it("should return the correct forms for 'onlar' pronoun", () => {
+    expect(indefinitePastNominalAffirmative("onlar", "hayat")).toBe("hayatlarmış");
+    expect(indefinitePastNominalAffirmative("onlar", "sayı")).toBe("sayılarmış");
+    expect(indefinitePastNominalAffirmative("onlar", "köpek")).toBe("köpeklermiş");
+    expect(indefinitePastNominalAffirmative("onlar", "hikaye")).toBe("hikayelermiş");
+    expect(indefinitePastNominalAffirmative("onlar", "yol")).toBe("yollarmış");
+    expect(indefinitePastNominalAffirmative("onlar", "mutlu")).toBe("mutlularmış");
+    expect(indefinitePastNominalAffirmative("onlar", "göz")).toBe("gözlermiş");
+    expect(indefinitePastNominalAffirmative("onlar", "kötü")).toBe("kötülermiş");
   });
 });
