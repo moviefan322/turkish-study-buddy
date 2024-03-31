@@ -83,7 +83,7 @@ export const turkishPastTenseMaster = (pronoun: string, verb: string, mood: stri
   }
 };
 
-const capitalizeFirstLetter = (string: string) => {
+export const capitalizeFirstLetter = (string: string) => {
   return string.charAt(0).toUpperCase() + string.slice(1);
 };
 
