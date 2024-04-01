@@ -179,3 +179,22 @@ export const futureNominaQuestionNegative = (pronoun: String, adjective: string)
       return "Error! Invalid pronoun (probably)!";
   }
 };
+
+export const futureNominalAffirmativePast = (pronoun: String, adjective: string) => {
+  switch (pronoun.toLowerCase()) {
+    case "ben":
+      return `${adjective} olacaktım`;
+    case "sen":
+      return `${adjective} olacaktın`;
+    case "o":
+      return `${adjective} olacaktı`;
+    case "biz":
+      return `${adjective} olacaktık`;
+    case "siz":
+      return `${adjective} olacaktınız`;
+    case "onlar":
+      return `${adjective} olacaklardı`;
+    default:
+      return "Error! Invalid pronoun (probably)!";
+  }
+};
