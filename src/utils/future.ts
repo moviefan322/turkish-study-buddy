@@ -1,4 +1,6 @@
 import { fourWayVowelHarmony, twoWayVowelHarmony, endsWithVowel } from "./vowelHarmony";
+import { englishFutureTenseMaster, futureNominalEnglishMaster } from "./futureEng";
+import { capitalizeFirstLetter } from "./past";
 
 const futureVerbRoot = (verbStem: string) => {
   let verb = verbStem;
@@ -197,4 +199,75 @@ export const futureNominalAffirmativePast = (pronoun: String, adjective: string)
     default:
       return "Error! Invalid pronoun (probably)!";
   }
+};
+
+const turkishFutureTenseMaster = (pronoun: string, verb: string, mood: string) => {
+  const verbStem = verb.slice(0, -3);
+  switch (mood) {
+    case "standardMood":
+      return returnFutureSuffix(pronoun, verbStem);
+    case "negativeMood":
+      return returnFutureSuffixNegative(pronoun, verbStem);
+    case "questionMood":
+      return returnFutureSuffixQuestion(pronoun, verbStem);
+    case "negativeQuestionMood":
+      return returnFutureSuffixNegativeQuestion(pronoun, verbStem);
+    case "pastMood":
+      return returnFutureSuffix(pronoun, verbStem);
+    default:
+      return "Error! Invalid mood!";
+  }
+};
+
+const turkishFutureNominalMaster = (pronoun: string, verb: string, mood: string) => {
+  switch (mood) {
+    case "standardMood":
+      return futureNominalAffirmative(pronoun, verb);
+    case "negativeMood":
+      return futureNominalNegative(pronoun, verb);
+    case "questionMood":
+      return futureNominalQuestion(pronoun, verb);
+    case "negativeQuestionMood":
+      return futureNominaQuestionNegative(pronoun, verb);
+    case "pastMood":
+      return futureNominalAffirmativePast(pronoun, verb);
+    default:
+      return "Error! Invalid mood!";
+  }
+};
+
+export const futureNominalMaster = (
+  pronoun: { english: string; turkish: string },
+  verb: { english: string; turkish: string },
+  mood: string = "standardMood"
+) => {
+  let english = futureNominalEnglishMaster(pronoun.english, verb.english, mood);
+  if (english!.includes("s/he/it")) {
+    const randomInt = Math.floor(Math.random() * 3);
+    const randomPronoun = ["he", "she", "it"][randomInt];
+    english = english!.replace("s/he/it", randomPronoun);
+    english = english.replace("s/he/it", "he/she/it");
+  }
+  return {
+    english: futureNominalEnglishMaster(pronoun.english, verb.english, mood),
+    turkish: turkishFutureNominalMaster(pronoun.turkish, verb.turkish, mood),
+  };
+};
+
+export const futureTenseMaster = (
+  pronoun: { english: string; turkish: string },
+  verb: { english: string; turkish: string },
+  mood: string = "standardMood"
+) => {
+  let english = englishFutureTenseMaster(pronoun.english, verb.english, mood);
+  if (english.includes("s/he/it")) {
+    const randomInt = Math.floor(Math.random() * 3);
+    const randomPronoun = ["he", "she", "it"][randomInt];
+    english = english.replace("s/he/it", randomPronoun);
+    english = english.replace("s/he/it", "he/she/it");
+  }
+  return {
+    english: capitalizeFirstLetter(english),
+    turkish: turkishFutureTenseMaster(pronoun.turkish, verb.turkish, mood),
+  };
 };

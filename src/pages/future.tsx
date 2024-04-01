@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Link from "next/link";
-import { indefinitePastTenseMaster, indefinitePastNominalMaster } from "@/utils/indefinitePast";
+import { futureTenseMaster, futureNominalMaster } from "@/utils/future";
 import { verbs } from "@/data/vocab/verbs";
 import { adjectives } from "@/data/vocab/adjectives";
 import { pronounPairs } from "@/data/vocab/pronounPairs";
@@ -33,22 +33,22 @@ const PresentCont = () => {
     if (moodList) {
       const randomMood = moodList[Math.floor(Math.random() * moodList.length)];
       if (oneOrTwo === 1) {
-        const { english, turkish } = indefinitePastTenseMaster(randomPronoun, randomVerb, randomMood);
+        const { english, turkish } = futureTenseMaster(randomPronoun, randomVerb, randomMood);
         setEnglish(english!);
         setTurkish(randomPronoun.turkish + " " + turkish!);
       } else {
         const randomMood = moodList[Math.floor(Math.random() * moodList.length)];
-        const { english, turkish } = indefinitePastNominalMaster(randomPronoun, randomAdjective, randomMood);
+        const { english, turkish } = futureNominalMaster(randomPronoun, randomAdjective, randomMood);
         setEnglish(english!);
         setTurkish(randomPronoun.turkish + " " + turkish!);
       }
     } else {
       if (oneOrTwo === 1) {
-        const { english, turkish } = indefinitePastTenseMaster(randomPronoun, randomVerb);
+        const { english, turkish } = futureTenseMaster(randomPronoun, randomVerb);
         setEnglish(english!);
         setTurkish(randomPronoun.turkish + " " + turkish!);
       } else {
-        const { english, turkish } = indefinitePastNominalMaster(randomPronoun, randomAdjective);
+        const { english, turkish } = futureNominalMaster(randomPronoun, randomAdjective);
         setEnglish(english!);
         setTurkish(randomPronoun.turkish + " " + turkish!);
       }
@@ -127,7 +127,7 @@ const PresentCont = () => {
         </button>
       </Link>
 
-      <h1 className="text-center">DUYULAN GEÇMİŞ ZAMAN</h1>
+      <h1 className="text-center">GELECEK ZAMAN</h1>
       <hr />
       {showMain && (
         <div className="d-flex flex-column justify-content-between">
