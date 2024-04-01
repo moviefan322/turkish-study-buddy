@@ -93,7 +93,7 @@ export const pastTenseMaster = (
   mood: string = "standardMood"
 ) => {
   let english = englishPastTenseMaster(pronoun.english, verb.english, mood);
-  if (english.includes("s/he/it")) {
+  if (english && english.includes("s/he/it")) {
     const randomInt = Math.floor(Math.random() * 3);
     const randomPronoun = ["he", "she", "it"][randomInt];
     english = english.replace("s/he/it", randomPronoun);
