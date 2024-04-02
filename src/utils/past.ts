@@ -92,15 +92,16 @@ export const pastTenseMaster = (
   verb: { english: string; turkish: string },
   mood: string = "standardMood"
 ) => {
-  let english = englishPastTenseMaster(pronoun.english, verb.english, mood);
-  if (english && english.includes("s/he/it")) {
+  console.log(pronoun.english);
+  let engPronoun = pronoun.english;
+
+  if (engPronoun === "s/he/it") {
     const randomInt = Math.floor(Math.random() * 3);
     const randomPronoun = ["he", "she", "it"][randomInt];
-    english = english.replace("s/he/it", randomPronoun);
-    english = english.replace("s/he/it", "he/she/it");
+    engPronoun = randomPronoun;
   }
   return {
-    english: capitalizeFirstLetter(english),
+    english: englishPastTenseMaster(engPronoun, verb.english, mood),
     turkish: turkishPastTenseMaster(pronoun.turkish, verb.turkish, mood),
   };
 };
