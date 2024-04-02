@@ -206,16 +206,14 @@ const turkishFutureTenseMaster = (pronoun: string, verb: string, mood: string) =
   switch (mood) {
     case "standardMood":
       return returnFutureSuffix(pronoun, verbStem);
-    case "negativeMood":
+    case "negative":
       return returnFutureSuffixNegative(pronoun, verbStem);
-    case "questionMood":
+    case "interrogative":
       return returnFutureSuffixQuestion(pronoun, verbStem);
-    case "negativeQuestionMood":
+    case "negativeInterrogative":
       return returnFutureSuffixNegativeQuestion(pronoun, verbStem);
-    case "pastMood":
-      return returnFutureSuffix(pronoun, verbStem);
     default:
-      return "Error! Invalid mood!";
+      throw new Error("Invalid mood.");
   }
 };
 
@@ -223,14 +221,12 @@ const turkishFutureNominalMaster = (pronoun: string, verb: string, mood: string)
   switch (mood) {
     case "standardMood":
       return futureNominalAffirmative(pronoun, verb);
-    case "negativeMood":
+    case "negative":
       return futureNominalNegative(pronoun, verb);
-    case "questionMood":
+    case "interrogative":
       return futureNominalQuestion(pronoun, verb);
-    case "negativeQuestionMood":
+    case "negativeInterrogative":
       return futureNominaQuestionNegative(pronoun, verb);
-    case "pastMood":
-      return futureNominalAffirmativePast(pronoun, verb);
     default:
       return "Error! Invalid mood!";
   }
@@ -252,9 +248,8 @@ export const futureTenseMaster = (
   verb: { english: string; turkish: string },
   mood: string = "standardMood"
 ) => {
-  let english = englishFutureTenseMaster(pronoun.english, verb.english, mood);
   return {
-    english: capitalizeFirstLetter(english),
+    english: capitalizeFirstLetter(englishFutureTenseMaster(pronoun.english, verb.english, mood)),
     turkish: turkishFutureTenseMaster(pronoun.turkish, verb.turkish, mood),
   };
 };

@@ -6,7 +6,8 @@ import {
   futureNominalAffirmative,
   futureNominalNegative,
   futureNominalQuestion,
-  futureNominaQuestionNegative
+  futureNominaQuestionNegative,
+  futureTenseMaster,
 } from "./future";
 
 describe("returnFutureSuffix", () => {
@@ -246,7 +247,7 @@ describe("futureNominalQuestion", () => {
     expect(futureNominalQuestion("siz", "hasta")).toBe("hasta olacak mısınız");
     expect(futureNominalQuestion("onlar", "hasta")).toBe("hasta olacaklar mı");
   });
-})
+});
 
 describe("futureNominalQuestionNegative", () => {
   it("should return the correct future nominal question negative", () => {
@@ -257,4 +258,31 @@ describe("futureNominalQuestionNegative", () => {
     expect(futureNominaQuestionNegative("siz", "mutlu")).toBe("mutlu olmayacak mısınız");
     expect(futureNominaQuestionNegative("onlar", "mutlu")).toBe("mutlu olmayacaklar mı");
   });
-})
+});
+
+describe("futureTenseMaster", () => {
+  it("should return the correct future tense", () => {
+    expect(
+      futureTenseMaster({ turkish: "ben", english: "I" }, { english: "to come", turkish: "gelmek" }, "standardMood")
+    ).toEqual({ turkish: "geleceğim", english: "I will come" });
+    expect(
+      futureTenseMaster({ turkish: "sen", english: "you" }, { english: "to go", turkish: "gitmek" }, "standardMood")
+    ).toEqual({ turkish: "gideceksin", english: "You will go" });
+    expect(
+      futureTenseMaster({ turkish: "o", english: "he" }, { english: "to take", turkish: "almak" }, "standardMood")
+    ).toEqual({ turkish: "alacak", english: "He will take" });
+    expect(
+      futureTenseMaster({ turkish: "biz", english: "we" }, { english: "to run", turkish: "koşmak" }, "standardMood")
+    ).toEqual({ turkish: "koşacağız", english: "We will run" });
+    expect(
+      futureTenseMaster({ turkish: "siz", english: "you" }, { english: "to see", turkish: "görmek" }, "standardMood")
+    ).toEqual({ turkish: "göreceksiniz", english: "You will see" });
+    expect(
+      futureTenseMaster(
+        { turkish: "onlar", english: "they" },
+        { english: "to watch", turkish: "izlemek" },
+        "standardMood"
+      )
+    ).toEqual({ turkish: "izleyecekler", english: "They will watch" });
+  });
+});
