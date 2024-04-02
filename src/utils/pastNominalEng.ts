@@ -33,11 +33,11 @@ export const pastNominalEnglishMaster = (pronoun: string, adjective: string, moo
   switch (mood) {
     case "standardMood":
       return pastNominalAffirmativeEng(pronoun, adjective);
-    case "negativeMood":
+    case "negative":
       return pastNominalNegativeEng(pronoun, adjective);
-    case "interrogativeMood":
+    case "interrogative":
       return pastNominalInterrogativeEng(pronoun, adjective);
-    case "negativeInterrogativeMood":
+    case "negativeInterrogative":
       return pastNominalNegativeInterrogativeEng(pronoun, adjective);
   }
 };

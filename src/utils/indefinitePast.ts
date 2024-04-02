@@ -195,19 +195,16 @@ export const indefinitePastTenseMaster = (
 };
 
 export const turkishIndefinitePastNominalMaster = (pronoun: string, verb: string, mood: string = "standardMood") => {
-  let verbStem = verb;
-  if (verb.endsWith("mak") || verb.endsWith("mek")) {
-    verbStem = verb.slice(0, -3);
-  }
+  
   switch (mood) {
     case "standardMood":
-      return indefinitePastNominalAffirmative(pronoun, verbStem);
+      return indefinitePastNominalAffirmative(pronoun, verb);
     case "negative":
-      return indefinitePastNominalNegative(pronoun, verbStem);
+      return indefinitePastNominalNegative(pronoun, verb);
     case "interrogative":
-      return indefinitePastNominalInterrogative(pronoun, verbStem);
+      return indefinitePastNominalInterrogative(pronoun, verb);
     case "negativeInterrogative":
-      return indefinitePastNominalInterrogativeNegative(pronoun, verbStem);
+      return indefinitePastNominalInterrogativeNegative(pronoun, verb);
     default:
       return "Invalid mood.";
   }
