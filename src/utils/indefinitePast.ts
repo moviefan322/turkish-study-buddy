@@ -188,12 +188,6 @@ export const indefinitePastTenseMaster = (
   mood: string = "standardMood"
 ) => {
   let english = englishPastTenseMaster(pronoun.english, verb.english, mood);
-  if (english.includes("s/he/it")) {
-    const randomInt = Math.floor(Math.random() * 3);
-    const randomPronoun = ["he", "she", "it"][randomInt];
-    english = english.replace("s/he/it", randomPronoun);
-    english = english.replace("s/he/it", "he/she/it");
-  }
   return {
     english: capitalizeFirstLetter(english),
     turkish: turkishIndefinitePastTenseMaster(pronoun.turkish, verb.turkish, mood),
@@ -224,13 +218,6 @@ export const indefinitePastNominalMaster = (
   verb: { english: string; turkish: string },
   mood: string = "standardMood"
 ) => {
-  let english = pastNominalEnglishMaster(pronoun.english, verb.english, mood);
-  if (english!.includes("s/he/it")) {
-    const randomInt = Math.floor(Math.random() * 3);
-    const randomPronoun = ["he", "she", "it"][randomInt];
-    english = english!.replace("s/he/it", randomPronoun);
-    english = english.replace("s/he/it", "he/she/it");
-  }
   return {
     english: pastNominalEnglishMaster(pronoun.english, verb.english, mood),
     turkish: turkishIndefinitePastNominalMaster(pronoun.turkish, verb.turkish, mood),

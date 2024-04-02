@@ -2,9 +2,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { nominalAdjectiveMaster, nominalNounMaster } from "@/utils/nominal";
 import { adjectives } from "@/data/vocab/adjectives";
-import { animals } from "@/data/vocab/animals";
 import { nominalNouns } from "@/data/vocab/nominalNoun";
-import { pronounPairs } from "@/data/vocab/pronounPairs";
+import { returnRandomPronounPair } from "@/data/vocab/pronounPairs";
 import { FaGear } from "react-icons/fa6";
 import { IoChevronBack } from "react-icons/io5";
 import Layout from "@/components/layout/Layout";
@@ -43,21 +42,7 @@ const PresentCont = () => {
   };
 
   const displayPrompt = () => {
-    let randomPronoun = pronounPairs[Math.floor(Math.random() * pronounPairs.length)];
-    if (randomPronoun.english === "s/he/it") {
-      const random = Math.floor(Math.random() * 3);
-      switch (random) {
-        case 0:
-          randomPronoun = { english: "he", turkish: "o" };
-          break;
-        case 1:
-          randomPronoun = { english: "she", turkish: "o" };
-          break;
-        case 2:
-          randomPronoun = { english: "it", turkish: "o" };
-          break;
-      }
-    }
+    let randomPronoun = returnRandomPronounPair();
     const random = Math.random();
     if (random > 0.5) {
       const randomAdjective = adjectives[Math.floor(Math.random() * adjectives.length)];

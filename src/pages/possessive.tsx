@@ -2,7 +2,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { possessiveMaster } from "@/utils/possessive";
 import { nouns } from "@/data/vocab/nouns";
-import { pronounPairs } from "@/data/vocab/pronounPairs";
+import { returnRandomPronounPair } from "@/data/vocab/pronounPairs";
 import { IoChevronBack } from "react-icons/io5";
 import Layout from "@/components/layout/Layout";
 import styles from "./presentCont.module.css";
@@ -28,22 +28,7 @@ const PresentCont = () => {
   };
 
   const displayPrompt = () => {
-    let randomPronoun = pronounPairs[Math.floor(Math.random() * pronounPairs.length)];
-    if (randomPronoun.english === "s/he/it") {
-      const random = Math.floor(Math.random() * 3);
-      switch (random) {
-        case 0:
-          randomPronoun = { english: "he", turkish: "o" };
-          break;
-        case 1:
-          randomPronoun = { english: "she", turkish: "o" };
-          break;
-        case 2:
-          randomPronoun = { english: "it", turkish: "o" };
-          break;
-      }
-    }
-
+    let randomPronoun = returnRandomPronounPair();
     const randomNoun = nouns[Math.floor(Math.random() * nouns.length)];
     generateNounNominal(randomPronoun, randomNoun);
   };

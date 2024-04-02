@@ -54,18 +54,7 @@ export const conjugateBe = (pronoun: string) => {
   }
 };
 
-export const conjugateNotBe = (pronounInput: string) => {
-  let pronoun = pronounInput;
-  if (pronoun === "s/he/it") {
-    const random = Math.floor(Math.random() * 3);
-    if (random === 0) {
-      pronoun = "he";
-    } else if (random === 1) {
-      pronoun = "she";
-    } else {
-      pronoun = "it";
-    }
-  }
+export const conjugateNotBe = (pronoun: string) => {
   switch (pronoun.toLowerCase()) {
     case "i":
       return "am not";

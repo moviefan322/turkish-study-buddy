@@ -94,12 +94,6 @@ export const pastTenseMaster = (
 ) => {
   console.log(pronoun.english);
   let engPronoun = pronoun.english;
-
-  if (engPronoun === "s/he/it") {
-    const randomInt = Math.floor(Math.random() * 3);
-    const randomPronoun = ["he", "she", "it"][randomInt];
-    engPronoun = randomPronoun;
-  }
   return {
     english: englishPastTenseMaster(engPronoun, verb.english, mood),
     turkish: turkishPastTenseMaster(pronoun.turkish, verb.turkish, mood),

@@ -57,66 +57,36 @@ export function presentContinuous(infinitive: string): string {
 }
 
 export function presentContinuousSentence(verb: string, pronoun: string) {
-  let finalPronoun = pronoun;
   let conjugatedVerb = "";
-  let heSheItRand = "";
 
-  if (pronoun === "s/he/it") {
-    heSheItRand = Math.random() < 0.5 ? "he" : "she";
-    finalPronoun = heSheItRand;
-  }
+  conjugatedVerb = conjugateBe(pronoun);
 
-  conjugatedVerb = conjugateBe(finalPronoun);
-
-  return `${finalPronoun} ${conjugatedVerb} ${presentContinuous(verb)}`;
+  return `${pronoun} ${conjugatedVerb} ${presentContinuous(verb)}`;
 }
 
 export function presentContinuousInterrogativeSentence(verb: string, pronoun: string) {
-  let finalPronoun = pronoun;
   let conjugatedVerb = "";
-  let heSheItRand = "";
+  conjugatedVerb = conjugateBe(pronoun);
 
-  if (pronoun === "s/he/it") {
-    heSheItRand = Math.random() < 0.5 ? "he" : "she";
-    finalPronoun = heSheItRand;
-  }
-
-  conjugatedVerb = conjugateBe(finalPronoun);
-
-  return `${conjugatedVerb} ${finalPronoun} ${presentContinuous(verb)}?`;
+  return `${conjugatedVerb} ${pronoun} ${presentContinuous(verb)}?`;
 }
 
 export function presentContinuousNegativeSentence(verb: string, pronoun: string) {
-  let finalPronoun = pronoun;
   let conjugatedVerb = "";
-  let heSheItRand = "";
+  conjugatedVerb = conjugateNotBe(pronoun);
 
-  if (pronoun === "s/he/it") {
-    heSheItRand = Math.random() < 0.5 ? "he" : "she";
-    finalPronoun = heSheItRand;
-  }
-
-  conjugatedVerb = conjugateNotBe(finalPronoun);
-
-  return `${finalPronoun} ${conjugatedVerb} ${presentContinuous(verb)}`;
+  return `${pronoun} ${conjugatedVerb} ${presentContinuous(verb)}`;
 }
 
 export function presentContinuousNegativeInterrogativeSentence(verb: string, pronoun: string) {
-  let finalPronoun = pronoun;
   let conjugatedVerb = "";
-  let heSheItRand = "";
 
-  if (pronoun === "s/he/it") {
-    heSheItRand = Math.random() < 0.5 ? "he" : "she";
-    finalPronoun = heSheItRand;
-  }
-
-  conjugatedVerb = conjugateNotBe(finalPronoun);
+  conjugatedVerb = conjugateNotBe(pronoun);
   if (conjugatedVerb === "am not") {
     conjugatedVerb = "aren't";
   }
 
-  return `${conjugatedVerb} ${finalPronoun} ${presentContinuous(verb)}?`;
+  return `${conjugatedVerb} ${pronoun} ${presentContinuous(verb)}?`;
 }
 
 export function getVerbStem(verb: string) {

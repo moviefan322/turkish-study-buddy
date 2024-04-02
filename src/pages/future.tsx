@@ -3,7 +3,7 @@ import Link from "next/link";
 import { futureTenseMaster, futureNominalMaster } from "@/utils/future";
 import { verbs } from "@/data/vocab/verbs";
 import { adjectives } from "@/data/vocab/adjectives";
-import { pronounPairs } from "@/data/vocab/pronounPairs";
+import { returnRandomPronounPair } from "@/data/vocab/pronounPairs";
 import { FaGear } from "react-icons/fa6";
 import { IoChevronBack } from "react-icons/io5";
 import Layout from "@/components/layout/Layout";
@@ -23,11 +23,7 @@ const PresentCont = () => {
 
   const displayPrompt = () => {
     const randomVerb = verbs[Math.floor(Math.random() * verbs.length)];
-    const randomPronoun = pronounPairs[Math.floor(Math.random() * pronounPairs.length)];
-    if (randomPronoun.english === "s/he/it") {
-      const oneTwoThree = Math.floor(Math.random() * 3);
-      randomPronoun.english = "he/she/it".split("/")[oneTwoThree];
-    }
+    const randomPronoun = returnRandomPronounPair()
     const randomAdjective = adjectives[Math.floor(Math.random() * adjectives.length)];
     const oneOrTwo = Math.floor(Math.random() * 2);
     if (moodList) {
