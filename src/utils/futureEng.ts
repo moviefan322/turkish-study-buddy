@@ -44,6 +44,7 @@ export const interrogativeNegativeFutureEnglish = (pronoun: string, verb: string
 };
 
 export const englishFutureTenseMaster = (pronoun: string, verbInfinitive: string, mood: string = "standardMood") => {
+  console.log(pronoun, verbInfinitive, mood);
   const verb = verbInfinitive.slice(3);
   switch (mood) {
     case "standardMood":

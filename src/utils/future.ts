@@ -249,7 +249,7 @@ export const futureTenseMaster = (
   mood: string = "standardMood"
 ) => {
   return {
-    english: capitalizeFirstLetter(englishFutureTenseMaster(pronoun.english, verb.english, mood)),
+    english: englishFutureTenseMaster(pronoun.english, verb.english, mood),
     turkish: turkishFutureTenseMaster(pronoun.turkish, verb.turkish, mood),
   };
 };

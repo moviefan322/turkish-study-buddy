@@ -8,6 +8,7 @@ import {
   futureNominalQuestion,
   futureNominaQuestionNegative,
   futureTenseMaster,
+  futureNominalMaster,
 } from "./future";
 
 describe("returnFutureSuffix", () => {
@@ -267,22 +268,53 @@ describe("futureTenseMaster", () => {
     ).toEqual({ turkish: "geleceğim", english: "I will come" });
     expect(
       futureTenseMaster({ turkish: "sen", english: "you" }, { english: "to go", turkish: "gitmek" }, "standardMood")
-    ).toEqual({ turkish: "gideceksin", english: "You will go" });
+    ).toEqual({ turkish: "gideceksin", english: "you will go" });
     expect(
       futureTenseMaster({ turkish: "o", english: "he" }, { english: "to take", turkish: "almak" }, "standardMood")
-    ).toEqual({ turkish: "alacak", english: "He will take" });
+    ).toEqual({ turkish: "alacak", english: "he will take" });
     expect(
       futureTenseMaster({ turkish: "biz", english: "we" }, { english: "to run", turkish: "koşmak" }, "standardMood")
-    ).toEqual({ turkish: "koşacağız", english: "We will run" });
+    ).toEqual({ turkish: "koşacağız", english: "we will run" });
     expect(
       futureTenseMaster({ turkish: "siz", english: "you" }, { english: "to see", turkish: "görmek" }, "standardMood")
-    ).toEqual({ turkish: "göreceksiniz", english: "You will see" });
+    ).toEqual({ turkish: "göreceksiniz", english: "you will see" });
     expect(
       futureTenseMaster(
         { turkish: "onlar", english: "they" },
         { english: "to watch", turkish: "izlemek" },
         "standardMood"
       )
-    ).toEqual({ turkish: "izleyecekler", english: "They will watch" });
+    ).toEqual({ turkish: "izleyecekler", english: "they will watch" });
+  });
+});
+
+describe("futureNominalMaster", () => {
+  it("should return the correct future nominal", () => {
+    expect(
+      futureNominalMaster({ turkish: "ben", english: "I" }, { english: "dry", turkish: "kuru" }, "standardMood")
+    ).toEqual({ turkish: "kuru olacağım", english: "I will be dry" });
+    expect(
+      futureNominalMaster({ turkish: "sen", english: "you" }, { english: "happy", turkish: "mutlu" }, "standardMood")
+    ).toEqual({ turkish: "mutlu olacaksın", english: "you will be happy" });
+    expect(
+      futureNominalMaster({ turkish: "o", english: "he" }, { english: "strong", turkish: "güçlü" }, "standardMood")
+    ).toEqual({ turkish: "güçlü olacak", english: "he will be strong" });
+    expect(
+      futureNominalMaster({ turkish: "biz", english: "we" }, { english: "sick", turkish: "hasta" }, "standardMood")
+    ).toEqual({ turkish: "hasta olacağız", english: "we will be sick" });
+    expect(
+      futureNominalMaster(
+        { turkish: "siz", english: "you" },
+        { english: "beautiful", turkish: "güzel" },
+        "standardMood"
+      )
+    ).toEqual({ turkish: "güzel olacaksınız", english: "you will be beautiful" });
+    expect(
+      futureNominalMaster(
+        { turkish: "onlar", english: "they" },
+        { english: "tired", turkish: "yorgun" },
+        "standardMood"
+      )
+    ).toEqual({ turkish: "yorgun olacaklar", english: "they will be tired" });
   });
 });
