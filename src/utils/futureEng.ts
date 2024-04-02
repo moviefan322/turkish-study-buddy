@@ -18,11 +18,11 @@ export const futureNominalEnglishMaster = (pronoun: string, adjective: string, m
   switch (mood) {
     case "standardMood":
       return futureNominalAffirmativeEng(pronoun, adjective);
-    case "negativeMood":
+    case "negative":
       return futureNominalNegativeEng(pronoun, adjective);
-    case "interrogativeMood":
+    case "interrogative":
       return futureNominalInterrogativeEng(pronoun, adjective);
-    case "negativeInterrogativeMood":
+    case "negativeInterrogative":
       return futureNominalNegativeInterrogativeEng(pronoun, adjective);
   }
 };

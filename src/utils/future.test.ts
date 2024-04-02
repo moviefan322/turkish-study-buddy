@@ -262,7 +262,7 @@ describe("futureNominalQuestionNegative", () => {
 });
 
 describe("futureTenseMaster", () => {
-  it("should return the correct future tense", () => {
+  it("should return the correct future tense for standardMood", () => {
     expect(
       futureTenseMaster({ turkish: "ben", english: "I" }, { english: "to come", turkish: "gelmek" }, "standardMood")
     ).toEqual({ turkish: "geleceğim", english: "I will come" });
@@ -285,6 +285,26 @@ describe("futureTenseMaster", () => {
         "standardMood"
       )
     ).toEqual({ turkish: "izleyecekler", english: "they will watch" });
+  });
+  it("should return the correct future tense for negativeMood", () => {
+    expect(
+      futureTenseMaster({ turkish: "ben", english: "I" }, { english: "to come", turkish: "gelmek" }, "negative")
+    ).toEqual({ turkish: "gelmeyeceğim", english: "I will not come" });
+    expect(
+      futureTenseMaster({ turkish: "sen", english: "you" }, { english: "to go", turkish: "gitmek" }, "negative")
+    ).toEqual({ turkish: "gitmeyeceksin", english: "you will not go" });
+    expect(
+      futureTenseMaster({ turkish: "o", english: "he" }, { english: "to take", turkish: "almak" }, "negative")
+    ).toEqual({ turkish: "almayacak", english: "he will not take" });
+    expect(
+      futureTenseMaster({ turkish: "biz", english: "we" }, { english: "to run", turkish: "koşmak" }, "negative")
+    ).toEqual({ turkish: "koşmayacağız", english: "we will not run" });
+    expect(
+      futureTenseMaster({ turkish: "siz", english: "you" }, { english: "to see", turkish: "görmek" }, "negative")
+    ).toEqual({ turkish: "görmeyeceksiniz", english: "you will not see" });
+    expect(
+      futureTenseMaster({ turkish: "onlar", english: "they" }, { english: "to watch", turkish: "izlemek" }, "negative")
+    ).toEqual({ turkish: "izlemeyecekler", english: "they will not watch" });
   });
 });
 

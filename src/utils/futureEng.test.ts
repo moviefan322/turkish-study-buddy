@@ -38,9 +38,9 @@ describe("futureNominalNegativeInterrogativeEng", () => {
 describe("futureNominalEnglishMaster", () => {
   it("should return the correct string", () => {
     expect(futureNominalEnglishMaster("I", "happy")).toBe("I will be happy");
-    expect(futureNominalEnglishMaster("he", "sad", "negativeMood")).toBe("he won't be sad");
-    expect(futureNominalEnglishMaster("they", "tired", "interrogativeMood")).toBe("will they be tired?");
-    expect(futureNominalEnglishMaster("you", "hungry", "negativeInterrogativeMood")).toBe("won't you be hungry?");
+    expect(futureNominalEnglishMaster("he", "sad", "negative")).toBe("he won't be sad");
+    expect(futureNominalEnglishMaster("they", "tired", "interrogative")).toBe("will they be tired?");
+    expect(futureNominalEnglishMaster("you", "hungry", "negativeInterrogative")).toBe("won't you be hungry?");
   });
 });
 
