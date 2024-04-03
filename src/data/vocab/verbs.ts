@@ -96,7 +96,7 @@ export const verbs = [
   { turkish: "kurtulmak", english: "to get rid of" },
   { turkish: "küçülmek", english: "to shrink" },
   { turkish: "kutlamak", english: "to celebrate" },
-  { turkish: "nefre etmek", english: "to hate" },
+  { turkish: "nefret etmek", english: "to hate" },
   { turkish: "okumak", english: "to read" },
   { turkish: "oturmak", english: "to sit" },
   { turkish: "ödemek", english: "to pay" },
