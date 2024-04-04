@@ -4,6 +4,7 @@ import { nominalAdjectiveMaster, nominalNounMaster } from "@/utils/nominal";
 import { adjectives } from "@/data/vocab/adjectives";
 import { nominalNouns } from "@/data/vocab/nominalNoun";
 import { returnRandomPronounPair } from "@/data/vocab/pronounPairs";
+import { capitalizeFirstLetter } from "@/utils/past";
 import { FaGear } from "react-icons/fa6";
 import { IoChevronBack } from "react-icons/io5";
 import Layout from "@/components/layout/Layout";
@@ -125,7 +126,7 @@ const PresentCont = () => {
         <div className="d-flex flex-column  justify-content-between">
           <div className="fs-1 d-flex flex-column justify-content-center align-items-center text-center mb-3">
             <div className="fw-bold">İngilizce:</div>
-            <div>{english && english}</div>{" "}
+            <div>{english && capitalizeFirstLetter(english)}</div>{" "}
           </div>
           <div className="fs-1 d-flex flex-column justify-content-center align-items-center text-center mb-5">
             <div className="fw-bold">Türkçe:</div>
@@ -143,7 +144,7 @@ const PresentCont = () => {
               )}
             </div>
             <div className={`${correct && "text-success fw-bold"} ${incorrect && "text-danger fw-bold"}`}>
-              {showTurkish && turkish}
+              {showTurkish && capitalizeFirstLetter(turkish)}
             </div>{" "}
             {!showTurkish && (
               <div className={` d-flex flex-row justify-content-center align-items-center w-100`}>
