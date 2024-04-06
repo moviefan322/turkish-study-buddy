@@ -210,4 +210,15 @@ export const okuyorum2 = [
   { turkish: "tat", english: "taste", pos: "n" },
   { turkish: "toplantı yapmak", english: "to have a meeting", pos: "v" },
   { turkish: "sevinçli", english: "joyful", pos: "adj" },
+  { turkish: "affetmek", english: "to forgive", pos: "v" },
+  { turkish: "bekletmek", english: "to keep waiting", pos: "v" },
+  { turkish: "tahmin etmek", english: "to guess", pos: "v" },
+  { turkish: "dosya", english: "file", pos: "n" },
+  { turkish: "açıkçası", english: "frankly", pos: "adv" },
+  { turkish: "üşenmek", english: "to be lazy", pos: "v" },
+  { turkish: "gün boyu", english: "all day", pos: "adv" },
+  { turkish: "tükenmek", english: "to run out", pos: "v" },
+  { turkish: "prensip", english: "principle", pos: "n" },
+  { turkish: "konsantre olmak", english: "to concentrate", pos: "v" },
+  { turkish: "böyle", english: "like this", pos: "adv" }
 ];
