@@ -16,5 +16,19 @@ export const journal = [
   { english: "alread", turkish: "zaten", pos: "adv" },
   { english: "devastating", turkish: "yıkıcı", pos: "adj" },
   { english: "to approach", turkish: "yanaşmak", pos: "v" },
+  { turkish: "şişe", english: "bottle", pos: "n" },
+  {turkish: "rüzgarlı", english: "windy", pos: "adj"},
+  {turkish: "arasi", english: "between", pos: "prep"},
+  {turkish: "açılmış", english: "opened", pos: "adj"},
+  {turkish: "onunkinin yanına", english: "next to his", pos: "prep"},
+  {turkish: "ön tarafta", english: "in the front", pos: "prep"},
+  {turkish: "heyecanla", english: "excitedly", pos: "adv"},
+  {turkish: "endişeli", english: "worried", pos: "adj"},
+  {turkish: "malzeme", english: "material", pos: "n"},
+  {turkish: "sırt", english: "back", pos: "n"},
+  {turkish: "omuz", english: "shoulder", pos: "n"},
+  {turkish: "yapmak üzere", english: "about to do", pos: "prep"},
+  {turkish: "endişelenmek", english: "to worry", pos: "v"},
+
 
 ];
