@@ -220,5 +220,9 @@ export const okuyorum2 = [
   { turkish: "tükenmek", english: "to run out", pos: "v" },
   { turkish: "prensip", english: "principle", pos: "n" },
   { turkish: "konsantre olmak", english: "to concentrate", pos: "v" },
-  { turkish: "böyle", english: "like this", pos: "adv" }
+  { turkish: "böyle", english: "like this", pos: "adv" },
+  { turkish: "fırlamak", english: "to pop out", pos: "v" },
+  { turkish: "boşuna", english: "in vain", pos: "adv" },
+  { turkish: "belli olamk", english: "to be obvious", pos: "v" },
+  { turkish: "durak", english: "stop", pos: "n" },
 ];
