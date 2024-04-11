@@ -1,0 +1,17 @@
+export const okuyorum3 = [
+  { turkish: "kaliteli", english: "quality", pos: "adj" },
+  { turkish: "takim ebise", english: "suit", pos: "noun" },
+  { turkish: "çorap", english: "socks", pos: "noun" },
+  { turkish: "reyon", english: "department", pos: "noun" },
+  { turkish: "kat", english: "floor", pos: "noun" },
+  { turkish: "yukarı çıkmak", english: "go upstairs", pos: "verb" },
+  { turkısh: "lacivert", english: "navy blue", pos: "adj" },
+  { turkish: "koyu", english: "dark", pos: "adj" },
+  { turkish: "düğmeli", english: "buttoned", pos: "adj" },
+  { turkish: "altına", english: "under", pos: "adverb" },
+  { turkish: "pembe", english: "pink", pos: "adj" },
+  { turkish: 'dalga geçmek', english: 'tease', pos: 'verb'},
+  { turkish: 'beden', english: 'size', pos: 'noun'},
+  { turkish: 'kalitesiz', english: 'low quality', pos: 'adj'},
+  { turkish: 'küsmek', english: 'be offended', pos: 'verb'},
+];
