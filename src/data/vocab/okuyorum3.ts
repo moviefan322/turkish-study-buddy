@@ -28,4 +28,6 @@ export const okuyorum3 = [
   { turkish: "teselli etmek", english: "comfort", pos: "verb" },
   { turkish: "boş ver", english: "never mind", pos: "verb" },
   { turkish: "neyse", english: "anyway", pos: "adverb" },
+  { turkish: "işlemek", english: "process", pos: "verb" },
+  { turkish: "ders işlemek", english: "teach a lesson", pos: "verb" },
 ];
