@@ -28,6 +28,20 @@ const a1u1a = [
   { turkish: "vazo", english: "vase", pos: "n" },
   { turkish: "yıldız", english: "star", pos: "n" },
   { turkish: "zaman", english: "time", pos: "n" },
+  { turkish: "merhaba", english: "hello", pos: "int" },
+  { turkish: "selam", english: "hi", pos: "int" },
+  { turkish: "günaydın", english: "good morning", pos: "int" },
+  { turkish: "hanım", english: "Mrs.", pos: "n" },
+  { turkish: "bey", english: "Mr.", pos: "n" },
+  { turkish: "iyi akşamlar", english: "good evening", pos: "int" },
+  { turkish: "iyi geceler", english: "good night", pos: "int" },
+  { turkish: "teşekkür ederim", english: "thank you", pos: "int" },
+  { turkish: "iyi günler", english: "good day", pos: "int" },
+  { turkish: "hoş geldin", english: "welcome", pos: "int" },
+  { turkish: "hoşça kal", english: "goodbye", pos: "int" },
+  { turkish: "hoş bulduk", english: "nice to meet you", pos: "int" },
+  { turkish: "görüşürüz", english: "see you", pos: "int" },
+  { turkish: "kendine iyi bak", english: "take care", pos: "int" },
 ];
 
 const a2u4a = [
