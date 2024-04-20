@@ -44,4 +44,10 @@ export const okuyorum3 = [
   { turkish: "iletmek", english: "convey", pos: "verb" },
   { turkish: "kurmak", english: "establish", pos: "verb" },
   { turkish: "izin istemek", english: "ask for permission", pos: "verb" },
+  { turkish: "masmavi", english: "sky blue", pos: "adj" },
+  { turkish: "manzara", english: "view", pos: "noun" },
+  { turkish: "muhasebe müdürü", english: "accounting manager", pos: "noun" },
+  { turkish: "filan", english: "and so on", pos: "adverb" },
+  { turkish: "o an", english: "at that moment", pos: "adverb" },
+  { turkish: "kahkahalar", english: "laughter", pos: "noun" },
 ];
