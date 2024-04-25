@@ -39,6 +39,7 @@ interface ModalProps {
   setTopLanguage: Dispatch<SetStateAction<string>>;
   topLanguage: string;
   setBottomLanguage: Dispatch<SetStateAction<string>>;
+  setSubset: Dispatch<SetStateAction<Flashcard[]>>;
 }
 
 const FlashcardSettings = ({
