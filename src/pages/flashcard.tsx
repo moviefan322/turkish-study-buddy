@@ -42,7 +42,7 @@ const Flashcard = () => {
   const [correct, setCorrect] = useState(false);
   const [incorrect, setIncorrect] = useState(false);
   const [flashStyle, setFlashStyle] = useState("");
-  const [subset, setSubset] = useState<Flashcard[]>([verbs[0]]);
+
 
   const resetState = () => {
     setShowAnswer(false);
@@ -322,7 +322,6 @@ const Flashcard = () => {
         setTopLanguage={setTopLanguage}
         setBottomLanguage={setBottomLanguage}
         topLanguage={topLanguage}
-        setSubset={setSubset}
       />
     </Layout>
   );
