@@ -1,8 +1,11 @@
 export const b1 = [
   { turkish: "heyecanlı", english: "excited", pos: "adj" },
   { turkish: "başlangıç", english: "start", pos: "noun" },
-  { turkish: "güven", english: "trust", pos: "noun" },
+  { turkish: "zil", english: "visit", pos: "noun" },
+  { turkish: "yangın tüpü", english: "fire extinguisher", pos: "noun" },
+  { turkish: "işaretlemek", english: "to mark", pos: "verb" },
   { turkish: "aksilik", english: "mishap", pos: "noun" },
+  { turkish: "yaşanmak", english: "to be experienced", pos: "verb" },
   { turkish: "koridor", english: "corridor", pos: "noun" },
   { turkish: "kapı", english: "door", pos: "noun" },
   { turkish: "teşekkür", english: "thank", pos: "verb" },
