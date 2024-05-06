@@ -21,7 +21,7 @@ enum Mode {
 interface Flashcard {
   turkish: string;
   english: string;
-  pos?: string;
+  pos: string;
 }
 
 interface ModalProps {
@@ -59,6 +59,7 @@ const FlashcardSettings = ({
 }: ModalProps) => {
   const [selectedMode, setSelectedMode] = useState(Mode.Random);
   const [selectedVocab, setSelectedVocab] = useState("verbs");
+  const [subset, setSubset] = useState(0);
 
   const vocabSets = {
     verbs,
@@ -92,9 +93,32 @@ const FlashcardSettings = ({
     }
   };
 
+  const randomizeSubsetSelection = () => {
+    if (subset > vocabSets[selectedVocab as keyof typeof vocabSets].length) {
+      return vocabSets[selectedVocab as keyof typeof vocabSets];
+    }
+    let flashcardSubset = [] as Flashcard[];
+
+    for (let i = 0; i < subset; i++) {
+      let randomIndex = Math.floor(Math.random() * vocabSets[selectedVocab as keyof typeof vocabSets].length);
+      if (flashcardSubset.includes(vocabSets[selectedVocab as keyof typeof vocabSets][randomIndex])) {
+        i--;
+        continue;
+      }
+      flashcardSubset.push(vocabSets[selectedVocab as keyof typeof vocabSets][randomIndex]);
+    }
+
+    return flashcardSubset;
+  };
+
   const handleSave = () => {
     setMode(selectedMode);
-    let newFlashcards = vocabSets[selectedVocab as keyof typeof vocabSets];
+    let newFlashcards = [] as Flashcard[];
+    if (subset > 0) {
+      newFlashcards = randomizeSubsetSelection();
+    } else {
+      newFlashcards = vocabSets[selectedVocab as keyof typeof vocabSets];
+    }
     if (shuffle) {
       newFlashcards = shuffleDeck(newFlashcards);
     }
@@ -158,6 +182,22 @@ const FlashcardSettings = ({
                   >
                     <option value="turkish">Turkish</option>
                     <option value="english">English</option>
+                  </select>
+                </form>
+                <form action="">
+                  <label htmlFor="displayLanguage" className="me-2">
+                    Select Subset:
+                  </label>
+                  <select
+                    name="displayLanguage"
+                    id="displayLanguage"
+                    value={subset}
+                    onChange={(e) => setSubset(parseInt(e.target.value))}
+                  >
+                    <option value="0">N/A</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
                   </select>
                 </form>
                 <div>
