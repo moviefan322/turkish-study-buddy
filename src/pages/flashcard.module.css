@@ -28,6 +28,25 @@
   justify-self: center;
 }
 
+.indicator {
+  position: fixed;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 84px;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.indicator.correct {
+  color: green;
+}
+
+.indicator.incorrect {
+  color: red;
+}
+
 @media (max-width: 768px) {
   .flashcard {
     font-size: 2.5rem;

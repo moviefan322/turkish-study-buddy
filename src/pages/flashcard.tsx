@@ -9,7 +9,6 @@ import { MdSwapVert } from "react-icons/md";
 import { FaGear, FaXmark } from "react-icons/fa6";
 import { CiCircleCheck } from "react-icons/ci";
 import { IoChevronBack } from "react-icons/io5";
-import { set } from "mongoose";
 
 interface Flashcard {
   turkish: string;
