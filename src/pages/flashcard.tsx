@@ -241,6 +241,7 @@ const Flashcard = () => {
         </button>
       </Link>
       <h1>Şimşek Kartlar</h1>
+
       {showFlashcards && mode === Mode.Smart && (
         <div className="d-flex flex-row justify-content-between align-items-center w-25">
           {correctCount > 0 && <p className="fw-bold text-success fs-5">{correctCount}</p>}
