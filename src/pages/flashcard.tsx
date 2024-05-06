@@ -9,6 +9,7 @@ import { MdSwapVert } from "react-icons/md";
 import { FaGear, FaXmark } from "react-icons/fa6";
 import { CiCircleCheck } from "react-icons/ci";
 import { IoChevronBack } from "react-icons/io5";
+import { set } from "mongoose";
 
 interface Flashcard {
   turkish: string;
@@ -42,7 +43,8 @@ const Flashcard = () => {
   const [correct, setCorrect] = useState(false);
   const [incorrect, setIncorrect] = useState(false);
   const [flashStyle, setFlashStyle] = useState("");
-
+  const [correctCount, setCorrectCount] = useState(0);
+  const [incorrectCount, setIncorrectCount] = useState(0);
 
   const resetState = () => {
     setShowAnswer(false);
@@ -68,6 +70,7 @@ const Flashcard = () => {
       const isLastCard = currentIndex === currentDeck.length - 1;
 
       if (correct) {
+        setCorrectCount((prev) => prev + 1);
         if (isLastCard) {
           if (nextDeck.length === 0) {
             handleAllCorrect();
@@ -80,11 +83,14 @@ const Flashcard = () => {
           setCurrentIndex((prev) => prev + 1);
         }
       } else {
+        setIncorrectCount((prev) => prev + 1);
         setNextDeck((prevNextDeck) => [...prevNextDeck, currentDeck[currentIndex]]);
         if (isLastCard) {
           setCurrentDeck([...shuffleDeck(nextDeck), currentDeck[currentIndex]]);
           setCurrentIndex(0);
           setNextDeck([]);
+          setCorrectCount(0);
+          setIncorrectCount(0);
         } else {
           setCurrentIndex((prev) => prev + 1);
         }
@@ -237,11 +243,13 @@ const Flashcard = () => {
       </Link>
       <h1>Şimşek Kartlar</h1>
       {showFlashcards && mode === Mode.Smart && (
-        <p>
-          <small>
+        <div className="d-flex flex-row justify-content-between align-items-center w-25">
+          {correctCount > 0 && <p className="fw-bold text-success fs-5">{correctCount}</p>}
+          <p className="fw-bold text-center mx-auto">
             {currentIndex + 1}/{currentDeck.length}
-          </small>
-        </p>
+          </p>
+          {incorrectCount > 0 && <p className="fw-bold text-danger fs-5">{incorrectCount}</p>}
+        </div>
       )}
 
       {!showFlashcards ? (
