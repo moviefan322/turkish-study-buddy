@@ -49,6 +49,8 @@ const Flashcard = () => {
     setShowAnswer(false);
     setIsModalOpen(false);
     setCurrentIndex(0);
+    setCorrectCount(0);
+    setIncorrectCount(0);
   };
 
   const shuffleDeck = (deck: Flashcard[]) => {
@@ -230,8 +232,6 @@ const Flashcard = () => {
     setTopLanguage(bottomLanguage);
     setBottomLanguage(topLanguage);
   };
-
-  console.log(topLanguage, bottomLanguage);
 
   return (
     <Layout>
