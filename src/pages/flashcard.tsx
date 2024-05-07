@@ -60,7 +60,7 @@ const Flashcard = () => {
       setShowAnimation(true);
       const timer = setTimeout(() => {
         setShowAnimation(false);
-      }, 1000);
+      }, 500);
     }
   }, [correctCount]);
 
@@ -69,7 +69,7 @@ const Flashcard = () => {
       setShowAnimationWrong(true);
       const timer = setTimeout(() => {
         setShowAnimationWrong(false);
-      }, 1000);
+      }, 500);
     }
   }, [incorrectCount]);
 
@@ -97,6 +97,7 @@ const Flashcard = () => {
             handleAllCorrect();
           } else {
             setCurrentDeck(shuffleDeck(nextDeck));
+            resetState();
           }
           setCurrentIndex(0);
           setNextDeck([]);
