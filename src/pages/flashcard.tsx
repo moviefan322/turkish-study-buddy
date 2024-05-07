@@ -265,12 +265,12 @@ const Flashcard = () => {
       {showAnimationWrong && <div className={`${styles.indicatorWrong}`}>-1</div>}
 
       {showFlashcards && mode === Mode.Smart && (
-        <div className="d-flex flex-row justify-content-between align-items-center w-25">
-          {correctCount > 0 && <p className="fw-bold text-success fs-5">{correctCount}</p>}
-          <p className="fw-bold text-center mx-auto">
+        <div className="d-flex flex-row justify-content-between align-items-center">
+          <p className="fw-bold text-success fs-5 me-5">{correctCount > 0 ? correctCount : " "}</p>
+          <p className="fw-bold text-center mx-5">
             {currentIndex + 1}/{currentDeck.length}
           </p>
-          {incorrectCount > 0 && <p className="fw-bold text-danger fs-5">{incorrectCount}</p>}
+          <p className="fw-bold text-danger fs-5 ms-5">{incorrectCount > 0 ? incorrectCount : " "}</p>
         </div>
       )}
 

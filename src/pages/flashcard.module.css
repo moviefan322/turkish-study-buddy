@@ -30,8 +30,8 @@
 
 .indicator {
   position: fixed;
-  top: 70%;
-  left: 35%;
+  top: 75%;
+  left: 45%;
   transform: translate(-50%, -50%);
   font-size: 104px;
   font-weight: bold;
@@ -52,8 +52,8 @@
 
 .indicatorWrong {
   position: fixed;
-  top: 70%;
-  left: 70%;
+  top: 75%;
+  left: 55%;
   transform: translate(-50%, -50%);
   font-size: 104px;
   font-weight: bold;
