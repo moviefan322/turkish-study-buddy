@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import Link from "next/link";
 import Layout from "@/components/layout/Layout";
 import FlashcardSettings from "@/components/flashcard/FlashcardSettings";
@@ -35,7 +35,7 @@ const Flashcard = () => {
   const [currentDeck, setCurrentDeck] = useState<Flashcard[]>([]);
   const [nextDeck, setNextDeck] = useState<Flashcard[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [mode, setMode] = useState<Mode>(Mode.Random);
+  const [mode, setMode] = useState<Mode>(Mode.Smart);
   const [shuffle, setShuffle] = useState(true);
   const [inputMode, setInputMode] = useState(false);
   const [inputValue, setInputValue] = useState("");
@@ -44,6 +44,8 @@ const Flashcard = () => {
   const [flashStyle, setFlashStyle] = useState("");
   const [correctCount, setCorrectCount] = useState(0);
   const [incorrectCount, setIncorrectCount] = useState(0);
+  const [showAnimation, setShowAnimation] = useState(false);
+  const [showAnimationWrong, setShowAnimationWrong] = useState(false);
 
   const resetState = () => {
     setShowAnswer(false);
@@ -52,6 +54,24 @@ const Flashcard = () => {
     setCorrectCount(0);
     setIncorrectCount(0);
   };
+
+  useEffect(() => {
+    if (correctCount > 0) {
+      setShowAnimation(true);
+      const timer = setTimeout(() => {
+        setShowAnimation(false);
+      }, 1000);
+    }
+  }, [correctCount]);
+
+  useEffect(() => {
+    if (incorrectCount > 0) {
+      setShowAnimationWrong(true);
+      const timer = setTimeout(() => {
+        setShowAnimationWrong(false);
+      }, 1000);
+    }
+  }, [incorrectCount]);
 
   const shuffleDeck = (deck: Flashcard[]) => {
     if (!shuffle && mode === Mode.Smart) return deck;
@@ -241,6 +261,8 @@ const Flashcard = () => {
         </button>
       </Link>
       <h1>Şimşek Kartlar</h1>
+      {showAnimation && <div className={`${styles.indicator}`}>+1</div>}
+      {showAnimationWrong && <div className={`${styles.indicatorWrong}`}>-1</div>}
 
       {showFlashcards && mode === Mode.Smart && (
         <div className="d-flex flex-row justify-content-between align-items-center w-25">

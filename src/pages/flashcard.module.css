@@ -31,12 +31,45 @@
 .indicator {
   position: fixed;
   top: 70%;
-  left: 50%;
+  left: 35%;
   transform: translate(-50%, -50%);
-  font-size: 84px;
+  font-size: 104px;
   font-weight: bold;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+  opacity: 1; /* Set initial opacity to 1 (100%) */
+  z-index: 1000;
+  -webkit-text-fill-color: var(--bs-success);
+  -webkit-text-stroke: 3px rgb(5, 4, 4);
+  transition: all 0.5s ease-in-out; /* Adjust to animate all properties */
+  animation: driftUpFadeOut 1s forwards; /* Define the animation */
+}
+
+@keyframes driftUpFadeOut {
+  to {
+    top: 50%; /* Adjust this value to control how much it moves up */
+    opacity: 0;
+  }
+}
+
+.indicatorWrong {
+  position: fixed;
+  top: 70%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  font-size: 104px;
+  font-weight: bold;
+  opacity: 1; /* Set initial opacity to 1 (100%) */
+  z-index: 1000;
+  -webkit-text-fill-color: var(--bs-danger);
+  -webkit-text-stroke: 3px rgb(5, 4, 4);
+  transition: all 0.5s ease-in-out; /* Adjust to animate all properties */
+  animation: driftUpFadeOut 1s forwards; /* Define the animation */
+}
+
+@keyframes driftUpFadeOut {
+  to {
+    top: 50%; /* Adjust this value to control how much it moves up */
+    opacity: 0;
+  }
 }
 
 .indicator.correct {
