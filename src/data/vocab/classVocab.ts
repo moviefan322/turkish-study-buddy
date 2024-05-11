@@ -223,7 +223,7 @@ export const classVocab = [
   { turkish: "yaramazlık", english: "mischief", pos: "n" },
   { turkish: "keman", english: "violin", pos: "n" },
   { turkish: "bir o yana bir bu yana", english: "to and fro", pos: "adv" },
-  { turkısh: "ara sıra", english: "occasionally", pos: "adv" },
+  { turkish: "ara sıra", english: "occasionally", pos: "adv" },
   { turkish: "piyango", english: "lottery", pos: "n" },
   { turkish: "uydurmak", english: "to make up", pos: "v" },
   { turkish: "cenaze", english: "funeral", pos: "n" },
