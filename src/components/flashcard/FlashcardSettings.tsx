@@ -11,6 +11,7 @@ import { classVocab } from "@/data/vocab/classVocab";
 import { numbers } from "@/data/vocab/numbers";
 import { okuyorum1 } from "@/data/vocab/okuyorum1";
 import { okuyorum2 } from "@/data/vocab/okuyorum2";
+import { okuyorum3 } from "@/data/vocab/okuyorum3";
 import styles from "./FlashcardSettings.module.css";
 
 enum Mode {
@@ -73,6 +74,7 @@ const FlashcardSettings = ({
     numbers,
     okuyorum1,
     okuyorum2,
+    okuyorum3,
   };
 
   const handleModeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -159,6 +161,7 @@ const FlashcardSettings = ({
                     <option value={"numbers"}>Numbers</option>
                     <option value={"okuyorum1"}>Okuyorum 1</option>
                     <option value={"okuyorum2"}>Okuyorum 2</option>
+                    <option value={"okuyorum3"}>Okuyorum 3</option>
                   </select>
                 </form>
                 <form action="">
