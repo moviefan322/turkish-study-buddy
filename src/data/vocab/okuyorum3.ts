@@ -326,5 +326,5 @@ export const okuyorum3 = [
   { turkish: "yapayalnız", english: "all alone", pos: "adj" },
   { turkish: "sandal", english: "small boat", pos: "n" },
   { turkish: "haber göndermek", english: "to send word", pos: "v" },
-  { turkish: "akraba", english: "relative", pos: "n" },``
+  { turkish: "akraba", english: "relative", pos: "n" },
 ];

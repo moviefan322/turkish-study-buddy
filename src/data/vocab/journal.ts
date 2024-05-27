@@ -48,7 +48,5 @@ export const journal = [
   {turkish: "gelecek vaat eden", english: "up and coming", pos: "adj"},
   {turkish: "sırt çantası", english: "backpack", pos: "n"},
   {turkish: "yumruk atmak", english: "to punch", pos: "v"},
-  
-
 
 ];
