@@ -286,4 +286,13 @@ export const classVocab = [
   { turkish: "afiş", english: "poster", pos: "n" },
   { turkish: "uğramak", english: "to visit", pos: "v" },
   { turkish: "eczane", english: "pharmacy", pos: "n" },
+  {turkish: "montelemek", english: "to install", pos: "v"},
+  {turkish: "saldrımak", english: "to attack", pos: "v"},
+  {turkish: "ısırmak", english: "to bite", pos: "v"},
+  {turkish: "uyutulmak", english: "to be put to sleep", pos: "v"},
+  {turkish: "saldırgan", english: "aggressive", pos: "adj"},
+  {turkish: "havlımak", english: "to bark", pos: "v"},
+  {turkish: "evcil", english: "domestic", pos: "adj"},
+  {turkish: "özellik", english: "feature", pos: "n"},
+  {turkish: "ikram etmek", english: "to offer", pos: "v"},
 ];
