@@ -295,4 +295,13 @@ export const classVocab = [
   {turkish: "evcil", english: "domestic", pos: "adj"},
   {turkish: "özellik", english: "feature", pos: "n"},
   {turkish: "ikram etmek", english: "to offer", pos: "v"},
+  {turkish: "ilan", english: "advertisement", pos: "n"},
+  {turkish: "emlak", english: "real estate", pos: "n"},
+  {turkish: "acıl olarak", english: "urgently", pos: "adv"},
+  {turkish: "mevki", english: "location", pos: "n"},
+  {turkish: "doğalgaz", english: "natural gas", pos: "n"},
+  {turkish: "metrekare", english: "square meter", pos: "n"},
+  {turkish: "emlakçı", english: "real estate agent", pos: "n"},
+  {turkish: "kazıklamak", english: "to rip off", pos: "v"},
+  {turkish: "çöplük", english: "dump", pos: "n"},
 ];
