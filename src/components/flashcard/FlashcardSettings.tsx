@@ -5,7 +5,7 @@ import { food } from "../../data/vocab/food";
 import { months } from "../../data/vocab/months";
 import { verbs } from "../../data/vocab/verbs";
 import { nouns } from "../../data/vocab/nouns";
-import { adjectives } from "@/data/vocab/adjectives";
+import { adjectives, ruyaAdj } from "@/data/vocab/adjectives";
 import { animals } from "@/data/vocab/animals";
 import { classVocab } from "@/data/vocab/classVocab";
 import { numbers } from "@/data/vocab/numbers";
@@ -75,6 +75,7 @@ const FlashcardSettings = ({
     okuyorum1,
     okuyorum2,
     okuyorum3,
+    ruyaAdj,
   };
 
   const handleModeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -162,6 +163,7 @@ const FlashcardSettings = ({
                     <option value={"okuyorum1"}>Okuyorum 1</option>
                     <option value={"okuyorum2"}>Okuyorum 2</option>
                     <option value={"okuyorum3"}>Okuyorum 3</option>
+                    <option value={"ruyaAdj"}>Ruya Adjectives</option>
                   </select>
                 </form>
                 <form action="">
