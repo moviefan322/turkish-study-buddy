@@ -58,7 +58,7 @@ const FlashcardSettings = ({
   topLanguage,
   setBottomLanguage,
 }: ModalProps) => {
-  const [selectedMode, setSelectedMode] = useState(Mode.Random);
+  const [selectedMode, setSelectedMode] = useState(Mode.Smart);
   const [selectedVocab, setSelectedVocab] = useState("verbs");
   const [subset, setSubset] = useState(0);
 
@@ -171,8 +171,8 @@ const FlashcardSettings = ({
                     Select Mode:
                   </label>
                   <select name="mode" id="mode" value={selectedMode} onChange={handleModeChange}>
-                    <option value={Mode.Random}>Random</option>
                     <option value={Mode.Smart}>Smart</option>
+                    <option value={Mode.Random}>Random</option>
                   </select>
                 </form>
                 <form action="">

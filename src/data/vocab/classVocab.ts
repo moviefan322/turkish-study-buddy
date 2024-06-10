@@ -304,4 +304,7 @@ export const classVocab = [
   {turkish: "emlakçı", english: "real estate agent", pos: "n"},
   {turkish: "kazıklamak", english: "to rip off", pos: "v"},
   {turkish: "çöplük", english: "dump", pos: "n"},
+  {turkish: "değerlendirmek", english: "to evaluate", pos: "v"},
+  {turkish: "utanmak", english: "to be ashamed", pos: "v"},
+  {turkish: "zam", english: "raise", pos: "n"},
 ];

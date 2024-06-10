@@ -80,7 +80,7 @@ export const adjectives = [
 ];
 
 export const ruyaAdj = [
-  { turkish: "acelec'", english: "hasty", pos: "adj" },
+  { turkish: "acelec", english: "hasty", pos: "adj" },
   { turkish: "dayanaklı", english: "resilient", pos: "adj" },
   { turkish: "güvenilir", english: "reliable", pos: "adj" },
   { turkish: "acımasız", english: "ruthless", pos: "adj" },
