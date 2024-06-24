@@ -341,5 +341,6 @@ export const classVocab = [
   {turkish: "arıza", english: "breakdown", pos: "n"},
   {turkish: "lavabo", english: "sink", pos: "n"},
   {turkish: "tıkanmak", english: "to get clogged", pos: "v"},
+  {turkish: "tesisatçı", english: "plumber", pos: "n"},
 ];
 
