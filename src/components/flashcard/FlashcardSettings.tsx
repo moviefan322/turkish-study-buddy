@@ -12,6 +12,7 @@ import { numbers } from "@/data/vocab/numbers";
 import { okuyorum1 } from "@/data/vocab/okuyorum1";
 import { okuyorum2 } from "@/data/vocab/okuyorum2";
 import { okuyorum3 } from "@/data/vocab/okuyorum3";
+import { okuyorum4 } from "@/data/vocab/okuyorum4";
 import styles from "./FlashcardSettings.module.css";
 
 enum Mode {
@@ -75,6 +76,7 @@ const FlashcardSettings = ({
     okuyorum1,
     okuyorum2,
     okuyorum3,
+    okuyorum4,
     ruyaAdj,
   };
 
@@ -157,12 +159,11 @@ const FlashcardSettings = ({
                     <option value={"adjectives"}>Adjectives</option>
                     <option value={"animals"}>Animals</option>
                     <option value={"food"}>Food</option>
-                    <option value={"daysOfTheWeek"}>Days</option>
                     <option value={"months"}>Months</option>
-                    <option value={"numbers"}>Numbers</option>
                     <option value={"okuyorum1"}>Okuyorum 1</option>
                     <option value={"okuyorum2"}>Okuyorum 2</option>
                     <option value={"okuyorum3"}>Okuyorum 3</option>
+                    <option value={"okuyorum4"}>Okuyorum 4</option>
                     <option value={"ruyaAdj"}>Ruya Adjectives</option>
                   </select>
                 </form>
