@@ -102,4 +102,12 @@ export const okuyorum4 = [
     {turkish: "gurur", english: "pride", pos: "n"},
     {turkish: "silmek", english: "to erase", pos: "v"},
     {turkish: "uğramak", english: "to visit", pos: "v"},
+    {turkish: "bozulmak", english: "to deteriorate", pos: "v"},
+    {turkish: "azalmak", english: "to decrease", pos: "v"},
+    {turkish: "abone", english: "subscriber", pos: "n"},
+    {turkish: "akıl", english: "mind", pos: "n"},
+    {turkish: "parlak", english: "bright", pos: "adj"},
+    {turkish: "yöne", english: "direction", pos: "n"},
+    {turkish: "izinsiz", english: "without permission", pos: "adv"},
+    {turkish: "hattı", english: "line", pos: "n"},
 ]
