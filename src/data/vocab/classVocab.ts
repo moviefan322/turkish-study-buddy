@@ -532,4 +532,12 @@ export const classVocab = [
   { turkish: "neşeli", english: "cheerful", pos: "adj" },
   { turkish: "yiğit", english: "brave", pos: "adj" },
   { turkish: "olumsuzluk", english: "negativity", pos: "n" },
+  {turkish: "döviz bürosu", english: "currency exchange", pos: "n"},
+  {turkish: "bozdurmak", english: "to exchange", pos: "v"},
+  {turkish: "kıyafet", english: "clothes", pos: "n"},
+  {turkish: "kazak", english: "sweater", pos: "n"},
+  {turkish: "taraf", english: "side", pos: "n"},
+  {turkish: "temizlikçi", english: "cleaner", pos: "n"},
+  {turkish: "köşe", english: "corner", pos: "n"},
+  {turkish: "tahta", english: "wood", pos: "n"},
 ];
