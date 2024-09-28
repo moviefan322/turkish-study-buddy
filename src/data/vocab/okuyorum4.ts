@@ -249,4 +249,12 @@ export const okuyorum4 = [
   {turkish: "ziyafet", english: "feast", pos: "n"},
   {turkish: "yılan", english: "snake", pos: "n"},
   {turkish: "kehanet", english: "prophecy", pos: "n"},
+  {turkish:"sandal", english:"rowboat", pos:"n"},
+  {turkish:"el sallamak", english:"to wave", pos:"v"},
+  {turkish:"inci", english:"pearl", pos:"n"},
+  {turkish:"görevli", english:"official", pos:"n"},
+  {turkish:"sepet", english:"basket", pos:"n"},
+  {turkish:"uzanmak", english:"to reach", pos:"v"},
+  {turkish:"kahin", english:"fortune teller", pos:"n"},
+  {turkish:"prenses", english:"princess", pos:"n"},
 ];
