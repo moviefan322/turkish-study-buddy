@@ -286,5 +286,5 @@ export const okuyorum4 = [
   { turkish: "sönmek", english: "to go out", pos: "v" },
   { turkish: "yaratmak", english: "to create", pos: "v" },
   { turkish: "dalga", english: "wave", pos: "n" },
-  { turkish: "boğulmak", english: "to drown", pos: "v" },``
+  { turkish: "boğulmak", english: "to drown", pos: "v" },
 ];
