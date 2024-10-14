@@ -342,4 +342,12 @@ export const okuyorum4 = [
   {turkish: "medeniyet", english: "civilization", pos: "n"},
   {turkish: "dinsel", english: "religious", pos: "adj"},
   {turkish: "tütsü", english: "incense", pos: "n"},
+  {turkish: "tiryaki olmak", english: "to be addicted", pos: "v"},
+  {turkish: "piskopos", english: "bishop", pos: "n"},
+  {turkish: "tohum", english: "seed", pos: "n"},
+  {turkish: "elçi", english: "ambassador", pos: "n"},
+  {turkish: "dikmek", english: "to plant", pos: "v"},
+  {turkish: "kurutmak", english: "to dry", pos: "v"},
+  {turkish: "kraliçe", english: "queen", pos: "n"},
+  {turkish: "denmek", english: "to be called", pos: "v"},
 ];
