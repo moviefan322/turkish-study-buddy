@@ -333,4 +333,13 @@ export const okuyorum4 = [
   {turkish: "yerli", english: "native", pos: "adj"},
   {turkish: "kızıderili", english: "red indian", pos: "n"},
   {turkish: "yaygınlaşmak", english: "to become widespread", pos: "v"},
+  {turkish: "basmak", english: "to step", pos: "v"},
+  {turkish: "ayak basmak", english: "to set foot", pos: "v"},
+  {turkish: "duman", english: "smoke", pos: "n"},
+  {turkish: "ağız", english: "mouth", pos: "n"},
+  {turkish: "saz", english: "reed", pos: "n"},
+  {turkish: "boru", english: "pipe", pos: "n"},
+  {turkish: "medeniyet", english: "civilization", pos: "n"},
+  {turkish: "dinsel", english: "religious", pos: "adj"},
+  {turkish: "tütsü", english: "incense", pos: "n"},
 ];
