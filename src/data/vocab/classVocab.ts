@@ -655,4 +655,7 @@ export const classVocab = [
   {turkish: "takıntı", english: "obsession", pos: "n"},
   {turkish: "yakışan", english: "suitable", pos: "adj"},
   {turkish: "akesuar", english: "accessory", pos: "n"},
+  {turkish: "seçmek", english: "to choose", pos: "v"},
+  {turkish: "sıra dışı", english: "extraordinary", pos: "adj"},
+  {turkish: "eğilim", english: "tendency", pos: "n"},
 ];
