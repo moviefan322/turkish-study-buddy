@@ -371,4 +371,5 @@ export const okuyorum4 = [
   {turkish: "teşvik etmek", english: "to encourage", pos: "v"},
   {turkish: "tüccar", english: "merchant", pos: "n"},
   {turkish: "geniş kapsamlı", english: "comprehensive", pos: "adj"},
+  {turkish: "tarihinden itibaren", english: "since", pos: "prep"},
 ];
