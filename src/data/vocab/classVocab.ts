@@ -474,6 +474,7 @@ export const classVocab = [
   { turkish: "damat", english: "groom", pos: "n" },
   { turkish: "gelin", english: "bride", pos: "n" },
   { turkish: "tarım", english: "agriculture", pos: "n" },
+  { turkish: "dayali", english: "based on", pos: "adj" },
   { turkish: "üretmek", english: "to produce", pos: "v" },
   { turkish: "müessese", english: "institution", pos: "n" },
   { turkish: "Türk Medeni Kanunu", english: "Turkish Civil Code", pos: "n" },
