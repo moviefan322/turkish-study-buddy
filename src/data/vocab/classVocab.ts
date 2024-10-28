@@ -664,4 +664,12 @@ export const classVocab = [
   { turkish: "seçmek", english: "to choose", pos: "v" },
   { turkish: "sıra dışı", english: "extraordinary", pos: "adj" },
   { turkish: "eğilim", english: "tendency", pos: "n" },
+  { turkish: "ne...ne de", english: "neither...nor", pos: "conj" },
+  { turkish: "küs", english: "angry", pos: "adj" },
+  { turkish: "barışmak", english: "to make up", pos: "v" },
+  { turkish: "oysaki", english: "whereas", pos: "adv" },
+  { turkish: "halbuki", english: "however", pos: "adv" },
+  { turkish: "meğerse", english: "as it turns out", pos: "adv" },
+  { turkish: "mademki", english: "since", pos: "conj" },
+  { turkish: "ne var ki", english: "however", pos: "adv" },
 ];
