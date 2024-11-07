@@ -674,4 +674,5 @@ export const classVocab = [
   { turkish: "ne var ki", english: "however", pos: "adv" },
   { turkish: "evlat edinmek", english: "to adopt", pos: "v" },
   { turkish: "kıyafet", english: "clothes", pos: "n" },
+  { turkish: "basmak", english: "to flood", pos: "v" },
 ];
