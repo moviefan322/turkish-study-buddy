@@ -406,4 +406,10 @@ export const okuyorum4 = [
   {turkish: "diz", english: "knee", pos: "n"},
   {turkish: "cırak", english: "apprentice", pos: "n"},
   {turkish: "tepsi", english: "tray", pos: "n"}, 
+  {turkish: "asır", english: "century", pos: "n"},
+  {turkish: "tahmin etmek", english: "to guess", pos: "v"},
+  {turkish: "saygı", english: "respect", pos: "n"},
+  {turkish: "hakan", english: "khan", pos: "n"},
+  {turkish: "ögüt", english: "advice", pos: "n"},
+  {turkish: "danışmak", english: "to consult", pos: "v"},
 ];
