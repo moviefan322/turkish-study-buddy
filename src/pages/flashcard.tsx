@@ -13,6 +13,7 @@ import { IoChevronBack } from "react-icons/io5";
 interface Flashcard {
   turkish: string;
   english: string;
+  pos: string;
 }
 
 enum Mode {
@@ -46,6 +47,7 @@ const Flashcard = () => {
   const [incorrectCount, setIncorrectCount] = useState(0);
   const [showAnimation, setShowAnimation] = useState(false);
   const [showAnimationWrong, setShowAnimationWrong] = useState(false);
+  const [wrongAnswers, setWrongAnswers] = useState<Flashcard[]>([]);
 
   const resetState = () => {
     setShowAnswer(false);
@@ -105,6 +107,12 @@ const Flashcard = () => {
           setCurrentIndex((prev) => prev + 1);
         }
       } else {
+        setWrongAnswers((prev) => {
+          if (!prev.includes(currentDeck[currentIndex])) {
+            return [...prev, currentDeck[currentIndex]];
+          }
+          return prev;
+        });
         setIncorrectCount((prev) => prev + 1);
         setNextDeck((prevNextDeck) => [...prevNextDeck, currentDeck[currentIndex]]);
         if (isLastCard) {
@@ -353,6 +361,7 @@ const Flashcard = () => {
         setTopLanguage={setTopLanguage}
         setBottomLanguage={setBottomLanguage}
         topLanguage={topLanguage}
+        wrongAnswers={wrongAnswers.length > 0 ? wrongAnswers : null}
       />
     </Layout>
   );

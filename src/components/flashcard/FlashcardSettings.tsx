@@ -41,6 +41,7 @@ interface ModalProps {
   setTopLanguage: Dispatch<SetStateAction<string>>;
   topLanguage: string;
   setBottomLanguage: Dispatch<SetStateAction<string>>;
+  wrongAnswers: Flashcard[] | null;
 }
 
 const FlashcardSettings = ({
@@ -58,12 +59,13 @@ const FlashcardSettings = ({
   setTopLanguage,
   topLanguage,
   setBottomLanguage,
+  wrongAnswers,
 }: ModalProps) => {
   const [selectedMode, setSelectedMode] = useState(Mode.Smart);
   const [selectedVocab, setSelectedVocab] = useState("verbs");
   const [subset, setSubset] = useState(0);
 
-  const vocabSets = {
+  const vocabSets: { [key: string]: Flashcard[] } = {
     verbs,
     daysOfTheWeek,
     months,
@@ -79,6 +81,10 @@ const FlashcardSettings = ({
     okuyorum4,
     ruyaAdj,
   };
+
+  if (wrongAnswers && wrongAnswers.length > 0) {
+    vocabSets["wrongAnswers"] = wrongAnswers;
+  }
 
   const handleModeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedMode(event.target.value as Mode);
@@ -165,6 +171,7 @@ const FlashcardSettings = ({
                     <option value={"okuyorum3"}>Okuyorum 3</option>
                     <option value={"okuyorum4"}>Okuyorum 4</option>
                     <option value={"ruyaAdj"}>Ruya Adjectives</option>
+                    {wrongAnswers && wrongAnswers.length > 0 && <option value={"wrongAnswers"}>Wrong Answers</option>}
                   </select>
                 </form>
                 <form action="">
