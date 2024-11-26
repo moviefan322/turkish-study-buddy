@@ -445,4 +445,10 @@ export const okuyorum4 = [
   {turkish: "kayıt", english: "record", pos: "n"},
   {turkish: "icat etmek", english: "to invent", pos: "v"},
   {turkish: "imza atmak", english: "to sign", pos: "v"},
+  {turkish: "felsefe", english: "philosophy", pos: "n"},
+  {turkish: "tıp", english: "medicine", pos: "n"},
+  {turkish: "müthiş", english: "terrific", pos: "adj"},
+  {turkish: "ezberlemek", english: "to memorize", pos: "v"},
+  {turkish: "mantık", english: "logic", pos: "n"},
+  {turkish: "eser", english: "work", pos: "n"},
 ];
