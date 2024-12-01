@@ -767,4 +767,8 @@ export const classVocab = [
   { turkish: "çelimsiz", english: "fragile", pos: "adj" },
   { turkish: "yakalanmak", english: "to be caught", pos: "v" },
   { turkish: "azim", english: "determination", pos: "n" },
+  { turkish: "fevkalade", english: "extraordinary", pos: "adj" },
+  { turkish: "alışılmak", english: "to get used to", pos: "v" },
+  { turkish: "harikulade", english: "marvelous", pos: "adj" },
+  { turkish: "tanı", english: "diagnosis", pos: "n" },
 ];
