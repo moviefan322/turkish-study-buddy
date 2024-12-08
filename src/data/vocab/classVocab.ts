@@ -826,7 +826,7 @@ export const classVocab = [
   { turkish: "bitiş", english: "end", pos: "n" },
   { turkish: "ölçüm", english: "measurement", pos: "n" },
   { turkish: "gereç", english: "tool", pos: "n" },
-  { turksih: "eskiye dayanmak", english: "to date back", pos: "v" },
+  { turkish: "eskiye dayanmak", english: "to date back", pos: "v" },
   { turkish: "dibinde", english: "at the bottom", pos: "adv" },
   { turkish: "delik", english: "hole", pos: "n" },
   { turkish: "kova", english: "bucket", pos: "n" },
