@@ -788,6 +788,7 @@ export const classVocab = [
   { turkish: "çağdaş", english: "contemporary", pos: "adj" },
   { turkish: "ürün", english: "product", pos: "n" },
   { turkish: "dilim", english: "slice", pos: "n" },
+  { turkish: "takvim", english: "calendar", pos: "n" },
   { turkish: "ölçmek", english: "to measure", pos: "v" },
   { turkish: "iyice", english: "thoroughly", pos: "adv" },
   { turkish: "kuşkusuz", english: "undoubtedly", pos: "adv" },
