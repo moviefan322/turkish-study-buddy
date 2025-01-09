@@ -594,4 +594,10 @@ export const okuyorum4 = [
   { turkish: "cennet", english: "heaven", pos: "n" },
   { turkish: "dikmek", english: "to sew", pos: "v" },
   { turkish: "terzelik", english: "tailor shop", pos: "n" },
+  { turkish: "sülale", english: "family", pos: "n" },
+  { turkish: "arada", english: "in between", pos: "adv" },
+  { turkish: "dayı", english: "uncle", pos: "n" },
+  { turkish: "vefat etmek", english: "to pass away", pos: "v" },
+  { turkish: "masal", english: "fairy tale", pos: "n" },
+  { turkish: "kuzu", english: "lamb", pos: "n" },
 ];
