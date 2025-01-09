@@ -586,5 +586,12 @@ export const okuyorum4 = [
   { turkish: "varsayım", english: "assumption", pos: "n" },
   { turkish: "cadı avı", english: "witch hunt", pos: "n" },
   { turkish: "ümit", english: "hope", pos: "n" },
-  { turkish: "takı takar", english: "to wear jewelry", pos: "v" },
+  { turkish: "takı takmak", english: "to wear jewelry", pos: "v" },
+  { turkish: "fıkra", english: "joke", pos: "n" },
+  { turkish: "ara sıra", english: "occasionally", pos: "adv" },
+  { turkish: "kırıcı", english: "offensive", pos: "adj" },
+  { turkish: "kücük düşürücü", english: "humiliating", pos: "adj" },
+  { turkish: "cennet", english: "heaven", pos: "n" },
+  { turkish: "dikmek", english: "to sew", pos: "v" },
+  { turkish: "terzelik", english: "tailor shop", pos: "n" },
 ];
