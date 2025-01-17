@@ -613,4 +613,12 @@ export const okuyorum4 = [
   { turkish: "deve", english: "camel", pos: "n" },
   { turkish: "çan", english: "bell", pos: "n" },
   { turkish: "sürünmek", english: "to crawl", pos: "v" },
+  { turkish: "değerlendirmek", english: "to evaluate", pos: "v" },
+  { turkish: "dünyaca ünlü", english: "world famous", pos: "adj" },
+  { turkish: "kaptan köşkü", english: "bridge (naut.)", pos: "n" },
+  { turkish: "çırpınmak", english: "to flap", pos: "v" },
+  { turkish: "sakince", english: "calmly", pos: "adv" },
+  { turkish: "çılgın", english: "lunatic", pos: "n" },
+  { turkish: "nedense", english: "for some reason", pos: "adv" },
+  { turkish: "falan", english: "and so on", pos: "adv" },
 ];
