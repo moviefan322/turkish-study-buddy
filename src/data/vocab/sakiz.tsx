@@ -9,12 +9,12 @@ export const sakizSardunya = [
   { turkish: "kaş", english: "eyebrow", pos: "n" },
   { turkish: "çatmak", english: "to frown", pos: "v" },
   { turkish: "ayıp etmek", english: "behave disgracefully", pos: "v" },
-  //
   { turkish: "küsmek", english: "to sulk", pos: "v" },
   { turkish: "alınganlık", english: "sensitivity", pos: "n" },
   { turkish: "darılmak", english: "to be offended", pos: "v" },
-  { turkish: "dökük", english: "shattered", pos: "adj" },
+  { turkish: "dökük", english: "run-down", pos: "adj" },
   { turkish: "melek", english: "angel", pos: "n" },
+  //
   { turkish: "forma", english: "uniform", pos: "n" },
   { turkish: "katlamak", english: "to fold", pos: "v" },
   { turkish: "alınmak", english: "to be offended", pos: "v" },
