@@ -2,5 +2,5 @@
 const nextConfig = {
   reactStrictMode: true,
 };
-
+co
 module.exports = nextConfig;
