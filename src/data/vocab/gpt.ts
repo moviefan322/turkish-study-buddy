@@ -95,4 +95,8 @@ export const gptVocab = [
   {turkish: "tasvir", english: "depiction", pos: "n"},
   {turkish: "dağınık", english: "messy", pos: "adj"},
   {turkish: "ayırt etmek", english: "to distinguish", pos: "v"},
+  {turkish: "öfke", english: "anger", pos: "n"},
+  {turkish: "abartı", english: "exaggeration", pos: "n"},
+  {turkish: "eylem", english: "action", pos: "n"},
+  // {turkish: ""},
 ];
