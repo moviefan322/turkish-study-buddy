@@ -1,8 +1,8 @@
-export const leyla = [
+const old = [
   { turkish: "esneklik", english: "flexibility", pos: "n" },
   { turkish: "hatalı", english: "faulty", pos: "adj" },
   { turkish: "sindirmek", english: "to digest", pos: "v" },
-  { turkish: "ismi neydi?", english: "what was his name?", pos: "phrase" },
+  { turkish: "ismi neydi?", english: "what was his name?", pos: "phr" },
   { turkish: "yemek tarifi", english: "recipe", pos: "n" },
   { turkish: "kase", english: "bowl", pos: "n" },
   { turkish: "süzmek", english: "to strain", pos: "v" },
@@ -58,3 +58,48 @@ const d250411 = [
     { turkish: "zeka", english: "intelligence", pos: "n" },
     { turkish: "zavallı", english: "poor", pos: "adj" },
 ];
+
+const d250430 = [
+  { turkish: "yorum", english: "review", pos: "n" },
+  { turkish: "çirkin", english: "ugly", pos: "adj" },
+  { turkish: "ayık", english: "sober", pos: "adj" },
+  { turkish: "akşamdan kalma", english: "hangover", pos: "n" },
+  { turkish: "ısmarlamak", english: "to treat", pos: "v" },
+  { turkish: "yara", english: "wound", pos: "n" },
+  { turkish: "şaheser", english: "masterpiece", pos: "n" },
+  { turkish: "başyapıt", english: "masterpiece", pos: "n" },
+  { turkish: "bakış açısı", english: "perspective", pos: "n" },
+  { turkish: "ressam", english: "painter", pos: "n" },
+  { turkish: "ölümsüzlük", english: "immortality", pos: "n" },
+  { turkish: "ölümsüzleştirmek", english: "to immortalize", pos: "v" },
+  { turkish: "hayatta kalmak", english: "to survive", pos: "v" },
+  { turkish: "damat", english: "groom", pos: "n" },
+  { turkish: "ada", english: "island", pos: "n" },
+  { turkish: "gazi", english: "veteran", pos: "n" },
+  { turkish: "sağır", english: "deaf", pos: "adj" },
+  { turkish: "çorba dağıtımı", english: "soup distribution", pos: "n" },
+  { turkish: "kırsal", english: "rural", pos: "adj" },
+  { turkish: "ikna etmek", english: "to convince", pos: "v" },
+  { turkish: "mülakat", english: "interview", pos: "n" },
+  { turkish: "ekip", english: "team", pos: "n" },
+  { turkish: "kıyamam", english: "poor thing!", pos: "phr" },
+  { turkish: "esnemek", english: "to yawn", pos: "v" },
+  { turkish: "bilinç", english: "consciousness", pos: "n" },
+  { turkish: "macera", english: "adventure", pos: "n" },
+  { turkish: "muğlak", english: "ambiguous", pos: "adj" },
+  { turkish: "icraat", english: "action", pos: "n" },
+  { turkish: "kılıç", english: "sword", pos: "n" },
+  { turkish: "kabus", english: "nightmare", pos: "n" },
+]
+
+// const d250511 = [
+//   { turkish: "" },
+//   { turkish: "" },
+//   { turkish: "" },
+// ]
+
+export const leyla = [
+  ...old,
+  ...d250411,
+  ...d250430,
+]
