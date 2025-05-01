@@ -183,7 +183,6 @@ const c03 = [
   { turkish: "hani", english: "where is it", pos: "adv" },
   { turkish: "takdir etmek", english: "to appreciate", pos: "v" },
   { turkish: "çember", english: "circle", pos: "n" },
-  { turkish: "sıkınt" },
   { turkish: "sıkıntı", english: "distress", pos: "n" },
   { turkish: "yutkunmak", english: "to swallow", pos: "v" },
   { turkish: "kopmak", english: "to break off", pos: "v" },

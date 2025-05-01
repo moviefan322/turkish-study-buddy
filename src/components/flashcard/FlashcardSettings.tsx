@@ -1,18 +1,16 @@
 import { Dispatch, SetStateAction, useState, useEffect } from "react";
 import { FaXmark } from "react-icons/fa6";
-import { daysOfTheWeek } from "../../data/vocab/daysOfWeek";
-import { food } from "../../data/vocab/food";
-import { months } from "../../data/vocab/months";
 import { verbs } from "../../data/vocab/verbs";
 import { nouns } from "../../data/vocab/nouns";
 import { adjectives, ruyaAdj } from "@/data/vocab/adjectives";
 import { animals } from "@/data/vocab/animals";
 import { classVocab } from "@/data/vocab/classVocab";
-import { numbers } from "@/data/vocab/numbers";
 import { okuyorum1 } from "@/data/vocab/okuyorum1";
 import { okuyorum2 } from "@/data/vocab/okuyorum2";
 import { okuyorum3 } from "@/data/vocab/okuyorum3";
 import { okuyorum4 } from "@/data/vocab/okuyorum4";
+import { leyla } from "@/data/vocab/leyla";
+import { sakizSardunya } from "@/data/vocab/sakiz";
 import styles from "./FlashcardSettings.module.css";
 
 enum Mode {
@@ -67,19 +65,17 @@ const FlashcardSettings = ({
 
   const vocabSets: { [key: string]: Flashcard[] } = {
     verbs,
-    daysOfTheWeek,
-    months,
-    food,
     nouns,
     adjectives,
     animals,
     classVocab,
-    numbers,
     okuyorum1,
     okuyorum2,
     okuyorum3,
     okuyorum4,
     ruyaAdj,
+    sakizSardunya,
+    leyla,
   };
 
   if (wrongAnswers && wrongAnswers.length > 0) {
@@ -164,13 +160,13 @@ const FlashcardSettings = ({
                     <option value={"nouns"}>Nouns</option>
                     <option value={"adjectives"}>Adjectives</option>
                     <option value={"animals"}>Animals</option>
-                    <option value={"food"}>Food</option>
-                    <option value={"months"}>Months</option>
                     <option value={"okuyorum1"}>Okuyorum 1</option>
                     <option value={"okuyorum2"}>Okuyorum 2</option>
                     <option value={"okuyorum3"}>Okuyorum 3</option>
                     <option value={"okuyorum4"}>Okuyorum 4</option>
                     <option value={"ruyaAdj"}>Ruya Adjectives</option>
+                    <option value={"sakizSardunya"}>Sakız Sardunya</option>
+                    <option value={"leyla"}>Leyla</option>
                     {wrongAnswers && wrongAnswers.length > 0 && <option value={"wrongAnswers"}>Wrong Answers</option>}
                   </select>
                 </form>
