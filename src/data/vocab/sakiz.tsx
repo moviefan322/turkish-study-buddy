@@ -455,4 +455,38 @@ const c08 = [
   { turkish: "koyulmak", english: "to set out", pos: "v" },
 ];
 
-export const sakizSardunya = [...c01, ...c02, ...c03, ...c04, ...c05, ...c07, ...c08];
+const c09 = [
+  { turkish: "cılız", english: "thin", pos: "adj" },
+  { turkish: "çat diye", english: "suddenly", pos: "adv" },
+  { turkish: "pes etmek", english: "to give up", pos: "v" },
+  { turkish: "çare", english: "solution", pos: "n" },
+  { turkish: "kırtasiye", english: "stationery", pos: "n" },
+  { turkish: "çıkartma", english: "sticker", pos: "n" },
+  { turkish: "boydan boya", english: "from top to bottom", pos: "adv" },
+  { turkish: "memur", english: "officer", pos: "n" },
+  { turkish: "kutu dolusu", english: "box full", pos: "n" },
+  { turkish: "dalgın dalgın", english: "absent-mindedly", pos: "adv" },
+  { turkish: "bocalamak", english: "to hesitate", pos: "v" },
+  { turkish: "toparlamak", english: "to tidy up", pos: "v" },
+  { turkish: "miskin miskin", english: "lazily", pos: "adv" },
+  { turkish: "geçinmek", english: "to get along", pos: "v" },
+  { turkish: "define", english: "treasure", pos: "n" },
+  { turkish: "başını kaldırmak", english: "to raise one's head", pos: "v" },
+  { turkish: "usulca", english: "gently", pos: "adv" },
+  { turkish: "kovalamak", english: "to chase", pos: "v" },
+  { turkish: "bacak", english: "leg", pos: "n" },
+  { turkish: "soluklanmak", english: "to take a breath", pos: "v" },
+  { turkish: "saydam", english: "transparent", pos: "adj" },
+  { turkish: "lamba", english: "lamp", pos: "n" },
+  { turkish: "işe yaramak", english: "to work out", pos: "v" },
+  { turkish: "el çırpmak", english: "to clap", pos: "v" },
+  { turkish: "sahi", english: "really", pos: "adv" },
+  { turkish: "gizemli", english: "mysterious", pos: "adj" },
+  { turkish: "tiz", english: "high-pitched", pos: "adj" },
+  { turkish: "ıslık çalmak", english: "to whistle", pos: "v" },
+  { turkish: "karaltı", english: "dark shape", pos: "n" },
+  { turkish: "alçalmak", english: "to lower", pos: "v" },
+  { turkish: "kanat", english: "wing", pos: "n" },
+];
+
+export const sakizSardunya = [...c01, ...c02, ...c03, ...c04, ...c05, ...c07, ...c08, ...c09];
